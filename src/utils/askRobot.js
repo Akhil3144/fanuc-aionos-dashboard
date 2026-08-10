@@ -1,5 +1,5 @@
 const ASK_ROBOT_API =
-  "http://127.0.0.1:8000/ask-my-robot";
+  "https://roboinsight-api.onrender.com/ask-my-robot";
 
 
 export async function askMyRobot(
