@@ -2381,13 +2381,40 @@ def ask_my_robot(request: AskRobotRequest):
             evidence["query_scope"] = deterministic_scope
             answer_source = "DETERMINISTIC_ANALYTICS"
         else:
-            answer = ask_ollama(
-                question,
-                evidence,
+            q_lower = question.lower()
+
+            summary_terms = (
+                "summary", "summarize", "condition", "overview",
+                "health", "attention", "inspect", "inspection",
             )
-            answer_source = (
-                "OLLAMA_GROUNDED_EXPLANATION"
-            )
+
+            if any(term in q_lower for term in summary_terms):
+                grounded_parts = []
+                checks = [
+                    f"What is the current status of {target_robot_id}?",
+                    f"What active alarm does {target_robot_id} have?",
+                    f"What maintenance is due for {target_robot_id}?",
+                    f"What predictive maintenance insight does {target_robot_id} have?",
+                ]
+
+                for check in checks:
+                    result = deterministic_answer_for_question(check, full_evidence)
+                    if result is not None:
+                        part, _ = result
+                        if part and part not in grounded_parts:
+                            grounded_parts.append(part)
+
+                if grounded_parts:
+                    answer = " ".join(grounded_parts)
+                    if "inspect" in q_lower or "inspection" in q_lower:
+                        answer += " Inspection priority should follow the overdue or due maintenance evidence."
+                    answer_source = "GROUNDED_DETERMINISTIC_SUMMARY"
+                else:
+                    answer = "I do not have enough supported robot evidence to answer this question safely."
+                    answer_source = "SAFE_GROUNDED_REFUSAL"
+            else:
+                answer = "I do not have enough supported robot evidence to answer this question safely. Ask about status, OEE, alarms, maintenance, axis load, power, cycle performance, energy, or fleet comparison."
+                answer_source = "SAFE_GROUNDED_REFUSAL"
 
         has_alarm_evidence = any(
             key in evidence
