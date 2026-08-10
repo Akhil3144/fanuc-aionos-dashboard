@@ -1,0 +1,151 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AIonOS FANUC Normalized Telemetry Record",
+  "type": "object",
+  "required": [
+    "timestamp",
+    "robot_id",
+    "source_mode",
+    "connection_health",
+    "live_cell",
+    "production",
+    "derived_kpis",
+    "robot_status",
+    "alarms",
+    "axis_servo",
+    "power_data"
+  ],
+  "properties": {
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "robot_id": {
+      "type": "string"
+    },
+    "robot_name": {
+      "type": "string"
+    },
+    "shift": {
+      "type": "string",
+      "enum": [
+        "A",
+        "B",
+        "C"
+      ]
+    },
+    "source_mode": {
+      "type": "string",
+      "enum": [
+        "SIMULATOR",
+        "LIVE"
+      ]
+    },
+    "connection_health": {
+      "type": "object",
+      "required": [
+        "edge_connection",
+        "data_quality",
+        "stale",
+        "last_good_timestamp",
+        "reconnect_count"
+      ],
+      "properties": {
+        "edge_connection": {
+          "type": "string",
+          "enum": [
+            "CONNECTED",
+            "RECONNECTING",
+            "DISCONNECTED"
+          ]
+        },
+        "data_quality": {
+          "type": "string",
+          "enum": [
+            "GOOD",
+            "STALE",
+            "BAD"
+          ]
+        },
+        "stale": {
+          "type": "boolean"
+        },
+        "latency_ms": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "last_good_timestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "reconnect_count": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "live_cell": {
+      "type": "object",
+      "required": [
+        "state",
+        "busy",
+        "di",
+        "do",
+        "registers",
+        "position_registers",
+        "process_values"
+      ],
+      "properties": {
+        "state": {
+          "type": "string",
+          "enum": [
+            "RUNNING",
+            "IDLE",
+            "READY",
+            "FAULTED"
+          ]
+        },
+        "busy": {
+          "type": "boolean"
+        },
+        "di": {
+          "type": "object"
+        },
+        "do": {
+          "type": "object"
+        },
+        "registers": {
+          "type": "object"
+        },
+        "position_registers": {
+          "type": "object"
+        },
+        "process_values": {
+          "type": "object"
+        }
+      }
+    },
+    "production": {
+      "type": "object"
+    },
+    "derived_kpis": {
+      "type": "object"
+    },
+    "robot_status": {
+      "type": "object"
+    },
+    "alarms": {
+      "type": "object"
+    },
+    "axis_servo": {
+      "type": "array",
+      "minItems": 1
+    },
+    "power_data": {
+      "type": "object"
+    }
+  }
+}

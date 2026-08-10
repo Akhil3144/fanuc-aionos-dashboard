@@ -1,0 +1,140 @@
+{
+  "timestamp": "2026-08-09T23:59:00+05:30",
+  "robot_id": "EXH-R01",
+  "robot_name": "EXHIBITION_ROBOT_01",
+  "shift": "C",
+  "source_mode": "SIMULATOR",
+  "connection_health": {
+    "edge_connection": "CONNECTED",
+    "data_quality": "GOOD",
+    "stale": false,
+    "latency_ms": 27,
+    "last_good_timestamp": "2026-08-09T23:59:00+05:30",
+    "reconnect_count": 1
+  },
+  "live_cell": {
+    "state": "READY",
+    "busy": false,
+    "di": {
+      "DI_001_cell_auto_request": true,
+      "DI_002_part_present": false,
+      "DI_003_safety_gate_closed": true,
+      "DI_004_cycle_start_permit": true
+    },
+    "do": {
+      "DO_001_robot_busy": false,
+      "DO_002_cycle_complete_pulse": false,
+      "DO_003_fault_active": false,
+      "DO_004_robot_ready": true
+    },
+    "registers": {
+      "R_001_cycle_count": 3156,
+      "R_002_shift_id": 3,
+      "R_003_program_number": 101
+    },
+    "position_registers": {
+      "PR_001_demo_pick_pose": {
+        "x_mm": 410.0,
+        "y_mm": -125.0,
+        "z_mm": 285.0,
+        "w_deg": 179.5,
+        "p_deg": 1.2,
+        "r_deg": 89.8,
+        "frame": "USER_FRAME_1",
+        "tool": "TOOL_1"
+      }
+    },
+    "process_values": {
+      "program": "EXH_DEMO_101",
+      "line": "EXHIBITION_CELL",
+      "override_pct": 0,
+      "mode": "AUTO",
+      "current_step": null
+    }
+  },
+  "production": {
+    "cycles_completed_this_minute": 0,
+    "cycle_count_total": 3156,
+    "good_count_total": 3145,
+    "reject_count_total": 11,
+    "target_cycle_time_s": 45.0,
+    "actual_cycle_time_s": null,
+    "running_time_s": 144540,
+    "idle_time_s": 75780,
+    "ready_time_s": 37260,
+    "faulted_time_s": 1620,
+    "running_rate": 0.5576,
+    "ready_rate": 0.1437
+  },
+  "derived_kpis": {
+    "shift_availability_pct": 100.0,
+    "shift_performance_pct": 92.5,
+    "shift_quality_pct": 100.0,
+    "shift_oee_pct": 92.5
+  },
+  "robot_status": {
+    "working_status": "WORKING",
+    "process_status": "NORMAL",
+    "mechanical_status": "ATTENTION"
+  },
+  "alarms": {
+    "active_alarm_ids": [
+      "ALM-004"
+    ],
+    "active_alarm_count": 1
+  },
+  "axis_servo": [
+    {
+      "axis": 1,
+      "axis_load_pct": 5.1,
+      "error_count": 0,
+      "odometer": 126916.8,
+      "servo_indicator": "NORMAL"
+    },
+    {
+      "axis": 2,
+      "axis_load_pct": 3.5,
+      "error_count": 0,
+      "odometer": 113782.0,
+      "servo_indicator": "NORMAL"
+    },
+    {
+      "axis": 3,
+      "axis_load_pct": 6.0,
+      "error_count": 0,
+      "odometer": 101675.1,
+      "servo_indicator": "NORMAL"
+    },
+    {
+      "axis": 4,
+      "axis_load_pct": 31.3,
+      "error_count": 2,
+      "odometer": 82670.4,
+      "servo_indicator": "NORMAL"
+    },
+    {
+      "axis": 5,
+      "axis_load_pct": 4.3,
+      "error_count": 0,
+      "odometer": 76498.4,
+      "servo_indicator": "NORMAL"
+    },
+    {
+      "axis": 6,
+      "axis_load_pct": 4.0,
+      "error_count": 0,
+      "odometer": 69415.0,
+      "servo_indicator": "NORMAL"
+    }
+  ],
+  "power_data": {
+    "instantaneous_kw": 0.753,
+    "regeneration_kw": 0.0,
+    "kwh_total": 211.884,
+    "kwh_run": 173.467,
+    "kwh_idle": 28.273,
+    "kwh_ready": 9.895,
+    "kwh_fault": 0.249,
+    "kwh_regen": 2.315
+  }
+}

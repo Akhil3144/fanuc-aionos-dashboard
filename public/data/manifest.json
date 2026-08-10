@@ -1,0 +1,41 @@
+{
+  "dataset_name": "FANUC \u00d7 AIonOS Exhibition Dashboard Synthetic Dataset",
+  "version": "2.0",
+  "status": "dashboard-ready simulator contract",
+  "coverage_period": {
+    "start": "2026-08-07T00:00:00+05:30",
+    "end": "2026-08-09T23:59:00+05:30"
+  },
+  "volume": {
+    "historical_telemetry_records": 4320,
+    "historical_resolution": "1 minute",
+    "live_replay_records": 900,
+    "live_replay_resolution": "1 second",
+    "optional_motion_records": 600,
+    "optional_motion_resolution": "100 ms",
+    "alarms": 4,
+    "maintenance_items": 3,
+    "running_status_events": 220,
+    "shift_summaries": 10
+  },
+  "source_domains_covered": [
+    "OPC UA DI/DO/Registers/Position Registers/selected process values",
+    "ZDT Production",
+    "ZDT RobotStatus",
+    "ZDT Alarms",
+    "ZDT Maintenance",
+    "ZDT Axis/Servo",
+    "ZDT PowerData",
+    "ZDT RunningStatusLog",
+    "AIonOS-derived OEE and analytics",
+    "Connection health / stale data",
+    "Optional RSI / High Speed Position Output simulation"
+  ],
+  "limitations": [
+    "Native FANUC OPC UA NodeIds are not available in the supplied document.",
+    "Exact native ZDT JSON response bodies are not available in the supplied document.",
+    "Robot model and exact axis configuration are not provided; simulator uses a configurable six-axis exhibition robot.",
+    "Alarm codes/messages, thresholds and engineering values are synthetic and must not be represented as FANUC defaults.",
+    "OEE and AI insight fields are explicitly AIonOS-derived in this package."
+  ]
+}

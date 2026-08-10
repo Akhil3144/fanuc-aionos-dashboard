@@ -1,0 +1,64 @@
+[
+  {
+    "insight_id": "INS-001",
+    "category": "ANOMALY",
+    "severity": "HIGH",
+    "title": "Axis 4 load anomaly detected",
+    "explanation": "Axis 4 load increased above its normal operating pattern before the process interruption. Cycle time also increased during the same period.",
+    "recommendation": "Inspect Axis 4 mechanical and servo condition before sustained production.",
+    "start_time": "2026-08-08T14:30:00+05:30",
+    "end_time": "2026-08-08T16:10:00+05:30",
+    "evidence": [
+      "axis_servo.axis=4.axis_load_pct",
+      "production.actual_cycle_time_s",
+      "ALM-002"
+    ]
+  },
+  {
+    "insight_id": "INS-002",
+    "category": "CYCLE_LOSS",
+    "severity": "HIGH",
+    "title": "Cycle performance loss detected",
+    "explanation": "The target cycle time is 45 seconds. During the degraded production window, actual cycle time increased and a 15-minute process fault reduced productive operating time.",
+    "recommendation": "Review the Axis 4 load event and ALM-002 before increasing production rate.",
+    "start_time": "2026-08-08T14:30:00+05:30",
+    "end_time": "2026-08-08T15:55:00+05:30",
+    "evidence": [
+      "production.target_cycle_time_s",
+      "production.actual_cycle_time_s",
+      "production.faulted_time_s",
+      "ALM-002"
+    ]
+  },
+  {
+    "insight_id": "INS-003",
+    "category": "MAINTENANCE",
+    "severity": "HIGH",
+    "title": "Axis 4 inspection is overdue",
+    "explanation": "Axis 4 inspection is marked overdue and is associated with repeated Axis 4 abnormal-load and fault events.",
+    "recommendation": "Prioritize Axis 4 inspection before the next extended operating period.",
+    "start_time": "2026-08-09T20:45:00+05:30",
+    "end_time": null,
+    "evidence": [
+      "MNT-001",
+      "ALM-001",
+      "ALM-002",
+      "ALM-004"
+    ]
+  },
+  {
+    "insight_id": "INS-004",
+    "category": "CONNECTIVITY",
+    "severity": "MEDIUM",
+    "title": "Edge connection became stale",
+    "explanation": "Dashboard telemetry became stale while the Edge Gateway was reconnecting. This event represents a connectivity condition rather than a robot fault.",
+    "recommendation": "Check Edge Gateway network health if stale-data events become frequent.",
+    "start_time": "2026-08-09T08:20:00+05:30",
+    "end_time": "2026-08-09T08:28:00+05:30",
+    "evidence": [
+      "connection_health.stale",
+      "connection_health.edge_connection",
+      "ALM-003"
+    ]
+  }
+]

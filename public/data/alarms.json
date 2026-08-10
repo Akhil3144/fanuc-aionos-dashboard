@@ -1,0 +1,58 @@
+[
+  {
+    "alarm_id": "ALM-001",
+    "robot_id": "EXH-R01",
+    "message": "Synthetic servo position deviation detected",
+    "severity": "HIGH",
+    "type": "SERVO",
+    "start_time": "2026-08-07T10:15:00+05:30",
+    "end_time": "2026-08-07T10:27:00+05:30",
+    "duration_min": 12,
+    "status": "CLEARED",
+    "affected_axis": 4,
+    "acknowledged": true,
+    "synthetic": true
+  },
+  {
+    "alarm_id": "ALM-002",
+    "robot_id": "EXH-R01",
+    "message": "Synthetic cycle interrupted after sustained Axis 4 load",
+    "severity": "HIGH",
+    "type": "PROCESS",
+    "start_time": "2026-08-08T15:40:00+05:30",
+    "end_time": "2026-08-08T15:55:00+05:30",
+    "duration_min": 15,
+    "status": "CLEARED",
+    "affected_axis": 4,
+    "acknowledged": true,
+    "synthetic": true
+  },
+  {
+    "alarm_id": "ALM-003",
+    "robot_id": "EXH-R01",
+    "message": "Synthetic edge stream stale while reconnecting",
+    "severity": "MEDIUM",
+    "type": "CONNECTIVITY",
+    "start_time": "2026-08-09T08:20:00+05:30",
+    "end_time": "2026-08-09T08:28:00+05:30",
+    "duration_min": 8,
+    "status": "CLEARED",
+    "affected_axis": null,
+    "acknowledged": true,
+    "synthetic": true
+  },
+  {
+    "alarm_id": "ALM-004",
+    "robot_id": "EXH-R01",
+    "message": "Synthetic Axis 4 load trend requires inspection",
+    "severity": "LOW",
+    "type": "MECHANICAL",
+    "start_time": "2026-08-09T20:45:00+05:30",
+    "end_time": null,
+    "duration_min": null,
+    "status": "ACTIVE",
+    "affected_axis": 4,
+    "acknowledged": false,
+    "synthetic": true
+  }
+]

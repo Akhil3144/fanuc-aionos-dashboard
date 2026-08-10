@@ -1,0 +1,53 @@
+[
+  {
+    "question": "Which axis shows the strongest abnormal-load pattern?",
+    "expected_answer": "Axis 4",
+    "evidence": [
+      "axis_servo[axis=4].axis_load_pct",
+      "ALM-001",
+      "ALM-002",
+      "ALM-004"
+    ]
+  },
+  {
+    "question": "What maintenance is overdue?",
+    "expected_answer": "Axis 4 inspection (MNT-001)",
+    "evidence": [
+      "maintenance.status=OVERDUE",
+      "MNT-001"
+    ]
+  },
+  {
+    "question": "Was the 2026-08-09 08:20 incident a robot fault?",
+    "expected_answer": "No. It is a connectivity/stale-data event.",
+    "evidence": [
+      "ALM-003",
+      "connection_health.stale",
+      "connection_health.edge_connection"
+    ]
+  },
+  {
+    "question": "What changed before the 2026-08-08 process fault?",
+    "expected_answer": "Axis 4 load and cycle time increased during the degradation window before ALM-002.",
+    "evidence": [
+      "axis_servo axis 4",
+      "production.actual_cycle_time_s",
+      "ALM-002"
+    ]
+  },
+  {
+    "question": "What is the current active alarm at the end of the dataset?",
+    "expected_answer": "ALM-004, synthetic Axis 4 load trend requires inspection.",
+    "evidence": [
+      "alarms.status=ACTIVE",
+      "latest_snapshot.alarms.active_alarm_ids"
+    ]
+  },
+  {
+    "question": "How should OEE fields be interpreted?",
+    "expected_answer": "They are AIonOS-derived synthetic KPIs, not asserted native FANUC fields.",
+    "evidence": [
+      "data_dictionary derived_kpis.*"
+    ]
+  }
+]

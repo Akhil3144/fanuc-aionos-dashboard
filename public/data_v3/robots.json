@@ -1,0 +1,23 @@
+[
+  {
+    "robot_id": "EXH-R01",
+    "robot_name": "ASSEMBLY_ROBOT_01",
+    "display_name": "Assembly Robot",
+    "role": "Assembly",
+    "source_mode": "SIMULATOR"
+  },
+  {
+    "robot_id": "EXH-R02",
+    "robot_name": "HANDLING_ROBOT_02",
+    "display_name": "Handling Robot",
+    "role": "Material Handling",
+    "source_mode": "SIMULATOR"
+  },
+  {
+    "robot_id": "EXH-R03",
+    "robot_name": "PACKAGING_ROBOT_03",
+    "display_name": "Packaging Robot",
+    "role": "Packaging",
+    "source_mode": "SIMULATOR"
+  }
+]

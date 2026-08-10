@@ -1,0 +1,22 @@
+# FANUC × AIonOS Dashboard — Python Backend Requirements
+#
+# Install from the backend environment:
+#   python -m pip install -r requirements.txt
+#
+# Python 3.11+ recommended.
+
+fastapi
+uvicorn
+duckdb
+pydantic
+
+# External runtime dependency (not installed by pip):
+# Ollama
+#
+# Required local model:
+#   qwen2.5:7b
+#
+# Example setup:
+#   ollama pull qwen2.5:7b
+#
+# Frontend dependencies are managed separately using package.json / npm.

@@ -1,0 +1,41 @@
+[
+  {
+    "maintenance_id": "MNT-001",
+    "robot_id": "EXH-R01",
+    "item": "Axis 4 inspection",
+    "remaining_time_h": -3,
+    "remaining_amount": -3,
+    "interval_h": 500,
+    "remaining_life_pct": 0,
+    "priority": "HIGH",
+    "service_due": true,
+    "status": "OVERDUE",
+    "reason": "Synthetic overdue condition correlated with elevated Axis 4 load and recent servo/process events."
+  },
+  {
+    "maintenance_id": "MNT-002",
+    "robot_id": "EXH-R01",
+    "item": "Controller cabinet inspection",
+    "remaining_time_h": 18,
+    "remaining_amount": 18,
+    "interval_h": 1000,
+    "remaining_life_pct": 1.8,
+    "priority": "MEDIUM",
+    "service_due": true,
+    "status": "DUE_SOON",
+    "reason": "Synthetic scheduled maintenance approaching due point."
+  },
+  {
+    "maintenance_id": "MNT-003",
+    "robot_id": "EXH-R01",
+    "item": "General mechanical inspection",
+    "remaining_time_h": 420,
+    "remaining_amount": 420,
+    "interval_h": 1000,
+    "remaining_life_pct": 42.0,
+    "priority": "LOW",
+    "service_due": false,
+    "status": "OK",
+    "reason": "Synthetic scheduled maintenance within normal remaining-life range."
+  }
+]

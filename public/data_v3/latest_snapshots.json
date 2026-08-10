@@ -1,0 +1,426 @@
+{
+  "robots": [
+    {
+      "timestamp": "2026-08-10T21:59:00+05:30",
+      "robot_id": "EXH-R01",
+      "robot_name": "ASSEMBLY_ROBOT_01",
+      "display_name": "Assembly Robot",
+      "role": "Assembly",
+      "shift": "B",
+      "source_mode": "SIMULATOR",
+      "connection_health": {
+        "edge_connection": "CONNECTED",
+        "data_quality": "GOOD",
+        "stale": false,
+        "latency_ms": 20,
+        "last_good_timestamp": "2026-08-10T21:59:00+05:30",
+        "reconnect_count": 0
+      },
+      "live_cell": {
+        "state": "RUNNING",
+        "busy": true,
+        "di": {
+          "DI_001_cell_auto_request": true,
+          "DI_002_part_present": false,
+          "DI_003_safety_gate_closed": true,
+          "DI_004_cycle_start_permit": true
+        },
+        "do": {
+          "DO_001_robot_busy": true,
+          "DO_002_cycle_complete_pulse": false,
+          "DO_003_fault_active": false,
+          "DO_004_robot_ready": true
+        },
+        "registers": {
+          "R_001_cycle_count": 4104,
+          "R_002_shift_id": 2,
+          "R_003_program_number": 101
+        },
+        "position_registers": {
+          "PR_001_demo_pick_pose": {
+            "x_mm": 415.0,
+            "y_mm": -125.0,
+            "z_mm": 285.0,
+            "w_deg": 179.5,
+            "p_deg": 1.2,
+            "r_deg": 89.8,
+            "frame": "USER_FRAME_1",
+            "tool": "TOOL_1"
+          }
+        },
+        "process_values": {
+          "program": "ASM_DEMO_101",
+          "line": "EXHIBITION_CELL",
+          "override_pct": 100,
+          "mode": "AUTO",
+          "current_step": "PROCESS"
+        }
+      },
+      "production": {
+        "cycles_completed_this_minute": 0,
+        "cycle_count_total": 4104,
+        "good_count_total": 4097,
+        "reject_count_total": 7,
+        "target_cycle_time_s": 44.0,
+        "actual_cycle_time_s": null,
+        "running_time_s": 194400,
+        "idle_time_s": 38880,
+        "ready_time_s": 25920,
+        "faulted_time_s": 0,
+        "running_rate": 0.75,
+        "ready_rate": 0.1
+      },
+      "derived_kpis": {
+        "shift_availability_pct": 98.7,
+        "shift_performance_pct": 97.3,
+        "shift_quality_pct": 99.7,
+        "shift_oee_pct": 95.7
+      },
+      "robot_status": {
+        "working_status": "WORKING",
+        "process_status": "NORMAL",
+        "mechanical_status": "NORMAL"
+      },
+      "alarms": {
+        "active_alarm_ids": [],
+        "active_alarm_count": 0
+      },
+      "axis_servo": [
+        {
+          "axis": 1,
+          "axis_load_pct": 14.3,
+          "error_count": 0,
+          "odometer": 88702.4,
+          "servo_indicator": "NORMAL"
+        },
+        {
+          "axis": 2,
+          "axis_load_pct": 22.7,
+          "error_count": 0,
+          "odometer": 98650.2,
+          "servo_indicator": "NORMAL"
+        },
+        {
+          "axis": 3,
+          "axis_load_pct": 23.9,
+          "error_count": 0,
+          "odometer": 108598.1,
+          "servo_indicator": "NORMAL"
+        },
+        {
+          "axis": 4,
+          "axis_load_pct": 29.4,
+          "error_count": 0,
+          "odometer": 118545.9,
+          "servo_indicator": "NORMAL"
+        },
+        {
+          "axis": 5,
+          "axis_load_pct": 19.1,
+          "error_count": 0,
+          "odometer": 128493.8,
+          "servo_indicator": "NORMAL"
+        },
+        {
+          "axis": 6,
+          "axis_load_pct": 18.0,
+          "error_count": 0,
+          "odometer": 138441.6,
+          "servo_indicator": "NORMAL"
+        }
+      ],
+      "power_data": {
+        "instantaneous_kw": 3.82,
+        "regeneration_kw": 0.0,
+        "kwh_total": 218.143,
+        "kwh_run": 194.553,
+        "kwh_idle": 16.759,
+        "kwh_ready": 6.832,
+        "kwh_fault": 0.0,
+        "kwh_regen": 0.0
+      }
+    },
+    {
+      "timestamp": "2026-08-10T21:59:00+05:30",
+      "robot_id": "EXH-R02",
+      "robot_name": "HANDLING_ROBOT_02",
+      "display_name": "Handling Robot",
+      "role": "Material Handling",
+      "shift": "B",
+      "source_mode": "SIMULATOR",
+      "connection_health": {
+        "edge_connection": "CONNECTED",
+        "data_quality": "GOOD",
+        "stale": false,
+        "latency_ms": 21,
+        "last_good_timestamp": "2026-08-10T21:59:00+05:30",
+        "reconnect_count": 0
+      },
+      "live_cell": {
+        "state": "RUNNING",
+        "busy": true,
+        "di": {
+          "DI_001_cell_auto_request": true,
+          "DI_002_part_present": false,
+          "DI_003_safety_gate_closed": true,
+          "DI_004_cycle_start_permit": true
+        },
+        "do": {
+          "DO_001_robot_busy": true,
+          "DO_002_cycle_complete_pulse": false,
+          "DO_003_fault_active": false,
+          "DO_004_robot_ready": true
+        },
+        "registers": {
+          "R_001_cycle_count": 3446,
+          "R_002_shift_id": 2,
+          "R_003_program_number": 201
+        },
+        "position_registers": {
+          "PR_001_demo_pick_pose": {
+            "x_mm": 420.0,
+            "y_mm": -125.0,
+            "z_mm": 285.0,
+            "w_deg": 179.5,
+            "p_deg": 1.2,
+            "r_deg": 89.8,
+            "frame": "USER_FRAME_1",
+            "tool": "TOOL_1"
+          }
+        },
+        "process_values": {
+          "program": "HND_DEMO_201",
+          "line": "EXHIBITION_CELL",
+          "override_pct": 100,
+          "mode": "AUTO",
+          "current_step": "PROCESS"
+        }
+      },
+      "production": {
+        "cycles_completed_this_minute": 0,
+        "cycle_count_total": 3446,
+        "good_count_total": 3437,
+        "reject_count_total": 9,
+        "target_cycle_time_s": 46.0,
+        "actual_cycle_time_s": null,
+        "running_time_s": 168000,
+        "idle_time_s": 51600,
+        "ready_time_s": 38700,
+        "faulted_time_s": 900,
+        "running_rate": 0.6481,
+        "ready_rate": 0.1493
+      },
+      "derived_kpis": {
+        "shift_availability_pct": 96.4,
+        "shift_performance_pct": 93.8,
+        "shift_quality_pct": 99.4,
+        "shift_oee_pct": 89.9
+      },
+      "robot_status": {
+        "working_status": "WORKING",
+        "process_status": "NORMAL",
+        "mechanical_status": "ATTENTION"
+      },
+      "alarms": {
+        "active_alarm_ids": [
+          "R02-ALM-204"
+        ],
+        "active_alarm_count": 1
+      },
+      "axis_servo": [
+        {
+          "axis": 1,
+          "axis_load_pct": 17.1,
+          "error_count": 0,
+          "odometer": 88702.4,
+          "servo_indicator": "NORMAL"
+        },
+        {
+          "axis": 2,
+          "axis_load_pct": 21.9,
+          "error_count": 0,
+          "odometer": 98650.2,
+          "servo_indicator": "NORMAL"
+        },
+        {
+          "axis": 3,
+          "axis_load_pct": 25.9,
+          "error_count": 0,
+          "odometer": 108598.1,
+          "servo_indicator": "NORMAL"
+        },
+        {
+          "axis": 4,
+          "axis_load_pct": 58.2,
+          "error_count": 2,
+          "odometer": 118545.9,
+          "servo_indicator": "NORMAL"
+        },
+        {
+          "axis": 5,
+          "axis_load_pct": 18.9,
+          "error_count": 0,
+          "odometer": 128493.8,
+          "servo_indicator": "NORMAL"
+        },
+        {
+          "axis": 6,
+          "axis_load_pct": 17.7,
+          "error_count": 0,
+          "odometer": 138441.6,
+          "servo_indicator": "NORMAL"
+        }
+      ],
+      "power_data": {
+        "instantaneous_kw": 4.54,
+        "regeneration_kw": 0.0,
+        "kwh_total": 223.798,
+        "kwh_run": 191.22,
+        "kwh_idle": 22.209,
+        "kwh_ready": 10.204,
+        "kwh_fault": 0.165,
+        "kwh_regen": 0.0
+      }
+    },
+    {
+      "timestamp": "2026-08-10T21:59:00+05:30",
+      "robot_id": "EXH-R03",
+      "robot_name": "PACKAGING_ROBOT_03",
+      "display_name": "Packaging Robot",
+      "role": "Packaging",
+      "shift": "B",
+      "source_mode": "SIMULATOR",
+      "connection_health": {
+        "edge_connection": "CONNECTED",
+        "data_quality": "GOOD",
+        "stale": false,
+        "latency_ms": 22,
+        "last_good_timestamp": "2026-08-10T21:59:00+05:30",
+        "reconnect_count": 0
+      },
+      "live_cell": {
+        "state": "READY",
+        "busy": false,
+        "di": {
+          "DI_001_cell_auto_request": true,
+          "DI_002_part_present": false,
+          "DI_003_safety_gate_closed": true,
+          "DI_004_cycle_start_permit": true
+        },
+        "do": {
+          "DO_001_robot_busy": false,
+          "DO_002_cycle_complete_pulse": false,
+          "DO_003_fault_active": false,
+          "DO_004_robot_ready": true
+        },
+        "registers": {
+          "R_001_cycle_count": 3024,
+          "R_002_shift_id": 2,
+          "R_003_program_number": 301
+        },
+        "position_registers": {
+          "PR_001_demo_pick_pose": {
+            "x_mm": 425.0,
+            "y_mm": -125.0,
+            "z_mm": 285.0,
+            "w_deg": 179.5,
+            "p_deg": 1.2,
+            "r_deg": 89.8,
+            "frame": "USER_FRAME_1",
+            "tool": "TOOL_1"
+          }
+        },
+        "process_values": {
+          "program": "PKG_DEMO_301",
+          "line": "EXHIBITION_CELL",
+          "override_pct": 0,
+          "mode": "AUTO",
+          "current_step": null
+        }
+      },
+      "production": {
+        "cycles_completed_this_minute": 0,
+        "cycle_count_total": 3024,
+        "good_count_total": 3011,
+        "reject_count_total": 13,
+        "target_cycle_time_s": 42.0,
+        "actual_cycle_time_s": null,
+        "running_time_s": 155520,
+        "idle_time_s": 51840,
+        "ready_time_s": 51840,
+        "faulted_time_s": 0,
+        "running_rate": 0.6,
+        "ready_rate": 0.2
+      },
+      "derived_kpis": {
+        "shift_availability_pct": 97.9,
+        "shift_performance_pct": 90.8,
+        "shift_quality_pct": 99.1,
+        "shift_oee_pct": 88.1
+      },
+      "robot_status": {
+        "working_status": "WORKING",
+        "process_status": "NORMAL",
+        "mechanical_status": "ATTENTION"
+      },
+      "alarms": {
+        "active_alarm_ids": [],
+        "active_alarm_count": 0
+      },
+      "axis_servo": [
+        {
+          "axis": 1,
+          "axis_load_pct": 18.5,
+          "error_count": 0,
+          "odometer": 88702.4,
+          "servo_indicator": "NORMAL"
+        },
+        {
+          "axis": 2,
+          "axis_load_pct": 20.3,
+          "error_count": 0,
+          "odometer": 98650.2,
+          "servo_indicator": "NORMAL"
+        },
+        {
+          "axis": 3,
+          "axis_load_pct": 29.3,
+          "error_count": 0,
+          "odometer": 108598.1,
+          "servo_indicator": "NORMAL"
+        },
+        {
+          "axis": 4,
+          "axis_load_pct": 31.7,
+          "error_count": 0,
+          "odometer": 118545.9,
+          "servo_indicator": "NORMAL"
+        },
+        {
+          "axis": 5,
+          "axis_load_pct": 23.4,
+          "error_count": 1,
+          "odometer": 128493.8,
+          "servo_indicator": "NORMAL"
+        },
+        {
+          "axis": 6,
+          "axis_load_pct": 19.1,
+          "error_count": 0,
+          "odometer": 138441.6,
+          "servo_indicator": "NORMAL"
+        }
+      ],
+      "power_data": {
+        "instantaneous_kw": 1.02,
+        "regeneration_kw": 0.0,
+        "kwh_total": 228.02,
+        "kwh_run": 191.958,
+        "kwh_idle": 22.352,
+        "kwh_ready": 13.709,
+        "kwh_fault": 0.0,
+        "kwh_regen": 0.0
+      }
+    }
+  ]
+}

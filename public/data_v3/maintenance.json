@@ -1,0 +1,57 @@
+[
+  {
+    "maintenance_id": "R01-MNT-101",
+    "robot_id": "EXH-R01",
+    "title": "Controller cabinet inspection",
+    "component": "Controller Cabinet",
+    "priority": "MEDIUM",
+    "status": "DUE_SOON",
+    "remaining_hours": 48,
+    "reason": "Scheduled preventive inspection window is approaching.",
+    "recommended_action": "Plan the controller cabinet inspection during the next available maintenance window."
+  },
+  {
+    "maintenance_id": "R02-MNT-201",
+    "robot_id": "EXH-R02",
+    "title": "Axis 4 mechanical and servo inspection",
+    "component": "Axis 4",
+    "priority": "HIGH",
+    "status": "OVERDUE",
+    "remaining_hours": -3,
+    "reason": "Repeated synthetic Axis 4 abnormal-load and servo/process events are present in the evidence.",
+    "recommended_action": "Inspect Axis 4 mechanical and servo condition before sustained production."
+  },
+  {
+    "maintenance_id": "R02-MNT-202",
+    "robot_id": "EXH-R02",
+    "title": "General mechanical inspection",
+    "component": "Robot Mechanical",
+    "priority": "LOW",
+    "status": "OK",
+    "remaining_hours": 280,
+    "reason": "No additional scheduled mechanical maintenance is currently due.",
+    "recommended_action": "Continue normal monitoring."
+  },
+  {
+    "maintenance_id": "R03-MNT-301",
+    "robot_id": "EXH-R03",
+    "title": "Gripper / end-effector inspection",
+    "component": "End Effector",
+    "priority": "MEDIUM",
+    "status": "DUE_SOON",
+    "remaining_hours": 14,
+    "reason": "The preventive maintenance window is approaching while cycle performance has degraded.",
+    "recommended_action": "Inspect the gripper/end-effector during the next planned maintenance stop."
+  },
+  {
+    "maintenance_id": "R03-MNT-302",
+    "robot_id": "EXH-R03",
+    "title": "Controller cabinet inspection",
+    "component": "Controller Cabinet",
+    "priority": "LOW",
+    "status": "OK",
+    "remaining_hours": 190,
+    "reason": "Scheduled maintenance remains within its normal remaining-life range.",
+    "recommended_action": "Continue normal monitoring."
+  }
+]

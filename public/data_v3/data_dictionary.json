@@ -1,0 +1,51 @@
+[
+  {
+    "field": "robot_id",
+    "domain": "Fleet",
+    "source_mapping": "ZDT robot identifier / AIonOS normalized key",
+    "unit": null,
+    "purpose": "Select and compare robots in a multi-robot dashboard"
+  },
+  {
+    "field": "live_cell.state",
+    "domain": "Operations",
+    "source_mapping": "OPC UA / AIonOS normalized",
+    "unit": null,
+    "purpose": "Current selected-robot operating state"
+  },
+  {
+    "field": "production.*",
+    "domain": "Production & Cycle",
+    "source_mapping": "ZDT Production / AIonOS normalized",
+    "unit": "mixed",
+    "purpose": "Cycle counts, cycle time and operating-time analytics"
+  },
+  {
+    "field": "derived_kpis.*",
+    "domain": "Production & Cycle",
+    "source_mapping": "AIonOS-derived",
+    "unit": "%",
+    "purpose": "OEE/availability/performance/quality dashboard KPIs"
+  },
+  {
+    "field": "axis_servo[]",
+    "domain": "Axis & Servo",
+    "source_mapping": "ZDT Axis/Servo / AIonOS normalized",
+    "unit": "%",
+    "purpose": "Per-axis load and servo condition"
+  },
+  {
+    "field": "power_data.*",
+    "domain": "Energy",
+    "source_mapping": "ZDT PowerData / AIonOS normalized",
+    "unit": "kW / kWh",
+    "purpose": "Power and energy analytics"
+  },
+  {
+    "field": "derived_insights[]",
+    "domain": "AI Insights",
+    "source_mapping": "AIonOS analytics",
+    "unit": null,
+    "purpose": "Anomaly, predictive maintenance, cycle-performance and energy-optimization insights"
+  }
+]

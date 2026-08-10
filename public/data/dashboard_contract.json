@@ -1,0 +1,60 @@
+{
+  "page_target": "1 main dashboard page + optional detail/AI drawer; do not require more than 2 pages",
+  "modules": [
+    {
+      "name": "Live Cell",
+      "required_fields": [
+        "live_cell.state",
+        "live_cell.di",
+        "live_cell.do",
+        "live_cell.registers",
+        "connection_health"
+      ]
+    },
+    {
+      "name": "Production & Cycle",
+      "required_fields": [
+        "production",
+        "derived_kpis"
+      ]
+    },
+    {
+      "name": "Robot Health",
+      "required_fields": [
+        "robot_status"
+      ]
+    },
+    {
+      "name": "Alarms",
+      "required_fields": [
+        "alarms",
+        "active_alarm_ids"
+      ]
+    },
+    {
+      "name": "Predictive Maintenance",
+      "required_fields": [
+        "maintenance"
+      ]
+    },
+    {
+      "name": "Axis & Servo",
+      "required_fields": [
+        "axis_servo"
+      ]
+    },
+    {
+      "name": "Energy",
+      "required_fields": [
+        "power_data"
+      ]
+    },
+    {
+      "name": "AI Insights",
+      "required_fields": [
+        "derived_insights",
+        "ai_validation_questions"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,212 @@
+[
+  {
+    "field": "connection_health.*",
+    "domain": "Engineering guardrail",
+    "source_mapping": "AIonOS Edge-derived",
+    "unit": null,
+    "purpose": "connection health, stale-data and reconnect visibility"
+  },
+  {
+    "field": "live_cell.state",
+    "domain": "Live Cell",
+    "source_mapping": "Normalized OPC UA",
+    "unit": null,
+    "purpose": "immediate cell/robot condition"
+  },
+  {
+    "field": "live_cell.di.*",
+    "domain": "Live Cell",
+    "source_mapping": "OPC UA DI",
+    "unit": "boolean",
+    "purpose": "digital input states"
+  },
+  {
+    "field": "live_cell.do.*",
+    "domain": "Live Cell",
+    "source_mapping": "OPC UA DO",
+    "unit": "boolean",
+    "purpose": "digital output states"
+  },
+  {
+    "field": "live_cell.registers.*",
+    "domain": "Live Cell",
+    "source_mapping": "OPC UA Register",
+    "unit": "mixed",
+    "purpose": "selected robot counters/registers"
+  },
+  {
+    "field": "live_cell.position_registers.*",
+    "domain": "Live Cell",
+    "source_mapping": "OPC UA Position Register mapping TBD",
+    "unit": "mm/deg",
+    "purpose": "selected stored pose; not high-speed current position"
+  },
+  {
+    "field": "live_cell.process_values.*",
+    "domain": "Live Cell",
+    "source_mapping": "OPC UA / normalized status",
+    "unit": "mixed",
+    "purpose": "selected process values"
+  },
+  {
+    "field": "production.running_time_s",
+    "domain": "Production & Cycle",
+    "source_mapping": "ZDT Production",
+    "unit": "s",
+    "purpose": "running time"
+  },
+  {
+    "field": "production.idle_time_s",
+    "domain": "Production & Cycle",
+    "source_mapping": "ZDT Production",
+    "unit": "s",
+    "purpose": "idle time"
+  },
+  {
+    "field": "production.ready_time_s",
+    "domain": "Production & Cycle",
+    "source_mapping": "ZDT Production",
+    "unit": "s",
+    "purpose": "ready time"
+  },
+  {
+    "field": "production.faulted_time_s",
+    "domain": "Production & Cycle",
+    "source_mapping": "ZDT Production",
+    "unit": "s",
+    "purpose": "faulted time"
+  },
+  {
+    "field": "production.running_rate",
+    "domain": "Production & Cycle",
+    "source_mapping": "ZDT Production",
+    "unit": "ratio",
+    "purpose": "running rate"
+  },
+  {
+    "field": "production.ready_rate",
+    "domain": "Production & Cycle",
+    "source_mapping": "ZDT Production",
+    "unit": "ratio",
+    "purpose": "ready rate"
+  },
+  {
+    "field": "production.cycle_count_total",
+    "domain": "Production & Cycle",
+    "source_mapping": "ZDT Production",
+    "unit": "cycles",
+    "purpose": "cycle count"
+  },
+  {
+    "field": "derived_kpis.*",
+    "domain": "Production & Cycle",
+    "source_mapping": "AIonOS-derived",
+    "unit": "%",
+    "purpose": "OEE/availability/performance/quality dashboard KPIs"
+  },
+  {
+    "field": "robot_status.working_status",
+    "domain": "Robot Health",
+    "source_mapping": "ZDT RobotStatus",
+    "unit": null,
+    "purpose": "working condition"
+  },
+  {
+    "field": "robot_status.process_status",
+    "domain": "Robot Health",
+    "source_mapping": "ZDT RobotStatus",
+    "unit": null,
+    "purpose": "process condition"
+  },
+  {
+    "field": "robot_status.mechanical_status",
+    "domain": "Robot Health",
+    "source_mapping": "ZDT RobotStatus",
+    "unit": null,
+    "purpose": "mechanical condition"
+  },
+  {
+    "field": "alarms[]",
+    "domain": "Alarms",
+    "source_mapping": "ZDT Alarms",
+    "unit": null,
+    "purpose": "active/recent alarm history"
+  },
+  {
+    "field": "maintenance[]",
+    "domain": "Predictive Maintenance",
+    "source_mapping": "ZDT Maintenance",
+    "unit": "h/%",
+    "purpose": "due/overdue work, interval, priority and remaining life"
+  },
+  {
+    "field": "axis_servo[].axis_load_pct",
+    "domain": "Axis & Servo",
+    "source_mapping": "ZDT Axis/Servo",
+    "unit": "%",
+    "purpose": "axis load"
+  },
+  {
+    "field": "axis_servo[].error_count",
+    "domain": "Axis & Servo",
+    "source_mapping": "ZDT Axis/Servo",
+    "unit": "count",
+    "purpose": "servo/error count"
+  },
+  {
+    "field": "axis_servo[].odometer",
+    "domain": "Axis & Servo",
+    "source_mapping": "ZDT Axis/Servo",
+    "unit": "synthetic engineering units",
+    "purpose": "odometer trend"
+  },
+  {
+    "field": "power_data.kwh_total",
+    "domain": "Energy",
+    "source_mapping": "ZDT PowerData",
+    "unit": "kWh",
+    "purpose": "total energy"
+  },
+  {
+    "field": "power_data.kwh_run",
+    "domain": "Energy",
+    "source_mapping": "ZDT PowerData",
+    "unit": "kWh",
+    "purpose": "running energy"
+  },
+  {
+    "field": "power_data.kwh_idle",
+    "domain": "Energy",
+    "source_mapping": "ZDT PowerData",
+    "unit": "kWh",
+    "purpose": "idle energy"
+  },
+  {
+    "field": "power_data.kwh_regen",
+    "domain": "Energy",
+    "source_mapping": "ZDT PowerData",
+    "unit": "kWh",
+    "purpose": "regenerated energy"
+  },
+  {
+    "field": "running_status_log[]",
+    "domain": "Diagnostics/Trend",
+    "source_mapping": "ZDT RunningStatusLog",
+    "unit": null,
+    "purpose": "Running/Idle/Faulted/Ready with program, line, override and mode"
+  },
+  {
+    "field": "derived_insights[]",
+    "domain": "AI Insights",
+    "source_mapping": "AIonOS-derived",
+    "unit": null,
+    "purpose": "anomaly, cycle-loss, connectivity and maintenance explanations"
+  },
+  {
+    "field": "optional_motion_stream[]",
+    "domain": "Digital Twin",
+    "source_mapping": "Optional RSI / High Speed Position Output simulation",
+    "unit": "deg/mm",
+    "purpose": "high-frequency pose/joint visualization"
+  }
+]

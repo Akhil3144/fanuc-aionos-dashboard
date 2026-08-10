@@ -1,0 +1,44 @@
+[
+  {
+    "robot_id": "EXH-R01",
+    "robot_name": "ASSEMBLY_ROBOT_01",
+    "display_name": "Assembly Robot",
+    "shift": "B",
+    "cycles_completed": 4104,
+    "good_count": 4097,
+    "reject_count": 7,
+    "target_cycle_time_s": 44.0,
+    "shift_oee_pct": 95.7,
+    "availability_pct": 98.7,
+    "performance_pct": 97.3,
+    "quality_pct": 99.7
+  },
+  {
+    "robot_id": "EXH-R02",
+    "robot_name": "HANDLING_ROBOT_02",
+    "display_name": "Handling Robot",
+    "shift": "B",
+    "cycles_completed": 3446,
+    "good_count": 3437,
+    "reject_count": 9,
+    "target_cycle_time_s": 46.0,
+    "shift_oee_pct": 89.9,
+    "availability_pct": 96.4,
+    "performance_pct": 93.8,
+    "quality_pct": 99.4
+  },
+  {
+    "robot_id": "EXH-R03",
+    "robot_name": "PACKAGING_ROBOT_03",
+    "display_name": "Packaging Robot",
+    "shift": "B",
+    "cycles_completed": 3024,
+    "good_count": 3011,
+    "reject_count": 13,
+    "target_cycle_time_s": 42.0,
+    "shift_oee_pct": 88.1,
+    "availability_pct": 97.9,
+    "performance_pct": 90.8,
+    "quality_pct": 99.1
+  }
+]

@@ -1,0 +1,90 @@
+[
+  {
+    "insight_id": "R01-INS-101",
+    "robot_id": "EXH-R01",
+    "category": "PREDICTIVE_MAINTENANCE",
+    "severity": "INFO",
+    "title": "Controller inspection window approaching",
+    "explanation": "The scheduled controller cabinet inspection is due within 48 operating hours.",
+    "recommended_action": "Plan the inspection during the next available maintenance window.",
+    "evidence": [
+      "R01-MNT-101"
+    ]
+  },
+  {
+    "insight_id": "R02-INS-201",
+    "robot_id": "EXH-R02",
+    "category": "ANOMALY",
+    "severity": "HIGH",
+    "title": "Axis 4 abnormal-load pattern detected",
+    "explanation": "Axis 4 load increased above its normal operating pattern during the synthetic degradation window.",
+    "recommended_action": "Review Axis 4 mechanical and servo condition.",
+    "evidence": [
+      "R02-ALM-201",
+      "R02-ALM-202"
+    ]
+  },
+  {
+    "insight_id": "R02-INS-202",
+    "robot_id": "EXH-R02",
+    "category": "PREDICTIVE_MAINTENANCE",
+    "severity": "HIGH",
+    "title": "Axis 4 inspection recommended",
+    "explanation": "The Axis 4 inspection is overdue and the history contains repeated abnormal-load and servo/process events.",
+    "recommended_action": "Inspect Axis 4 mechanical and servo condition before sustained production.",
+    "evidence": [
+      "R02-MNT-201",
+      "R02-ALM-201",
+      "R02-ALM-202",
+      "R02-ALM-204"
+    ]
+  },
+  {
+    "insight_id": "R02-INS-203",
+    "robot_id": "EXH-R02",
+    "category": "CYCLE_PERFORMANCE",
+    "severity": "MEDIUM",
+    "title": "Cycle degradation observed during Axis 4 event",
+    "explanation": "Actual cycle time increased during the same degradation window in which Axis 4 load increased.",
+    "recommended_action": "Review the Axis 4 event before increasing the production rate.",
+    "evidence": [
+      "R02-ALM-202"
+    ]
+  },
+  {
+    "insight_id": "R03-INS-301",
+    "robot_id": "EXH-R03",
+    "category": "CYCLE_PERFORMANCE",
+    "severity": "HIGH",
+    "title": "Packaging cycle performance loss detected",
+    "explanation": "Actual cycle time remained above the target pattern during the synthetic packaging slowdown window.",
+    "recommended_action": "Review packaging process timing and the stage contributing to cycle loss.",
+    "evidence": [
+      "R03-ALM-301"
+    ]
+  },
+  {
+    "insight_id": "R03-INS-302",
+    "robot_id": "EXH-R03",
+    "category": "ENERGY_OPTIMIZATION",
+    "severity": "MEDIUM",
+    "title": "Elevated energy usage during slow cycles",
+    "explanation": "Power usage increased during the same period in which packaging cycle time was elevated.",
+    "recommended_action": "Review idle/running power behavior together with packaging cycle efficiency.",
+    "evidence": [
+      "R03-ALM-301"
+    ]
+  },
+  {
+    "insight_id": "R03-INS-303",
+    "robot_id": "EXH-R03",
+    "category": "PREDICTIVE_MAINTENANCE",
+    "severity": "MEDIUM",
+    "title": "End-effector inspection approaching",
+    "explanation": "The gripper/end-effector preventive maintenance window is due within 14 operating hours.",
+    "recommended_action": "Inspect the gripper/end-effector during the next planned maintenance stop.",
+    "evidence": [
+      "R03-MNT-301"
+    ]
+  }
+]

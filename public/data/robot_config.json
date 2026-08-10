@@ -1,0 +1,23 @@
+{
+  "dataset_version": "2.0",
+  "mode": "SIMULATOR",
+  "robot_id": "EXH-R01",
+  "robot_name": "EXHIBITION_ROBOT_01",
+  "robot_model": null,
+  "axis_count": 6,
+  "timezone": "Asia/Kolkata",
+  "read_only": true,
+  "opcua": {
+    "controller_ip": "192.0.2.10",
+    "endpoint": "opc.tcp://192.0.2.10:4880/FANUC/NanoUaServer",
+    "configured": true,
+    "native_node_ids_known": false
+  },
+  "zdt": {
+    "host": "https://192.0.2.20",
+    "server_id": "SIM-ZDT-01",
+    "base_path": "/ZDTDataApi/SIM-ZDT-01/v1",
+    "native_payload_shape_known": false
+  },
+  "note": "Normalized synthetic contract for dashboard development. Replace adapter mappings when real FANUC samples/configuration are provided."
+}
