@@ -1,0 +1,308 @@
+{
+  "EXH-R01": [
+    {
+      "timestamp": "2026-08-10T21:50:00+05:30",
+      "state": "RUNNING",
+      "cycle_time_s": 44.51,
+      "oee_pct": 95.7,
+      "axis4_load_pct": 29.4,
+      "power_kw": 3.139,
+      "active_alarm_count": 0,
+      "mechanical_status": "NORMAL"
+    },
+    {
+      "timestamp": "2026-08-10T21:51:00+05:30",
+      "state": "RUNNING",
+      "cycle_time_s": 44.61,
+      "oee_pct": 95.7,
+      "axis4_load_pct": 27.5,
+      "power_kw": 3.243,
+      "active_alarm_count": 0,
+      "mechanical_status": "NORMAL"
+    },
+    {
+      "timestamp": "2026-08-10T21:52:00+05:30",
+      "state": "RUNNING",
+      "cycle_time_s": 44.61,
+      "oee_pct": 95.7,
+      "axis4_load_pct": 27.3,
+      "power_kw": 2.97,
+      "active_alarm_count": 0,
+      "mechanical_status": "NORMAL"
+    },
+    {
+      "timestamp": "2026-08-10T21:53:00+05:30",
+      "state": "RUNNING",
+      "cycle_time_s": 44.55,
+      "oee_pct": 95.7,
+      "axis4_load_pct": 27.1,
+      "power_kw": 3.344,
+      "active_alarm_count": 0,
+      "mechanical_status": "NORMAL"
+    },
+    {
+      "timestamp": "2026-08-10T21:54:00+05:30",
+      "state": "RUNNING",
+      "cycle_time_s": 44.92,
+      "oee_pct": 95.7,
+      "axis4_load_pct": 28.4,
+      "power_kw": 3.355,
+      "active_alarm_count": 0,
+      "mechanical_status": "NORMAL"
+    },
+    {
+      "timestamp": "2026-08-10T21:55:00+05:30",
+      "state": "IDLE",
+      "cycle_time_s": null,
+      "oee_pct": 95.7,
+      "axis4_load_pct": 28.9,
+      "power_kw": 1.527,
+      "active_alarm_count": 0,
+      "mechanical_status": "NORMAL"
+    },
+    {
+      "timestamp": "2026-08-10T21:56:00+05:30",
+      "state": "IDLE",
+      "cycle_time_s": null,
+      "oee_pct": 95.7,
+      "axis4_load_pct": 31.1,
+      "power_kw": 1.452,
+      "active_alarm_count": 0,
+      "mechanical_status": "NORMAL"
+    },
+    {
+      "timestamp": "2026-08-10T21:57:00+05:30",
+      "state": "IDLE",
+      "cycle_time_s": null,
+      "oee_pct": 95.7,
+      "axis4_load_pct": 28.8,
+      "power_kw": 1.629,
+      "active_alarm_count": 0,
+      "mechanical_status": "NORMAL"
+    },
+    {
+      "timestamp": "2026-08-10T21:58:00+05:30",
+      "state": "READY",
+      "cycle_time_s": null,
+      "oee_pct": 95.7,
+      "axis4_load_pct": 30.4,
+      "power_kw": 0.996,
+      "active_alarm_count": 0,
+      "mechanical_status": "NORMAL"
+    },
+    {
+      "timestamp": "2026-08-10T21:59:00+05:30",
+      "state": "READY",
+      "cycle_time_s": null,
+      "oee_pct": 95.7,
+      "axis4_load_pct": 28.0,
+      "power_kw": 0.957,
+      "active_alarm_count": 0,
+      "mechanical_status": "NORMAL"
+    }
+  ],
+  "EXH-R02": [
+    {
+      "timestamp": "2026-08-10T21:50:00+05:30",
+      "state": "RUNNING",
+      "cycle_time_s": 47.03,
+      "oee_pct": 89.9,
+      "axis4_load_pct": 33.7,
+      "power_kw": 3.845,
+      "active_alarm_count": 1,
+      "mechanical_status": "ATTENTION"
+    },
+    {
+      "timestamp": "2026-08-10T21:51:00+05:30",
+      "state": "RUNNING",
+      "cycle_time_s": 46.5,
+      "oee_pct": 89.9,
+      "axis4_load_pct": 35.6,
+      "power_kw": 3.451,
+      "active_alarm_count": 1,
+      "mechanical_status": "ATTENTION"
+    },
+    {
+      "timestamp": "2026-08-10T21:52:00+05:30",
+      "state": "RUNNING",
+      "cycle_time_s": 46.01,
+      "oee_pct": 89.9,
+      "axis4_load_pct": 32.6,
+      "power_kw": 3.688,
+      "active_alarm_count": 1,
+      "mechanical_status": "ATTENTION"
+    },
+    {
+      "timestamp": "2026-08-10T21:53:00+05:30",
+      "state": "IDLE",
+      "cycle_time_s": null,
+      "oee_pct": 89.9,
+      "axis4_load_pct": 35.9,
+      "power_kw": 1.664,
+      "active_alarm_count": 1,
+      "mechanical_status": "ATTENTION"
+    },
+    {
+      "timestamp": "2026-08-10T21:54:00+05:30",
+      "state": "IDLE",
+      "cycle_time_s": null,
+      "oee_pct": 89.9,
+      "axis4_load_pct": 34.0,
+      "power_kw": 1.589,
+      "active_alarm_count": 1,
+      "mechanical_status": "ATTENTION"
+    },
+    {
+      "timestamp": "2026-08-10T21:55:00+05:30",
+      "state": "IDLE",
+      "cycle_time_s": null,
+      "oee_pct": 89.9,
+      "axis4_load_pct": 32.2,
+      "power_kw": 1.574,
+      "active_alarm_count": 1,
+      "mechanical_status": "ATTENTION"
+    },
+    {
+      "timestamp": "2026-08-10T21:56:00+05:30",
+      "state": "IDLE",
+      "cycle_time_s": null,
+      "oee_pct": 89.9,
+      "axis4_load_pct": 35.5,
+      "power_kw": 1.433,
+      "active_alarm_count": 1,
+      "mechanical_status": "ATTENTION"
+    },
+    {
+      "timestamp": "2026-08-10T21:57:00+05:30",
+      "state": "READY",
+      "cycle_time_s": null,
+      "oee_pct": 89.9,
+      "axis4_load_pct": 33.6,
+      "power_kw": 0.98,
+      "active_alarm_count": 1,
+      "mechanical_status": "ATTENTION"
+    },
+    {
+      "timestamp": "2026-08-10T21:58:00+05:30",
+      "state": "READY",
+      "cycle_time_s": null,
+      "oee_pct": 89.9,
+      "axis4_load_pct": 33.4,
+      "power_kw": 0.877,
+      "active_alarm_count": 1,
+      "mechanical_status": "ATTENTION"
+    },
+    {
+      "timestamp": "2026-08-10T21:59:00+05:30",
+      "state": "READY",
+      "cycle_time_s": null,
+      "oee_pct": 89.9,
+      "axis4_load_pct": 36.6,
+      "power_kw": 0.925,
+      "active_alarm_count": 1,
+      "mechanical_status": "ATTENTION"
+    }
+  ],
+  "EXH-R03": [
+    {
+      "timestamp": "2026-08-10T21:50:00+05:30",
+      "state": "RUNNING",
+      "cycle_time_s": 43.28,
+      "oee_pct": 88.1,
+      "axis4_load_pct": 27.2,
+      "power_kw": 4.104,
+      "active_alarm_count": 0,
+      "mechanical_status": "ATTENTION"
+    },
+    {
+      "timestamp": "2026-08-10T21:51:00+05:30",
+      "state": "RUNNING",
+      "cycle_time_s": 43.06,
+      "oee_pct": 88.1,
+      "axis4_load_pct": 28.7,
+      "power_kw": 3.79,
+      "active_alarm_count": 0,
+      "mechanical_status": "ATTENTION"
+    },
+    {
+      "timestamp": "2026-08-10T21:52:00+05:30",
+      "state": "IDLE",
+      "cycle_time_s": null,
+      "oee_pct": 88.1,
+      "axis4_load_pct": 28.1,
+      "power_kw": 1.529,
+      "active_alarm_count": 0,
+      "mechanical_status": "ATTENTION"
+    },
+    {
+      "timestamp": "2026-08-10T21:53:00+05:30",
+      "state": "IDLE",
+      "cycle_time_s": null,
+      "oee_pct": 88.1,
+      "axis4_load_pct": 29.3,
+      "power_kw": 1.656,
+      "active_alarm_count": 0,
+      "mechanical_status": "ATTENTION"
+    },
+    {
+      "timestamp": "2026-08-10T21:54:00+05:30",
+      "state": "IDLE",
+      "cycle_time_s": null,
+      "oee_pct": 88.1,
+      "axis4_load_pct": 27.4,
+      "power_kw": 1.658,
+      "active_alarm_count": 0,
+      "mechanical_status": "ATTENTION"
+    },
+    {
+      "timestamp": "2026-08-10T21:55:00+05:30",
+      "state": "IDLE",
+      "cycle_time_s": null,
+      "oee_pct": 88.1,
+      "axis4_load_pct": 29.4,
+      "power_kw": 1.446,
+      "active_alarm_count": 0,
+      "mechanical_status": "ATTENTION"
+    },
+    {
+      "timestamp": "2026-08-10T21:56:00+05:30",
+      "state": "READY",
+      "cycle_time_s": null,
+      "oee_pct": 88.1,
+      "axis4_load_pct": 28.8,
+      "power_kw": 1.03,
+      "active_alarm_count": 0,
+      "mechanical_status": "ATTENTION"
+    },
+    {
+      "timestamp": "2026-08-10T21:57:00+05:30",
+      "state": "READY",
+      "cycle_time_s": null,
+      "oee_pct": 88.1,
+      "axis4_load_pct": 28.6,
+      "power_kw": 1.016,
+      "active_alarm_count": 0,
+      "mechanical_status": "ATTENTION"
+    },
+    {
+      "timestamp": "2026-08-10T21:58:00+05:30",
+      "state": "READY",
+      "cycle_time_s": null,
+      "oee_pct": 88.1,
+      "axis4_load_pct": 27.6,
+      "power_kw": 0.903,
+      "active_alarm_count": 0,
+      "mechanical_status": "ATTENTION"
+    },
+    {
+      "timestamp": "2026-08-10T21:59:00+05:30",
+      "state": "READY",
+      "cycle_time_s": null,
+      "oee_pct": 88.1,
+      "axis4_load_pct": 29.4,
+      "power_kw": 0.924,
+      "active_alarm_count": 0,
+      "mechanical_status": "ATTENTION"
+    }
+  ]
+}

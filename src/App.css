@@ -117,7 +117,7 @@ select {
 .brand-kicker {
   color: #92a9bb;
 
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 650;
 
   letter-spacing: 2.2px;
@@ -142,7 +142,7 @@ select {
 
   color: #8394a2;
 
-  font-size: 13px;
+  font-size: 15px;
 }
 
 .header-context {
@@ -165,7 +165,7 @@ select {
 
   color: var(--muted-soft);
 
-  font-size: 7px;
+  font-size: 11px;
 
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -174,7 +174,7 @@ select {
 }
 
 .context-item strong {
-  font-size: 10px;
+  font-size: 13px;
   font-weight: 600;
 
   color: #d6dfe5;
@@ -199,7 +199,7 @@ select {
 
   color: #c7d1d9;
 
-  font-size: 9px;
+  font-size: 12px;
   font-weight: 650;
 
   letter-spacing: 0.3px;
@@ -295,7 +295,7 @@ select {
 
   color: var(--muted-soft);
 
-  font-size: 7px;
+  font-size: 11px;
 
   letter-spacing: 0.9px;
   text-transform: uppercase;
@@ -306,7 +306,7 @@ select {
 .context-bar strong {
   color: #d7e0e6;
 
-  font-size: 10px;
+  font-size: 13px;
   font-weight: 600;
 }
 
@@ -378,7 +378,7 @@ select {
 .kpi-topline > span:first-child {
   color: #8193a2;
 
-  font-size: 8px;
+  font-size: 12px;
 
   letter-spacing: 0.8px;
   text-transform: uppercase;
@@ -400,7 +400,7 @@ select {
 .executive-kpi small {
   color: #657785;
 
-  font-size: 8px;
+  font-size: 12px;
 }
 
 /* =========================================================
@@ -442,7 +442,7 @@ select {
 
   color: #718594;
 
-  font-size: 8px;
+  font-size: 12px;
   font-weight: 650;
 }
 
@@ -460,7 +460,7 @@ select {
 
   color: #71828f;
 
-  font-size: 9px;
+  font-size: 12px;
 }
 
 .section-grid {
@@ -555,7 +555,7 @@ select {
 
   color: #647988;
 
-  font-size: 7px;
+  font-size: 11px;
 
   letter-spacing: 1.2px;
   text-transform: uppercase;
@@ -581,7 +581,7 @@ select {
 
   color: #738592;
 
-  font-size: 8px;
+  font-size: 12px;
   line-height: 1.45;
 }
 
@@ -597,7 +597,7 @@ select {
 
   color: #7890a2;
 
-  font-size: 6px;
+  font-size: 13px;
   font-weight: 600;
 
   letter-spacing: 0.2px;
@@ -612,7 +612,7 @@ select {
 
   color: #6a7d8a;
 
-  font-size: 7px;
+  font-size: 11px;
 
   letter-spacing: 0.9px;
   text-transform: uppercase;
@@ -671,7 +671,7 @@ select {
 
   color: #637481;
 
-  font-size: 7px;
+  font-size: 11px;
 }
 
 .oee-focus {
@@ -749,13 +749,13 @@ select {
 .production-time-grid span:not(.legend-dot) {
   color: #738694;
 
-  font-size: 7px;
+  font-size: 11px;
 }
 
 .production-time-grid strong {
   grid-column: 2;
 
-  font-size: 9px;
+  font-size: 12px;
 }
 
 .legend-dot {
@@ -816,14 +816,14 @@ select {
 .oee-components span {
   color: #738592;
 
-  font-size: 7px;
+  font-size: 11px;
 }
 
 .cycle-summary strong,
 .oee-components strong {
   color: #dce4e9;
 
-  font-size: 8px;
+  font-size: 12px;
 }
 
 /* =========================================================
@@ -878,7 +878,7 @@ select {
 
   color: #647783;
 
-  font-size: 6px;
+  font-size: 11px;
 
   letter-spacing: 0.7px;
   text-transform: uppercase;
@@ -887,7 +887,7 @@ select {
 }
 
 .program-block strong {
-  font-size: 10px;
+  font-size: 13px;
 }
 
 .live-meta {
@@ -909,7 +909,7 @@ select {
 }
 
 .live-meta strong {
-  font-size: 9px;
+  font-size: 12px;
 }
 
 .signal-groups {
@@ -926,7 +926,7 @@ select {
 
   color: #647987;
 
-  font-size: 7px;
+  font-size: 11px;
 
   letter-spacing: 0.9px;
   text-transform: uppercase;
@@ -947,7 +947,7 @@ select {
 
   color: #8d9da8;
 
-  font-size: 7px;
+  font-size: 11px;
 }
 
 .signal-line strong {
@@ -956,7 +956,7 @@ select {
 
   gap: 5px;
 
-  font-size: 7px;
+  font-size: 11px;
 }
 
 .signal-active {
@@ -986,7 +986,7 @@ select {
 }
 
 .register-row strong {
-  font-size: 9px;
+  font-size: 12px;
 }
 
 /* =========================================================
@@ -1020,7 +1020,7 @@ select {
 
   color: #657884;
 
-  font-size: 6px;
+  font-size: 11px;
 
   text-transform: uppercase;
 
@@ -1033,13 +1033,13 @@ select {
 
   gap: 7px;
 
-  font-size: 11px;
+  font-size: 16px;
 }
 
 .health-banner small {
   color: #596a76;
 
-  font-size: 6px;
+  font-size: 11px;
 }
 
 .health-status-list {
@@ -1057,7 +1057,7 @@ select {
 
   color: #8797a2;
 
-  font-size: 7px;
+  font-size: 11px;
 }
 
 .health-status-list strong {
@@ -1066,7 +1066,7 @@ select {
 
   gap: 6px;
 
-  font-size: 7px;
+  font-size: 11px;
 }
 
 .health-foot {
@@ -1088,7 +1088,7 @@ select {
 }
 
 .health-foot strong {
-  font-size: 8px;
+  font-size: 12px;
 }
 
 /* =========================================================
@@ -1121,7 +1121,7 @@ select {
 
   color: #657884;
 
-  font-size: 6px;
+  font-size: 11px;
 
   text-transform: uppercase;
 
@@ -1130,7 +1130,7 @@ select {
 
 .alarm-overview strong,
 .maintenance-overview strong {
-  font-size: 11px;
+  font-size: 16px;
 }
 
 .compact-list {
@@ -1177,13 +1177,13 @@ select {
 }
 
 .event-title-line strong {
-  font-size: 8px;
+  font-size: 12px;
 }
 
 .event-title-line span {
   color: #60727e;
 
-  font-size: 6px;
+  font-size: 11px;
 
   text-transform: uppercase;
 }
@@ -1193,14 +1193,14 @@ select {
 
   color: #9cabb4;
 
-  font-size: 7px;
+  font-size: 11px;
   line-height: 1.35;
 }
 
 .event-content small {
   color: #566875;
 
-  font-size: 6px;
+  font-size: 11px;
 }
 
 .event-severity {
@@ -1210,7 +1210,7 @@ select {
 
   border-radius: 5px;
 
-  font-size: 5px;
+  font-size: 11px;
   font-weight: 700;
 }
 
@@ -1288,7 +1288,7 @@ select {
 
   color: #dfe6ea;
 
-  font-size: 8px;
+  font-size: 12px;
 }
 
 .maintenance-main small {
@@ -1298,11 +1298,11 @@ select {
 
   color: #586a76;
 
-  font-size: 5px;
+  font-size: 11px;
 }
 
 .maintenance-state {
-  font-size: 6px;
+  font-size: 11px;
   font-weight: 700;
 }
 
@@ -1320,7 +1320,7 @@ select {
 
   color: #5f717e;
 
-  font-size: 5px;
+  font-size: 11px;
 
   text-transform: uppercase;
 
@@ -1328,7 +1328,7 @@ select {
 }
 
 .maintenance-data strong {
-  font-size: 7px;
+  font-size: 11px;
 }
 
 .life-progress {
@@ -1388,7 +1388,7 @@ select {
 
   color: #637683;
 
-  font-size: 6px;
+  font-size: 11px;
 
   text-transform: uppercase;
 
@@ -1396,7 +1396,7 @@ select {
 }
 
 .insight-feature-header strong {
-  font-size: 13px;
+  font-size: 15px;
 }
 
 .insight-modern-list {
@@ -1435,7 +1435,7 @@ select {
 .insight-modern-top span {
   color: #657987;
 
-  font-size: 5px;
+  font-size: 11px;
   font-weight: 650;
 
   letter-spacing: 0.6px;
@@ -1447,7 +1447,7 @@ select {
 
   color: #e3e9ed;
 
-  font-size: 8px;
+  font-size: 12px;
   line-height: 1.35;
 }
 
@@ -1456,7 +1456,7 @@ select {
 
   color: #84949f;
 
-  font-size: 6px;
+  font-size: 11px;
   line-height: 1.45;
 }
 
@@ -1473,7 +1473,7 @@ select {
 
   color: #648baa;
 
-  font-size: 5px;
+  font-size: 11px;
 
   text-transform: uppercase;
 
@@ -1485,7 +1485,7 @@ select {
 
   color: #a5b3bc;
 
-  font-size: 6px;
+  font-size: 11px;
   line-height: 1.4;
 }
 
@@ -1516,7 +1516,7 @@ select {
 
   color: #627582;
 
-  font-size: 6px;
+  font-size: 11px;
 
   text-transform: uppercase;
 
@@ -1524,7 +1524,7 @@ select {
 }
 
 .axis-highlight strong {
-  font-size: 9px;
+  font-size: 12px;
 }
 
 .axis-modern-table {
@@ -1552,7 +1552,7 @@ select {
 
   color: #596c79;
 
-  font-size: 5px;
+  font-size: 11px;
 
   text-transform: uppercase;
 }
@@ -1564,13 +1564,13 @@ select {
 
   color: #8798a3;
 
-  font-size: 6px;
+  font-size: 11px;
 }
 
 .axis-table-row > strong {
   color: #dce4e8;
 
-  font-size: 7px;
+  font-size: 11px;
 }
 
 .axis-load-modern > span {
@@ -1578,7 +1578,7 @@ select {
 
   margin-bottom: 3px;
 
-  font-size: 6px;
+  font-size: 11px;
 }
 
 .axis-load-modern > div {
@@ -1607,7 +1607,7 @@ select {
 
   gap: 5px;
 
-  font-size: 5px;
+  font-size: 11px;
   font-weight: 650;
 }
 
@@ -1638,7 +1638,7 @@ select {
 
   color: #617480;
 
-  font-size: 6px;
+  font-size: 11px;
 
   text-transform: uppercase;
 
@@ -1658,7 +1658,7 @@ select {
 
   color: #677985;
 
-  font-size: 6px;
+  font-size: 11px;
 }
 
 .energy-modern-bars {
@@ -1680,11 +1680,11 @@ select {
 .energy-modern-bars span {
   color: #697b88;
 
-  font-size: 6px;
+  font-size: 11px;
 }
 
 .energy-modern-bars strong {
-  font-size: 7px;
+  font-size: 11px;
 }
 
 .energy-modern-track {
@@ -1740,13 +1740,13 @@ select {
 
   color: #657785;
 
-  font-size: 6px;
+  font-size: 11px;
 
   margin-bottom: 3px;
 }
 
 .energy-mini-grid strong {
-  font-size: 7px;
+  font-size: 11px;
 }
 
 /* =========================================================
@@ -1765,7 +1765,7 @@ select {
 
   color: #ef9a9a;
 
-  font-size: 9px;
+  font-size: 12px;
 }
 
 .boot-screen {
@@ -1797,13 +1797,13 @@ select {
 }
 
 .boot-screen strong {
-  font-size: 13px;
+  font-size: 15px;
 }
 
 .boot-screen span {
   color: #687986;
 
-  font-size: 8px;
+  font-size: 12px;
 }
 
 @keyframes spin {
@@ -1829,7 +1829,7 @@ select {
 
   color: #52636f;
 
-  font-size: 7px;
+  font-size: 11px;
 
   letter-spacing: 0.4px;
 }
@@ -2001,3 +2001,427 @@ select {
 ::-webkit-scrollbar-thumb:hover {
   background: #334753;
 }
+/* =========================================================
+   EXHIBITION OPERATIONS — READABILITY BOOST
+   Only KPI + Production / Health / Axis / Alarms panels
+   ========================================================= */
+
+/* Top KPI cards */
+.kpi-topline > span:first-child {
+  font-size: 12px !important;
+}
+
+.executive-kpi strong {
+  font-size: 26px !important;
+}
+
+.executive-kpi small {
+  font-size: 11px !important;
+}
+
+/* Panel titles */
+.panel-header h2,
+.panel-header h3 {
+  font-size: 18px !important;
+}
+
+.panel-header p,
+.source-tag,
+.panel-eyebrow {
+  font-size: 10px !important;
+}
+
+/* Production */
+.production-hero small,
+.oee-focus small,
+.production-time-grid span:not(.legend-dot),
+.cycle-summary span,
+.oee-components span {
+  font-size: 11px !important;
+}
+
+.production-time-grid strong,
+.cycle-summary strong,
+.oee-components strong {
+  font-size: 15px !important;
+}
+
+/* Robot Health */
+.health-banner span,
+.health-banner small,
+.health-foot span,
+.health-status-list > div {
+  font-size: 11px !important;
+}
+
+.health-banner strong,
+.health-status-list strong,
+.health-foot strong {
+  font-size: 12px !important;
+}
+
+/* Axis & Servo */
+.axis-highlight span,
+.axis-load-modern > span,
+.axis-table-head,
+.axis-table-row,
+.axis-state {
+  font-size: 10px !important;
+}
+
+.axis-highlight strong,
+.axis-table-row > strong {
+  font-size: 13px !important;
+}
+
+/* Alarm + AI Insight area */
+.alarm-overview span,
+.maintenance-overview span,
+.event-title-line span,
+.event-content small,
+.event-severity,
+.maintenance-main small,
+.maintenance-state,
+.maintenance-data span,
+.insight-modern-top span,
+.recommendation-line span {
+  font-size: 10px !important;
+}
+
+.alarm-overview strong,
+.maintenance-overview strong,
+.event-title-line strong,
+.maintenance-main strong,
+.maintenance-data strong,
+.insight-modern > strong {
+  font-size: 12px !important;
+}
+
+.event-content p,
+.insight-modern > p,
+.recommendation-line p {
+  font-size: 11px !important;
+  line-height: 1.4 !important;
+}
+
+
+/* =========================================================
+   EXHIBITION OPERATIONS — SLIGHT CARD SIZE BOOST
+   ========================================================= */
+
+/* KPI row */
+.executive-kpi {
+  min-height: 92px !important;
+  padding: 14px 16px !important;
+}
+
+/* Main operational panels */
+.production-panel,
+.health-panel,
+.axis-panel,
+.alarm-panel {
+  min-height: 300px !important;
+  padding: 18px !important;
+}
+
+/* More breathing room inside panel content */
+.panel-header {
+  margin-bottom: 14px !important;
+}
+
+.production-hero,
+.health-banner,
+.axis-highlight,
+.alarm-overview {
+  margin-bottom: 12px !important;
+}
+
+/* Slightly more vertical space between rows */
+.production-time-grid,
+.cycle-summary,
+.oee-components,
+.health-status-list,
+.axis-table,
+.event-list,
+.insight-list {
+  row-gap: 8px !important;
+}
+
+/* =========================================================
+   COMPACT EVIDENCE CARDS — EXHIBITION READABILITY
+   ========================================================= */
+
+.compact-evidence-grid {
+  gap: 14px !important;
+}
+
+.compact-card {
+  padding: 18px !important;
+  min-height: 285px !important;
+}
+
+/* Card heading */
+.compact-card-head h2 {
+  font-size: 18px !important;
+  line-height: 1.2 !important;
+}
+
+.compact-card-head > span {
+  font-size: 11px !important;
+}
+
+/* Production */
+.compact-stat span {
+  font-size: 11px !important;
+}
+
+.compact-stat strong {
+  font-size: 15px !important;
+}
+
+/* Robot Health */
+.compact-list-row span {
+  font-size: 11px !important;
+}
+
+.compact-list-row strong {
+  font-size: 13px !important;
+}
+
+/* Axis & Servo + alarm summary boxes */
+.compact-alert-box span {
+  font-size: 11px !important;
+}
+
+.compact-alert-box strong {
+  font-size: 14px !important;
+}
+
+.compact-axis-row > strong {
+  font-size: 12px !important;
+}
+
+.compact-axis-row > span {
+  font-size: 11px !important;
+}
+
+/* AI Insights */
+.compact-insight-top span {
+  font-size: 10px !important;
+}
+
+.compact-insight > strong {
+  font-size: 13px !important;
+}
+
+.compact-insight > p {
+  font-size: 11px !important;
+  line-height: 1.45 !important;
+}
+
+/* Slightly more breathing room */
+.compact-stat-grid,
+.compact-list,
+.compact-axis-list,
+.compact-insights {
+  gap: 10px !important;
+}
+
+
+/* =========================================================
+   10-POINT ROBOT SIMULATION REPLAY
+   ========================================================= */
+
+.simulation-replay-card {
+  margin-bottom: 14px;
+  min-height: auto !important;
+  padding: 16px 18px !important;
+}
+
+.simulation-replay-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 13px;
+}
+
+.simulation-replay-head > div > span {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  opacity: 0.65;
+  margin-bottom: 3px;
+}
+
+.simulation-replay-head h2 {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.2;
+}
+
+.simulation-replay-head > strong {
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.simulation-point-grid {
+  display: grid;
+  grid-template-columns: repeat(10, minmax(95px, 1fr));
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 2px;
+}
+
+.simulation-point {
+  min-width: 95px;
+  padding: 9px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  opacity: 0.62;
+  transition:
+    opacity 180ms ease,
+    border-color 180ms ease,
+    transform 180ms ease;
+}
+
+.simulation-point-active {
+  opacity: 1;
+  border-color: rgba(85, 220, 160, 0.75);
+  transform: translateY(-2px);
+}
+
+.simulation-point-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.simulation-point-top strong {
+  font-size: 12px;
+}
+
+.simulation-point-top span {
+  font-size: 10px;
+  opacity: 0.65;
+}
+
+.simulation-value {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  margin-top: 5px;
+}
+
+.simulation-value span {
+  font-size: 10px;
+  opacity: 0.65;
+}
+
+.simulation-value strong {
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.simulation-state {
+  margin-top: 8px;
+  padding-top: 6px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  font-size: 10px;
+  font-weight: 700;
+}
+
+@media (max-width: 1100px) {
+  .simulation-point-grid {
+    grid-template-columns: repeat(10, 105px);
+  }
+}
+
+
+/* FINAL LAYOUT FIX 2026 */
+
+.simulation-replay-card,
+.simulation-analytics-panel {
+  display: none !important;
+}
+
+section:has(> .compact-evidence-grid) {
+  position: static !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  overflow: visible !important;
+}
+
+.compact-evidence-grid {
+  position: static !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  overflow: visible !important;
+  align-items: stretch !important;
+}
+
+.compact-evidence-grid > .compact-card {
+  position: relative !important;
+  height: auto !important;
+  min-height: 310px !important;
+  max-height: none !important;
+  overflow: visible !important;
+}
+
+.compact-evidence-grid > .compact-card:last-child {
+  min-height: 350px !important;
+}
+
+.compact-insights,
+.compact-insight {
+  position: static !important;
+  height: auto !important;
+  max-height: none !important;
+  overflow: visible !important;
+}
+
+.compact-insight {
+  margin-bottom: 10px !important;
+}
+
+.compact-insight strong,
+.compact-insight p,
+.compact-action {
+  white-space: normal !important;
+  overflow: visible !important;
+  text-overflow: unset !important;
+}
+
+.compact-ai {
+  position: static !important;
+  inset: auto !important;
+  transform: none !important;
+
+  display: block !important;
+  clear: both !important;
+
+  width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+
+  margin: 28px 0 0 !important;
+  padding: 0 !important;
+
+  overflow: visible !important;
+}
+
+.compact-ai-label {
+  position: static !important;
+  inset: auto !important;
+  transform: none !important;
+
+  width: 100% !important;
+  margin: 0 0 14px !important;
+}
+

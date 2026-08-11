@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import "./App.css";
 import AskMyRobot from "./components/AskMyRobot";
+import SimulationAnalytics from "./components/SimulationAnalytics";
 
 async function loadJson(url) {
   const response = await fetch(url);
@@ -59,6 +60,8 @@ function App() {
   const [allAlarms, setAllAlarms] = useState([]);
   const [allMaintenance, setAllMaintenance] = useState([]);
   const [allInsights, setAllInsights] = useState([]);
+  const [simulationPoints, setSimulationPoints] = useState({});
+  const [simulationIndex, setSimulationIndex] = useState(0);
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -68,6 +71,7 @@ function App() {
       loadJson("/data_v3/alarms.json"),
       loadJson("/data_v3/maintenance.json"),
       loadJson("/data_v3/derived_insights.json"),
+      loadJson("/data_v3/simulation_10_points.json"),
     ])
       .then(
         ([
@@ -76,6 +80,7 @@ function App() {
           alarmData,
           maintenanceData,
           insightData,
+          simulationData,
         ]) => {
           const robots = Array.isArray(fleetData?.robots)
             ? fleetData.robots
@@ -117,6 +122,12 @@ function App() {
           setAllInsights(
             Array.isArray(insightData) ? insightData : []
           );
+
+      setSimulationPoints(
+        simulationData && typeof simulationData === "object"
+          ? simulationData
+          : {}
+      );
         }
       )
       .catch((err) => {
@@ -124,6 +135,28 @@ function App() {
         setError(err.message);
       });
   }, []);
+
+  const selectedSimulationPoints = useMemo(() => {
+    const points = simulationPoints?.[selectedRobotId];
+
+    return Array.isArray(points) ? points : [];
+  }, [simulationPoints, selectedRobotId]);
+
+  useEffect(() => {
+    setSimulationIndex(0);
+
+    if (selectedSimulationPoints.length <= 1) {
+      return undefined;
+    }
+
+    const timer = window.setInterval(() => {
+      setSimulationIndex((current) =>
+        (current + 1) % selectedSimulationPoints.length
+      );
+    }, 2000);
+
+    return () => window.clearInterval(timer);
+  }, [selectedRobotId, selectedSimulationPoints.length]);
 
   const selectRobot = (event) => {
     const id = event.target.value;
@@ -788,6 +821,7 @@ function App() {
           />
         </div>
 
+
         <div className="compact-evidence-grid">
           <article className="compact-card">
             <div className="compact-card-head">
@@ -1010,7 +1044,13 @@ function App() {
         </div>
       </section>
 
-      <section className="compact-ai" id="ask-my-robot">
+      <SimulationAnalytics
+          robotId={selectedRobotId}
+          points={selectedSimulationPoints}
+          activeIndex={simulationIndex}
+        />
+
+        <section className="compact-ai" id="ask-my-robot">
         <div className="compact-ai-label">
           <strong>AI Analytics · Ask My Robot</strong>
           <span>
