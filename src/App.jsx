@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import "./App.css";
 import AskMyRobot from "./components/AskMyRobot";
+import RobotVideo from "./components/RobotVideo";
 import SimulationAnalytics from "./components/SimulationAnalytics";
 
 async function loadJson(url) {
@@ -1044,7 +1045,12 @@ function App() {
         </div>
       </section>
 
-      <SimulationAnalytics
+      <RobotVideo
+          robotId={selectedRobotId}
+          robot={snapshot}
+        />
+
+        <SimulationAnalytics
           robotId={selectedRobotId}
           points={selectedSimulationPoints}
           activeIndex={simulationIndex}
