@@ -8,7 +8,7 @@ import urllib.request
 from pathlib import Path
 
 
-API_URL = "http://127.0.0.1:8000/ask-my-robot"
+API_URL = "https://roboinsight-api.onrender.com/ask-my-robot"
 TIMEOUT_SECONDS = 120
 
 TESTS = [
