@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import logging
 import re
 from datetime import timezone
 from functools import lru_cache
@@ -31,6 +32,7 @@ INSIGHTS_FILE = DATA_DIR / "insights.json"
 REGISTRY_FILE = DATA_DIR / "robot_registry.json"
 DATA_DICTIONARY_FILE = DATA_DIR / "data_dictionary.json"
 DETERMINISTIC_ANSWER_CACHE = {}
+logger = logging.getLogger(__name__)
 
 
 # ============================================================
@@ -698,6 +700,11 @@ def build_fleet_summary(
 
             "highest_current_axis":
                 highest_current_axis,
+
+            "servo_error_count": sum(
+                axis.get("error_count") or 0
+                for axis in axes
+            ),
         })
 
     return output
@@ -923,7 +930,7 @@ def classify_complex_intent(question):
 
     q = re.sub(r"\s+", " ", question.lower()).strip()
     rules = (
-        ("AI_FLEET_MAINTENANCE_PRIORITY", ("maintenance resources are limited", "inspections be prioritized")),
+        ("AI_FLEET_MAINTENANCE_PRIORITY", ("maintenance resources are limited", "inspections be prioritized", "only three robots can be inspected", "which three should be prioritized")),
         ("AI_FLEET_ROBOT_RANKING", ("most concerning robots", "evidence behind your ranking")),
         ("AI_FLEET_RISK_PRIORITY", ("operational risks across the fleet", "management attention first", "overall fleet risk summary")),
         ("AI_FLEET_PATTERN_SUMMARY", ("patterns across the fleet", "performance, maintenance, alarm, and energy patterns")),
@@ -1123,6 +1130,9 @@ def deterministic_answer_for_question(
         "all_maintenance",
         [],
     ) or []
+
+    all_alarms = evidence.get("all_alarms", []) or []
+    all_insights = evidence.get("all_insights", []) or []
 
     # --------------------------------------------------------
     # READ-ONLY CONTROL
@@ -1584,6 +1594,38 @@ def deterministic_answer_for_question(
 
         # Named-robot comparison.
         ids = robot_ids_in_question(question)
+
+        if (
+            len(ids) >= 2
+            and "compare" in q
+            and "operational risk" in q
+        ):
+            profiles = _fleet_risk_profiles(evidence, ids)
+            if len(profiles) < 2:
+                return None
+            leader, runner_up = profiles[0], profiles[1]
+            leader_id = leader["robot"].get("robot_id")
+            runner_id = runner_up["robot"].get("robot_id")
+            leader_reasons = _risk_reasons(leader)
+            runner_reasons = _risk_reasons(runner_up)
+            if leader["score"] == runner_up["score"]:
+                conclusion = (
+                    f"The available dashboard evidence does not clearly distinguish the operational risk of "
+                    f"{leader_id} and {runner_id}."
+                )
+                priority = "Neither robot can be prioritized over the other from the supplied evidence."
+            else:
+                conclusion = f"{leader_id} currently presents the greater operational risk."
+                priority = (
+                    f"The main differentiator is {leader_reasons[0]}. Both require attention, but based on the "
+                    f"available dashboard evidence, {leader_id} should currently be prioritized."
+                )
+            return (
+                f"{conclusion}\n\n"
+                f"{leader_id} has " + "; ".join(leader_reasons) + ". "
+                f"{runner_id} has " + "; ".join(runner_reasons) + f".\n\n{priority}",
+                "FLEET_COMPARISON",
+            )
 
         if (
             len(ids) >= 2
@@ -2252,15 +2294,96 @@ def _highest_axis(current):
 
 
 def _fleet_ranking(full_evidence):
-    def score(robot):
-        overdue = sum(item.get("status") == "OVERDUE" for item in robot.get("maintenance_due_items", []))
-        due = robot.get("maintenance_due_count", 0)
-        alarms = robot.get("active_alarm_count", 0)
-        attention = robot.get("mechanical_status") == "ATTENTION"
-        load = (robot.get("highest_current_axis") or {}).get("load_pct") or 0
-        oee = robot.get("oee_pct") or 100
-        return overdue * 100 + alarms * 30 + due * 15 + attention * 10 + max(0, 92 - oee) + load / 20
-    return sorted(full_evidence.get("fleet_summary", []), key=score, reverse=True)
+    return [
+        profile["robot"]
+        for profile in _fleet_risk_profiles(full_evidence)
+    ]
+
+
+def _fleet_risk_profile(robot, all_alarms, all_insights):
+    robot_id = robot.get("robot_id")
+    due_items = robot.get("maintenance_due_items") or []
+    overdue = [item for item in due_items if item.get("status") == "OVERDUE"]
+    due_soon = [item for item in due_items if item.get("status") == "DUE_SOON"]
+    active_alarms = [
+        alarm for alarm in all_alarms
+        if alarm.get("robot_id") == robot_id and alarm.get("status") == "ACTIVE"
+    ]
+    severity_rank = {"LOW": 1, "MEDIUM": 2, "HIGH": 3, "CRITICAL": 4}
+    max_severity_value = max((severity_rank.get(item.get("severity"), 0) for item in active_alarms), default=0)
+    max_severity = next((name for name, value in severity_rank.items() if value == max_severity_value), "NONE")
+    mechanical_rank = {"NORMAL": 0, "ATTENTION": 1, "CRITICAL": 2}.get(robot.get("mechanical_status"), 0)
+    servo_errors = robot.get("servo_error_count") or 0
+    axis = robot.get("highest_current_axis") or {}
+    axis_load = axis.get("load_pct") or 0
+    historical = build_robot_historical_evidence(robot_id)
+    cycle_trend = _metric(historical, "cycle_time_s").get("trend", "STABLE")
+    oee_trend = _metric(historical, "oee_pct").get("trend", "STABLE")
+    degrading_trends = sum(value == "DEGRADING" for value in (cycle_trend, oee_trend))
+    power_abnormality = next((
+        item for item in all_insights
+        if item.get("robot_id") == robot_id and item.get("category") == "POWER_ANOMALY"
+    ), None)
+    score = (
+        len(overdue),
+        max_severity_value,
+        len(due_soon),
+        mechanical_rank,
+        servo_errors,
+        axis_load,
+        degrading_trends,
+        -(robot.get("oee_pct") if robot.get("oee_pct") is not None else 100),
+    )
+    return {
+        "robot": robot,
+        "score": score,
+        "overdue": overdue,
+        "due_soon": due_soon,
+        "active_alarms": active_alarms,
+        "alarm_severity": max_severity,
+        "mechanical_status": robot.get("mechanical_status"),
+        "servo_errors": servo_errors,
+        "axis": axis,
+        "cycle_trend": cycle_trend,
+        "oee_trend": oee_trend,
+        "power_abnormality": power_abnormality,
+    }
+
+
+def _fleet_risk_profiles(full_evidence, robot_ids=None):
+    allowed = set(robot_ids or [])
+    profiles = [
+        _fleet_risk_profile(robot, full_evidence.get("all_alarms", []), full_evidence.get("all_insights", []))
+        for robot in full_evidence.get("fleet_summary", [])
+        if not allowed or robot.get("robot_id") in allowed
+    ]
+    return sorted(profiles, key=lambda profile: profile["score"], reverse=True)
+
+
+def _risk_reasons(profile):
+    robot = profile["robot"]
+    reasons = []
+    if profile["overdue"]:
+        item = profile["overdue"][0]
+        reasons.append(f"{item.get('title')} is OVERDUE by {abs(item.get('remaining_hours') or 0)} hours")
+    elif profile["due_soon"]:
+        item = profile["due_soon"][0]
+        reasons.append(f"{item.get('title')} is DUE_SOON with {item.get('remaining_hours')} hours remaining")
+    if profile["active_alarms"]:
+        reasons.append(f"{profile['alarm_severity']} active alarm ({profile['active_alarms'][0].get('message')})")
+    if profile["mechanical_status"] in {"ATTENTION", "CRITICAL"}:
+        reasons.append(f"mechanical status {profile['mechanical_status']}")
+    if profile["servo_errors"]:
+        reasons.append(f"{profile['servo_errors']} servo error count(s)")
+    axis = profile["axis"]
+    if axis:
+        reasons.append(f"highest current load Axis {axis.get('axis')} at {_fmt(axis.get('load_pct'))}%")
+    if profile["cycle_trend"] == "DEGRADING" or profile["oee_trend"] == "DEGRADING":
+        reasons.append(f"cycle trend {profile['cycle_trend']} and OEE trend {profile['oee_trend']}")
+    if profile["power_abnormality"]:
+        reasons.append(profile["power_abnormality"].get("title"))
+    reasons.append(f"OEE {_fmt(robot.get('oee_pct'))}%")
+    return reasons
 
 
 def fallback_for_complex_intent(intent, full_evidence):
@@ -2345,8 +2468,15 @@ def fallback_for_complex_intent(intent, full_evidence):
         avg_power = sum(r.get("current_power_kw") or 0 for r in ranked) / len(ranked)
         return f"Fleet patterns: average OEE is {avg_oee:.1f}%; {sum(r.get('maintenance_due_count',0)>0 for r in ranked)} robots have due maintenance; {sum(r.get('active_alarm_count',0)>0 for r in ranked)} have active alarms; average current power is {avg_power:.2f} kW. Highest current power is {max(ranked,key=lambda r:r.get('current_power_kw') or 0)['robot_id']}."
     if intent == "AI_FLEET_MAINTENANCE_PRIORITY":
-        due = [r for r in ranked if r.get("maintenance_due_count", 0)]
-        return "Inspection priority with limited resources:\n" + "\n".join(f"{i}. {r['robot_id']} — {r.get('maintenance_due_count')} due item(s), {r.get('active_alarm_count',0)} alarm(s), highest load {(r.get('highest_current_axis') or {}).get('load_pct')}%." for i, r in enumerate(due[:5], 1))
+        profiles = _fleet_risk_profiles(full_evidence)[:3]
+        return (
+            "Based on the current dashboard evidence, inspect:\n"
+            + "\n".join(
+                f"{index}. {profile['robot'].get('robot_id')} — " + "; ".join(_risk_reasons(profile)) + "."
+                for index, profile in enumerate(profiles, 1)
+            )
+            + "\n\nThese robots combine the strongest current maintenance, alarm, performance, or mechanical attention indicators."
+        )
     return "The available data is insufficient to determine that."
 
 def select_evidence_for_question(
@@ -2998,14 +3128,19 @@ def ask_my_robot(request: AskRobotRequest):
             answer_source = "DETERMINISTIC_ANALYTICS"
             resolution_mode = "DETERMINISTIC"
         else:
-            q_lower = question.lower()
             try:
                 answer = ask_ollama(question, evidence)
                 answer_source = "OLLAMA_GROUNDED_EXPLANATION"
                 resolution_mode = "AI"
-            except RuntimeError:
-                if complex_intent:
-                    answer = fallback_for_complex_intent(complex_intent, full_evidence)
+            except Exception as exc:
+                logger.warning(
+                    "Ollama failed for intent %s; using grounded deterministic fallback: %s",
+                    complex_intent or evidence.get("query_scope"),
+                    exc,
+                )
+                fallback_intent = complex_intent or evidence.get("query_scope")
+                if str(fallback_intent or "").startswith("AI_"):
+                    answer = fallback_for_complex_intent(fallback_intent, full_evidence)
                     answer_source = "INTENT_SPECIFIC_DETERMINISTIC_FALLBACK"
                 else:
                     answer = (
