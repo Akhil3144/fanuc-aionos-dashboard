@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 import re
 from datetime import timezone
+from functools import lru_cache
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
@@ -14,19 +15,22 @@ from ollama_client import ask_ollama, OLLAMA_MODEL
 
 
 # ============================================================
-# PATHS — SYNTHETIC DATA V3
+# PATHS — OPEN HOUSE SYNTHETIC SIMULATOR DATA
 # ============================================================
 
 BACKEND_DIR = Path(__file__).resolve().parent
 PROJECT_ROOT = BACKEND_DIR.parent
-DATA_DIR = PROJECT_ROOT / "public" / "data_v3"
+DATA_DIR = PROJECT_ROOT / "public" / "data_openhouse"
 
-TELEMETRY_FILE = DATA_DIR / "telemetry_history.jsonl"
-FLEET_LATEST_FILE = DATA_DIR / "fleet_latest_snapshot.json"
+TELEMETRY_FILE = DATA_DIR / "telemetry_history.json"
+HISTORY_DIR = DATA_DIR / "history"
+FLEET_LATEST_FILE = DATA_DIR / "robot_current.json"
 ALARMS_FILE = DATA_DIR / "alarms.json"
 MAINTENANCE_FILE = DATA_DIR / "maintenance.json"
-INSIGHTS_FILE = DATA_DIR / "derived_insights.json"
+INSIGHTS_FILE = DATA_DIR / "insights.json"
+REGISTRY_FILE = DATA_DIR / "robot_registry.json"
 DATA_DICTIONARY_FILE = DATA_DIR / "data_dictionary.json"
+DETERMINISTIC_ANSWER_CACHE = {}
 
 
 # ============================================================
@@ -66,6 +70,13 @@ class AskRobotRequest(BaseModel):
 
     # Optional explicit selected robot id.
     selected_robot_id: str | None = None
+    robot_id: str | None = None
+    scope: str | None = None
+
+    # Real Open House identity/configuration supplied by the frontend.
+    # Operational telemetry remains sourced from the simulator files.
+    selected_registry_id: str | None = None
+    robot_registry: list[dict] = Field(default_factory=list)
 
 
 # ============================================================
@@ -100,15 +111,15 @@ def find_dictionary_field(data, field_name: str):
 
 
 def load_fleet():
-    fleet = load_json(FLEET_LATEST_FILE) or {}
-    robots = fleet.get("robots", [])
+    fleet = load_json(FLEET_LATEST_FILE) or []
+    robots = fleet if isinstance(fleet, list) else fleet.get("robots", [])
 
     if not isinstance(robots, list) or not robots:
         raise RuntimeError(
-            "fleet_latest_snapshot.json contains no robots"
+            "robot_current.json contains no robots"
         )
 
-    return fleet, robots
+    return {"robots": robots, "source_mode": "SIMULATOR"}, robots
 
 
 def robot_by_id(robots, robot_id):
@@ -122,46 +133,55 @@ def robot_by_id(robots, robot_id):
     )
 
 
+class RobotResolutionError(RuntimeError):
+    pass
+
+
+def get_openhouse_robot_evidence(robot_id):
+    normalized = normalize_robot_id(robot_id)
+    if not normalized or not normalized.startswith("OH26-"):
+        raise RobotResolutionError(f"{robot_id} is not an Open House robot ID")
+    registry = load_json(REGISTRY_FILE) or []
+    current = load_json(FLEET_LATEST_FILE) or []
+    sources = {
+        "production": load_json(DATA_DIR / "production.json") or [],
+        "axis_servo": load_json(DATA_DIR / "axis_servo.json") or [],
+        "alarms": load_json(ALARMS_FILE) or [], "maintenance": load_json(MAINTENANCE_FILE) or [],
+        "power": load_json(DATA_DIR / "power.json") or [], "insights": load_json(INSIGHTS_FILE) or [],
+    }
+    resolved = next((item for item in current if item.get("robot_id") == normalized), None)
+    registry_item = next((item for item in registry if item.get("id") == normalized), None)
+    if not resolved or not registry_item:
+        raise RobotResolutionError(f"Open House data was not found for {normalized}")
+    result = {"robot_id": normalized, "registry": registry_item, "current": resolved, "data_source": "OPENHOUSE"}
+    for name, rows in sources.items():
+        matches = [item for item in rows if item.get("robot_id") == normalized]
+        result[name] = matches if name in {"alarms", "maintenance", "insights"} else (matches[0] if matches else None)
+    result["history_summary"] = build_robot_historical_evidence(normalized)
+    if result["robot_id"] != normalized:
+        raise RobotResolutionError(f"Robot resolution mismatch: requested {normalized}, resolved {result['robot_id']}")
+    return result
+
+
 def normalize_robot_id(value):
     if not value:
         return None
 
-    match = re.search(
-        r"\bEXH[-_ ]?R0?([1-9])\b",
-        str(value).upper(),
-    )
+    match = re.search(r"\bOH26[-_ ]?R0?([0-9]{1,3})\b", str(value).upper())
 
     if not match:
         return None
 
-    return f"EXH-R0{match.group(1)}"
+    return f"OH26-R{int(match.group(1)):03d}"
 
 
 def robot_ids_in_question(question):
     ids = []
 
-    for match in re.finditer(
-        r"\bEXH[-_ ]?R0?([1-9])\b",
-        question.upper(),
-    ):
-        robot_id = f"EXH-R0{match.group(1)}"
+    for match in re.finditer(r"\bOH26[-_ ]?R0?([0-9]{1,3})\b", question.upper()):
+        robot_id = f"OH26-R{int(match.group(1)):03d}"
 
         if robot_id not in ids:
-            ids.append(robot_id)
-
-    aliases = {
-        "assembly robot": "EXH-R01",
-        "assembly": "EXH-R01",
-        "handling robot": "EXH-R02",
-        "handling": "EXH-R02",
-        "packaging robot": "EXH-R03",
-        "packaging": "EXH-R03",
-    }
-
-    q = question.lower()
-
-    for alias, robot_id in aliases.items():
-        if alias in q and robot_id not in ids:
             ids.append(robot_id)
 
     return ids
@@ -272,7 +292,54 @@ def _telemetry_source():
     )
 
 
+@lru_cache(maxsize=16)
 def build_robot_historical_evidence(robot_id):
+    points = load_json(HISTORY_DIR / f"{robot_id}.json") or []
+    if not points:
+        raise RuntimeError(f"No simulator history found for {robot_id}")
+
+    def stats(field, higher_is_better=None):
+        values = [float(point[field]) for point in points if point.get(field) is not None]
+        if not values:
+            return {"min": None, "max": None, "average": None, "latest": None, "trend": "STABLE"}
+        window = max(2, min(12, len(values) // 2))
+        delta = sum(values[-window:]) / window - sum(values[:window]) / window
+        threshold = max((max(values) - min(values)) * 0.08, 0.05)
+        if abs(delta) <= threshold or higher_is_better is None:
+            trend = "STABLE"
+        else:
+            improving = delta > 0 if higher_is_better else delta < 0
+            trend = "IMPROVING" if improving else "DEGRADING"
+        return {"min": round(min(values), 2), "max": round(max(values), 2), "average": round(sum(values) / len(values), 2), "latest": round(values[-1], 2), "trend": trend}
+
+    axis_stats = {f"J{axis}": stats(f"axis{axis}_load_pct", False) for axis in range(1, 7)}
+    highest_axis = max(axis_stats.items(), key=lambda item: item[1]["max"] or -1)
+    alarms = [item for item in (load_json(ALARMS_FILE) or []) if item.get("robot_id") == robot_id]
+    maintenance = [item for item in (load_json(MAINTENANCE_FILE) or []) if item.get("robot_id") == robot_id]
+    return {
+        "robot_id": robot_id,
+        "source_mode": "SIMULATOR",
+        "full_history": {
+            "records": len(points), "start_time": points[0].get("timestamp"), "end_time": points[-1].get("timestamp"),
+            "cycle_time_s": stats("cycle_time_s", False), "oee_pct": stats("oee_pct", True),
+            "cycle_deviation_pct": stats("cycle_deviation_pct", False),
+            "availability_pct": stats("availability_pct", True), "performance_pct": stats("performance_pct", True),
+            "quality_pct": stats("quality_pct", True), "power_kw": stats("power_kw", False),
+            "servo_error_count": stats("servo_error_count"),
+            "faulted_samples": sum(point.get("state") == "FAULTED" for point in points),
+            "state_counts": {
+                state: sum(point.get("state") == state for point in points)
+                for state in ("RUNNING", "READY", "IDLE", "FAULTED")
+            },
+            "alarm_sample_count": sum((point.get("active_alarm_count") or 0) > 0 for point in points),
+        },
+        "axis_load_trends": axis_stats,
+        "highest_historical_axis_load": {"axis": highest_axis[0], "load_pct": highest_axis[1]["max"], "measurement_type": "historical maximum"},
+        "alarm_windows": alarms,
+        "maintenance_status": maintenance,
+    }
+
+    # Retained below only as documentation of the previous V3 DuckDB query.
     source = _telemetry_source()
     safe_robot = robot_id.replace("'", "''")
 
@@ -389,7 +456,29 @@ def build_robot_historical_evidence(robot_id):
         con.close()
 
 
+@lru_cache(maxsize=1)
 def build_fleet_historical_evidence():
+    _, robots = load_fleet()
+    rows = []
+    for robot in robots:
+        evidence = build_robot_historical_evidence(robot["robot_id"])
+        full = evidence["full_history"]
+        interval_hours = (1 if full["records"] == 120 else 5) / 60
+        rows.append({
+            "robot_id": robot["robot_id"],
+            "records": full["records"],
+            "average_cycle_time_s": full["cycle_time_s"]["average"],
+            "faulted_minutes": full["faulted_samples"] * (1 if full["records"] == 120 else 5),
+            "energy_used_kwh": round(full["power_kw"]["average"] * full["records"] * interval_hours, 2),
+            "peak_power_kw": full["power_kw"]["max"],
+            "highest_historical_axis_load": evidence["highest_historical_axis_load"],
+        })
+    return {
+        "source_mode": "SIMULATOR",
+        "robots": rows,
+    }
+
+    # Retained below only as documentation of the previous V3 DuckDB query.
     source = _telemetry_source()
 
     con = duckdb.connect(database=":memory:")
@@ -540,6 +629,12 @@ def build_fleet_summary(
             if item.get("category") in {
                 "PREDICTIVE_MAINTENANCE",
                 "ANOMALY",
+                "CYCLE_DEGRADATION",
+                "AXIS_LOAD_TREND",
+                "POWER_ANOMALY",
+                "MAINTENANCE_DUE",
+                "ALARM_PATTERN",
+                "HEALTH_ATTENTION",
             }
         ]
 
@@ -615,6 +710,8 @@ def build_fleet_summary(
 def build_evidence(
     live_snapshot=None,
     selected_robot_id=None,
+    robot_registry=None,
+    selected_registry_id=None,
 ):
     fleet, robots = load_fleet()
 
@@ -626,9 +723,11 @@ def build_evidence(
         or {}
     )
 
-    requested_id = normalize_robot_id(
-        selected_robot_id
-    )
+    raw_requested_id = selected_robot_id or (live_snapshot or {}).get("robot_id")
+    requested_id = normalize_robot_id(raw_requested_id)
+
+    if raw_requested_id and requested_id is None:
+        raise RobotResolutionError(f"Robot {raw_requested_id} is not available in the Open House data source")
 
     if not requested_id and live_snapshot:
         requested_id = normalize_robot_id(
@@ -644,9 +743,9 @@ def build_evidence(
     )
 
     if selected_latest is None:
-        raise RuntimeError(
+        raise RobotResolutionError(
             f"Robot {requested_id} was not found "
-            "in the V3 fleet dataset."
+            "in the Open House dataset."
         )
 
     current_snapshot = (
@@ -688,6 +787,17 @@ def build_evidence(
         "system_mode": "READ_ONLY",
 
         "selected_robot_id": requested_id,
+
+        "registry_source": "OPEN HOUSE 2026",
+        "robot_registry": robot_registry or [],
+        "selected_registry_id": selected_registry_id,
+        "selected_robot_registry": next(
+            (
+                item for item in (robot_registry or [])
+                if item.get("id") == selected_registry_id
+            ),
+            None,
+        ),
 
         "current_state":
             build_state(current_snapshot),
@@ -784,6 +894,8 @@ def is_control_request(question):
 
     control_terms = (
         "change speed",
+        "set robot speed",
+        "change the robot speed",
         "reduce speed",
         "increase speed",
         "change override",
@@ -793,14 +905,31 @@ def is_control_request(question):
         "modify i/o",
         "change io",
         "change i/o",
+        "disable a safety interlock",
+        "disable safety interlock",
     )
 
     return any(term in q for term in control_terms)
 
 
-def is_fleet_question(question):
+def is_explanation_request(question):
+    q = question.lower()
+    return any(term in q for term in (
+        "executive summary", "complete condition summary", "condition summary",
+        "overall fleet risk summary", "summarize fleet risk", "explain why",
+        "explain the latest alarm", "explain the relationship", "important changes",
+        "what changed recently", "what should be inspected first", "what should an engineer inspect",
+    )) and not is_control_request(question)
+
+
+def is_fleet_question(question, request_scope=None):
     q = question.lower()
     ids = robot_ids_in_question(question)
+
+    if str(request_scope or "").upper() == "ROBOT":
+        return len(ids) >= 2 or any(term in q for term in (
+            "which robot", "which robots", "all robots", "fleet", "across the fleet", "compare robots",
+        ))
 
     if len(ids) >= 2:
         return True
@@ -829,6 +958,8 @@ def is_fleet_question(question):
         "highest load",
         "most maintenance",
         "most predictive",
+        "how many robots",
+        "currently running",
     )
 
     return any(term in q for term in fleet_terms)
@@ -860,6 +991,7 @@ def _robot_label(item):
 def deterministic_answer_for_question(
     question,
     evidence,
+    request_scope=None,
 ):
     """
     Exact-answer layer for factual V3 simulator questions.
@@ -868,6 +1000,69 @@ def deterministic_answer_for_question(
     lookups. Ollama is reserved for open-ended grounded explanation.
     """
     q = question.lower().strip()
+
+    registry = evidence.get("robot_registry", []) or []
+    selected_registry = evidence.get("selected_robot_registry") or {}
+
+    # Real registry identity/configuration answers. These never infer telemetry.
+    if registry:
+        if (("how many robots" in q or "robot count" in q) and ("registry" in q or "open house" in q)):
+            return (f"The Open House 2026 registry contains {len(registry)} robots.", "FLEET_REGISTRY")
+
+        if "which applications" in q or "applications are represented" in q or "application count" in q:
+            applications = sorted({item.get("application") for item in registry if item.get("application")})
+            return (f"The registry contains {len(applications)} specified applications: {', '.join(applications)}. Robots with blank application cells are not included in that count.", "FLEET_REGISTRY")
+
+        if "featured" in q and selected_registry and ("is it" in q or str(selected_registry.get("id", "")).lower() in q):
+            return (
+                f"{selected_registry.get('id')} is "
+                f"{'featured' if selected_registry.get('featured') else 'not featured'} "
+                "in the real Open House 2026 Excel registry.",
+                "SELECTED_ROBOT_REGISTRY",
+            )
+
+        if "featured" in q:
+            featured = [item for item in registry if item.get("featured")]
+            labels = "; ".join(f"{item.get('id')} — {item.get('model')} ({item.get('application')})" for item in featured)
+            return (f"The featured robots are {labels}.", "FLEET_REGISTRY")
+
+        exact_application_matches = [
+            item for item in registry
+            if item.get("application")
+            and str(item.get("application")).lower() in q
+        ]
+        if exact_application_matches and ("which robot" in q or "which robots" in q or "used for" in q):
+            labels = "; ".join(f"{item.get('id')} — {item.get('model')} ({item.get('application')})" for item in exact_application_matches)
+            return (labels + ".", "FLEET_REGISTRY")
+
+        application_terms = ("pallet", "picking", "ai error proofing", "assembly", "welding", "paint", "packaging", "handling")
+        matched_term = next((term for term in application_terms if term in q), None)
+        if matched_term and ("which robot" in q or "which robots" in q or "used for" in q):
+            matches = [item for item in registry if matched_term in str(item.get("application") or "").lower()]
+            if matches:
+                labels = "; ".join(f"{item.get('id')} — {item.get('model')} ({item.get('application')})" for item in matches)
+                return (labels + ".", "FLEET_REGISTRY")
+            return (f"No robot has a specified application matching '{matched_term}' in the Open House 2026 registry.", "FLEET_REGISTRY")
+
+        registry_target = selected_registry
+        for item in registry:
+            identifiers = (str(item.get("id") or ""), str(item.get("model") or ""), str(item.get("serialNo") or ""))
+            if any(identifier and identifier.lower() in q for identifier in identifiers[:2]):
+                registry_target = item
+                break
+
+        if registry_target and any(term in q for term in ("model", "application", "ip", "identity", "what robot")):
+            ip_address = registry_target.get("ipAddress") or "not available in the workbook"
+            application = registry_target.get("application") or "not specified in the workbook"
+            return (f"{registry_target.get('id')} is serial {registry_target.get('serialNo')}, model {registry_target.get('model')}, application {application}, IP address {ip_address}, and featured is {str(bool(registry_target.get('featured'))).lower()}.", "SELECTED_ROBOT_REGISTRY")
+
+        if selected_registry and "telemetry" in q and ("available" in q or "simulator" in q):
+            return (
+                "Available operational evidence includes simulator state, OEE, cycle data, power and energy, "
+                "alarms, maintenance, and axis/servo measurements. These values are SIMULATOR data, "
+                "not live FANUC/ZDT telemetry.",
+                "SELECTED_ROBOT_SIMULATOR_EVIDENCE",
+            )
 
     fleet = evidence.get("fleet_summary", []) or []
     fleet_history = (
@@ -916,11 +1111,43 @@ def deterministic_answer_for_question(
             "READ_ONLY_CONTROL_REQUEST",
         )
 
+    if any(term in q for term in ("definitely fail", "definitely break", "will fail tomorrow", "break next")):
+        return (
+            "The available simulator evidence cannot determine a definite future failure. "
+            "No unsupported prediction will be fabricated.",
+            "SAFE_GROUNDED_REFUSAL",
+        )
+
+    if "axis value" in q and "not in the evidence" in q:
+        return (
+            "The available evidence is insufficient to provide that axis value, so no value will be fabricated.",
+            "SAFE_GROUNDED_REFUSAL",
+        )
+
+    if ("sensor value" in q or "measurement" in q) and any(term in q for term in ("not present", "not available", "not in the evidence")):
+        return ("The available evidence is insufficient to provide that measurement, so no value will be fabricated.", "SAFE_GROUNDED_REFUSAL")
+
+    if "prove" in q and any(term in q for term in ("caused", "cause", "root cause")):
+        return ("The evidence shows correlation only and does not prove causation or a root cause.", "SAFE_GROUNDED_REFUSAL")
+
+    if "live fanuc" in q or "live from fanuc" in q or "directly live from fanuc" in q or "directly from zdt" in q or "zdt right now" in q or "zdt live" in q:
+        return (
+            "No. Operational telemetry is SIMULATOR data and is not coming directly from live FANUC/ZDT systems right now. "
+            "Robot identity and application metadata come from the real Open House 2026 Excel registry.",
+            "DATA_PROVENANCE",
+        )
+
+    if "control robot safety" in q or "control safety" in q or "dashboard control the robot" in q or "safety controller" in q:
+        return (
+            "No. This dashboard is READ ONLY and cannot control robots or robot safety functions.",
+            "READ_ONLY_CONTROL_REQUEST",
+        )
+
     # --------------------------------------------------------
     # FLEET / MULTI-ROBOT
     # --------------------------------------------------------
 
-    if is_fleet_question(question):
+    if is_fleet_question(question, request_scope):
         if not fleet:
             return None
 
@@ -929,10 +1156,69 @@ def deterministic_answer_for_question(
             for item in fleet
         }
 
+        if "running" in q and ("how many" in q or "count" in q):
+            running = [item for item in fleet if item.get("robot_state") == "RUNNING"]
+            return (
+                f"In the current SIMULATOR snapshot, {len(running)} robots are RUNNING: "
+                + ", ".join(item.get("robot_id") for item in running)
+                + ".",
+                "FLEET_COMPARISON",
+            )
+
+        if ("idle" in q or "ready" in q) and ("how many" in q or "count" in q):
+            matching = [item for item in fleet if item.get("robot_state") in {"IDLE", "READY"}]
+            return (
+                f"In the current SIMULATOR snapshot, {len(matching)} robots are IDLE or READY: "
+                + ", ".join(f"{item.get('robot_id')} ({item.get('robot_state')})" for item in matching)
+                + ".",
+                "FLEET_COMPARISON",
+            )
+
+        if "healthy" in q and ("how many" in q or "count" in q):
+            healthy = [item for item in fleet if item.get("mechanical_status") == "NORMAL"]
+            return (f"In the current SIMULATOR snapshot, {len(healthy)} robots have NORMAL mechanical health.", "FLEET_COMPARISON")
+
+        if "attention" in q and ("how many" in q or "count" in q):
+            attention = [item for item in fleet if item.get("mechanical_status") in {"ATTENTION", "CRITICAL"}]
+            return (f"In the current SIMULATOR snapshot, {len(attention)} robots have ATTENTION or CRITICAL mechanical health.", "FLEET_COMPARISON")
+
+        if "fleet" in q and ("condition summary" in q or "condition" in q or "summary" in q):
+            running = sum(1 for item in fleet if item.get("robot_state") == "RUNNING")
+            alarms = sum(item.get("active_alarm_count") or 0 for item in fleet)
+            attention = sum(1 for item in fleet if item.get("mechanical_status") == "ATTENTION")
+            maintenance_due = sum(item.get("maintenance_due_count") or 0 for item in fleet)
+            return (
+                f"SIMULATOR fleet summary: {len(fleet)} telemetry profiles, {running} RUNNING, "
+                f"{alarms} active alarm(s), {attention} with mechanical ATTENTION, and "
+                f"{maintenance_due} maintenance item(s) due or overdue.",
+                "FLEET_COMPARISON",
+            )
+
+        if ("highest current axis load" in q or "highest axis load" in q) and "axis 4" not in q:
+            robot = max(fleet, key=lambda item: (item.get("highest_current_axis") or {}).get("load_pct") or -1)
+            axis = robot.get("highest_current_axis") or {}
+            return (
+                f"In the SIMULATOR snapshot, {_robot_label(robot)} has the highest current axis load "
+                f"at {_fmt(axis.get('load_pct'))}% on Axis {axis.get('axis')}.",
+                "FLEET_COMPARISON",
+            )
+
+        if "which robot" in q and "maintenance due" in q:
+            due = [item for item in fleet if (item.get("maintenance_due_count") or 0) > 0]
+            if not due:
+                return ("No simulator robot has maintenance due or overdue.", "FLEET_COMPARISON")
+            return (
+                "SIMULATOR robots with maintenance due or overdue: "
+                + "; ".join(f"{_robot_label(item)} — {item.get('maintenance_due_count')} item(s)" for item in due)
+                + ".",
+                "FLEET_COMPARISON",
+            )
+
         # Most attention: prioritize explicit strongest conditions.
         if (
             "most attention" in q
             or "needs the most attention" in q
+            or "need the most attention" in q
         ):
             def attention_key(item):
                 due_items = (
@@ -981,7 +1267,7 @@ def deterministic_answer_for_question(
 
             return (
                 f"{_robot_label(robot)} needs the most attention "
-                f"in the current synthetic fleet. It has "
+                f"in the current modelled fleet. It has "
                 f"{robot.get('active_alarm_count', 0)} active alarm(s), "
                 f"{overdue_count} overdue maintenance item(s), "
                 f"{robot.get('predictive_alert_count', 0)} predictive "
@@ -1042,7 +1328,7 @@ def deterministic_answer_for_question(
             if not overdue:
                 return (
                     "No robot has an OVERDUE maintenance item "
-                    "in the current synthetic fleet.",
+                    "in the current modelled fleet.",
                     "FLEET_COMPARISON",
                 )
 
@@ -1590,6 +1876,24 @@ def deterministic_answer_for_question(
         )
 
     # Historical axis load.
+    history_full = historical.get("full_history", {}) or {}
+    cycle_history = history_full.get("cycle_time_s", {}) or {}
+    power_history = history_full.get("power_kw", {}) or {}
+    oee_history = history_full.get("oee_pct", {}) or {}
+
+    if "cycle time" in q and any(term in q for term in ("average", "minimum", " min ", "maximum", " max ")):
+        return (
+            f"For {robot_id}, historical cycle time minimum is {_fmt(cycle_history.get('min'))} seconds, maximum is {_fmt(cycle_history.get('max'))} seconds, and average is {_fmt(cycle_history.get('average'))} seconds.",
+            "SELECTED_ROBOT_HISTORICAL_ANALYTICS",
+        )
+    if "cycle trend" in q:
+        return (f"The calculated cycle-time trend for {robot_id} is {cycle_history.get('trend', 'STABLE')}.", "SELECTED_ROBOT_HISTORICAL_ANALYTICS")
+    if "power" in q and any(term in q for term in ("average", "maximum", " max ")):
+        return (f"For {robot_id}, historical power average is {_fmt(power_history.get('average'))} kW and maximum is {_fmt(power_history.get('max'))} kW; trend is {power_history.get('trend', 'STABLE')}.", "SELECTED_ROBOT_POWER_AND_ENERGY")
+    if "oee" in q and "historical average" in q:
+        relation = "above" if (current.get("oee_pct") or 0) > (oee_history.get("average") or 0) else "below"
+        return (f"{robot_id} current OEE is {_fmt(current.get('oee_pct'))}%, {relation} its historical average of {_fmt(oee_history.get('average'))}%.", "SELECTED_ROBOT_OEE")
+
     if (
         "historical axis load" in q
         or (
@@ -1606,6 +1910,14 @@ def deterministic_answer_for_question(
             f"The highest historical axis load for {robot_id} "
             f"was {_fmt(axis.get('load_pct'))}% on Axis "
             f"{axis.get('axis')}.",
+            "SELECTED_ROBOT_AXIS_AND_SERVO",
+        )
+
+    if ("axis" in q and "highest load" in q) or "axis needs attention first" in q:
+        axes = current.get("axis_status", [])
+        highest = max(axes, key=lambda item: item.get("load_pct") or -1) if axes else {}
+        return (
+            f"{robot_id} has its highest current measured load on Axis {highest.get('axis')} at {_fmt(highest.get('load_pct'))}%. This is a measured association, not evidence of causation.",
             "SELECTED_ROBOT_AXIS_AND_SERVO",
         )
 
@@ -1635,12 +1947,28 @@ def deterministic_answer_for_question(
             "SELECTED_ROBOT_AXIS_AND_SERVO",
         )
 
+    # Recent changes and evidence-grounded inspection guidance.
+    if any(term in q for term in ("what changed recently", "changed before", "happened around the latest alarm", "cycle performance changing", "inspect first", "inspected first")):
+        if not insights:
+            return (
+                f"No derived simulator insight records a recent material change for {robot_id}.",
+                "SELECTED_ROBOT_HISTORICAL_ANALYTICS",
+            )
+        details = "; ".join(
+            f"{item.get('title')}: {item.get('evidence')} Recommendation: {item.get('recommendation') or item.get('recommended_action')}"
+            for item in insights[:3]
+        )
+        return (
+            f"SIMULATOR trend evidence for {robot_id}: {details} These are correlated observations, not proven root cause.",
+            "SELECTED_ROBOT_HISTORICAL_ANALYTICS",
+        )
+
     # OEE.
     if "oee" in q:
         return (
             f"The current OEE of {robot_id} is "
             f"{_fmt(current.get('oee_pct'))}%. "
-            "It is an AIonOS-derived synthetic dashboard KPI; "
+            "It is an AIonOS-derived modelled operational KPI; "
             "the supplied data dictionary does not define its "
             "calculation formula.",
             "SELECTED_ROBOT_OEE",
@@ -1655,8 +1983,11 @@ def deterministic_answer_for_question(
         predictive = [
             item
             for item in insights
-            if item.get("category")
-            == "PREDICTIVE_MAINTENANCE"
+            if item.get("category") in {
+                "PREDICTIVE_MAINTENANCE", "MAINTENANCE_DUE",
+                "CYCLE_DEGRADATION", "AXIS_LOAD_TREND",
+                "POWER_ANOMALY", "ALARM_PATTERN", "HEALTH_ATTENTION",
+            }
         ]
 
         if not predictive:
@@ -1670,9 +2001,9 @@ def deterministic_answer_for_question(
 
         return (
             f"{item.get('title')}. "
-            f"{item.get('explanation')} "
+            f"{item.get('evidence') or item.get('explanation')} "
             f"Recommended action: "
-            f"{item.get('recommended_action')}",
+            f"{item.get('recommendation') or item.get('recommended_action')}",
             "SELECTED_ROBOT_PREDICTIVE_MAINTENANCE",
         )
 
@@ -1725,6 +2056,30 @@ def deterministic_answer_for_question(
         return (
             " ".join(parts),
             "SELECTED_ROBOT_PREDICTIVE_MAINTENANCE",
+        )
+
+    # Current / target cycle time.
+    if "how far" in q and "cycle time" in q and "target" in q:
+        current_cycle = current.get("current_cycle_time_s")
+        target_cycle = current.get("target_cycle_time_s")
+        deviation = None if current_cycle is None or target_cycle in (None, 0) else round(current_cycle - target_cycle, 2)
+        deviation_pct = None if deviation is None else round(deviation / target_cycle * 100, 1)
+        direction = "slower" if (deviation or 0) > 0 else "faster"
+        return (f"{robot_id} is cycling at {_fmt(current_cycle)} seconds versus a {_fmt(target_cycle)}-second target, {_fmt(abs(deviation) if deviation is not None else None)} seconds ({_fmt(abs(deviation_pct) if deviation_pct is not None else None)}%) {direction}.", "SELECTED_ROBOT_CYCLE_PERFORMANCE")
+
+    if "cycle time" in q and "performance" not in q:
+        return (
+            f"For {robot_id}, the current cycle time is "
+            f"{_fmt(current.get('current_cycle_time_s'))} seconds and the target cycle time is "
+            f"{_fmt(current.get('target_cycle_time_s'))} seconds in the modelled operational evidence.",
+            "SELECTED_ROBOT_CYCLE_PERFORMANCE",
+        )
+
+    if "current cycle performance" in q or "cycle performance changing" in q:
+        history_cycle = (historical.get("full_history") or {}).get("cycle_time_s") or {}
+        return (
+            f"For {robot_id}, current cycle time is {_fmt(current.get('current_cycle_time_s'))} seconds versus a {_fmt(current.get('target_cycle_time_s'))}-second target. Historical average is {_fmt(history_cycle.get('average'))} seconds and the trend is {history_cycle.get('trend', 'STABLE')}.",
+            "SELECTED_ROBOT_CYCLE_PERFORMANCE",
         )
 
     # Cycle performance.
@@ -1793,6 +2148,16 @@ def deterministic_answer_for_question(
         )
 
     # Current power.
+    if "power compare with history" in q or "power compared with history" in q:
+        history_power = (historical.get("full_history") or {}).get("power_kw") or {}
+        current_power = current.get("current_power_kw")
+        average_power = history_power.get("average")
+        difference_pct = None if current_power is None or average_power in (None, 0) else round((current_power - average_power) / average_power * 100, 1)
+        return (
+            f"{robot_id} currently uses {_fmt(current_power)} kW versus a {_fmt(average_power)} kW historical average ({_fmt(abs(difference_pct) if difference_pct is not None else None)}% {'higher' if (difference_pct or 0) > 0 else 'lower'}); historical maximum is {_fmt(history_power.get('max'))} kW and trend is {history_power.get('trend', 'STABLE')}.",
+            "SELECTED_ROBOT_POWER_AND_ENERGY",
+        )
+
     if (
         "current power" in q
         or "power consumption" in q
@@ -1813,6 +2178,7 @@ def deterministic_answer_for_question(
 def select_evidence_for_question(
     question: str,
     evidence: dict,
+    request_scope=None,
 ):
     q = question.lower().strip()
 
@@ -1884,7 +2250,7 @@ def select_evidence_for_question(
         return selected
 
     # FLEET
-    if is_fleet_question(question):
+    if is_fleet_question(question, request_scope):
         selected["query_scope"] = (
             "FLEET_COMPARISON"
         )
@@ -2163,6 +2529,12 @@ def select_evidence_for_question(
             if item.get("category") in {
                 "PREDICTIVE_MAINTENANCE",
                 "ANOMALY",
+                "MAINTENANCE_DUE",
+                "CYCLE_DEGRADATION",
+                "AXIS_LOAD_TREND",
+                "POWER_ANOMALY",
+                "ALARM_PATTERN",
+                "HEALTH_ATTENTION",
             }
         ]
 
@@ -2208,8 +2580,7 @@ def select_evidence_for_question(
         selected["derived_insights"] = [
             item
             for item in insights
-            if item.get("category")
-            == "ANOMALY"
+            if item.get("category") in {"ANOMALY", "AXIS_LOAD_TREND", "ALARM_PATTERN"}
         ]
 
         return selected
@@ -2320,12 +2691,57 @@ def ask_my_robot(request: AskRobotRequest):
         )
 
     try:
+        # Registry identity/configuration questions bypass telemetry and DuckDB.
+        registry_evidence = {
+            "robot_registry": request.robot_registry,
+            "selected_registry_id": request.selected_registry_id,
+            "selected_robot_registry": next(
+                (
+                    item for item in request.robot_registry
+                    if item.get("id") == request.selected_registry_id
+                ),
+                None,
+            ),
+        }
+        registry_answer = deterministic_answer_for_question(question, registry_evidence, request.scope)
+        if registry_answer is not None and "REGISTRY" in registry_answer[1]:
+            answer, query_scope = registry_answer
+            return {
+                "question": question,
+                "answer": answer,
+                "model": OLLAMA_MODEL,
+                "mode": "SIMULATOR",
+                "read_only": True,
+                "answer_source": "DETERMINISTIC_ANALYTICS",
+                "resolution_mode": "DETERMINISTIC",
+                "selected_robot_id": request.selected_registry_id,
+                "requested_robot_id": request.robot_id or request.selected_robot_id,
+                "resolved_robot_id": request.selected_registry_id,
+                "data_source": "OPENHOUSE_REGISTRY",
+                "query_scope": query_scope,
+                "intent": query_scope,
+                "evidence_scope": {
+                    "registry": True,
+                    "selected_robot_snapshot": False,
+                    "fleet_comparison": query_scope == "FLEET_REGISTRY",
+                    "historical_telemetry": False,
+                    "alarms": False,
+                    "maintenance": False,
+                    "derived_insights": False,
+                    "data_dictionary": False,
+                },
+            }
+
         fleet, robots = load_fleet()
 
+        received_robot_id = request.robot_id or request.selected_robot_id or (request.live_snapshot or {}).get("robot_id")
+        if str(request.scope or "").upper() == "ROBOT" and not received_robot_id:
+            raise RobotResolutionError("ROBOT scope requires an explicit robot_id")
+        if received_robot_id and str(received_robot_id).upper().startswith("EXH-"):
+            raise RobotResolutionError("Legacy EXH evidence is not substituted into Open House requests")
+
         default_robot_id = (
-            normalize_robot_id(
-                request.selected_robot_id
-            )
+            normalize_robot_id(received_robot_id)
             or normalize_robot_id(
                 (
                     request.live_snapshot
@@ -2343,12 +2759,16 @@ def ask_my_robot(request: AskRobotRequest):
             explicit_ids[0]
             if (
                 len(explicit_ids) == 1
+                and str(request.scope or "").upper() != "ROBOT"
                 and not is_fleet_question(
-                    question
+                    question, request.scope
                 )
             )
             else default_robot_id
         )
+        resolved_package = get_openhouse_robot_evidence(target_robot_id)
+        if received_robot_id and str(request.scope or "").upper() == "ROBOT" and normalize_robot_id(received_robot_id) != resolved_package["robot_id"]:
+            raise RobotResolutionError(f"Robot resolution mismatch: requested {received_robot_id}, resolved {resolved_package['robot_id']}")
 
         live_snapshot = request.live_snapshot
 
@@ -2362,43 +2782,48 @@ def ask_my_robot(request: AskRobotRequest):
         full_evidence = build_evidence(
             live_snapshot=live_snapshot,
             selected_robot_id=target_robot_id,
+            robot_registry=request.robot_registry,
+            selected_registry_id=request.selected_registry_id,
         )
 
         evidence = select_evidence_for_question(
             question,
             full_evidence,
+            request.scope,
         )
 
-        deterministic = (
-            deterministic_answer_for_question(
-                question,
-                full_evidence,
-            )
-        )
+        normalized_question = re.sub(r"\s+", " ", question.lower()).strip()
+        cacheable = not is_control_request(question) and not any(term in normalized_question for term in ("definitely", "not in the evidence"))
+        cache_key = (normalized_question, target_robot_id, request.selected_registry_id, str(request.scope or "").upper(), FLEET_LATEST_FILE.stat().st_mtime_ns)
+        explanation_request = is_explanation_request(question)
+        deterministic = DETERMINISTIC_ANSWER_CACHE.get(cache_key) if cacheable and not explanation_request else None
+        if deterministic is None and not explanation_request:
+            deterministic = deterministic_answer_for_question(question, full_evidence, request.scope)
+            if deterministic is not None and cacheable:
+                if len(DETERMINISTIC_ANSWER_CACHE) >= 512:
+                    DETERMINISTIC_ANSWER_CACHE.clear()
+                DETERMINISTIC_ANSWER_CACHE[cache_key] = deterministic
 
         if deterministic is not None:
             answer, deterministic_scope = deterministic
             evidence["query_scope"] = deterministic_scope
             answer_source = "DETERMINISTIC_ANALYTICS"
+            resolution_mode = "DETERMINISTIC"
         else:
             q_lower = question.lower()
-
-            summary_terms = (
-                "summary", "summarize", "condition", "overview",
-                "health", "attention", "inspect", "inspection",
-            )
-
-            if any(term in q_lower for term in summary_terms):
+            try:
+                answer = ask_ollama(question, evidence)
+                answer_source = "OLLAMA_GROUNDED_EXPLANATION"
+                resolution_mode = "AI"
+            except RuntimeError:
                 grounded_parts = []
-                checks = [
-                    f"What is the current status of {target_robot_id}?",
-                    f"What active alarm does {target_robot_id} have?",
-                    f"What maintenance is due for {target_robot_id}?",
-                    f"What predictive maintenance insight does {target_robot_id} have?",
-                ]
+                checks = (["Give me a brief fleet condition summary."] if is_fleet_question(question, request.scope) else [
+                    f"What is the current status of {target_robot_id}?", f"What active alarm does {target_robot_id} have?",
+                    f"What maintenance is due for {target_robot_id}?", f"What predictive maintenance insight does {target_robot_id} have?",
+                ])
 
                 for check in checks:
-                    result = deterministic_answer_for_question(check, full_evidence)
+                    result = deterministic_answer_for_question(check, full_evidence, request.scope)
                     if result is not None:
                         part, _ = result
                         if part and part not in grounded_parts:
@@ -2410,11 +2835,11 @@ def ask_my_robot(request: AskRobotRequest):
                         answer += " Inspection priority should follow the overdue or due maintenance evidence."
                     answer_source = "GROUNDED_DETERMINISTIC_SUMMARY"
                 else:
-                    answer = "I do not have enough supported robot evidence to answer this question safely."
-                    answer_source = "SAFE_GROUNDED_REFUSAL"
-            else:
-                answer = "I do not have enough supported robot evidence to answer this question safely. Ask about status, OEE, alarms, maintenance, axis load, power, cycle performance, energy, or fleet comparison."
-                answer_source = "SAFE_GROUNDED_REFUSAL"
+                    answer = (
+                        "AI explanation service is temporarily unavailable, but the dashboard evidence remains available."
+                    )
+                    answer_source = "AI_SERVICE_UNAVAILABLE"
+                resolution_mode = "AI_FALLBACK"
 
         has_alarm_evidence = any(
             key in evidence
@@ -2432,12 +2857,17 @@ def ask_my_robot(request: AskRobotRequest):
             "mode": "SIMULATOR",
             "read_only": True,
             "answer_source": answer_source,
+            "resolution_mode": resolution_mode,
+            "data_source": "OPENHOUSE",
+            "resolved_robot_id": target_robot_id,
+            "requested_robot_id": received_robot_id,
             "selected_robot_id":
-                target_robot_id,
+                request.selected_registry_id or target_robot_id,
             "query_scope":
                 evidence.get(
                     "query_scope"
                 ),
+            "intent": evidence.get("query_scope"),
 
             "evidence_scope": {
                 "selected_robot_snapshot":
@@ -2485,6 +2915,9 @@ def ask_my_robot(request: AskRobotRequest):
                     ),
             },
         }
+
+    except RobotResolutionError as exc:
+        raise HTTPException(status_code=404, detail=str(exc)) from exc
 
     except RuntimeError as exc:
         raise HTTPException(

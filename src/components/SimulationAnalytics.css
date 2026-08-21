@@ -148,6 +148,11 @@
   transform: scale(1.5);
 }
 
+.simulation-timeline { gap: 2px; overflow: hidden; }
+.simulation-timeline span { flex: 1; min-width: 2px; height: 8px; border-radius: 1px; }
+.simulation-timeline span.alarm { background: #e7bc55; }
+.simulation-timeline span.faulted { background: #f06d72; }
+
 @media (max-width: 1050px) {
   .simulation-graph-grid {
     grid-template-columns: 1fr;

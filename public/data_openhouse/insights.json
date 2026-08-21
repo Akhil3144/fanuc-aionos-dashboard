@@ -1,0 +1,101 @@
+[
+  {
+    "insight_id": "OH26-R009-INS-01",
+    "robot_id": "OH26-R009",
+    "category": "HEALTH_ATTENTION",
+    "severity": "HIGH",
+    "title": "Robot condition requires review",
+    "evidence": "Latest mechanical status is CRITICAL.",
+    "recommendation": "Review current alarms and maintenance evidence before action."
+  },
+  {
+    "insight_id": "OH26-R013-INS-01",
+    "robot_id": "OH26-R013",
+    "category": "CYCLE_DEGRADATION",
+    "severity": "MEDIUM",
+    "title": "Recent cycle-time increase",
+    "evidence": "Cycle time rises gradually across the later 1-minute samples while quality remains stable.",
+    "recommendation": "Inspect process timing and the Axis 4 drive train during the next planned window."
+  },
+  {
+    "insight_id": "OH26-R013-INS-02",
+    "robot_id": "OH26-R013",
+    "category": "AXIS_LOAD_TREND",
+    "severity": "MEDIUM",
+    "title": "Axis 4 load trend",
+    "evidence": "Axis 4 load increases gradually in the later history and coincides with cycle deviation.",
+    "recommendation": "Review Axis 4 load and servo condition; do not infer causation without inspection."
+  },
+  {
+    "insight_id": "OH26-R013-INS-03",
+    "robot_id": "OH26-R013",
+    "category": "MAINTENANCE_DUE",
+    "severity": "MEDIUM",
+    "title": "Axis 4 inspection due soon",
+    "evidence": "Maintenance OH26-R013-MNT-01 is DUE_SOON with 49 hours remaining.",
+    "recommendation": "Inspect Axis 4 during the next planned maintenance window."
+  },
+  {
+    "insight_id": "OH26-R019-INS-01",
+    "robot_id": "OH26-R019",
+    "category": "POWER_ANOMALY",
+    "severity": "MEDIUM",
+    "title": "Elevated fleet power",
+    "evidence": "Current power is 13.8 kW, consistent with the larger RTU application but above most fleet robots.",
+    "recommendation": "Review power alongside production state before classifying efficiency."
+  },
+  {
+    "insight_id": "OH26-R019-INS-02",
+    "robot_id": "OH26-R019",
+    "category": "ALARM_PATTERN",
+    "severity": "HIGH",
+    "title": "Axis 2 servo event window",
+    "evidence": "The recent alarm window coincides with higher Axis 2 load and intermittent servo error counts.",
+    "recommendation": "Prioritize the overdue Axis 2 servo inspection; correlation is not confirmed cause."
+  },
+  {
+    "insight_id": "OH26-R019-INS-03",
+    "robot_id": "OH26-R019",
+    "category": "MAINTENANCE_DUE",
+    "severity": "HIGH",
+    "title": "Axis 2 inspection overdue",
+    "evidence": "Maintenance OH26-R019-MNT-01 is OVERDUE by 31 hours.",
+    "recommendation": "Prioritize the overdue Axis 2 servo inspection."
+  },
+  {
+    "insight_id": "OH26-R020-INS-01",
+    "robot_id": "OH26-R020",
+    "category": "HEALTH_ATTENTION",
+    "severity": "MEDIUM",
+    "title": "Robot condition requires review",
+    "evidence": "Latest mechanical status is ATTENTION.",
+    "recommendation": "Review current alarms and maintenance evidence before action."
+  },
+  {
+    "insight_id": "OH26-R025-INS-01",
+    "robot_id": "OH26-R025",
+    "category": "HEALTH_ATTENTION",
+    "severity": "MEDIUM",
+    "title": "Robot condition requires review",
+    "evidence": "Latest mechanical status is ATTENTION.",
+    "recommendation": "Review current alarms and maintenance evidence before action."
+  },
+  {
+    "insight_id": "OH26-R028-INS-01",
+    "robot_id": "OH26-R028",
+    "category": "HEALTH_ATTENTION",
+    "severity": "HIGH",
+    "title": "Robot condition requires review",
+    "evidence": "Latest mechanical status is CRITICAL.",
+    "recommendation": "Review current alarms and maintenance evidence before action."
+  },
+  {
+    "insight_id": "OH26-R031-INS-01",
+    "robot_id": "OH26-R031",
+    "category": "HEALTH_ATTENTION",
+    "severity": "MEDIUM",
+    "title": "Robot condition requires review",
+    "evidence": "Latest mechanical status is ATTENTION.",
+    "recommendation": "Review current alarms and maintenance evidence before action."
+  }
+]

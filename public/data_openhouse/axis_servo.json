@@ -1,0 +1,1459 @@
+[
+  {
+    "robot_id": "OH26-R001",
+    "axes": [
+      {
+        "axis": 1,
+        "axis_load_pct": 31.2,
+        "error_count": 0,
+        "odometer": 55749.8,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 2,
+        "axis_load_pct": 34.1,
+        "error_count": 0,
+        "odometer": 63563.3,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 3,
+        "axis_load_pct": 27.8,
+        "error_count": 0,
+        "odometer": 74334.4,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 4,
+        "axis_load_pct": 39.5,
+        "error_count": 0,
+        "odometer": 80853.9,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 5,
+        "axis_load_pct": 28,
+        "error_count": 0,
+        "odometer": 91759.1,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 6,
+        "axis_load_pct": 29.8,
+        "error_count": 0,
+        "odometer": 97243.5,
+        "servo_indicator": "NORMAL"
+      }
+    ]
+  },
+  {
+    "robot_id": "OH26-R002",
+    "axes": [
+      {
+        "axis": 1,
+        "axis_load_pct": 35.4,
+        "error_count": 0,
+        "odometer": 64292.6,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 2,
+        "axis_load_pct": 39.7,
+        "error_count": 0,
+        "odometer": 68823.6,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 3,
+        "axis_load_pct": 34.4,
+        "error_count": 0,
+        "odometer": 80717.8,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 4,
+        "axis_load_pct": 44.1,
+        "error_count": 0,
+        "odometer": 88091.5,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 5,
+        "axis_load_pct": 37.1,
+        "error_count": 0,
+        "odometer": 94571.2,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 6,
+        "axis_load_pct": 27,
+        "error_count": 0,
+        "odometer": 101388.2,
+        "servo_indicator": "NORMAL"
+      }
+    ]
+  },
+  {
+    "robot_id": "OH26-R003",
+    "axes": [
+      {
+        "axis": 1,
+        "axis_load_pct": 22.6,
+        "error_count": 0,
+        "odometer": 66090.8,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 2,
+        "axis_load_pct": 37.2,
+        "error_count": 0,
+        "odometer": 77702.6,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 3,
+        "axis_load_pct": 28.6,
+        "error_count": 0,
+        "odometer": 82913.4,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 4,
+        "axis_load_pct": 41.3,
+        "error_count": 0,
+        "odometer": 91905,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 5,
+        "axis_load_pct": 33,
+        "error_count": 0,
+        "odometer": 99826.6,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 6,
+        "axis_load_pct": 26.7,
+        "error_count": 0,
+        "odometer": 109991.2,
+        "servo_indicator": "NORMAL"
+      }
+    ]
+  },
+  {
+    "robot_id": "OH26-R004",
+    "axes": [
+      {
+        "axis": 1,
+        "axis_load_pct": 31.1,
+        "error_count": 0,
+        "odometer": 72407,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 2,
+        "axis_load_pct": 32.5,
+        "error_count": 0,
+        "odometer": 79503,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 3,
+        "axis_load_pct": 34.2,
+        "error_count": 0,
+        "odometer": 89151.1,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 4,
+        "axis_load_pct": 39,
+        "error_count": 0,
+        "odometer": 98816.2,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 5,
+        "axis_load_pct": 31.9,
+        "error_count": 0,
+        "odometer": 106147,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 6,
+        "axis_load_pct": 27.6,
+        "error_count": 0,
+        "odometer": 114298.7,
+        "servo_indicator": "NORMAL"
+      }
+    ]
+  },
+  {
+    "robot_id": "OH26-R005",
+    "axes": [
+      {
+        "axis": 1,
+        "axis_load_pct": 49.1,
+        "error_count": 0,
+        "odometer": 80179.2,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 2,
+        "axis_load_pct": 54.6,
+        "error_count": 0,
+        "odometer": 88205.6,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 3,
+        "axis_load_pct": 51.8,
+        "error_count": 0,
+        "odometer": 96669,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 4,
+        "axis_load_pct": 59.4,
+        "error_count": 0,
+        "odometer": 101643.9,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 5,
+        "axis_load_pct": 56.3,
+        "error_count": 0,
+        "odometer": 111514.6,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 6,
+        "axis_load_pct": 51.9,
+        "error_count": 1,
+        "odometer": 117924,
+        "servo_indicator": "ATTENTION"
+      }
+    ]
+  },
+  {
+    "robot_id": "OH26-R006",
+    "axes": [
+      {
+        "axis": 1,
+        "axis_load_pct": 28.2,
+        "error_count": 1,
+        "odometer": 82502.2,
+        "servo_indicator": "ATTENTION"
+      },
+      {
+        "axis": 2,
+        "axis_load_pct": 33.6,
+        "error_count": 1,
+        "odometer": 91409.9,
+        "servo_indicator": "ATTENTION"
+      },
+      {
+        "axis": 3,
+        "axis_load_pct": 33,
+        "error_count": 0,
+        "odometer": 100473.3,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 4,
+        "axis_load_pct": 39.4,
+        "error_count": 0,
+        "odometer": 106708,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 5,
+        "axis_load_pct": 35.3,
+        "error_count": 1,
+        "odometer": 115088.4,
+        "servo_indicator": "ATTENTION"
+      },
+      {
+        "axis": 6,
+        "axis_load_pct": 23.1,
+        "error_count": 0,
+        "odometer": 122795.2,
+        "servo_indicator": "NORMAL"
+      }
+    ]
+  },
+  {
+    "robot_id": "OH26-R007",
+    "axes": [
+      {
+        "axis": 1,
+        "axis_load_pct": 25.1,
+        "error_count": 0,
+        "odometer": 88054.6,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 2,
+        "axis_load_pct": 33.1,
+        "error_count": 0,
+        "odometer": 98056.4,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 3,
+        "axis_load_pct": 29.1,
+        "error_count": 0,
+        "odometer": 105412.2,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 4,
+        "axis_load_pct": 39.2,
+        "error_count": 0,
+        "odometer": 115362.1,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 5,
+        "axis_load_pct": 33.6,
+        "error_count": 0,
+        "odometer": 121217.7,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 6,
+        "axis_load_pct": 25.3,
+        "error_count": 0,
+        "odometer": 131147,
+        "servo_indicator": "NORMAL"
+      }
+    ]
+  },
+  {
+    "robot_id": "OH26-R008",
+    "axes": [
+      {
+        "axis": 1,
+        "axis_load_pct": 22.7,
+        "error_count": 0,
+        "odometer": 94578.2,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 2,
+        "axis_load_pct": 29.9,
+        "error_count": 0,
+        "odometer": 104544.3,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 3,
+        "axis_load_pct": 26.7,
+        "error_count": 0,
+        "odometer": 110684.6,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 4,
+        "axis_load_pct": 41.3,
+        "error_count": 0,
+        "odometer": 119766.7,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 5,
+        "axis_load_pct": 34.3,
+        "error_count": 0,
+        "odometer": 125395.5,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 6,
+        "axis_load_pct": 27.4,
+        "error_count": 0,
+        "odometer": 134877.7,
+        "servo_indicator": "NORMAL"
+      }
+    ]
+  },
+  {
+    "robot_id": "OH26-R009",
+    "axes": [
+      {
+        "axis": 1,
+        "axis_load_pct": 28.1,
+        "error_count": 0,
+        "odometer": 98402.3,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 2,
+        "axis_load_pct": 33.7,
+        "error_count": 0,
+        "odometer": 109599.7,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 3,
+        "axis_load_pct": 48.4,
+        "error_count": 6,
+        "odometer": 116801.3,
+        "servo_indicator": "CRITICAL"
+      },
+      {
+        "axis": 4,
+        "axis_load_pct": 37,
+        "error_count": 0,
+        "odometer": 125489.8,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 5,
+        "axis_load_pct": 33,
+        "error_count": 0,
+        "odometer": 132454.9,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 6,
+        "axis_load_pct": 22.3,
+        "error_count": 0,
+        "odometer": 141929.5,
+        "servo_indicator": "NORMAL"
+      }
+    ]
+  },
+  {
+    "robot_id": "OH26-R011",
+    "axes": [
+      {
+        "axis": 1,
+        "axis_load_pct": 26.5,
+        "error_count": 0,
+        "odometer": 110169,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 2,
+        "axis_load_pct": 41.1,
+        "error_count": 0,
+        "odometer": 118221.1,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 3,
+        "axis_load_pct": 38.1,
+        "error_count": 1,
+        "odometer": 125617.3,
+        "servo_indicator": "ATTENTION"
+      },
+      {
+        "axis": 4,
+        "axis_load_pct": 37.9,
+        "error_count": 0,
+        "odometer": 133884.6,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 5,
+        "axis_load_pct": 35.1,
+        "error_count": 0,
+        "odometer": 141554.6,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 6,
+        "axis_load_pct": 30.1,
+        "error_count": 0,
+        "odometer": 149337.2,
+        "servo_indicator": "NORMAL"
+      }
+    ]
+  },
+  {
+    "robot_id": "OH26-R012",
+    "axes": [
+      {
+        "axis": 1,
+        "axis_load_pct": 27.2,
+        "error_count": 0,
+        "odometer": 114272,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 2,
+        "axis_load_pct": 36.5,
+        "error_count": 0,
+        "odometer": 125674.1,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 3,
+        "axis_load_pct": 35.2,
+        "error_count": 0,
+        "odometer": 132998.5,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 4,
+        "axis_load_pct": 40.2,
+        "error_count": 0,
+        "odometer": 141653.6,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 5,
+        "axis_load_pct": 38,
+        "error_count": 0,
+        "odometer": 146632.9,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 6,
+        "axis_load_pct": 32.7,
+        "error_count": 0,
+        "odometer": 154434.5,
+        "servo_indicator": "NORMAL"
+      }
+    ]
+  },
+  {
+    "robot_id": "OH26-R013",
+    "axes": [
+      {
+        "axis": 1,
+        "axis_load_pct": 21.3,
+        "error_count": 0,
+        "odometer": 119319.6,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 2,
+        "axis_load_pct": 28,
+        "error_count": 0,
+        "odometer": 129627.6,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 3,
+        "axis_load_pct": 21.1,
+        "error_count": 0,
+        "odometer": 138659.6,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 4,
+        "axis_load_pct": 47.8,
+        "error_count": 0,
+        "odometer": 143599.5,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 5,
+        "axis_load_pct": 30.7,
+        "error_count": 1,
+        "odometer": 155103.6,
+        "servo_indicator": "ATTENTION"
+      },
+      {
+        "axis": 6,
+        "axis_load_pct": 21.5,
+        "error_count": 0,
+        "odometer": 160682.8,
+        "servo_indicator": "NORMAL"
+      }
+    ]
+  },
+  {
+    "robot_id": "OH26-R014",
+    "axes": [
+      {
+        "axis": 1,
+        "axis_load_pct": 27.5,
+        "error_count": 0,
+        "odometer": 127357.6,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 2,
+        "axis_load_pct": 39.6,
+        "error_count": 0,
+        "odometer": 136194.8,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 3,
+        "axis_load_pct": 31.4,
+        "error_count": 0,
+        "odometer": 141765.3,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 4,
+        "axis_load_pct": 41.4,
+        "error_count": 0,
+        "odometer": 152128.9,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 5,
+        "axis_load_pct": 39.2,
+        "error_count": 0,
+        "odometer": 160257.2,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 6,
+        "axis_load_pct": 28.2,
+        "error_count": 1,
+        "odometer": 166724,
+        "servo_indicator": "ATTENTION"
+      }
+    ]
+  },
+  {
+    "robot_id": "OH26-R015",
+    "axes": [
+      {
+        "axis": 1,
+        "axis_load_pct": 35.2,
+        "error_count": 0,
+        "odometer": 130376.7,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 2,
+        "axis_load_pct": 43.8,
+        "error_count": 0,
+        "odometer": 138152.5,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 3,
+        "axis_load_pct": 40,
+        "error_count": 0,
+        "odometer": 147380.3,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 4,
+        "axis_load_pct": 46.2,
+        "error_count": 0,
+        "odometer": 155658.7,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 5,
+        "axis_load_pct": 36.9,
+        "error_count": 0,
+        "odometer": 164696,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 6,
+        "axis_load_pct": 36.6,
+        "error_count": 0,
+        "odometer": 170982,
+        "servo_indicator": "NORMAL"
+      }
+    ]
+  },
+  {
+    "robot_id": "OH26-R016",
+    "axes": [
+      {
+        "axis": 1,
+        "axis_load_pct": 35.4,
+        "error_count": 0,
+        "odometer": 138462.4,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 2,
+        "axis_load_pct": 43.6,
+        "error_count": 0,
+        "odometer": 145487.9,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 3,
+        "axis_load_pct": 37.7,
+        "error_count": 0,
+        "odometer": 151643,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 4,
+        "axis_load_pct": 46,
+        "error_count": 0,
+        "odometer": 161437.1,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 5,
+        "axis_load_pct": 40.8,
+        "error_count": 0,
+        "odometer": 168515.8,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 6,
+        "axis_load_pct": 37.7,
+        "error_count": 0,
+        "odometer": 175427.5,
+        "servo_indicator": "NORMAL"
+      }
+    ]
+  },
+  {
+    "robot_id": "OH26-R017",
+    "axes": [
+      {
+        "axis": 1,
+        "axis_load_pct": 24.4,
+        "error_count": 0,
+        "odometer": 143472.9,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 2,
+        "axis_load_pct": 35.9,
+        "error_count": 0,
+        "odometer": 151386.8,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 3,
+        "axis_load_pct": 28.1,
+        "error_count": 0,
+        "odometer": 157698.8,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 4,
+        "axis_load_pct": 35.5,
+        "error_count": 0,
+        "odometer": 165971.6,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 5,
+        "axis_load_pct": 34,
+        "error_count": 0,
+        "odometer": 174325.3,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 6,
+        "axis_load_pct": 22.4,
+        "error_count": 0,
+        "odometer": 183359.6,
+        "servo_indicator": "NORMAL"
+      }
+    ]
+  },
+  {
+    "robot_id": "OH26-R018",
+    "axes": [
+      {
+        "axis": 1,
+        "axis_load_pct": 49.7,
+        "error_count": 0,
+        "odometer": 147548,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 2,
+        "axis_load_pct": 51.7,
+        "error_count": 0,
+        "odometer": 156008.5,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 3,
+        "axis_load_pct": 56.9,
+        "error_count": 0,
+        "odometer": 164409.8,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 4,
+        "axis_load_pct": 61.2,
+        "error_count": 0,
+        "odometer": 171912.4,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 5,
+        "axis_load_pct": 56,
+        "error_count": 0,
+        "odometer": 178140,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 6,
+        "axis_load_pct": 47.1,
+        "error_count": 0,
+        "odometer": 187717,
+        "servo_indicator": "NORMAL"
+      }
+    ]
+  },
+  {
+    "robot_id": "OH26-R019",
+    "axes": [
+      {
+        "axis": 1,
+        "axis_load_pct": 52.7,
+        "error_count": 1,
+        "odometer": 152595.6,
+        "servo_indicator": "ATTENTION"
+      },
+      {
+        "axis": 2,
+        "axis_load_pct": 72.4,
+        "error_count": 4,
+        "odometer": 162083.9,
+        "servo_indicator": "ATTENTION"
+      },
+      {
+        "axis": 3,
+        "axis_load_pct": 50.9,
+        "error_count": 0,
+        "odometer": 169143.2,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 4,
+        "axis_load_pct": 63.4,
+        "error_count": 0,
+        "odometer": 177432.8,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 5,
+        "axis_load_pct": 56.7,
+        "error_count": 0,
+        "odometer": 183837.4,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 6,
+        "axis_load_pct": 52.2,
+        "error_count": 0,
+        "odometer": 192626.8,
+        "servo_indicator": "NORMAL"
+      }
+    ]
+  },
+  {
+    "robot_id": "OH26-R020",
+    "axes": [
+      {
+        "axis": 1,
+        "axis_load_pct": 45.9,
+        "error_count": 0,
+        "odometer": 160060.1,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 2,
+        "axis_load_pct": 54.2,
+        "error_count": 0,
+        "odometer": 164755.4,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 3,
+        "axis_load_pct": 49.1,
+        "error_count": 0,
+        "odometer": 172402,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 4,
+        "axis_load_pct": 62.8,
+        "error_count": 0,
+        "odometer": 181159,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 5,
+        "axis_load_pct": 59.5,
+        "error_count": 0,
+        "odometer": 188581.6,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 6,
+        "axis_load_pct": 52.4,
+        "error_count": 1,
+        "odometer": 196914.4,
+        "servo_indicator": "ATTENTION"
+      }
+    ]
+  },
+  {
+    "robot_id": "OH26-R021",
+    "axes": [
+      {
+        "axis": 1,
+        "axis_load_pct": 38.1,
+        "error_count": 0,
+        "odometer": 163404.9,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 2,
+        "axis_load_pct": 44,
+        "error_count": 0,
+        "odometer": 169824.9,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 3,
+        "axis_load_pct": 44.8,
+        "error_count": 0,
+        "odometer": 179143.3,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 4,
+        "axis_load_pct": 56.9,
+        "error_count": 0,
+        "odometer": 186769.9,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 5,
+        "axis_load_pct": 42.8,
+        "error_count": 0,
+        "odometer": 196443,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 6,
+        "axis_load_pct": 38.5,
+        "error_count": 0,
+        "odometer": 204619.3,
+        "servo_indicator": "NORMAL"
+      }
+    ]
+  },
+  {
+    "robot_id": "OH26-R022",
+    "axes": [
+      {
+        "axis": 1,
+        "axis_load_pct": 33.8,
+        "error_count": 0,
+        "odometer": 167164.9,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 2,
+        "axis_load_pct": 38.2,
+        "error_count": 0,
+        "odometer": 178048.5,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 3,
+        "axis_load_pct": 35.4,
+        "error_count": 0,
+        "odometer": 186279.7,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 4,
+        "axis_load_pct": 47.4,
+        "error_count": 0,
+        "odometer": 194467.3,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 5,
+        "axis_load_pct": 41.1,
+        "error_count": 0,
+        "odometer": 200840.2,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 6,
+        "axis_load_pct": 32.9,
+        "error_count": 0,
+        "odometer": 209617.9,
+        "servo_indicator": "NORMAL"
+      }
+    ]
+  },
+  {
+    "robot_id": "OH26-R023",
+    "axes": [
+      {
+        "axis": 1,
+        "axis_load_pct": 30.3,
+        "error_count": 0,
+        "odometer": 172501.1,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 2,
+        "axis_load_pct": 30.1,
+        "error_count": 0,
+        "odometer": 183059.2,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 3,
+        "axis_load_pct": 26.8,
+        "error_count": 0,
+        "odometer": 189461.8,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 4,
+        "axis_load_pct": 40.3,
+        "error_count": 0,
+        "odometer": 197082.9,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 5,
+        "axis_load_pct": 33.8,
+        "error_count": 0,
+        "odometer": 206072.3,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 6,
+        "axis_load_pct": 27.3,
+        "error_count": 0,
+        "odometer": 212996.9,
+        "servo_indicator": "NORMAL"
+      }
+    ]
+  },
+  {
+    "robot_id": "OH26-R024",
+    "axes": [
+      {
+        "axis": 1,
+        "axis_load_pct": 51.7,
+        "error_count": 0,
+        "odometer": 178269.7,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 2,
+        "axis_load_pct": 52.1,
+        "error_count": 0,
+        "odometer": 187341.6,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 3,
+        "axis_load_pct": 51.6,
+        "error_count": 0,
+        "odometer": 196157.5,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 4,
+        "axis_load_pct": 62,
+        "error_count": 0,
+        "odometer": 203775.5,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 5,
+        "axis_load_pct": 52.7,
+        "error_count": 0,
+        "odometer": 213098.7,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 6,
+        "axis_load_pct": 52.5,
+        "error_count": 0,
+        "odometer": 218321.4,
+        "servo_indicator": "NORMAL"
+      }
+    ]
+  },
+  {
+    "robot_id": "OH26-R025",
+    "axes": [
+      {
+        "axis": 1,
+        "axis_load_pct": 51.4,
+        "error_count": 0,
+        "odometer": 185597.2,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 2,
+        "axis_load_pct": 54.2,
+        "error_count": 0,
+        "odometer": 192293.5,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 3,
+        "axis_load_pct": 55.9,
+        "error_count": 1,
+        "odometer": 199780.3,
+        "servo_indicator": "ATTENTION"
+      },
+      {
+        "axis": 4,
+        "axis_load_pct": 61.7,
+        "error_count": 0,
+        "odometer": 207395.8,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 5,
+        "axis_load_pct": 53.9,
+        "error_count": 0,
+        "odometer": 215701.6,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 6,
+        "axis_load_pct": 45,
+        "error_count": 0,
+        "odometer": 225374.5,
+        "servo_indicator": "NORMAL"
+      }
+    ]
+  },
+  {
+    "robot_id": "OH26-R026",
+    "axes": [
+      {
+        "axis": 1,
+        "axis_load_pct": 26.6,
+        "error_count": 0,
+        "odometer": 189374.5,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 2,
+        "axis_load_pct": 41.1,
+        "error_count": 0,
+        "odometer": 196634.7,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 3,
+        "axis_load_pct": 33.9,
+        "error_count": 0,
+        "odometer": 206035.2,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 4,
+        "axis_load_pct": 42.6,
+        "error_count": 0,
+        "odometer": 213083.8,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 5,
+        "axis_load_pct": 39.3,
+        "error_count": 0,
+        "odometer": 221357.3,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 6,
+        "axis_load_pct": 29,
+        "error_count": 0,
+        "odometer": 231024.9,
+        "servo_indicator": "NORMAL"
+      }
+    ]
+  },
+  {
+    "robot_id": "OH26-R027",
+    "axes": [
+      {
+        "axis": 1,
+        "axis_load_pct": 21.6,
+        "error_count": 0,
+        "odometer": 194693.4,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 2,
+        "axis_load_pct": 27.4,
+        "error_count": 1,
+        "odometer": 201527.9,
+        "servo_indicator": "ATTENTION"
+      },
+      {
+        "axis": 3,
+        "axis_load_pct": 25,
+        "error_count": 0,
+        "odometer": 210098.9,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 4,
+        "axis_load_pct": 32,
+        "error_count": 0,
+        "odometer": 217708.7,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 5,
+        "axis_load_pct": 23,
+        "error_count": 0,
+        "odometer": 229330.9,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 6,
+        "axis_load_pct": 20.7,
+        "error_count": 0,
+        "odometer": 233752.1,
+        "servo_indicator": "NORMAL"
+      }
+    ]
+  },
+  {
+    "robot_id": "OH26-R028",
+    "axes": [
+      {
+        "axis": 1,
+        "axis_load_pct": 33.7,
+        "error_count": 0,
+        "odometer": 201241.5,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 2,
+        "axis_load_pct": 41,
+        "error_count": 0,
+        "odometer": 208145,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 3,
+        "axis_load_pct": 61,
+        "error_count": 6,
+        "odometer": 217198.9,
+        "servo_indicator": "CRITICAL"
+      },
+      {
+        "axis": 4,
+        "axis_load_pct": 42.8,
+        "error_count": 0,
+        "odometer": 224877.5,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 5,
+        "axis_load_pct": 35.6,
+        "error_count": 1,
+        "odometer": 232846.4,
+        "servo_indicator": "ATTENTION"
+      },
+      {
+        "axis": 6,
+        "axis_load_pct": 36.8,
+        "error_count": 0,
+        "odometer": 242572.9,
+        "servo_indicator": "NORMAL"
+      }
+    ]
+  },
+  {
+    "robot_id": "OH26-R029",
+    "axes": [
+      {
+        "axis": 1,
+        "axis_load_pct": 39.8,
+        "error_count": 1,
+        "odometer": 207789.6,
+        "servo_indicator": "ATTENTION"
+      },
+      {
+        "axis": 2,
+        "axis_load_pct": 48.5,
+        "error_count": 0,
+        "odometer": 214762.2,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 3,
+        "axis_load_pct": 42,
+        "error_count": 0,
+        "odometer": 220417.4,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 4,
+        "axis_load_pct": 50.4,
+        "error_count": 0,
+        "odometer": 232021.7,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 5,
+        "axis_load_pct": 49.1,
+        "error_count": 0,
+        "odometer": 238960.2,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 6,
+        "axis_load_pct": 44.5,
+        "error_count": 0,
+        "odometer": 246129.7,
+        "servo_indicator": "NORMAL"
+      }
+    ]
+  },
+  {
+    "robot_id": "OH26-R030",
+    "axes": [
+      {
+        "axis": 1,
+        "axis_load_pct": 38.9,
+        "error_count": 0,
+        "odometer": 209337.5,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 2,
+        "axis_load_pct": 49.8,
+        "error_count": 0,
+        "odometer": 220579.3,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 3,
+        "axis_load_pct": 47.8,
+        "error_count": 1,
+        "odometer": 227903,
+        "servo_indicator": "ATTENTION"
+      },
+      {
+        "axis": 4,
+        "axis_load_pct": 53.3,
+        "error_count": 0,
+        "odometer": 234632.5,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 5,
+        "axis_load_pct": 48.4,
+        "error_count": 0,
+        "odometer": 243475.1,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 6,
+        "axis_load_pct": 43.1,
+        "error_count": 0,
+        "odometer": 252377.5,
+        "servo_indicator": "NORMAL"
+      }
+    ]
+  },
+  {
+    "robot_id": "OH26-R031",
+    "axes": [
+      {
+        "axis": 1,
+        "axis_load_pct": 41.9,
+        "error_count": 0,
+        "odometer": 218385.1,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 2,
+        "axis_load_pct": 50.3,
+        "error_count": 0,
+        "odometer": 224532.7,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 3,
+        "axis_load_pct": 42.7,
+        "error_count": 0,
+        "odometer": 233564.1,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 4,
+        "axis_load_pct": 53.5,
+        "error_count": 0,
+        "odometer": 240578.4,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 5,
+        "axis_load_pct": 50.1,
+        "error_count": 0,
+        "odometer": 247945.8,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 6,
+        "axis_load_pct": 40.8,
+        "error_count": 1,
+        "odometer": 258625.8,
+        "servo_indicator": "ATTENTION"
+      }
+    ]
+  },
+  {
+    "robot_id": "OH26-R032",
+    "axes": [
+      {
+        "axis": 1,
+        "axis_load_pct": 53,
+        "error_count": 1,
+        "odometer": 223432.7,
+        "servo_indicator": "ATTENTION"
+      },
+      {
+        "axis": 2,
+        "axis_load_pct": 58.8,
+        "error_count": 0,
+        "odometer": 228486.2,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 3,
+        "axis_load_pct": 54.5,
+        "error_count": 0,
+        "odometer": 239225.2,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 4,
+        "axis_load_pct": 61.7,
+        "error_count": 0,
+        "odometer": 246524.3,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 5,
+        "axis_load_pct": 50.8,
+        "error_count": 0,
+        "odometer": 252416.6,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 6,
+        "axis_load_pct": 46.5,
+        "error_count": 0,
+        "odometer": 260874,
+        "servo_indicator": "NORMAL"
+      }
+    ]
+  }
+]

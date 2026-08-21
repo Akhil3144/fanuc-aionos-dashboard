@@ -1,5 +1,4 @@
-const ANALYTICS_API =
-  "https://roboinsight-api.onrender.com";
+const ANALYTICS_API = import.meta.env.VITE_API_BASE_URL || "https://roboinsight-api.onrender.com";
 
 async function fetchJson(url) {
   const response = await fetch(url);

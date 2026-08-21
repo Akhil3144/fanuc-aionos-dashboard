@@ -5,6 +5,8 @@ import urllib.request
 
 OLLAMA_URL = "http://127.0.0.1:11434/api/chat"
 OLLAMA_MODEL = "qwen2.5:7b"
+OLLAMA_KEEP_ALIVE = "30m"
+OLLAMA_TIMEOUT_SECONDS = 30
 
 
 SYSTEM_PROMPT = """
@@ -255,6 +257,8 @@ Answer using only the evidence above.
 
         "stream": False,
 
+        "keep_alive": OLLAMA_KEEP_ALIVE,
+
         "options": {
             "temperature": 0.1,
         },
@@ -278,7 +282,7 @@ Answer using only the evidence above.
     try:
         with urllib.request.urlopen(
             request,
-            timeout=60,
+            timeout=OLLAMA_TIMEOUT_SECONDS,
         ) as response:
 
             result = json.loads(

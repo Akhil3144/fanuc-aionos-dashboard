@@ -1,15 +1,20 @@
-const ASK_ROBOT_API =
-  "https://roboinsight-api.onrender.com/ask-my-robot";
+const ASK_ROBOT_API = `${import.meta.env.VITE_API_BASE_URL || "https://roboinsight-api.onrender.com"}/ask-my-robot`;
+const ASK_ROBOT_TIMEOUT_MS = 30000;
 
 
 export async function askMyRobot(
   question,
-  liveSnapshot = null
+  liveSnapshot = null,
+  options = {}
 ) {
-  const response = await fetch(
-    ASK_ROBOT_API,
-    {
+  const controller = new AbortController();
+  const timeout = window.setTimeout(() => controller.abort(), ASK_ROBOT_TIMEOUT_MS);
+
+  let response;
+  try {
+    response = await fetch(ASK_ROBOT_API, {
       method: "POST",
+      signal: controller.signal,
 
       headers: {
         "Content-Type":
@@ -20,9 +25,26 @@ export async function askMyRobot(
         question,
         live_snapshot:
           liveSnapshot,
+        selected_registry_id:
+          options.selectedRegistryId || null,
+        selected_robot_id:
+          options.selectedRobotId || liveSnapshot?.robot_id || null,
+        robot_id:
+          options.selectedRobotId || liveSnapshot?.robot_id || null,
+        scope:
+          options.scope || "ROBOT",
+        robot_registry:
+          options.registry || [],
       }),
+    });
+  } catch (error) {
+    if (error.name === "AbortError") {
+      throw new Error("The intelligence service took too long to respond. Please retry.");
     }
-  );
+    throw new Error("The intelligence service is unavailable. Please retry.");
+  } finally {
+    window.clearTimeout(timeout);
+  }
 
 
   if (!response.ok) {
@@ -48,4 +70,4 @@ export async function askMyRobot(
 
 
   return response.json();
-} 
+}

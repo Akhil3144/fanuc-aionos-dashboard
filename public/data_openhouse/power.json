@@ -1,0 +1,281 @@
+[
+  {
+    "robot_id": "OH26-R001",
+    "instantaneous_kw": 3.71,
+    "kwh_total": 633.5,
+    "kwh_run": 532.14,
+    "kwh_idle": 66.52,
+    "kwh_fault": 9.5,
+    "kwh_regen": 25.34
+  },
+  {
+    "robot_id": "OH26-R002",
+    "instantaneous_kw": 3.89,
+    "kwh_total": 712.79,
+    "kwh_run": 598.74,
+    "kwh_idle": 74.84,
+    "kwh_fault": 10.69,
+    "kwh_regen": 28.51
+  },
+  {
+    "robot_id": "OH26-R003",
+    "instantaneous_kw": 1.68,
+    "kwh_total": 804.53,
+    "kwh_run": 675.81,
+    "kwh_idle": 84.48,
+    "kwh_fault": 12.07,
+    "kwh_regen": 32.18
+  },
+  {
+    "robot_id": "OH26-R004",
+    "instantaneous_kw": 3.55,
+    "kwh_total": 761.61,
+    "kwh_run": 639.75,
+    "kwh_idle": 79.97,
+    "kwh_fault": 11.42,
+    "kwh_regen": 30.46
+  },
+  {
+    "robot_id": "OH26-R005",
+    "instantaneous_kw": 4.68,
+    "kwh_total": 1259.32,
+    "kwh_run": 1057.83,
+    "kwh_idle": 132.23,
+    "kwh_fault": 18.89,
+    "kwh_regen": 50.37
+  },
+  {
+    "robot_id": "OH26-R006",
+    "instantaneous_kw": 3.66,
+    "kwh_total": 840.2,
+    "kwh_run": 705.77,
+    "kwh_idle": 88.22,
+    "kwh_fault": 12.6,
+    "kwh_regen": 33.61
+  },
+  {
+    "robot_id": "OH26-R007",
+    "instantaneous_kw": 3.61,
+    "kwh_total": 882.9,
+    "kwh_run": 741.64,
+    "kwh_idle": 92.7,
+    "kwh_fault": 13.24,
+    "kwh_regen": 35.32
+  },
+  {
+    "robot_id": "OH26-R008",
+    "instantaneous_kw": 3.57,
+    "kwh_total": 905.17,
+    "kwh_run": 760.34,
+    "kwh_idle": 95.04,
+    "kwh_fault": 13.58,
+    "kwh_regen": 36.21
+  },
+  {
+    "robot_id": "OH26-R009",
+    "instantaneous_kw": 0.89,
+    "kwh_total": 963.88,
+    "kwh_run": 809.66,
+    "kwh_idle": 101.21,
+    "kwh_fault": 14.46,
+    "kwh_regen": 38.56
+  },
+  {
+    "robot_id": "OH26-R011",
+    "instantaneous_kw": 2,
+    "kwh_total": 1090.5,
+    "kwh_run": 916.02,
+    "kwh_idle": 114.5,
+    "kwh_fault": 16.36,
+    "kwh_regen": 43.62
+  },
+  {
+    "robot_id": "OH26-R012",
+    "instantaneous_kw": 4.61,
+    "kwh_total": 1139.29,
+    "kwh_run": 957,
+    "kwh_idle": 119.63,
+    "kwh_fault": 17.09,
+    "kwh_regen": 45.57
+  },
+  {
+    "robot_id": "OH26-R013",
+    "instantaneous_kw": 2.61,
+    "kwh_total": 1091.79,
+    "kwh_run": 917.1,
+    "kwh_idle": 114.64,
+    "kwh_fault": 16.38,
+    "kwh_regen": 43.67
+  },
+  {
+    "robot_id": "OH26-R014",
+    "instantaneous_kw": 4.24,
+    "kwh_total": 1211.07,
+    "kwh_run": 1017.3,
+    "kwh_idle": 127.16,
+    "kwh_fault": 18.17,
+    "kwh_regen": 48.44
+  },
+  {
+    "robot_id": "OH26-R015",
+    "instantaneous_kw": 3.16,
+    "kwh_total": 1450.31,
+    "kwh_run": 1218.26,
+    "kwh_idle": 152.28,
+    "kwh_fault": 21.75,
+    "kwh_regen": 58.01
+  },
+  {
+    "robot_id": "OH26-R016",
+    "instantaneous_kw": 6.56,
+    "kwh_total": 1451.48,
+    "kwh_run": 1219.24,
+    "kwh_idle": 152.41,
+    "kwh_fault": 21.77,
+    "kwh_regen": 58.06
+  },
+  {
+    "robot_id": "OH26-R017",
+    "instantaneous_kw": 1.52,
+    "kwh_total": 1313.5,
+    "kwh_run": 1103.34,
+    "kwh_idle": 137.92,
+    "kwh_fault": 19.7,
+    "kwh_regen": 52.54
+  },
+  {
+    "robot_id": "OH26-R018",
+    "instantaneous_kw": 11.24,
+    "kwh_total": 1758.86,
+    "kwh_run": 1477.44,
+    "kwh_idle": 184.68,
+    "kwh_fault": 26.38,
+    "kwh_regen": 70.35
+  },
+  {
+    "robot_id": "OH26-R019",
+    "instantaneous_kw": 13.8,
+    "kwh_total": 1890.72,
+    "kwh_run": 1588.2,
+    "kwh_idle": 198.53,
+    "kwh_fault": 28.36,
+    "kwh_regen": 75.63
+  },
+  {
+    "robot_id": "OH26-R020",
+    "instantaneous_kw": 9.97,
+    "kwh_total": 1929.69,
+    "kwh_run": 1620.94,
+    "kwh_idle": 202.62,
+    "kwh_fault": 28.95,
+    "kwh_regen": 77.19
+  },
+  {
+    "robot_id": "OH26-R021",
+    "instantaneous_kw": 3.95,
+    "kwh_total": 1729.15,
+    "kwh_run": 1452.49,
+    "kwh_idle": 181.56,
+    "kwh_fault": 25.94,
+    "kwh_regen": 69.17
+  },
+  {
+    "robot_id": "OH26-R022",
+    "instantaneous_kw": 5.72,
+    "kwh_total": 1686.49,
+    "kwh_run": 1416.65,
+    "kwh_idle": 177.08,
+    "kwh_fault": 25.3,
+    "kwh_regen": 67.46
+  },
+  {
+    "robot_id": "OH26-R023",
+    "instantaneous_kw": 1.55,
+    "kwh_total": 1619.34,
+    "kwh_run": 1360.25,
+    "kwh_idle": 170.03,
+    "kwh_fault": 24.29,
+    "kwh_regen": 64.77
+  },
+  {
+    "robot_id": "OH26-R024",
+    "instantaneous_kw": 11.22,
+    "kwh_total": 2100.5,
+    "kwh_run": 1764.42,
+    "kwh_idle": 220.55,
+    "kwh_fault": 31.51,
+    "kwh_regen": 84.02
+  },
+  {
+    "robot_id": "OH26-R025",
+    "instantaneous_kw": 5.11,
+    "kwh_total": 2114.94,
+    "kwh_run": 1776.55,
+    "kwh_idle": 222.07,
+    "kwh_fault": 31.72,
+    "kwh_regen": 84.6
+  },
+  {
+    "robot_id": "OH26-R026",
+    "instantaneous_kw": 4.36,
+    "kwh_total": 1795.3,
+    "kwh_run": 1508.05,
+    "kwh_idle": 188.51,
+    "kwh_fault": 26.93,
+    "kwh_regen": 71.81
+  },
+  {
+    "robot_id": "OH26-R027",
+    "instantaneous_kw": 1.25,
+    "kwh_total": 1699.13,
+    "kwh_run": 1427.27,
+    "kwh_idle": 178.41,
+    "kwh_fault": 25.49,
+    "kwh_regen": 67.97
+  },
+  {
+    "robot_id": "OH26-R028",
+    "instantaneous_kw": 2.46,
+    "kwh_total": 1842.25,
+    "kwh_run": 1547.49,
+    "kwh_idle": 193.44,
+    "kwh_fault": 27.63,
+    "kwh_regen": 73.69
+  },
+  {
+    "robot_id": "OH26-R029",
+    "instantaneous_kw": 4.02,
+    "kwh_total": 2095.53,
+    "kwh_run": 1760.25,
+    "kwh_idle": 220.03,
+    "kwh_fault": 31.43,
+    "kwh_regen": 83.82
+  },
+  {
+    "robot_id": "OH26-R030",
+    "instantaneous_kw": 8.39,
+    "kwh_total": 2184.73,
+    "kwh_run": 1835.17,
+    "kwh_idle": 229.4,
+    "kwh_fault": 32.77,
+    "kwh_regen": 87.39
+  },
+  {
+    "robot_id": "OH26-R031",
+    "instantaneous_kw": 8.51,
+    "kwh_total": 2224.03,
+    "kwh_run": 1868.19,
+    "kwh_idle": 233.52,
+    "kwh_fault": 33.36,
+    "kwh_regen": 88.96
+  },
+  {
+    "robot_id": "OH26-R032",
+    "instantaneous_kw": 11.06,
+    "kwh_total": 2405.92,
+    "kwh_run": 2020.97,
+    "kwh_idle": 252.62,
+    "kwh_fault": 36.09,
+    "kwh_regen": 96.24
+  }
+]

@@ -7,7 +7,8 @@ import duckdb
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
 
-from ask_routes import router as ask_router
+from ask_routes import build_fleet_historical_evidence, load_fleet, router as ask_router
+from ollama_client import ask_ollama
 
 
 # ============================================================
@@ -126,47 +127,29 @@ def root():
 
 @app.get("/health")
 def health():
-    check_dataset()
-
-    con = get_connection()
-
     try:
-        result = con.execute(
-            f"""
-            SELECT
-                COUNT(*) AS record_count,
-                MIN(timestamp) AS first_timestamp,
-                MAX(timestamp) AS last_timestamp
-
-            FROM {telemetry_source()}
-            """
-        ).fetchone()
-
+        _, robots = load_fleet()
         return {
-            "status":
-                "healthy",
-
-            "dataset":
-                TELEMETRY_FILE.name,
-
-            "record_count":
-                result[0],
-
-            "first_timestamp":
-                to_ist(result[1]),
-
-            "last_timestamp":
-                to_ist(result[2]),
-
-            "timezone":
-                "Asia/Kolkata",
-
-            "sample_interval_seconds":
-                60,
+            "status": "healthy", "data_loaded": len(robots) == 31,
+            "analytics_ready": True, "ai_available": None,
+            "mode": "SIMULATOR", "read_only": True,
         }
+    except Exception as exc:
+        raise HTTPException(status_code=503, detail=str(exc)) from exc
 
-    finally:
-        con.close()
+
+@app.post("/warmup")
+def warmup(warm_ai: bool = False):
+    _, robots = load_fleet()
+    build_fleet_historical_evidence()
+    ai_available = None
+    if warm_ai:
+        try:
+            ask_ollama("Reply only READY.", {"query_scope": "WARMUP", "read_only": True})
+            ai_available = True
+        except RuntimeError:
+            ai_available = False
+    return {"status": "ready", "data_loaded": len(robots) == 31, "analytics_ready": True, "ai_available": ai_available, "read_only": True}
 
 
 # ============================================================

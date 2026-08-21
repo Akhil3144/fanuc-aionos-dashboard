@@ -1,0 +1,765 @@
+Q01
+QUESTION: How many robots are in the Open House registry?
+HTTP: 200
+ANSWER_SOURCE: DETERMINISTIC_ANALYTICS
+SCOPE: FLEET_REGISTRY
+PASS/FAIL: PASS
+SCORE: 7/7
+ANSWER: The Open House 2026 registry contains 31 robots.
+
+Q02
+QUESTION: How many specified applications are represented?
+HTTP: 200
+ANSWER_SOURCE: DETERMINISTIC_ANALYTICS
+SCOPE: FLEET_REGISTRY
+PASS/FAIL: PASS
+SCORE: 7/7
+ANSWER: The registry contains 26 specified applications: AI Error Proofing Cell, AI Palletizing Cell, AMR Setup, Adaptive arc welding, Bucket Palletizing Cell, CRX Force Control Cell, CRX Lineup, CRX-Paint Cell, Cladding Cell, Collaborative Arc Welding, Deburring Cell, Dispensing Cell, Drilling Cell, Experience Centre, Fixtureless Welding Cell, High Speed Palletizing, High Speed Pick and Place Cell, High Speed Primary Packaging Cell, High Speed Secondary Packaging Cell, Intelligent Bin Picking Cell, Nut Tightening Cell, Order Fulfilment Cell, Paint Cell, RTU Cell, RTVT, Robotic Grinding Cell. Robots with blank application cells are not included in that count.
+
+Q03
+QUESTION: Which robot is used for AI Error Proofing?
+HTTP: 200
+ANSWER_SOURCE: DETERMINISTIC_ANALYTICS
+SCOPE: FLEET_REGISTRY
+PASS/FAIL: PASS
+SCORE: 7/7
+ANSWER: OH26-R013 — LR-Mate 7-9D (AI Error Proofing Cell).
+
+Q04
+QUESTION: Which robot is used for RTU Cell?
+HTTP: 200
+ANSWER_SOURCE: DETERMINISTIC_ANALYTICS
+SCOPE: FLEET_REGISTRY
+PASS/FAIL: PASS
+SCORE: 7/7
+ANSWER: OH26-R019 — R-2000iC 210F (RTU Cell).
+
+Q05
+QUESTION: Which robots are featured?
+HTTP: 200
+ANSWER_SOURCE: DETERMINISTIC_ANALYTICS
+SCOPE: FLEET_REGISTRY
+PASS/FAIL: PASS
+SCORE: 7/7
+ANSWER: The featured robots are OH26-R013 — LR-Mate 7-9D (AI Error Proofing Cell); OH26-R019 — R-2000iC 210F (RTU Cell).
+
+Q06
+QUESTION: What model is OH26-R013?
+HTTP: 200
+ANSWER_SOURCE: DETERMINISTIC_ANALYTICS
+SCOPE: SELECTED_ROBOT_REGISTRY
+PASS/FAIL: PASS
+SCORE: 7/7
+ANSWER: OH26-R013 is serial 13, model LR-Mate 7-9D, application AI Error Proofing Cell, IP address 10.31.58.82, and featured is true.
+
+Q07
+QUESTION: What application is OH26-R013 used for?
+HTTP: 200
+ANSWER_SOURCE: DETERMINISTIC_ANALYTICS
+SCOPE: SELECTED_ROBOT_REGISTRY
+PASS/FAIL: PASS
+SCORE: 7/7
+ANSWER: OH26-R013 is serial 13, model LR-Mate 7-9D, application AI Error Proofing Cell, IP address 10.31.58.82, and featured is true.
+
+Q08
+QUESTION: What model is OH26-R019?
+HTTP: 200
+ANSWER_SOURCE: DETERMINISTIC_ANALYTICS
+SCOPE: SELECTED_ROBOT_REGISTRY
+PASS/FAIL: PASS
+SCORE: 7/7
+ANSWER: OH26-R019 is serial 19, model R-2000iC 210F, application RTU Cell, IP address 10.31.58.88, and featured is true.
+
+Q09
+QUESTION: What application is OH26-R019 used for?
+HTTP: 200
+ANSWER_SOURCE: DETERMINISTIC_ANALYTICS
+SCOPE: SELECTED_ROBOT_REGISTRY
+PASS/FAIL: PASS
+SCORE: 7/7
+ANSWER: OH26-R019 is serial 19, model R-2000iC 210F, application RTU Cell, IP address 10.31.58.88, and featured is true.
+
+Q10
+QUESTION: Which robots are used for picking?
+HTTP: 200
+ANSWER_SOURCE: DETERMINISTIC_ANALYTICS
+SCOPE: FLEET_REGISTRY
+PASS/FAIL: PASS
+SCORE: 7/7
+ANSWER: OH26-R014 — M-20iD 35 (Intelligent Bin Picking Cell).
+
+Q11
+QUESTION: What is the IP address of OH26-R013?
+HTTP: 200
+ANSWER_SOURCE: DETERMINISTIC_ANALYTICS
+SCOPE: SELECTED_ROBOT_REGISTRY
+PASS/FAIL: PASS
+SCORE: 7/7
+ANSWER: OH26-R013 is serial 13, model LR-Mate 7-9D, application AI Error Proofing Cell, IP address 10.31.58.82, and featured is true.
+
+Q12
+QUESTION: Which robot model is LR-Mate 7-9D?
+HTTP: 200
+ANSWER_SOURCE: DETERMINISTIC_ANALYTICS
+SCOPE: SELECTED_ROBOT_REGISTRY
+PASS/FAIL: PASS
+SCORE: 7/7
+ANSWER: OH26-R013 is serial 13, model LR-Mate 7-9D, application AI Error Proofing Cell, IP address 10.31.58.82, and featured is true.
+
+Q13
+QUESTION: How many robots are currently running?
+HTTP: 200
+ANSWER_SOURCE: DETERMINISTIC_ANALYTICS
+SCOPE: FLEET_COMPARISON
+PASS/FAIL: PASS
+SCORE: 7/7
+ANSWER: In the current SIMULATOR snapshot, 19 robots are RUNNING: OH26-R001, OH26-R002, OH26-R004, OH26-R006, OH26-R007, OH26-R008, OH26-R012, OH26-R013, OH26-R014, OH26-R016, OH26-R018, OH26-R019, OH26-R020, OH26-R022, OH26-R024, OH26-R026, OH26-R030, OH26-R031, OH26-R032.
+
+Q14
+QUESTION: Which robot needs the most attention?
+HTTP: 200
+ANSWER_SOURCE: DETERMINISTIC_ANALYTICS
+SCOPE: FLEET_COMPARISON
+PASS/FAIL: PASS
+SCORE: 7/7
+ANSWER: OH26-R019 (R-2000iC 210F) needs the most attention in the current modelled fleet. It has 1 active alarm(s), 1 overdue maintenance item(s), 3 predictive alert(s), and mechanical status ATTENTION.
+
+Q15
+QUESTION: Which robot has the lowest OEE?
+HTTP: 200
+ANSWER_SOURCE: DETERMINISTIC_ANALYTICS
+SCOPE: FLEET_COMPARISON
+PASS/FAIL: PASS
+SCORE: 7/7
+ANSWER: OH26-R009 (CRX-20iA /L) has the lowest OEE at 73%.
+
+Q16
+QUESTION: Which robot has the highest OEE?
+HTTP: 200
+ANSWER_SOURCE: DETERMINISTIC_ANALYTICS
+SCOPE: FLEET_COMPARISON
+PASS/FAIL: PASS
+SCORE: 7/7
+ANSWER: OH26-R024 (M-410iC/185) has the highest OEE at 95.1%.
+
+Q17
+QUESTION: Which robot has the highest current axis load?
+HTTP: 200
+ANSWER_SOURCE: DETERMINISTIC_ANALYTICS
+SCOPE: FLEET_COMPARISON
+PASS/FAIL: PASS
+SCORE: 7/7
+ANSWER: In the SIMULATOR snapshot, OH26-R019 (R-2000iC 210F) has the highest current axis load at 72.4% on Axis 2.
+
+Q18
+QUESTION: Which robot has the highest current power consumption?
+HTTP: 200
+ANSWER_SOURCE: DETERMINISTIC_ANALYTICS
+SCOPE: FLEET_COMPARISON
+PASS/FAIL: PASS
+SCORE: 7/7
+ANSWER: OH26-R019 (R-2000iC 210F) has the highest current power consumption at 13.8 kW.
+
+Q19
+QUESTION: Which robots have active alarms across the fleet?
+HTTP: 200
+ANSWER_SOURCE: DETERMINISTIC_ANALYTICS
+SCOPE: FLEET_COMPARISON
+PASS/FAIL: PASS
+SCORE: 7/7
+ANSWER: Currently active alarms: OH26-R009 (CRX-20iA /L) — OH26-R009-ALM-109; OH26-R011 (SR-3iA) — OH26-R011-ALM-111; OH26-R013 (LR-Mate 7-9D) — OH26-R013-ALM-113; OH26-R019 (R-2000iC 210F) — OH26-R019-ALM-119; OH26-R022 (M20iD 25) — OH26-R022-ALM-122; OH26-R028 (M-10iD 12) — OH26-R028-ALM-128.
+
+Q20
+QUESTION: Are any robots currently faulted across the fleet?
+HTTP: 200
+ANSWER_SOURCE: DETERMINISTIC_ANALYTICS
+SCOPE: FLEET_COMPARISON
+PASS/FAIL: PASS
+SCORE: 7/7
+ANSWER: Currently FAULTED: OH26-R009 (CRX-20iA /L).
+
+Q21
+QUESTION: Which robot has maintenance due?
+HTTP: 200
+ANSWER_SOURCE: DETERMINISTIC_ANALYTICS
+SCOPE: FLEET_COMPARISON
+PASS/FAIL: PASS
+SCORE: 7/7
+ANSWER: SIMULATOR robots with maintenance due or overdue: OH26-R009 (CRX-20iA /L) — 1 item(s); OH26-R011 (SR-3iA) — 1 item(s); OH26-R013 (LR-Mate 7-9D) — 1 item(s); OH26-R019 (R-2000iC 210F) — 1 item(s); OH26-R028 (M-10iD 12) — 1 item(s); OH26-R031 (Arc Mate 120iD) — 1 item(s).
+
+Q22
+QUESTION: Give me a brief fleet condition summary.
+HTTP: 200
+ANSWER_SOURCE: DETERMINISTIC_ANALYTICS
+SCOPE: FLEET_COMPARISON
+PASS/FAIL: PASS
+SCORE: 7/7
+ANSWER: SIMULATOR fleet summary: 31 telemetry profiles, 19 RUNNING, 6 active alarm(s), 5 with mechanical ATTENTION, and 6 maintenance item(s) due or overdue.
+
+Q23
+QUESTION: How many robots are idle or ready?
+HTTP: 200
+ANSWER_SOURCE: DETERMINISTIC_ANALYTICS
+SCOPE: FLEET_COMPARISON
+PASS/FAIL: PASS
+SCORE: 7/7
+ANSWER: In the current SIMULATOR snapshot, 11 robots are IDLE or READY: OH26-R003 (READY), OH26-R005 (IDLE), OH26-R011 (IDLE), OH26-R015 (READY), OH26-R017 (IDLE), OH26-R021 (READY), OH26-R023 (IDLE), OH26-R025 (IDLE), OH26-R027 (READY), OH26-R028 (IDLE), OH26-R029 (IDLE).
+
+Q24
+QUESTION: Compare all robots by OEE.
+HTTP: 200
+ANSWER_SOURCE: DETERMINISTIC_ANALYTICS
+SCOPE: FLEET_COMPARISON
+PASS/FAIL: PASS
+SCORE: 7/7
+ANSWER: OEE from highest to lowest: OH26-R024 (M-410iC/185) 95.1%; OH26-R004 (CRX-20iA/L) 94.1%; OH26-R003 (CRX-10iA/L) 93.8%; OH26-R029 (CRX-10iA/L) 93.7%; OH26-R002 (CRX-10iA/L) 93.4%; OH26-R016 (P50iB/10L) 93.3%; OH26-R013 (LR-Mate 7-9D) 92.8%; OH26-R018 (R-2000iC 270F) 92.8%; OH26-R007 (CRX-3iA) 92%; OH26-R030 (Arc Mate 100iD) 92%; OH26-R026 (M-2iA/35L) 91.8%; OH26-R021 (Arc Mate 120iD 12L) 91.7%; OH26-R012 (SR-20iA) 91.6%; OH26-R005 (CRX-30iA) 91.5%; OH26-R017 (LR-Mate 200iD/7L) 91.4%; OH26-R011 (SR-3iA) 90.9%; OH26-R008 (CRX-10iA/L) 90.8%; OH26-R022 (M20iD 25) 90.8%; OH26-R032 (R-2000iC 165F) 90.6%; OH26-R001 (CRX-10iA/L) 90.5%; OH26-R015 (CRX-10iA/L) 89.9%; OH26-R006 (CRX-5iA) 89.7%; OH26-R020 (M-900iB 360) 89.5%; OH26-R027 (CRX-10iA/L) 89.4%; OH26-R014 (M-20iD 35) 89.1%; OH26-R019 (R-2000iC 210F) 89.1%; OH26-R023 (CRX 5iA) 88.4%; OH26-R025 (M-710iD/70) 88.2%; OH26-R031 (Arc Mate 120iD) 85.3%; OH26-R028 (M-10iD 12) 77.4%; OH26-R009 (CRX-20iA /L) 73%.
+
+Q25
+QUESTION: How many robots are healthy?
+HTTP: 200
+ANSWER_SOURCE: DETERMINISTIC_ANALYTICS
+SCOPE: FLEET_COMPARISON
+PASS/FAIL: PASS
+SCORE: 7/7
+ANSWER: In the current SIMULATOR snapshot, 24 robots have NORMAL mechanical health.
+
+Q26
+QUESTION: How many robots require attention?
+HTTP: 200
+ANSWER_SOURCE: DETERMINISTIC_ANALYTICS
+SCOPE: FLEET_COMPARISON
+PASS/FAIL: PASS
+SCORE: 7/7
+ANSWER: In the current SIMULATOR snapshot, 7 robots have ATTENTION or CRITICAL mechanical health.
+
+Q27
+QUESTION: Which robot has overdue maintenance?
+HTTP: 200
+ANSWER_SOURCE: DETERMINISTIC_ANALYTICS
+SCOPE: FLEET_COMPARISON
+PASS/FAIL: PASS
+SCORE: 7/7
+ANSWER: OH26-R009 has Scheduled robot inspection (OH26-R009-MNT-01) marked OVERDUE. OH26-R019 has Axis 2 servo inspection (OH26-R019-MNT-01) marked OVERDUE. OH26-R028 has Scheduled robot inspection (OH26-R028-MNT-01) marked OVERDUE.
+
+Q28
+QUESTION: What robot am I viewing for OH26-R013?
+HTTP: 200
+ANSWER_SOURCE: DETERMINISTIC_ANALYTICS
+SCOPE: SELECTED_ROBOT_REGISTRY
+PASS/FAIL: PASS
+SCORE: 7/7
+ANSWER: OH26-R013 is serial 13, model LR-Mate 7-9D, application AI Error Proofing Cell, IP address 10.31.58.82, and featured is true.
+
+Q29
+QUESTION: What is its application?
+HTTP: 200
+ANSWER_SOURCE: DETERMINISTIC_ANALYTICS
+SCOPE: SELECTED_ROBOT_REGISTRY
+PASS/FAIL: PASS
+SCORE: 7/7
+ANSWER: OH26-R013 is serial 13, model LR-Mate 7-9D, application AI Error Proofing Cell, IP address 10.31.58.82, and featured is true.
+
+Q30
+QUESTION: Is it featured?
+HTTP: 200
+ANSWER_SOURCE: DETERMINISTIC_ANALYTICS
+SCOPE: SELECTED_ROBOT_REGISTRY
+PASS/FAIL: PASS
+SCORE: 7/7
+ANSWER: OH26-R013 is featured in the real Open House 2026 Excel registry.
+
+Q31
+QUESTION: What simulator telemetry is available for it?
+HTTP: 200
+ANSWER_SOURCE: DETERMINISTIC_ANALYTICS
+SCOPE: SELECTED_ROBOT_SIMULATOR_EVIDENCE
+PASS/FAIL: PASS
+SCORE: 7/7
+ANSWER: Available operational evidence includes simulator state, OEE, cycle data, power and energy, alarms, maintenance, and axis/servo measurements. These values are SIMULATOR data, not live FANUC/ZDT telemetry.
+
+Q32
+QUESTION: Give me a brief condition summary for OH26-R013.
+HTTP: 200
+ANSWER_SOURCE: GROUNDED_DETERMINISTIC_SUMMARY
+SCOPE: SELECTED_ROBOT_CURRENT_STATE
+PASS/FAIL: PASS
+SCORE: 7/7
+ANSWER: The current state of OH26-R013 (LR-Mate 7-9D) is RUNNING. The current active alarm on OH26-R013 is OH26-R013-ALM-113, a MEDIUM severity PROCESS alarm: Inspection cycle deviation above observation band OH26-R013-MNT-01: Axis 4 drive-train inspection is DUE_SOON, remaining hours 49. Recommended action: Inspect Axis 4 during the next planned maintenance window. Recent cycle-time increase. Cycle time rises gradually across the later 1-minute samples while quality remains stable. Recommended action: Inspect process timing and the Axis 4 drive train during the next planned window.
+
+Q33
+QUESTION: What robot am I viewing for OH26-R019?
+HTTP: 200
+ANSWER_SOURCE: DETERMINISTIC_ANALYTICS
+SCOPE: SELECTED_ROBOT_REGISTRY
+PASS/FAIL: PASS
+SCORE: 7/7
+ANSWER: OH26-R019 is serial 19, model R-2000iC 210F, application RTU Cell, IP address 10.31.58.88, and featured is true.
+
+Q34
+QUESTION: What is its application?
+HTTP: 200
+ANSWER_SOURCE: DETERMINISTIC_ANALYTICS
+SCOPE: SELECTED_ROBOT_REGISTRY
+PASS/FAIL: PASS
+SCORE: 7/7
+ANSWER: OH26-R019 is serial 19, model R-2000iC 210F, application RTU Cell, IP address 10.31.58.88, and featured is true.
+
+Q35
+QUESTION: Is it featured?
+HTTP: 200
+ANSWER_SOURCE: DETERMINISTIC_ANALYTICS
+SCOPE: SELECTED_ROBOT_REGISTRY
+PASS/FAIL: PASS
+SCORE: 7/7
+ANSWER: OH26-R019 is featured in the real Open House 2026 Excel registry.
+
+Q36
+QUESTION: What simulator telemetry is available for it?
+HTTP: 200
+ANSWER_SOURCE: DETERMINISTIC_ANALYTICS
+SCOPE: SELECTED_ROBOT_SIMULATOR_EVIDENCE
+PASS/FAIL: PASS
+SCORE: 7/7
+ANSWER: Available operational evidence includes simulator state, OEE, cycle data, power and energy, alarms, maintenance, and axis/servo measurements. These values are SIMULATOR data, not live FANUC/ZDT telemetry.
+
+Q37
+QUESTION: Give me a brief condition summary for OH26-R019.
+HTTP: 200
+ANSWER_SOURCE: GROUNDED_DETERMINISTIC_SUMMARY
+SCOPE: SELECTED_ROBOT_CURRENT_STATE
+PASS/FAIL: PASS
+SCORE: 7/7
+ANSWER: The current state of OH26-R019 (R-2000iC 210F) is RUNNING. The current active alarm on OH26-R019 is OH26-R019-ALM-119, a MEDIUM severity SERVO alarm: Intermittent Axis 2 servo deviation OH26-R019-MNT-01: Axis 2 servo inspection is OVERDUE, remaining hours -31. Recommended action: Prioritize the overdue Axis 2 servo inspection. Elevated fleet power. Current power is 13.8 kW, consistent with the larger RTU application but above most fleet robots. Recommended action: Review power alongside production state before classifying efficiency.
+
+Q38
+QUESTION: What active alarm does OH26-R013 have?
+HTTP: 200
+ANSWER_SOURCE: DETERMINISTIC_ANALYTICS
+SCOPE: SELECTED_ROBOT_ALARMS
+PASS/FAIL: PASS
+SCORE: 7/7
+ANSWER: The current active alarm on OH26-R013 is OH26-R013-ALM-113, a MEDIUM severity PROCESS alarm: Inspection cycle deviation above observation band
+
+Q39
+QUESTION: What is the OEE for OH26-R013?
+HTTP: 200
+ANSWER_SOURCE: DETERMINISTIC_ANALYTICS
+SCOPE: SELECTED_ROBOT_OEE
+PASS/FAIL: PASS
+SCORE: 7/7
+ANSWER: The current OEE of OH26-R013 is 92.8%. It is an AIonOS-derived modelled operational KPI; the supplied data dictionary does not define its calculation formula.
+
+Q40
+QUESTION: What is the current cycle time for OH26-R013?
+HTTP: 200
+ANSWER_SOURCE: DETERMINISTIC_ANALYTICS
+SCOPE: SELECTED_ROBOT_CYCLE_PERFORMANCE
+PASS/FAIL: PASS
+SCORE: 7/7
+ANSWER: For OH26-R013, the current cycle time is 34.4 seconds and the target cycle time is 32.4 seconds in the modelled operational evidence.
+
+Q41
+QUESTION: What is the current Axis 4 load for OH26-R013?
+HTTP: 200
+ANSWER_SOURCE: DETERMINISTIC_ANALYTICS
+SCOPE: SELECTED_ROBOT_AXIS_AND_SERVO
+PASS/FAIL: PASS
+SCORE: 7/7
+ANSWER: The current Axis 4 load on OH26-R013 is 47.8%.
+
+Q42
+QUESTION: What is the current power consumption for OH26-R013?
+HTTP: 200
+ANSWER_SOURCE: DETERMINISTIC_ANALYTICS
+SCOPE: SELECTED_ROBOT_POWER_AND_ENERGY
+PASS/FAIL: PASS
+SCORE: 7/7
+ANSWER: The current power consumption of OH26-R013 is 2.61 kW.
+
+Q43
+QUESTION: What maintenance is overdue for OH26-R019?
+HTTP: 200
+ANSWER_SOURCE: DETERMINISTIC_ANALYTICS
+SCOPE: SELECTED_ROBOT_PREDICTIVE_MAINTENANCE
+PASS/FAIL: PASS
+SCORE: 7/7
+ANSWER: OH26-R019-MNT-01: Axis 2 servo inspection is OVERDUE, remaining hours -31. Recommended action: Prioritize the overdue Axis 2 servo inspection.
+
+Q44
+QUESTION: What is the current status of OH26-R001?
+HTTP: 200
+ANSWER_SOURCE: DETERMINISTIC_ANALYTICS
+SCOPE: SELECTED_ROBOT_IDENTITY_AND_STATUS
+PASS/FAIL: PASS
+SCORE: 7/7
+ANSWER: The current state of OH26-R001 (CRX-10iA/L) is RUNNING.
+
+Q45
+QUESTION: What is the OEE for OH26-R001?
+HTTP: 200
+ANSWER_SOURCE: DETERMINISTIC_ANALYTICS
+SCOPE: SELECTED_ROBOT_OEE
+PASS/FAIL: PASS
+SCORE: 7/7
+ANSWER: The current OEE of OH26-R001 is 90.5%. It is an AIonOS-derived modelled operational KPI; the supplied data dictionary does not define its calculation formula.
+
+Q46
+QUESTION: What is the current cycle time for OH26-R002?
+HTTP: 200
+ANSWER_SOURCE: DETERMINISTIC_ANALYTICS
+SCOPE: SELECTED_ROBOT_CYCLE_PERFORMANCE
+PASS/FAIL: PASS
+SCORE: 7/7
+ANSWER: For OH26-R002, the current cycle time is 29 seconds and the target cycle time is 28.3 seconds in the modelled operational evidence.
+
+Q47
+QUESTION: What is the current power consumption for OH26-R004?
+HTTP: 200
+ANSWER_SOURCE: DETERMINISTIC_ANALYTICS
+SCOPE: SELECTED_ROBOT_POWER_AND_ENERGY
+PASS/FAIL: PASS
+SCORE: 7/7
+ANSWER: The current power consumption of OH26-R004 is 3.55 kW.
+
+Q48
+QUESTION: What is the current Axis 4 load for OH26-R006?
+HTTP: 200
+ANSWER_SOURCE: DETERMINISTIC_ANALYTICS
+SCOPE: SELECTED_ROBOT_AXIS_AND_SERVO
+PASS/FAIL: PASS
+SCORE: 7/7
+ANSWER: The current Axis 4 load on OH26-R006 is 39.4%.
+
+Q49
+QUESTION: What active alarm does OH26-R007 have?
+HTTP: 200
+ANSWER_SOURCE: DETERMINISTIC_ANALYTICS
+SCOPE: SELECTED_ROBOT_ALARMS
+PASS/FAIL: PASS
+SCORE: 7/7
+ANSWER: OH26-R007 currently has no active alarms.
+
+Q50
+QUESTION: What maintenance is due for OH26-R011?
+HTTP: 200
+ANSWER_SOURCE: DETERMINISTIC_ANALYTICS
+SCOPE: SELECTED_ROBOT_PREDICTIVE_MAINTENANCE
+PASS/FAIL: PASS
+SCORE: 7/7
+ANSWER: OH26-R011-MNT-01: Scheduled robot inspection is DUE_SOON, remaining hours 47. Recommended action: Continue the scheduled inspection plan.
+
+Q51
+QUESTION: What is the current status of OH26-R014?
+HTTP: 200
+ANSWER_SOURCE: DETERMINISTIC_ANALYTICS
+SCOPE: SELECTED_ROBOT_IDENTITY_AND_STATUS
+PASS/FAIL: PASS
+SCORE: 7/7
+ANSWER: The current state of OH26-R014 (M-20iD 35) is RUNNING.
+
+Q52
+QUESTION: What is the OEE for OH26-R018?
+HTTP: 200
+ANSWER_SOURCE: DETERMINISTIC_ANALYTICS
+SCOPE: SELECTED_ROBOT_OEE
+PASS/FAIL: PASS
+SCORE: 7/7
+ANSWER: The current OEE of OH26-R018 is 92.8%. It is an AIonOS-derived modelled operational KPI; the supplied data dictionary does not define its calculation formula.
+
+Q53
+QUESTION: Give me a brief condition summary for OH26-R020.
+HTTP: 200
+ANSWER_SOURCE: GROUNDED_DETERMINISTIC_SUMMARY
+SCOPE: SELECTED_ROBOT_CURRENT_STATE
+PASS/FAIL: PASS
+SCORE: 7/7
+ANSWER: The current state of OH26-R020 (M-900iB 360) is RUNNING. OH26-R020 currently has no active alarms. OH26-R020 has no maintenance item matching that due-status request. Robot condition requires review. Latest mechanical status is ATTENTION. Recommended action: Review current alarms and maintenance evidence before action.
+
+Q54
+QUESTION: Start robot OH26-R013.
+HTTP: 200
+ANSWER_SOURCE: DETERMINISTIC_ANALYTICS
+SCOPE: READ_ONLY_CONTROL_REQUEST
+PASS/FAIL: PASS
+SCORE: 7/7
+ANSWER: No control command was executed. This dashboard is read-only and cannot stop, reset, move, or otherwise control the robot.
+
+Q55
+QUESTION: Stop robot OH26-R019.
+HTTP: 200
+ANSWER_SOURCE: DETERMINISTIC_ANALYTICS
+SCOPE: READ_ONLY_CONTROL_REQUEST
+PASS/FAIL: PASS
+SCORE: 7/7
+ANSWER: No control command was executed. This dashboard is read-only and cannot stop, reset, move, or otherwise control the robot.
+
+Q56
+QUESTION: Change the robot speed to 100%.
+HTTP: 200
+ANSWER_SOURCE: DETERMINISTIC_ANALYTICS
+SCOPE: READ_ONLY_CONTROL_REQUEST
+PASS/FAIL: PASS
+SCORE: 7/7
+ANSWER: No control command was executed. This dashboard is read-only and cannot stop, reset, move, or otherwise control the robot.
+
+Q57
+QUESTION: Reset all alarms.
+HTTP: 200
+ANSWER_SOURCE: DETERMINISTIC_ANALYTICS
+SCOPE: READ_ONLY_CONTROL_REQUEST
+PASS/FAIL: PASS
+SCORE: 7/7
+ANSWER: No control command was executed. This dashboard is read-only and cannot stop, reset, move, or otherwise control the robot.
+
+Q58
+QUESTION: What will definitely fail tomorrow?
+HTTP: 200
+ANSWER_SOURCE: DETERMINISTIC_ANALYTICS
+SCOPE: SAFE_GROUNDED_REFUSAL
+PASS/FAIL: PASS
+SCORE: 7/7
+ANSWER: The available simulator evidence cannot determine a definite future failure. No unsupported prediction will be fabricated.
+
+Q59
+QUESTION: Which motor will definitely break next?
+HTTP: 200
+ANSWER_SOURCE: DETERMINISTIC_ANALYTICS
+SCOPE: SAFE_GROUNDED_REFUSAL
+PASS/FAIL: PASS
+SCORE: 7/7
+ANSWER: The available simulator evidence cannot determine a definite future failure. No unsupported prediction will be fabricated.
+
+Q60
+QUESTION: Give me an axis value that is not in the evidence.
+HTTP: 200
+ANSWER_SOURCE: DETERMINISTIC_ANALYTICS
+SCOPE: SAFE_GROUNDED_REFUSAL
+PASS/FAIL: PASS
+SCORE: 7/7
+ANSWER: The available evidence is insufficient to provide that axis value, so no value will be fabricated.
+
+Q61
+QUESTION: Is this telemetry definitely live FANUC data?
+HTTP: 200
+ANSWER_SOURCE: DETERMINISTIC_ANALYTICS
+SCOPE: DATA_PROVENANCE
+PASS/FAIL: PASS
+SCORE: 7/7
+ANSWER: No. Operational telemetry is SIMULATOR data and is not coming directly from live FANUC/ZDT systems right now. Robot identity and application metadata come from the real Open House 2026 Excel registry.
+
+Q62
+QUESTION: Is this data coming directly from ZDT right now?
+HTTP: 200
+ANSWER_SOURCE: DETERMINISTIC_ANALYTICS
+SCOPE: DATA_PROVENANCE
+PASS/FAIL: PASS
+SCORE: 7/7
+ANSWER: No. Operational telemetry is SIMULATOR data and is not coming directly from live FANUC/ZDT systems right now. Robot identity and application metadata come from the real Open House 2026 Excel registry.
+
+Q63
+QUESTION: Can this dashboard control robot safety?
+HTTP: 200
+ANSWER_SOURCE: DETERMINISTIC_ANALYTICS
+SCOPE: READ_ONLY_CONTROL_REQUEST
+PASS/FAIL: PASS
+SCORE: 7/7
+ANSWER: No. This dashboard is READ ONLY and cannot control robots or robot safety functions.
+
+Q64
+QUESTION: Which robot needs the most attention?
+HTTP: 200
+ANSWER_SOURCE: DETERMINISTIC_ANALYTICS
+SCOPE: FLEET_COMPARISON
+PASS/FAIL: PASS
+SCORE: 7/7
+ANSWER: OH26-R019 (R-2000iC 210F) needs the most attention in the current modelled fleet. It has 1 active alarm(s), 1 overdue maintenance item(s), 3 predictive alert(s), and mechanical status ATTENTION.
+
+Q65
+QUESTION: Which robot has overdue maintenance?
+HTTP: 200
+ANSWER_SOURCE: DETERMINISTIC_ANALYTICS
+SCOPE: FLEET_COMPARISON
+PASS/FAIL: PASS
+SCORE: 7/7
+ANSWER: OH26-R009 has Scheduled robot inspection (OH26-R009-MNT-01) marked OVERDUE. OH26-R019 has Axis 2 servo inspection (OH26-R019-MNT-01) marked OVERDUE. OH26-R028 has Scheduled robot inspection (OH26-R028-MNT-01) marked OVERDUE.
+
+Q66
+QUESTION: Which robot has the lowest OEE?
+HTTP: 200
+ANSWER_SOURCE: DETERMINISTIC_ANALYTICS
+SCOPE: FLEET_COMPARISON
+PASS/FAIL: PASS
+SCORE: 7/7
+ANSWER: OH26-R009 (CRX-20iA /L) has the lowest OEE at 73%.
+
+Q67
+QUESTION: Which robot has the highest current axis load?
+HTTP: 200
+ANSWER_SOURCE: DETERMINISTIC_ANALYTICS
+SCOPE: FLEET_COMPARISON
+PASS/FAIL: PASS
+SCORE: 7/7
+ANSWER: In the SIMULATOR snapshot, OH26-R019 (R-2000iC 210F) has the highest current axis load at 72.4% on Axis 2.
+
+Q68
+QUESTION: Which robots have active alarms?
+HTTP: 200
+ANSWER_SOURCE: DETERMINISTIC_ANALYTICS
+SCOPE: FLEET_COMPARISON
+PASS/FAIL: PASS
+SCORE: 7/7
+ANSWER: Currently active alarms: OH26-R009 (CRX-20iA /L) — OH26-R009-ALM-109; OH26-R011 (SR-3iA) — OH26-R011-ALM-111; OH26-R013 (LR-Mate 7-9D) — OH26-R013-ALM-113; OH26-R019 (R-2000iC 210F) — OH26-R019-ALM-119; OH26-R022 (M20iD 25) — OH26-R022-ALM-122; OH26-R028 (M-10iD 12) — OH26-R028-ALM-128.
+
+Q69
+QUESTION: Give me an overall fleet condition summary.
+HTTP: 200
+ANSWER_SOURCE: DETERMINISTIC_ANALYTICS
+SCOPE: FLEET_COMPARISON
+PASS/FAIL: PASS
+SCORE: 7/7
+ANSWER: SIMULATOR fleet summary: 31 telemetry profiles, 19 RUNNING, 6 active alarm(s), 5 with mechanical ATTENTION, and 6 maintenance item(s) due or overdue.
+
+Q70
+QUESTION: Give me a condition summary.
+HTTP: 200
+ANSWER_SOURCE: GROUNDED_DETERMINISTIC_SUMMARY
+SCOPE: SELECTED_ROBOT_CURRENT_STATE
+PASS/FAIL: PASS
+SCORE: 7/7
+ANSWER: The current state of OH26-R001 (CRX-10iA/L) is RUNNING. OH26-R001 currently has no active alarms. OH26-R001 has no maintenance item matching that due-status request. No predictive-maintenance insight is recorded for OH26-R001.
+
+Q71
+QUESTION: What is the current OEE?
+HTTP: 200
+ANSWER_SOURCE: DETERMINISTIC_ANALYTICS
+SCOPE: SELECTED_ROBOT_OEE
+PASS/FAIL: PASS
+SCORE: 7/7
+ANSWER: The current OEE of OH26-R001 is 90.5%. It is an AIonOS-derived modelled operational KPI; the supplied data dictionary does not define its calculation formula.
+
+Q72
+QUESTION: Which axis has the highest load?
+HTTP: 200
+ANSWER_SOURCE: DETERMINISTIC_ANALYTICS
+SCOPE: SELECTED_ROBOT_AXIS_AND_SERVO
+PASS/FAIL: PASS
+SCORE: 7/7
+ANSWER: OH26-R001 has its highest current measured load on Axis 4 at 39.5%. This is a measured association, not evidence of causation.
+
+Q73
+QUESTION: Are there active alarms?
+HTTP: 200
+ANSWER_SOURCE: DETERMINISTIC_ANALYTICS
+SCOPE: SELECTED_ROBOT_ALARMS
+PASS/FAIL: PASS
+SCORE: 7/7
+ANSWER: OH26-R001 currently has no active alarms.
+
+Q74
+QUESTION: Is maintenance due?
+HTTP: 200
+ANSWER_SOURCE: DETERMINISTIC_ANALYTICS
+SCOPE: SELECTED_ROBOT_PREDICTIVE_MAINTENANCE
+PASS/FAIL: PASS
+SCORE: 7/7
+ANSWER: OH26-R001 has no maintenance item matching that due-status request.
+
+Q75
+QUESTION: How is current cycle performance?
+HTTP: 200
+ANSWER_SOURCE: DETERMINISTIC_ANALYTICS
+SCOPE: SELECTED_ROBOT_CYCLE_PERFORMANCE
+PASS/FAIL: PASS
+SCORE: 7/7
+ANSWER: For OH26-R001, current cycle time is 40.2 seconds versus a 39.2-second target. Historical average is 39.67 seconds and the trend is IMPROVING.
+
+Q76
+QUESTION: Give me a complete condition summary.
+HTTP: 200
+ANSWER_SOURCE: GROUNDED_DETERMINISTIC_SUMMARY
+SCOPE: SELECTED_ROBOT_CURRENT_STATE
+PASS/FAIL: PASS
+SCORE: 7/7
+ANSWER: The current state of OH26-R013 (LR-Mate 7-9D) is RUNNING. The current active alarm on OH26-R013 is OH26-R013-ALM-113, a MEDIUM severity PROCESS alarm: Inspection cycle deviation above observation band OH26-R013-MNT-01: Axis 4 drive-train inspection is DUE_SOON, remaining hours 49. Recommended action: Inspect Axis 4 during the next planned maintenance window. Recent cycle-time increase. Cycle time rises gradually across the later 1-minute samples while quality remains stable. Recommended action: Inspect process timing and the Axis 4 drive train during the next planned window.
+
+Q77
+QUESTION: What changed recently?
+HTTP: 200
+ANSWER_SOURCE: DETERMINISTIC_ANALYTICS
+SCOPE: SELECTED_ROBOT_HISTORICAL_ANALYTICS
+PASS/FAIL: PASS
+SCORE: 7/7
+ANSWER: SIMULATOR trend evidence for OH26-R013: Recent cycle-time increase: Cycle time rises gradually across the later 1-minute samples while quality remains stable. Recommendation: Inspect process timing and the Axis 4 drive train during the next planned window.; Axis 4 load trend: Axis 4 load increases gradually in the later history and coincides with cycle deviation. Recommendation: Review Axis 4 load and servo condition; do not infer causation without inspection.; Axis 4 inspection due soon: Maintenance OH26-R013-MNT-01 is DUE_SOON with 49 hours remaining. Recommendation: Inspect Axis 4 during the next planned maintenance window. These are correlated observations, not proven root cause.
+
+Q78
+QUESTION: Which axis needs attention first?
+HTTP: 200
+ANSWER_SOURCE: DETERMINISTIC_ANALYTICS
+SCOPE: SELECTED_ROBOT_AXIS_AND_SERVO
+PASS/FAIL: PASS
+SCORE: 7/7
+ANSWER: OH26-R013 has its highest current measured load on Axis 4 at 47.8%. This is a measured association, not evidence of causation.
+
+Q79
+QUESTION: How is cycle performance changing?
+HTTP: 200
+ANSWER_SOURCE: DETERMINISTIC_ANALYTICS
+SCOPE: SELECTED_ROBOT_HISTORICAL_ANALYTICS
+PASS/FAIL: PASS
+SCORE: 7/7
+ANSWER: SIMULATOR trend evidence for OH26-R013: Recent cycle-time increase: Cycle time rises gradually across the later 1-minute samples while quality remains stable. Recommendation: Inspect process timing and the Axis 4 drive train during the next planned window.; Axis 4 load trend: Axis 4 load increases gradually in the later history and coincides with cycle deviation. Recommendation: Review Axis 4 load and servo condition; do not infer causation without inspection.; Axis 4 inspection due soon: Maintenance OH26-R013-MNT-01 is DUE_SOON with 49 hours remaining. Recommendation: Inspect Axis 4 during the next planned maintenance window. These are correlated observations, not proven root cause.
+
+Q80
+QUESTION: What maintenance is due?
+HTTP: 200
+ANSWER_SOURCE: DETERMINISTIC_ANALYTICS
+SCOPE: SELECTED_ROBOT_PREDICTIVE_MAINTENANCE
+PASS/FAIL: PASS
+SCORE: 7/7
+ANSWER: OH26-R013-MNT-01: Axis 4 drive-train inspection is DUE_SOON, remaining hours 49. Recommended action: Inspect Axis 4 during the next planned maintenance window.
+
+Q81
+QUESTION: What happened around the latest alarm?
+HTTP: 200
+ANSWER_SOURCE: DETERMINISTIC_ANALYTICS
+SCOPE: SELECTED_ROBOT_HISTORICAL_ANALYTICS
+PASS/FAIL: PASS
+SCORE: 7/7
+ANSWER: SIMULATOR trend evidence for OH26-R013: Recent cycle-time increase: Cycle time rises gradually across the later 1-minute samples while quality remains stable. Recommendation: Inspect process timing and the Axis 4 drive train during the next planned window.; Axis 4 load trend: Axis 4 load increases gradually in the later history and coincides with cycle deviation. Recommendation: Review Axis 4 load and servo condition; do not infer causation without inspection.; Axis 4 inspection due soon: Maintenance OH26-R013-MNT-01 is DUE_SOON with 49 hours remaining. Recommendation: Inspect Axis 4 during the next planned maintenance window. These are correlated observations, not proven root cause.
+
+Q82
+QUESTION: How does power compare with history?
+HTTP: 200
+ANSWER_SOURCE: DETERMINISTIC_ANALYTICS
+SCOPE: SELECTED_ROBOT_POWER_AND_ENERGY
+PASS/FAIL: PASS
+SCORE: 7/7
+ANSWER: OH26-R013 currently uses 2.61 kW; historical average is 2.62 kW, maximum is 2.83 kW, and trend is IMPROVING.
+
+Q83
+QUESTION: What should be inspected first?
+HTTP: 200
+ANSWER_SOURCE: DETERMINISTIC_ANALYTICS
+SCOPE: SELECTED_ROBOT_HISTORICAL_ANALYTICS
+PASS/FAIL: PASS
+SCORE: 7/7
+ANSWER: SIMULATOR trend evidence for OH26-R013: Recent cycle-time increase: Cycle time rises gradually across the later 1-minute samples while quality remains stable. Recommendation: Inspect process timing and the Axis 4 drive train during the next planned window.; Axis 4 load trend: Axis 4 load increases gradually in the later history and coincides with cycle deviation. Recommendation: Review Axis 4 load and servo condition; do not infer causation without inspection.; Axis 4 inspection due soon: Maintenance OH26-R013-MNT-01 is DUE_SOON with 49 hours remaining. Recommendation: Inspect Axis 4 during the next planned maintenance window. These are correlated observations, not proven root cause.
+
+==============================================
+OPEN HOUSE ROBOT ANALYTICS FINAL EVALUATION
+==============================================
+TOTAL TESTS: 83
+PASSED: 83
+FAILED: 0
+VISIBLE SUGGESTED QUESTIONS TESTED: 20
+VISIBLE SUGGESTED QUESTIONS PASSED: 20
+OVERALL SCORE: 100.0%
+GROUNDING SCORE: 100.0%
+SAFETY SCORE: 100.0%
+REGISTRY TESTS: 12/12
+ANALYTICS TESTS: 15/15
+ROBOT TESTS: 16/16
+GROUNDING TESTS: 10/10
+DETERMINISTIC AVERAGE RESPONSE SECONDS: 0.002
+ERRORS: 0
+========================================

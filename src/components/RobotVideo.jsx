@@ -23,7 +23,7 @@ export default function RobotVideo({ robotId, robot }) {
           </h2>
         </div>
 
-        <strong>LIVE DEMO</strong>
+        <strong>ROBOT VIDEO</strong>
       </div>
 
       <div className="robot-video-wrapper">

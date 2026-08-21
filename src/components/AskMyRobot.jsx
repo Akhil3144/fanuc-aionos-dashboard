@@ -2,40 +2,56 @@ import { useEffect, useRef, useState } from "react";
 import { askMyRobot } from "../utils/askRobot";
 import "./AskMyRobot.css";
 
-const SUGGESTED_QUESTIONS = [
-  "Which robot needs the most attention?",
-  "Which robot has overdue maintenance?",
-  "Compare EXH-R01 and EXH-R02.",
-  "What needs attention on this robot?",
-  "What is the current Axis 4 load?",
+const FLEET_QUESTIONS = [
+  "Which robots need the most attention?",
+  "Which robots have overdue maintenance?",
   "Which robot has the lowest OEE?",
+  "Which robot has the highest axis load?",
+  "Which robots have active alarms?",
+  "Give me an overall fleet condition summary.",
+];
+const NORMAL_QUESTIONS = [
+  "Give me a condition summary.", "What is the current OEE?", "Which axis has the highest load?",
+  "Are there active alarms?", "Is maintenance due?", "How is current cycle performance?",
+];
+const FEATURED_QUESTIONS = [
+  "How far is cycle time from target?", "Which axis has the highest load?", "What maintenance is due?",
+  "How does current power compare with history?", "Is OEE above or below its historical average?",
+  "Give me a complete condition summary.", "What changed recently?", "What should be inspected first?",
+  "Explain the latest alarm in context.",
 ];
 
-function welcomeMessage(robotId) {
+function welcomeMessage(robotId, scope) {
   return {
     role: "assistant",
     text:
-      `Selected robot: ${robotId || "—"}. ` +
-      "Ask about this robot or compare robots across the synthetic fleet.",
+      (scope === "fleet" ? "Scope: all Open House 2026 robots. " : `Selected robot: ${robotId || "—"}. `) +
+      "Ask about fleet configuration and operational intelligence.",
   };
 }
 
 export default function AskMyRobot({
   snapshot,
+  robotId,
   selectedRobotId,
   robots = [],
+  registry = [],
+  registryRobot = null,
+  scope = "robot",
 }) {
+  const normalizedScope = String(scope || "ROBOT").toUpperCase();
   const activeRobotId =
-    selectedRobotId ||
+    (normalizedScope === "FLEET" ? "ALL ROBOTS" : (robotId || selectedRobotId)) ||
     snapshot?.robot_id ||
     "";
+  const suggestedQuestions = normalizedScope === "FLEET" ? FLEET_QUESTIONS : registryRobot?.featured ? FEATURED_QUESTIONS : NORMAL_QUESTIONS;
 
   const [question, setQuestion] =
     useState("");
 
   const [messages, setMessages] =
     useState([
-      welcomeMessage(activeRobotId),
+      welcomeMessage(activeRobotId, normalizedScope.toLowerCase()),
     ]);
 
   const [loading, setLoading] =
@@ -48,12 +64,12 @@ export default function AskMyRobot({
 
   useEffect(() => {
     setMessages([
-      welcomeMessage(activeRobotId),
+      welcomeMessage(activeRobotId, normalizedScope.toLowerCase()),
     ]);
 
     setQuestion("");
     setError(null);
-  }, [activeRobotId]);
+  }, [activeRobotId, normalizedScope]);
 
   async function submitQuestion(
     questionOverride = null
@@ -86,7 +102,13 @@ export default function AskMyRobot({
       const response =
         await askMyRobot(
           text,
-          snapshot
+          snapshot,
+          {
+            selectedRegistryId: registryRobot?.id || null,
+            selectedRobotId: robotId || selectedRobotId || snapshot?.robot_id || null,
+            scope: normalizedScope,
+            registry,
+          }
         );
 
       const displayScope =
@@ -111,9 +133,6 @@ export default function AskMyRobot({
             meta: {
               context:
                 displayScope,
-
-              mode:
-                response.mode,
 
               readOnly:
                 response.read_only,
@@ -177,7 +196,7 @@ export default function AskMyRobot({
 
   function clearConversation() {
     setMessages([
-      welcomeMessage(activeRobotId),
+      welcomeMessage(activeRobotId, scope),
     ]);
 
     setError(null);
@@ -205,8 +224,7 @@ export default function AskMyRobot({
           </h2>
 
           <p>
-            Ask about the selected robot or compare robots
-            across the synthetic fleet.
+            Ask about the Open House fleet and operational intelligence.
           </p>
         </div>
 
@@ -224,7 +242,7 @@ export default function AskMyRobot({
           </span>
 
           <strong>
-            {activeRobotId || "—"}
+            {scope === "fleet" ? "ALL ROBOTS" : activeRobotId || "—"}
           </strong>
         </div>
 
@@ -235,7 +253,7 @@ export default function AskMyRobot({
 
           <strong>
             {
-              snapshot?.display_name ||
+              registryRobot?.model || snapshot?.display_name ||
               snapshot?.robot_name ||
               "—"
             }
@@ -249,7 +267,7 @@ export default function AskMyRobot({
 
           <strong>
             {
-              snapshot
+              scope === "fleet" ? "FLEET" : snapshot
                 ?.live_cell
                 ?.state ||
               "—"
@@ -263,7 +281,7 @@ export default function AskMyRobot({
           </span>
 
           <strong>
-            {robots.length || 3} robots
+            {registry.length || robots.length} robots
           </strong>
         </div>
 
@@ -279,7 +297,7 @@ export default function AskMyRobot({
       </div>
 
       <div className="ask-suggestions">
-        {SUGGESTED_QUESTIONS.map(
+        {suggestedQuestions.map(
           (item) => (
             <button
               key={item}
@@ -333,12 +351,6 @@ export default function AskMyRobot({
                   {message.meta.queryScope && (
                     <span>
                       {message.meta.queryScope}
-                    </span>
-                  )}
-
-                  {message.meta.mode && (
-                    <span>
-                      {message.meta.mode}
                     </span>
                   )}
 
@@ -404,7 +416,7 @@ export default function AskMyRobot({
           maxLength={500}
 
           placeholder={
-            `Ask about ${activeRobotId || "the selected robot"} or compare the fleet...`
+            normalizedScope === "FLEET" ? "Ask about the Open House robot fleet..." : `Ask about ${activeRobotId || "the selected robot"}...`
           }
         />
 
@@ -428,8 +440,7 @@ export default function AskMyRobot({
 
       <div className="ask-robot-footer">
         <span>
-          Static synthetic evidence · Selected-robot and
-          fleet comparisons · Read only
+          Open House fleet intelligence · Read only
         </span>
 
         <button

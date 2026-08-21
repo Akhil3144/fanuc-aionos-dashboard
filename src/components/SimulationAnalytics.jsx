@@ -151,6 +151,7 @@ export default function SimulationAnalytics({
   robotId,
   points = [],
   activeIndex = 0,
+  featured = false,
 }) {
   const active = points?.[activeIndex];
 
@@ -158,10 +159,10 @@ export default function SimulationAnalytics({
     <section className="simulation-analytics-clean">
       <div className="simulation-clean-head">
         <div>
-          <span>SIMULATION ANALYTICS</span>
-          <h2>Robot Telemetry</h2>
+          <span>TELEMETRY · SIMULATOR</span>
+          <h2>{featured ? "Historical Analytics" : "Telemetry / Historical Trends"}</h2>
           <p>
-            Cycle time, Axis 4 load and power simulation.
+            {featured ? "Cycle, OEE, J1–J6, power, state and alarm evidence." : "Cycle time, Axis 4 load and power trends."}
           </p>
         </div>
 
@@ -201,13 +202,20 @@ export default function SimulationAnalytics({
           activeIndex={activeIndex}
           decimals={2}
         />
+
+        {featured && <Graph title="OEE" field="oee_pct" unit="%" points={points} activeIndex={activeIndex} decimals={1} />}
+
+        {featured && [1, 2, 3, 4, 5, 6].map((axis) => (
+          <Graph key={axis} title={`Axis J${axis} Load`} field={`axis${axis}_load_pct`} unit="%" points={points} activeIndex={activeIndex} decimals={1} />
+        ))}
       </div>
 
-      <div className="simulation-sequence">
+      <div className={`simulation-sequence${featured ? " simulation-timeline" : ""}`} aria-label="State and alarm timeline">
         {points.map((point, index) => (
           <span
             key={`${point.timestamp}-${index}`}
-            className={index === activeIndex ? "active" : ""}
+            title={`${point.state} · ${point.active_alarm_count || 0} alarm(s)`}
+            className={`${index === activeIndex ? "active " : ""}${point.state === "FAULTED" ? "faulted " : ""}${point.active_alarm_count ? "alarm" : ""}`.trim()}
           />
         ))}
       </div>

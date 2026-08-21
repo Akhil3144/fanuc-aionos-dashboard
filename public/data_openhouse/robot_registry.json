@@ -1,0 +1,281 @@
+[
+  {
+    "id": "OH26-R001",
+    "serialNo": 1,
+    "model": "CRX-10iA/L",
+    "application": "Experience Centre",
+    "ipAddress": null,
+    "location": null,
+    "featured": false
+  },
+  {
+    "id": "OH26-R002",
+    "serialNo": 2,
+    "model": "CRX-10iA/L",
+    "application": "Order Fulfilment Cell",
+    "ipAddress": "10.31.58.72",
+    "location": null,
+    "featured": false
+  },
+  {
+    "id": "OH26-R003",
+    "serialNo": 3,
+    "model": "CRX-10iA/L",
+    "application": "Nut Tightening Cell",
+    "ipAddress": "10.31.58.73",
+    "location": null,
+    "featured": false
+  },
+  {
+    "id": "OH26-R004",
+    "serialNo": 4,
+    "model": "CRX-20iA/L",
+    "application": "CRX Force Control Cell",
+    "ipAddress": "10.31.58.74",
+    "location": null,
+    "featured": false
+  },
+  {
+    "id": "OH26-R005",
+    "serialNo": 5,
+    "model": "CRX-30iA",
+    "application": "Bucket Palletizing Cell",
+    "ipAddress": "10.31.58.75",
+    "location": null,
+    "featured": false
+  },
+  {
+    "id": "OH26-R006",
+    "serialNo": 6,
+    "model": "CRX-5iA",
+    "application": "CRX Lineup",
+    "ipAddress": "10.31.58.76",
+    "location": null,
+    "featured": false
+  },
+  {
+    "id": "OH26-R007",
+    "serialNo": 7,
+    "model": "CRX-3iA",
+    "application": null,
+    "ipAddress": "10.31.58.77",
+    "location": null,
+    "featured": false
+  },
+  {
+    "id": "OH26-R008",
+    "serialNo": 8,
+    "model": "CRX-10iA/L",
+    "application": null,
+    "ipAddress": "10.31.58.78",
+    "location": null,
+    "featured": false
+  },
+  {
+    "id": "OH26-R009",
+    "serialNo": 9,
+    "model": "CRX-20iA /L",
+    "application": null,
+    "ipAddress": "10.31.58.79",
+    "location": null,
+    "featured": false
+  },
+  {
+    "id": "OH26-R011",
+    "serialNo": 11,
+    "model": "SR-3iA",
+    "application": "High Speed Pick and Place Cell",
+    "ipAddress": "10.31.58.80",
+    "location": null,
+    "featured": false
+  },
+  {
+    "id": "OH26-R012",
+    "serialNo": 12,
+    "model": "SR-20iA",
+    "application": "High Speed Secondary Packaging Cell",
+    "ipAddress": "10.31.58.81",
+    "location": null,
+    "featured": false
+  },
+  {
+    "id": "OH26-R013",
+    "serialNo": 13,
+    "model": "LR-Mate 7-9D",
+    "application": "AI Error Proofing Cell",
+    "ipAddress": "10.31.58.82",
+    "location": null,
+    "featured": true
+  },
+  {
+    "id": "OH26-R014",
+    "serialNo": 14,
+    "model": "M-20iD 35",
+    "application": "Intelligent Bin Picking Cell",
+    "ipAddress": "10.31.58.83",
+    "location": null,
+    "featured": false
+  },
+  {
+    "id": "OH26-R015",
+    "serialNo": 15,
+    "model": "CRX-10iA/L",
+    "application": "CRX-Paint Cell",
+    "ipAddress": "10.31.58.84",
+    "location": null,
+    "featured": false
+  },
+  {
+    "id": "OH26-R016",
+    "serialNo": 16,
+    "model": "P50iB/10L",
+    "application": "Paint Cell",
+    "ipAddress": null,
+    "location": null,
+    "featured": false
+  },
+  {
+    "id": "OH26-R017",
+    "serialNo": 17,
+    "model": "LR-Mate 200iD/7L",
+    "application": "Deburring Cell",
+    "ipAddress": "10.31.58.86",
+    "location": null,
+    "featured": false
+  },
+  {
+    "id": "OH26-R018",
+    "serialNo": 18,
+    "model": "R-2000iC 270F",
+    "application": "Drilling Cell",
+    "ipAddress": "10.31.58.87",
+    "location": null,
+    "featured": false
+  },
+  {
+    "id": "OH26-R019",
+    "serialNo": 19,
+    "model": "R-2000iC 210F",
+    "application": "RTU Cell",
+    "ipAddress": "10.31.58.88",
+    "location": null,
+    "featured": true
+  },
+  {
+    "id": "OH26-R020",
+    "serialNo": 20,
+    "model": "M-900iB 360",
+    "application": "Fixtureless Welding Cell",
+    "ipAddress": "10.31.58.1",
+    "location": null,
+    "featured": false
+  },
+  {
+    "id": "OH26-R021",
+    "serialNo": 21,
+    "model": "Arc Mate 120iD 12L",
+    "application": null,
+    "ipAddress": "10.31.58.3",
+    "location": null,
+    "featured": false
+  },
+  {
+    "id": "OH26-R022",
+    "serialNo": 22,
+    "model": "M20iD 25",
+    "application": null,
+    "ipAddress": "10.31.58.2",
+    "location": null,
+    "featured": false
+  },
+  {
+    "id": "OH26-R023",
+    "serialNo": 23,
+    "model": "CRX 5iA",
+    "application": "AMR Setup",
+    "ipAddress": null,
+    "location": null,
+    "featured": false
+  },
+  {
+    "id": "OH26-R024",
+    "serialNo": 24,
+    "model": "M-410iC/185",
+    "application": "High Speed Palletizing",
+    "ipAddress": "10.31.58.92",
+    "location": null,
+    "featured": false
+  },
+  {
+    "id": "OH26-R025",
+    "serialNo": 25,
+    "model": "M-710iD/70",
+    "application": "AI Palletizing Cell",
+    "ipAddress": "10.31.58.93",
+    "location": null,
+    "featured": false
+  },
+  {
+    "id": "OH26-R026",
+    "serialNo": 26,
+    "model": "M-2iA/35L",
+    "application": "High Speed Primary Packaging Cell",
+    "ipAddress": "10.31.58.94",
+    "location": null,
+    "featured": false
+  },
+  {
+    "id": "OH26-R027",
+    "serialNo": 27,
+    "model": "CRX-10iA/L",
+    "application": "RTVT",
+    "ipAddress": null,
+    "location": null,
+    "featured": false
+  },
+  {
+    "id": "OH26-R028",
+    "serialNo": 28,
+    "model": "M-10iD 12",
+    "application": "Robotic Grinding Cell",
+    "ipAddress": null,
+    "location": null,
+    "featured": false
+  },
+  {
+    "id": "OH26-R029",
+    "serialNo": 29,
+    "model": "CRX-10iA/L",
+    "application": "Collaborative Arc Welding",
+    "ipAddress": "192.168.0.1",
+    "location": null,
+    "featured": false
+  },
+  {
+    "id": "OH26-R030",
+    "serialNo": 30,
+    "model": "Arc Mate 100iD",
+    "application": "Adaptive arc welding",
+    "ipAddress": "192.168.1.2",
+    "location": null,
+    "featured": false
+  },
+  {
+    "id": "OH26-R031",
+    "serialNo": 31,
+    "model": "Arc Mate 120iD",
+    "application": "Cladding Cell",
+    "ipAddress": "192.168.1.20",
+    "location": null,
+    "featured": false
+  },
+  {
+    "id": "OH26-R032",
+    "serialNo": 32,
+    "model": "R-2000iC 165F",
+    "application": "Dispensing Cell",
+    "ipAddress": null,
+    "location": null,
+    "featured": false
+  }
+]

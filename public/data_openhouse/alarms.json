@@ -1,0 +1,156 @@
+[
+  {
+    "alarm_id": "OH26-R004-ALM-H4",
+    "robot_id": "OH26-R004",
+    "severity": "LOW",
+    "alarm_type": "PROCESS",
+    "category": "PROCESS",
+    "message": "Transient process interlock",
+    "status": "CLEARED",
+    "started_at": "2026-08-20T10:30:00.000Z",
+    "cleared_at": "2026-08-20T10:37:00.000Z"
+  },
+  {
+    "alarm_id": "OH26-R008-ALM-H8",
+    "robot_id": "OH26-R008",
+    "severity": "LOW",
+    "alarm_type": "PROCESS",
+    "category": "PROCESS",
+    "message": "Transient process interlock",
+    "status": "CLEARED",
+    "started_at": "2026-08-20T10:30:00.000Z",
+    "cleared_at": "2026-08-20T10:37:00.000Z"
+  },
+  {
+    "alarm_id": "OH26-R009-ALM-109",
+    "robot_id": "OH26-R009",
+    "severity": "HIGH",
+    "alarm_type": "MECHANICAL",
+    "category": "MECHANICAL",
+    "message": "Operational condition requires review",
+    "status": "ACTIVE",
+    "started_at": "2026-08-21T04:03:00.000Z",
+    "cleared_at": null
+  },
+  {
+    "alarm_id": "OH26-R011-ALM-111",
+    "robot_id": "OH26-R011",
+    "severity": "MEDIUM",
+    "alarm_type": "PROCESS",
+    "category": "PROCESS",
+    "message": "Operational condition requires review",
+    "status": "ACTIVE",
+    "started_at": "2026-08-21T04:01:00.000Z",
+    "cleared_at": null
+  },
+  {
+    "alarm_id": "OH26-R012-ALM-H12",
+    "robot_id": "OH26-R012",
+    "severity": "LOW",
+    "alarm_type": "PROCESS",
+    "category": "PROCESS",
+    "message": "Transient process interlock",
+    "status": "CLEARED",
+    "started_at": "2026-08-20T10:30:00.000Z",
+    "cleared_at": "2026-08-20T10:37:00.000Z"
+  },
+  {
+    "alarm_id": "OH26-R013-ALM-113",
+    "robot_id": "OH26-R013",
+    "severity": "MEDIUM",
+    "alarm_type": "PROCESS",
+    "category": "PROCESS",
+    "message": "Inspection cycle deviation above observation band",
+    "status": "ACTIVE",
+    "started_at": "2026-08-21T03:59:00.000Z",
+    "cleared_at": null
+  },
+  {
+    "alarm_id": "OH26-R016-ALM-H16",
+    "robot_id": "OH26-R016",
+    "severity": "LOW",
+    "alarm_type": "PROCESS",
+    "category": "PROCESS",
+    "message": "Transient process interlock",
+    "status": "CLEARED",
+    "started_at": "2026-08-20T10:30:00.000Z",
+    "cleared_at": "2026-08-20T10:37:00.000Z"
+  },
+  {
+    "alarm_id": "OH26-R019-ALM-119",
+    "robot_id": "OH26-R019",
+    "severity": "MEDIUM",
+    "alarm_type": "SERVO",
+    "category": "SERVO",
+    "message": "Intermittent Axis 2 servo deviation",
+    "status": "ACTIVE",
+    "started_at": "2026-08-21T03:53:00.000Z",
+    "cleared_at": null
+  },
+  {
+    "alarm_id": "OH26-R020-ALM-H20",
+    "robot_id": "OH26-R020",
+    "severity": "LOW",
+    "alarm_type": "PROCESS",
+    "category": "PROCESS",
+    "message": "Transient process interlock",
+    "status": "CLEARED",
+    "started_at": "2026-08-20T10:30:00.000Z",
+    "cleared_at": "2026-08-20T10:37:00.000Z"
+  },
+  {
+    "alarm_id": "OH26-R022-ALM-122",
+    "robot_id": "OH26-R022",
+    "severity": "MEDIUM",
+    "alarm_type": "PROCESS",
+    "category": "PROCESS",
+    "message": "Operational condition requires review",
+    "status": "ACTIVE",
+    "started_at": "2026-08-21T03:50:00.000Z",
+    "cleared_at": null
+  },
+  {
+    "alarm_id": "OH26-R024-ALM-H24",
+    "robot_id": "OH26-R024",
+    "severity": "LOW",
+    "alarm_type": "PROCESS",
+    "category": "PROCESS",
+    "message": "Transient process interlock",
+    "status": "CLEARED",
+    "started_at": "2026-08-20T10:30:00.000Z",
+    "cleared_at": "2026-08-20T10:37:00.000Z"
+  },
+  {
+    "alarm_id": "OH26-R028-ALM-128",
+    "robot_id": "OH26-R028",
+    "severity": "HIGH",
+    "alarm_type": "MECHANICAL",
+    "category": "MECHANICAL",
+    "message": "Operational condition requires review",
+    "status": "ACTIVE",
+    "started_at": "2026-08-21T03:44:00.000Z",
+    "cleared_at": null
+  },
+  {
+    "alarm_id": "OH26-R028-ALM-H28",
+    "robot_id": "OH26-R028",
+    "severity": "LOW",
+    "alarm_type": "PROCESS",
+    "category": "PROCESS",
+    "message": "Transient process interlock",
+    "status": "CLEARED",
+    "started_at": "2026-08-20T10:30:00.000Z",
+    "cleared_at": "2026-08-20T10:37:00.000Z"
+  },
+  {
+    "alarm_id": "OH26-R032-ALM-H32",
+    "robot_id": "OH26-R032",
+    "severity": "LOW",
+    "alarm_type": "PROCESS",
+    "category": "PROCESS",
+    "message": "Transient process interlock",
+    "status": "CLEARED",
+    "started_at": "2026-08-20T10:30:00.000Z",
+    "cleared_at": "2026-08-20T10:37:00.000Z"
+  }
+]

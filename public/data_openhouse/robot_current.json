@@ -1,0 +1,3982 @@
+[
+  {
+    "robot_id": "OH26-R001",
+    "timestamp": "2026-08-21T04:30:00.000Z",
+    "state": "RUNNING",
+    "connection_health": "CONNECTED",
+    "working_status": "NORMAL",
+    "process_status": "NORMAL",
+    "mechanical_status": "NORMAL",
+    "mode": "AUTO",
+    "program": "LIGHT_01",
+    "override_pct": 100,
+    "source_mode": "SIMULATOR",
+    "robot_name": "CRX-10iA/L",
+    "display_name": "CRX-10iA/L",
+    "role": "Experience Centre",
+    "shift": "OPEN_HOUSE",
+    "connection_health_detail": {
+      "edge_connection": "CONNECTED",
+      "data_quality": "GOOD",
+      "stale": false,
+      "latency_ms": 19
+    },
+    "live_cell": {
+      "state": "RUNNING",
+      "busy": true,
+      "process_values": {
+        "program": "LIGHT_01",
+        "mode": "AUTO",
+        "override_pct": 100
+      },
+      "do": {
+        "DO_001_robot_busy": true,
+        "DO_004_robot_ready": true
+      },
+      "di": {
+        "DI_002_part_present": true
+      }
+    },
+    "production": {
+      "robot_id": "OH26-R001",
+      "shift": "OPEN_HOUSE",
+      "target_cycle_time_s": 39.2,
+      "actual_cycle_time_s": 40.2,
+      "cycle_count_total": 2729,
+      "good_count_total": 2691,
+      "reject_count_total": 38,
+      "running_time_s": 221011,
+      "idle_time_s": 8182,
+      "ready_time_s": 5925,
+      "faulted_time_s": 5782,
+      "running_rate": 0.9174,
+      "availability_pct": 97.6,
+      "performance_pct": 94,
+      "quality_pct": 98.6,
+      "oee_pct": 90.5,
+      "shift_availability_pct": 97.6,
+      "shift_performance_pct": 94,
+      "shift_quality_pct": 98.6,
+      "shift_oee_pct": 90.5
+    },
+    "derived_kpis": {
+      "shift_availability_pct": 97.6,
+      "shift_performance_pct": 94,
+      "shift_quality_pct": 98.6,
+      "shift_oee_pct": 90.5
+    },
+    "robot_status": {
+      "working_status": "NORMAL",
+      "process_status": "NORMAL",
+      "mechanical_status": "NORMAL"
+    },
+    "alarms": {
+      "active_alarm_ids": [],
+      "active_alarm_count": 0
+    },
+    "axis_servo": [
+      {
+        "axis": 1,
+        "axis_load_pct": 31.2,
+        "error_count": 0,
+        "odometer": 55749.8,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 2,
+        "axis_load_pct": 34.1,
+        "error_count": 0,
+        "odometer": 63563.3,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 3,
+        "axis_load_pct": 27.8,
+        "error_count": 0,
+        "odometer": 74334.4,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 4,
+        "axis_load_pct": 39.5,
+        "error_count": 0,
+        "odometer": 80853.9,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 5,
+        "axis_load_pct": 28,
+        "error_count": 0,
+        "odometer": 91759.1,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 6,
+        "axis_load_pct": 29.8,
+        "error_count": 0,
+        "odometer": 97243.5,
+        "servo_indicator": "NORMAL"
+      }
+    ],
+    "power_data": {
+      "instantaneous_kw": 3.71,
+      "kwh_total": 633.5,
+      "kwh_run": 532.14,
+      "kwh_idle": 66.52,
+      "kwh_fault": 9.5,
+      "kwh_regen": 25.34
+    }
+  },
+  {
+    "robot_id": "OH26-R002",
+    "timestamp": "2026-08-21T04:30:00.000Z",
+    "state": "RUNNING",
+    "connection_health": "CONNECTED",
+    "working_status": "NORMAL",
+    "process_status": "NORMAL",
+    "mechanical_status": "NORMAL",
+    "mode": "AUTO",
+    "program": "FAST_PICK_02",
+    "override_pct": 100,
+    "source_mode": "SIMULATOR",
+    "robot_name": "CRX-10iA/L",
+    "display_name": "CRX-10iA/L",
+    "role": "Order Fulfilment Cell",
+    "shift": "OPEN_HOUSE",
+    "connection_health_detail": {
+      "edge_connection": "CONNECTED",
+      "data_quality": "GOOD",
+      "stale": false,
+      "latency_ms": 20
+    },
+    "live_cell": {
+      "state": "RUNNING",
+      "busy": true,
+      "process_values": {
+        "program": "FAST_PICK_02",
+        "mode": "AUTO",
+        "override_pct": 100
+      },
+      "do": {
+        "DO_001_robot_busy": true,
+        "DO_004_robot_ready": true
+      },
+      "di": {
+        "DI_002_part_present": true
+      }
+    },
+    "production": {
+      "robot_id": "OH26-R002",
+      "shift": "OPEN_HOUSE",
+      "target_cycle_time_s": 28.3,
+      "actual_cycle_time_s": 29,
+      "cycle_count_total": 2101,
+      "good_count_total": 2093,
+      "reject_count_total": 8,
+      "running_time_s": 211835,
+      "idle_time_s": 12471,
+      "ready_time_s": 9031,
+      "faulted_time_s": 8463,
+      "running_rate": 0.8761,
+      "availability_pct": 96.5,
+      "performance_pct": 97.2,
+      "quality_pct": 99.6,
+      "oee_pct": 93.4,
+      "shift_availability_pct": 96.5,
+      "shift_performance_pct": 97.2,
+      "shift_quality_pct": 99.6,
+      "shift_oee_pct": 93.4
+    },
+    "derived_kpis": {
+      "shift_availability_pct": 96.5,
+      "shift_performance_pct": 97.2,
+      "shift_quality_pct": 99.6,
+      "shift_oee_pct": 93.4
+    },
+    "robot_status": {
+      "working_status": "NORMAL",
+      "process_status": "NORMAL",
+      "mechanical_status": "NORMAL"
+    },
+    "alarms": {
+      "active_alarm_ids": [],
+      "active_alarm_count": 0
+    },
+    "axis_servo": [
+      {
+        "axis": 1,
+        "axis_load_pct": 35.4,
+        "error_count": 0,
+        "odometer": 64292.6,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 2,
+        "axis_load_pct": 39.7,
+        "error_count": 0,
+        "odometer": 68823.6,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 3,
+        "axis_load_pct": 34.4,
+        "error_count": 0,
+        "odometer": 80717.8,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 4,
+        "axis_load_pct": 44.1,
+        "error_count": 0,
+        "odometer": 88091.5,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 5,
+        "axis_load_pct": 37.1,
+        "error_count": 0,
+        "odometer": 94571.2,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 6,
+        "axis_load_pct": 27,
+        "error_count": 0,
+        "odometer": 101388.2,
+        "servo_indicator": "NORMAL"
+      }
+    ],
+    "power_data": {
+      "instantaneous_kw": 3.89,
+      "kwh_total": 712.79,
+      "kwh_run": 598.74,
+      "kwh_idle": 74.84,
+      "kwh_fault": 10.69,
+      "kwh_regen": 28.51
+    }
+  },
+  {
+    "robot_id": "OH26-R003",
+    "timestamp": "2026-08-21T04:30:00.000Z",
+    "state": "READY",
+    "connection_health": "CONNECTED",
+    "working_status": "NORMAL",
+    "process_status": "NORMAL",
+    "mechanical_status": "NORMAL",
+    "mode": "AUTO",
+    "program": "LIGHT_03",
+    "override_pct": 100,
+    "source_mode": "SIMULATOR",
+    "robot_name": "CRX-10iA/L",
+    "display_name": "CRX-10iA/L",
+    "role": "Nut Tightening Cell",
+    "shift": "OPEN_HOUSE",
+    "connection_health_detail": {
+      "edge_connection": "CONNECTED",
+      "data_quality": "GOOD",
+      "stale": false,
+      "latency_ms": 21
+    },
+    "live_cell": {
+      "state": "READY",
+      "busy": false,
+      "process_values": {
+        "program": "LIGHT_03",
+        "mode": "AUTO",
+        "override_pct": 100
+      },
+      "do": {
+        "DO_001_robot_busy": false,
+        "DO_004_robot_ready": true
+      },
+      "di": {
+        "DI_002_part_present": false
+      }
+    },
+    "production": {
+      "robot_id": "OH26-R003",
+      "shift": "OPEN_HOUSE",
+      "target_cycle_time_s": 38.9,
+      "actual_cycle_time_s": null,
+      "cycle_count_total": 2642,
+      "good_count_total": 2608,
+      "reject_count_total": 34,
+      "running_time_s": 225628,
+      "idle_time_s": 8353,
+      "ready_time_s": 6049,
+      "faulted_time_s": 2670,
+      "running_rate": 0.9297,
+      "availability_pct": 98.9,
+      "performance_pct": 96.1,
+      "quality_pct": 98.7,
+      "oee_pct": 93.8,
+      "shift_availability_pct": 98.9,
+      "shift_performance_pct": 96.1,
+      "shift_quality_pct": 98.7,
+      "shift_oee_pct": 93.8
+    },
+    "derived_kpis": {
+      "shift_availability_pct": 98.9,
+      "shift_performance_pct": 96.1,
+      "shift_quality_pct": 98.7,
+      "shift_oee_pct": 93.8
+    },
+    "robot_status": {
+      "working_status": "NORMAL",
+      "process_status": "NORMAL",
+      "mechanical_status": "NORMAL"
+    },
+    "alarms": {
+      "active_alarm_ids": [],
+      "active_alarm_count": 0
+    },
+    "axis_servo": [
+      {
+        "axis": 1,
+        "axis_load_pct": 22.6,
+        "error_count": 0,
+        "odometer": 66090.8,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 2,
+        "axis_load_pct": 37.2,
+        "error_count": 0,
+        "odometer": 77702.6,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 3,
+        "axis_load_pct": 28.6,
+        "error_count": 0,
+        "odometer": 82913.4,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 4,
+        "axis_load_pct": 41.3,
+        "error_count": 0,
+        "odometer": 91905,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 5,
+        "axis_load_pct": 33,
+        "error_count": 0,
+        "odometer": 99826.6,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 6,
+        "axis_load_pct": 26.7,
+        "error_count": 0,
+        "odometer": 109991.2,
+        "servo_indicator": "NORMAL"
+      }
+    ],
+    "power_data": {
+      "instantaneous_kw": 1.68,
+      "kwh_total": 804.53,
+      "kwh_run": 675.81,
+      "kwh_idle": 84.48,
+      "kwh_fault": 12.07,
+      "kwh_regen": 32.18
+    }
+  },
+  {
+    "robot_id": "OH26-R004",
+    "timestamp": "2026-08-21T04:30:00.000Z",
+    "state": "RUNNING",
+    "connection_health": "CONNECTED",
+    "working_status": "NORMAL",
+    "process_status": "NORMAL",
+    "mechanical_status": "NORMAL",
+    "mode": "AUTO",
+    "program": "LIGHT_04",
+    "override_pct": 100,
+    "source_mode": "SIMULATOR",
+    "robot_name": "CRX-20iA/L",
+    "display_name": "CRX-20iA/L",
+    "role": "CRX Force Control Cell",
+    "shift": "OPEN_HOUSE",
+    "connection_health_detail": {
+      "edge_connection": "CONNECTED",
+      "data_quality": "GOOD",
+      "stale": false,
+      "latency_ms": 22
+    },
+    "live_cell": {
+      "state": "RUNNING",
+      "busy": true,
+      "process_values": {
+        "program": "LIGHT_04",
+        "mode": "AUTO",
+        "override_pct": 100
+      },
+      "do": {
+        "DO_001_robot_busy": true,
+        "DO_004_robot_ready": true
+      },
+      "di": {
+        "DI_002_part_present": true
+      }
+    },
+    "production": {
+      "robot_id": "OH26-R004",
+      "shift": "OPEN_HOUSE",
+      "target_cycle_time_s": 36,
+      "actual_cycle_time_s": 37.1,
+      "cycle_count_total": 3004,
+      "good_count_total": 2986,
+      "reject_count_total": 18,
+      "running_time_s": 224569,
+      "idle_time_s": 9343,
+      "ready_time_s": 6765,
+      "faulted_time_s": 2923,
+      "running_rate": 0.9219,
+      "availability_pct": 98.8,
+      "performance_pct": 95.8,
+      "quality_pct": 99.4,
+      "oee_pct": 94.1,
+      "shift_availability_pct": 98.8,
+      "shift_performance_pct": 95.8,
+      "shift_quality_pct": 99.4,
+      "shift_oee_pct": 94.1
+    },
+    "derived_kpis": {
+      "shift_availability_pct": 98.8,
+      "shift_performance_pct": 95.8,
+      "shift_quality_pct": 99.4,
+      "shift_oee_pct": 94.1
+    },
+    "robot_status": {
+      "working_status": "NORMAL",
+      "process_status": "NORMAL",
+      "mechanical_status": "NORMAL"
+    },
+    "alarms": {
+      "active_alarm_ids": [],
+      "active_alarm_count": 0
+    },
+    "axis_servo": [
+      {
+        "axis": 1,
+        "axis_load_pct": 31.1,
+        "error_count": 0,
+        "odometer": 72407,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 2,
+        "axis_load_pct": 32.5,
+        "error_count": 0,
+        "odometer": 79503,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 3,
+        "axis_load_pct": 34.2,
+        "error_count": 0,
+        "odometer": 89151.1,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 4,
+        "axis_load_pct": 39,
+        "error_count": 0,
+        "odometer": 98816.2,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 5,
+        "axis_load_pct": 31.9,
+        "error_count": 0,
+        "odometer": 106147,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 6,
+        "axis_load_pct": 27.6,
+        "error_count": 0,
+        "odometer": 114298.7,
+        "servo_indicator": "NORMAL"
+      }
+    ],
+    "power_data": {
+      "instantaneous_kw": 3.55,
+      "kwh_total": 761.61,
+      "kwh_run": 639.75,
+      "kwh_idle": 79.97,
+      "kwh_fault": 11.42,
+      "kwh_regen": 30.46
+    }
+  },
+  {
+    "robot_id": "OH26-R005",
+    "timestamp": "2026-08-21T04:30:00.000Z",
+    "state": "IDLE",
+    "connection_health": "CONNECTED",
+    "working_status": "NORMAL",
+    "process_status": "NORMAL",
+    "mechanical_status": "NORMAL",
+    "mode": "AUTO",
+    "program": "HEAVY_05",
+    "override_pct": 100,
+    "source_mode": "SIMULATOR",
+    "robot_name": "CRX-30iA",
+    "display_name": "CRX-30iA",
+    "role": "Bucket Palletizing Cell",
+    "shift": "OPEN_HOUSE",
+    "connection_health_detail": {
+      "edge_connection": "CONNECTED",
+      "data_quality": "GOOD",
+      "stale": false,
+      "latency_ms": 23
+    },
+    "live_cell": {
+      "state": "IDLE",
+      "busy": false,
+      "process_values": {
+        "program": "HEAVY_05",
+        "mode": "AUTO",
+        "override_pct": 100
+      },
+      "do": {
+        "DO_001_robot_busy": false,
+        "DO_004_robot_ready": false
+      },
+      "di": {
+        "DI_002_part_present": false
+      }
+    },
+    "production": {
+      "robot_id": "OH26-R005",
+      "shift": "OPEN_HOUSE",
+      "target_cycle_time_s": 56.6,
+      "actual_cycle_time_s": null,
+      "cycle_count_total": 3190,
+      "good_count_total": 3142,
+      "reject_count_total": 48,
+      "running_time_s": 225463,
+      "idle_time_s": 8347,
+      "ready_time_s": 6044,
+      "faulted_time_s": 4646,
+      "running_rate": 0.9221,
+      "availability_pct": 98.1,
+      "performance_pct": 94.7,
+      "quality_pct": 98.5,
+      "oee_pct": 91.5,
+      "shift_availability_pct": 98.1,
+      "shift_performance_pct": 94.7,
+      "shift_quality_pct": 98.5,
+      "shift_oee_pct": 91.5
+    },
+    "derived_kpis": {
+      "shift_availability_pct": 98.1,
+      "shift_performance_pct": 94.7,
+      "shift_quality_pct": 98.5,
+      "shift_oee_pct": 91.5
+    },
+    "robot_status": {
+      "working_status": "NORMAL",
+      "process_status": "NORMAL",
+      "mechanical_status": "NORMAL"
+    },
+    "alarms": {
+      "active_alarm_ids": [],
+      "active_alarm_count": 0
+    },
+    "axis_servo": [
+      {
+        "axis": 1,
+        "axis_load_pct": 49.1,
+        "error_count": 0,
+        "odometer": 80179.2,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 2,
+        "axis_load_pct": 54.6,
+        "error_count": 0,
+        "odometer": 88205.6,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 3,
+        "axis_load_pct": 51.8,
+        "error_count": 0,
+        "odometer": 96669,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 4,
+        "axis_load_pct": 59.4,
+        "error_count": 0,
+        "odometer": 101643.9,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 5,
+        "axis_load_pct": 56.3,
+        "error_count": 0,
+        "odometer": 111514.6,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 6,
+        "axis_load_pct": 51.9,
+        "error_count": 1,
+        "odometer": 117924,
+        "servo_indicator": "ATTENTION"
+      }
+    ],
+    "power_data": {
+      "instantaneous_kw": 4.68,
+      "kwh_total": 1259.32,
+      "kwh_run": 1057.83,
+      "kwh_idle": 132.23,
+      "kwh_fault": 18.89,
+      "kwh_regen": 50.37
+    }
+  },
+  {
+    "robot_id": "OH26-R006",
+    "timestamp": "2026-08-21T04:30:00.000Z",
+    "state": "RUNNING",
+    "connection_health": "CONNECTED",
+    "working_status": "NORMAL",
+    "process_status": "NORMAL",
+    "mechanical_status": "NORMAL",
+    "mode": "AUTO",
+    "program": "LIGHT_06",
+    "override_pct": 100,
+    "source_mode": "SIMULATOR",
+    "robot_name": "CRX-5iA",
+    "display_name": "CRX-5iA",
+    "role": "CRX Lineup",
+    "shift": "OPEN_HOUSE",
+    "connection_health_detail": {
+      "edge_connection": "CONNECTED",
+      "data_quality": "GOOD",
+      "stale": false,
+      "latency_ms": 24
+    },
+    "live_cell": {
+      "state": "RUNNING",
+      "busy": true,
+      "process_values": {
+        "program": "LIGHT_06",
+        "mode": "AUTO",
+        "override_pct": 100
+      },
+      "do": {
+        "DO_001_robot_busy": true,
+        "DO_004_robot_ready": true
+      },
+      "di": {
+        "DI_002_part_present": true
+      }
+    },
+    "production": {
+      "robot_id": "OH26-R006",
+      "shift": "OPEN_HOUSE",
+      "target_cycle_time_s": 35.8,
+      "actual_cycle_time_s": 36.8,
+      "cycle_count_total": 3368,
+      "good_count_total": 3351,
+      "reject_count_total": 17,
+      "running_time_s": 223247,
+      "idle_time_s": 8579,
+      "ready_time_s": 6212,
+      "faulted_time_s": 7362,
+      "running_rate": 0.9097,
+      "availability_pct": 97,
+      "performance_pct": 92.9,
+      "quality_pct": 99.5,
+      "oee_pct": 89.7,
+      "shift_availability_pct": 97,
+      "shift_performance_pct": 92.9,
+      "shift_quality_pct": 99.5,
+      "shift_oee_pct": 89.7
+    },
+    "derived_kpis": {
+      "shift_availability_pct": 97,
+      "shift_performance_pct": 92.9,
+      "shift_quality_pct": 99.5,
+      "shift_oee_pct": 89.7
+    },
+    "robot_status": {
+      "working_status": "NORMAL",
+      "process_status": "NORMAL",
+      "mechanical_status": "NORMAL"
+    },
+    "alarms": {
+      "active_alarm_ids": [],
+      "active_alarm_count": 0
+    },
+    "axis_servo": [
+      {
+        "axis": 1,
+        "axis_load_pct": 28.2,
+        "error_count": 1,
+        "odometer": 82502.2,
+        "servo_indicator": "ATTENTION"
+      },
+      {
+        "axis": 2,
+        "axis_load_pct": 33.6,
+        "error_count": 1,
+        "odometer": 91409.9,
+        "servo_indicator": "ATTENTION"
+      },
+      {
+        "axis": 3,
+        "axis_load_pct": 33,
+        "error_count": 0,
+        "odometer": 100473.3,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 4,
+        "axis_load_pct": 39.4,
+        "error_count": 0,
+        "odometer": 106708,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 5,
+        "axis_load_pct": 35.3,
+        "error_count": 1,
+        "odometer": 115088.4,
+        "servo_indicator": "ATTENTION"
+      },
+      {
+        "axis": 6,
+        "axis_load_pct": 23.1,
+        "error_count": 0,
+        "odometer": 122795.2,
+        "servo_indicator": "NORMAL"
+      }
+    ],
+    "power_data": {
+      "instantaneous_kw": 3.66,
+      "kwh_total": 840.2,
+      "kwh_run": 705.77,
+      "kwh_idle": 88.22,
+      "kwh_fault": 12.6,
+      "kwh_regen": 33.61
+    }
+  },
+  {
+    "robot_id": "OH26-R007",
+    "timestamp": "2026-08-21T04:30:00.000Z",
+    "state": "RUNNING",
+    "connection_health": "CONNECTED",
+    "working_status": "NORMAL",
+    "process_status": "NORMAL",
+    "mechanical_status": "NORMAL",
+    "mode": "AUTO",
+    "program": "LIGHT_07",
+    "override_pct": 100,
+    "source_mode": "SIMULATOR",
+    "robot_name": "CRX-3iA",
+    "display_name": "CRX-3iA",
+    "role": null,
+    "shift": "OPEN_HOUSE",
+    "connection_health_detail": {
+      "edge_connection": "CONNECTED",
+      "data_quality": "GOOD",
+      "stale": false,
+      "latency_ms": 25
+    },
+    "live_cell": {
+      "state": "RUNNING",
+      "busy": true,
+      "process_values": {
+        "program": "LIGHT_07",
+        "mode": "AUTO",
+        "override_pct": 100
+      },
+      "do": {
+        "DO_001_robot_busy": true,
+        "DO_004_robot_ready": true
+      },
+      "di": {
+        "DI_002_part_present": true
+      }
+    },
+    "production": {
+      "robot_id": "OH26-R007",
+      "shift": "OPEN_HOUSE",
+      "target_cycle_time_s": 39.4,
+      "actual_cycle_time_s": 40.5,
+      "cycle_count_total": 3460,
+      "good_count_total": 3412,
+      "reject_count_total": 48,
+      "running_time_s": 223187,
+      "idle_time_s": 8263,
+      "ready_time_s": 5983,
+      "faulted_time_s": 8867,
+      "running_rate": 0.9062,
+      "availability_pct": 96.4,
+      "performance_pct": 96.8,
+      "quality_pct": 98.6,
+      "oee_pct": 92,
+      "shift_availability_pct": 96.4,
+      "shift_performance_pct": 96.8,
+      "shift_quality_pct": 98.6,
+      "shift_oee_pct": 92
+    },
+    "derived_kpis": {
+      "shift_availability_pct": 96.4,
+      "shift_performance_pct": 96.8,
+      "shift_quality_pct": 98.6,
+      "shift_oee_pct": 92
+    },
+    "robot_status": {
+      "working_status": "NORMAL",
+      "process_status": "NORMAL",
+      "mechanical_status": "NORMAL"
+    },
+    "alarms": {
+      "active_alarm_ids": [],
+      "active_alarm_count": 0
+    },
+    "axis_servo": [
+      {
+        "axis": 1,
+        "axis_load_pct": 25.1,
+        "error_count": 0,
+        "odometer": 88054.6,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 2,
+        "axis_load_pct": 33.1,
+        "error_count": 0,
+        "odometer": 98056.4,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 3,
+        "axis_load_pct": 29.1,
+        "error_count": 0,
+        "odometer": 105412.2,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 4,
+        "axis_load_pct": 39.2,
+        "error_count": 0,
+        "odometer": 115362.1,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 5,
+        "axis_load_pct": 33.6,
+        "error_count": 0,
+        "odometer": 121217.7,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 6,
+        "axis_load_pct": 25.3,
+        "error_count": 0,
+        "odometer": 131147,
+        "servo_indicator": "NORMAL"
+      }
+    ],
+    "power_data": {
+      "instantaneous_kw": 3.61,
+      "kwh_total": 882.9,
+      "kwh_run": 741.64,
+      "kwh_idle": 92.7,
+      "kwh_fault": 13.24,
+      "kwh_regen": 35.32
+    }
+  },
+  {
+    "robot_id": "OH26-R008",
+    "timestamp": "2026-08-21T04:30:00.000Z",
+    "state": "RUNNING",
+    "connection_health": "CONNECTED",
+    "working_status": "NORMAL",
+    "process_status": "NORMAL",
+    "mechanical_status": "NORMAL",
+    "mode": "AUTO",
+    "program": "LIGHT_08",
+    "override_pct": 100,
+    "source_mode": "SIMULATOR",
+    "robot_name": "CRX-10iA/L",
+    "display_name": "CRX-10iA/L",
+    "role": null,
+    "shift": "OPEN_HOUSE",
+    "connection_health_detail": {
+      "edge_connection": "CONNECTED",
+      "data_quality": "GOOD",
+      "stale": false,
+      "latency_ms": 26
+    },
+    "live_cell": {
+      "state": "RUNNING",
+      "busy": true,
+      "process_values": {
+        "program": "LIGHT_08",
+        "mode": "AUTO",
+        "override_pct": 100
+      },
+      "do": {
+        "DO_001_robot_busy": true,
+        "DO_004_robot_ready": true
+      },
+      "di": {
+        "DI_002_part_present": true
+      }
+    },
+    "production": {
+      "robot_id": "OH26-R008",
+      "shift": "OPEN_HOUSE",
+      "target_cycle_time_s": 41.6,
+      "actual_cycle_time_s": 42.3,
+      "cycle_count_total": 3194,
+      "good_count_total": 3188,
+      "reject_count_total": 6,
+      "running_time_s": 225861,
+      "idle_time_s": 8362,
+      "ready_time_s": 6055,
+      "faulted_time_s": 6922,
+      "running_rate": 0.9137,
+      "availability_pct": 97.2,
+      "performance_pct": 93.6,
+      "quality_pct": 99.8,
+      "oee_pct": 90.8,
+      "shift_availability_pct": 97.2,
+      "shift_performance_pct": 93.6,
+      "shift_quality_pct": 99.8,
+      "shift_oee_pct": 90.8
+    },
+    "derived_kpis": {
+      "shift_availability_pct": 97.2,
+      "shift_performance_pct": 93.6,
+      "shift_quality_pct": 99.8,
+      "shift_oee_pct": 90.8
+    },
+    "robot_status": {
+      "working_status": "NORMAL",
+      "process_status": "NORMAL",
+      "mechanical_status": "NORMAL"
+    },
+    "alarms": {
+      "active_alarm_ids": [],
+      "active_alarm_count": 0
+    },
+    "axis_servo": [
+      {
+        "axis": 1,
+        "axis_load_pct": 22.7,
+        "error_count": 0,
+        "odometer": 94578.2,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 2,
+        "axis_load_pct": 29.9,
+        "error_count": 0,
+        "odometer": 104544.3,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 3,
+        "axis_load_pct": 26.7,
+        "error_count": 0,
+        "odometer": 110684.6,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 4,
+        "axis_load_pct": 41.3,
+        "error_count": 0,
+        "odometer": 119766.7,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 5,
+        "axis_load_pct": 34.3,
+        "error_count": 0,
+        "odometer": 125395.5,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 6,
+        "axis_load_pct": 27.4,
+        "error_count": 0,
+        "odometer": 134877.7,
+        "servo_indicator": "NORMAL"
+      }
+    ],
+    "power_data": {
+      "instantaneous_kw": 3.57,
+      "kwh_total": 905.17,
+      "kwh_run": 760.34,
+      "kwh_idle": 95.04,
+      "kwh_fault": 13.58,
+      "kwh_regen": 36.21
+    }
+  },
+  {
+    "robot_id": "OH26-R009",
+    "timestamp": "2026-08-21T04:30:00.000Z",
+    "state": "FAULTED",
+    "connection_health": "OFFLINE",
+    "working_status": "CRITICAL",
+    "process_status": "CRITICAL",
+    "mechanical_status": "CRITICAL",
+    "mode": "AUTO",
+    "program": "LIGHT_09",
+    "override_pct": 0,
+    "source_mode": "SIMULATOR",
+    "robot_name": "CRX-20iA /L",
+    "display_name": "CRX-20iA /L",
+    "role": null,
+    "shift": "OPEN_HOUSE",
+    "connection_health_detail": {
+      "edge_connection": "OFFLINE",
+      "data_quality": "DEGRADED",
+      "stale": true,
+      "latency_ms": null
+    },
+    "live_cell": {
+      "state": "FAULTED",
+      "busy": false,
+      "process_values": {
+        "program": "LIGHT_09",
+        "mode": "AUTO",
+        "override_pct": 0
+      },
+      "do": {
+        "DO_001_robot_busy": false,
+        "DO_004_robot_ready": false
+      },
+      "di": {
+        "DI_002_part_present": false
+      }
+    },
+    "production": {
+      "robot_id": "OH26-R009",
+      "shift": "OPEN_HOUSE",
+      "target_cycle_time_s": 38.3,
+      "actual_cycle_time_s": null,
+      "cycle_count_total": 3189,
+      "good_count_total": 3106,
+      "reject_count_total": 83,
+      "running_time_s": 190058,
+      "idle_time_s": 15821,
+      "ready_time_s": 11457,
+      "faulted_time_s": 30764,
+      "running_rate": 0.7661,
+      "availability_pct": 87.6,
+      "performance_pct": 85.5,
+      "quality_pct": 97.4,
+      "oee_pct": 73,
+      "shift_availability_pct": 87.6,
+      "shift_performance_pct": 85.5,
+      "shift_quality_pct": 97.4,
+      "shift_oee_pct": 73
+    },
+    "derived_kpis": {
+      "shift_availability_pct": 87.6,
+      "shift_performance_pct": 85.5,
+      "shift_quality_pct": 97.4,
+      "shift_oee_pct": 73
+    },
+    "robot_status": {
+      "working_status": "CRITICAL",
+      "process_status": "CRITICAL",
+      "mechanical_status": "CRITICAL"
+    },
+    "alarms": {
+      "active_alarm_ids": [
+        "OH26-R009-ALM-109"
+      ],
+      "active_alarm_count": 1
+    },
+    "axis_servo": [
+      {
+        "axis": 1,
+        "axis_load_pct": 28.1,
+        "error_count": 0,
+        "odometer": 98402.3,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 2,
+        "axis_load_pct": 33.7,
+        "error_count": 0,
+        "odometer": 109599.7,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 3,
+        "axis_load_pct": 48.4,
+        "error_count": 6,
+        "odometer": 116801.3,
+        "servo_indicator": "CRITICAL"
+      },
+      {
+        "axis": 4,
+        "axis_load_pct": 37,
+        "error_count": 0,
+        "odometer": 125489.8,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 5,
+        "axis_load_pct": 33,
+        "error_count": 0,
+        "odometer": 132454.9,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 6,
+        "axis_load_pct": 22.3,
+        "error_count": 0,
+        "odometer": 141929.5,
+        "servo_indicator": "NORMAL"
+      }
+    ],
+    "power_data": {
+      "instantaneous_kw": 0.89,
+      "kwh_total": 963.88,
+      "kwh_run": 809.66,
+      "kwh_idle": 101.21,
+      "kwh_fault": 14.46,
+      "kwh_regen": 38.56
+    }
+  },
+  {
+    "robot_id": "OH26-R011",
+    "timestamp": "2026-08-21T04:30:00.000Z",
+    "state": "IDLE",
+    "connection_health": "CONNECTED",
+    "working_status": "NORMAL",
+    "process_status": "NORMAL",
+    "mechanical_status": "NORMAL",
+    "mode": "AUTO",
+    "program": "FAST_PICK_11",
+    "override_pct": 100,
+    "source_mode": "SIMULATOR",
+    "robot_name": "SR-3iA",
+    "display_name": "SR-3iA",
+    "role": "High Speed Pick and Place Cell",
+    "shift": "OPEN_HOUSE",
+    "connection_health_detail": {
+      "edge_connection": "CONNECTED",
+      "data_quality": "GOOD",
+      "stale": false,
+      "latency_ms": 29
+    },
+    "live_cell": {
+      "state": "IDLE",
+      "busy": false,
+      "process_values": {
+        "program": "FAST_PICK_11",
+        "mode": "AUTO",
+        "override_pct": 100
+      },
+      "do": {
+        "DO_001_robot_busy": false,
+        "DO_004_robot_ready": false
+      },
+      "di": {
+        "DI_002_part_present": false
+      }
+    },
+    "production": {
+      "robot_id": "OH26-R011",
+      "shift": "OPEN_HOUSE",
+      "target_cycle_time_s": 26.1,
+      "actual_cycle_time_s": null,
+      "cycle_count_total": 4143,
+      "good_count_total": 4068,
+      "reject_count_total": 75,
+      "running_time_s": 220529,
+      "idle_time_s": 14281,
+      "ready_time_s": 10342,
+      "faulted_time_s": 4748,
+      "running_rate": 0.8825,
+      "availability_pct": 98.1,
+      "performance_pct": 94.4,
+      "quality_pct": 98.2,
+      "oee_pct": 90.9,
+      "shift_availability_pct": 98.1,
+      "shift_performance_pct": 94.4,
+      "shift_quality_pct": 98.2,
+      "shift_oee_pct": 90.9
+    },
+    "derived_kpis": {
+      "shift_availability_pct": 98.1,
+      "shift_performance_pct": 94.4,
+      "shift_quality_pct": 98.2,
+      "shift_oee_pct": 90.9
+    },
+    "robot_status": {
+      "working_status": "NORMAL",
+      "process_status": "NORMAL",
+      "mechanical_status": "NORMAL"
+    },
+    "alarms": {
+      "active_alarm_ids": [
+        "OH26-R011-ALM-111"
+      ],
+      "active_alarm_count": 1
+    },
+    "axis_servo": [
+      {
+        "axis": 1,
+        "axis_load_pct": 26.5,
+        "error_count": 0,
+        "odometer": 110169,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 2,
+        "axis_load_pct": 41.1,
+        "error_count": 0,
+        "odometer": 118221.1,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 3,
+        "axis_load_pct": 38.1,
+        "error_count": 1,
+        "odometer": 125617.3,
+        "servo_indicator": "ATTENTION"
+      },
+      {
+        "axis": 4,
+        "axis_load_pct": 37.9,
+        "error_count": 0,
+        "odometer": 133884.6,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 5,
+        "axis_load_pct": 35.1,
+        "error_count": 0,
+        "odometer": 141554.6,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 6,
+        "axis_load_pct": 30.1,
+        "error_count": 0,
+        "odometer": 149337.2,
+        "servo_indicator": "NORMAL"
+      }
+    ],
+    "power_data": {
+      "instantaneous_kw": 2,
+      "kwh_total": 1090.5,
+      "kwh_run": 916.02,
+      "kwh_idle": 114.5,
+      "kwh_fault": 16.36,
+      "kwh_regen": 43.62
+    }
+  },
+  {
+    "robot_id": "OH26-R012",
+    "timestamp": "2026-08-21T04:30:00.000Z",
+    "state": "RUNNING",
+    "connection_health": "CONNECTED",
+    "working_status": "NORMAL",
+    "process_status": "NORMAL",
+    "mechanical_status": "NORMAL",
+    "mode": "AUTO",
+    "program": "FAST_PICK_12",
+    "override_pct": 100,
+    "source_mode": "SIMULATOR",
+    "robot_name": "SR-20iA",
+    "display_name": "SR-20iA",
+    "role": "High Speed Secondary Packaging Cell",
+    "shift": "OPEN_HOUSE",
+    "connection_health_detail": {
+      "edge_connection": "CONNECTED",
+      "data_quality": "GOOD",
+      "stale": false,
+      "latency_ms": 30
+    },
+    "live_cell": {
+      "state": "RUNNING",
+      "busy": true,
+      "process_values": {
+        "program": "FAST_PICK_12",
+        "mode": "AUTO",
+        "override_pct": 100
+      },
+      "do": {
+        "DO_001_robot_busy": true,
+        "DO_004_robot_ready": true
+      },
+      "di": {
+        "DI_002_part_present": true
+      }
+    },
+    "production": {
+      "robot_id": "OH26-R012",
+      "shift": "OPEN_HOUSE",
+      "target_cycle_time_s": 23,
+      "actual_cycle_time_s": 23.4,
+      "cycle_count_total": 4343,
+      "good_count_total": 4300,
+      "reject_count_total": 43,
+      "running_time_s": 227029,
+      "idle_time_s": 8405,
+      "ready_time_s": 6086,
+      "faulted_time_s": 9280,
+      "running_rate": 0.9052,
+      "availability_pct": 96.3,
+      "performance_pct": 96.1,
+      "quality_pct": 99,
+      "oee_pct": 91.6,
+      "shift_availability_pct": 96.3,
+      "shift_performance_pct": 96.1,
+      "shift_quality_pct": 99,
+      "shift_oee_pct": 91.6
+    },
+    "derived_kpis": {
+      "shift_availability_pct": 96.3,
+      "shift_performance_pct": 96.1,
+      "shift_quality_pct": 99,
+      "shift_oee_pct": 91.6
+    },
+    "robot_status": {
+      "working_status": "NORMAL",
+      "process_status": "NORMAL",
+      "mechanical_status": "NORMAL"
+    },
+    "alarms": {
+      "active_alarm_ids": [],
+      "active_alarm_count": 0
+    },
+    "axis_servo": [
+      {
+        "axis": 1,
+        "axis_load_pct": 27.2,
+        "error_count": 0,
+        "odometer": 114272,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 2,
+        "axis_load_pct": 36.5,
+        "error_count": 0,
+        "odometer": 125674.1,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 3,
+        "axis_load_pct": 35.2,
+        "error_count": 0,
+        "odometer": 132998.5,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 4,
+        "axis_load_pct": 40.2,
+        "error_count": 0,
+        "odometer": 141653.6,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 5,
+        "axis_load_pct": 38,
+        "error_count": 0,
+        "odometer": 146632.9,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 6,
+        "axis_load_pct": 32.7,
+        "error_count": 0,
+        "odometer": 154434.5,
+        "servo_indicator": "NORMAL"
+      }
+    ],
+    "power_data": {
+      "instantaneous_kw": 4.61,
+      "kwh_total": 1139.29,
+      "kwh_run": 957,
+      "kwh_idle": 119.63,
+      "kwh_fault": 17.09,
+      "kwh_regen": 45.57
+    }
+  },
+  {
+    "robot_id": "OH26-R013",
+    "timestamp": "2026-08-21T04:30:00.000Z",
+    "state": "RUNNING",
+    "connection_health": "CONNECTED",
+    "working_status": "ATTENTION",
+    "process_status": "ATTENTION",
+    "mechanical_status": "ATTENTION",
+    "mode": "AUTO",
+    "program": "INSPECTION_13",
+    "override_pct": 100,
+    "source_mode": "SIMULATOR",
+    "robot_name": "LR-Mate 7-9D",
+    "display_name": "LR-Mate 7-9D",
+    "role": "AI Error Proofing Cell",
+    "shift": "OPEN_HOUSE",
+    "connection_health_detail": {
+      "edge_connection": "CONNECTED",
+      "data_quality": "GOOD",
+      "stale": false,
+      "latency_ms": 31
+    },
+    "live_cell": {
+      "state": "RUNNING",
+      "busy": true,
+      "process_values": {
+        "program": "INSPECTION_13",
+        "mode": "AUTO",
+        "override_pct": 100
+      },
+      "do": {
+        "DO_001_robot_busy": true,
+        "DO_004_robot_ready": true
+      },
+      "di": {
+        "DI_002_part_present": true
+      }
+    },
+    "production": {
+      "robot_id": "OH26-R013",
+      "shift": "OPEN_HOUSE",
+      "target_cycle_time_s": 32.4,
+      "actual_cycle_time_s": 34.4,
+      "cycle_count_total": 3625,
+      "good_count_total": 3603,
+      "reject_count_total": 22,
+      "running_time_s": 229737,
+      "idle_time_s": 8505,
+      "ready_time_s": 6159,
+      "faulted_time_s": 7299,
+      "running_rate": 0.9127,
+      "availability_pct": 97.1,
+      "performance_pct": 96.2,
+      "quality_pct": 99.4,
+      "oee_pct": 92.8,
+      "shift_availability_pct": 97.1,
+      "shift_performance_pct": 96.2,
+      "shift_quality_pct": 99.4,
+      "shift_oee_pct": 92.8
+    },
+    "derived_kpis": {
+      "shift_availability_pct": 97.1,
+      "shift_performance_pct": 96.2,
+      "shift_quality_pct": 99.4,
+      "shift_oee_pct": 92.8
+    },
+    "robot_status": {
+      "working_status": "ATTENTION",
+      "process_status": "ATTENTION",
+      "mechanical_status": "ATTENTION"
+    },
+    "alarms": {
+      "active_alarm_ids": [
+        "OH26-R013-ALM-113"
+      ],
+      "active_alarm_count": 1
+    },
+    "axis_servo": [
+      {
+        "axis": 1,
+        "axis_load_pct": 21.3,
+        "error_count": 0,
+        "odometer": 119319.6,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 2,
+        "axis_load_pct": 28,
+        "error_count": 0,
+        "odometer": 129627.6,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 3,
+        "axis_load_pct": 21.1,
+        "error_count": 0,
+        "odometer": 138659.6,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 4,
+        "axis_load_pct": 47.8,
+        "error_count": 0,
+        "odometer": 143599.5,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 5,
+        "axis_load_pct": 30.7,
+        "error_count": 1,
+        "odometer": 155103.6,
+        "servo_indicator": "ATTENTION"
+      },
+      {
+        "axis": 6,
+        "axis_load_pct": 21.5,
+        "error_count": 0,
+        "odometer": 160682.8,
+        "servo_indicator": "NORMAL"
+      }
+    ],
+    "power_data": {
+      "instantaneous_kw": 2.61,
+      "kwh_total": 1091.79,
+      "kwh_run": 917.1,
+      "kwh_idle": 114.64,
+      "kwh_fault": 16.38,
+      "kwh_regen": 43.67
+    }
+  },
+  {
+    "robot_id": "OH26-R014",
+    "timestamp": "2026-08-21T04:30:00.000Z",
+    "state": "RUNNING",
+    "connection_health": "CONNECTED",
+    "working_status": "NORMAL",
+    "process_status": "NORMAL",
+    "mechanical_status": "NORMAL",
+    "mode": "AUTO",
+    "program": "FAST_PICK_14",
+    "override_pct": 100,
+    "source_mode": "SIMULATOR",
+    "robot_name": "M-20iD 35",
+    "display_name": "M-20iD 35",
+    "role": "Intelligent Bin Picking Cell",
+    "shift": "OPEN_HOUSE",
+    "connection_health_detail": {
+      "edge_connection": "CONNECTED",
+      "data_quality": "GOOD",
+      "stale": false,
+      "latency_ms": 32
+    },
+    "live_cell": {
+      "state": "RUNNING",
+      "busy": true,
+      "process_values": {
+        "program": "FAST_PICK_14",
+        "mode": "AUTO",
+        "override_pct": 100
+      },
+      "do": {
+        "DO_001_robot_busy": true,
+        "DO_004_robot_ready": true
+      },
+      "di": {
+        "DI_002_part_present": true
+      }
+    },
+    "production": {
+      "robot_id": "OH26-R014",
+      "shift": "OPEN_HOUSE",
+      "target_cycle_time_s": 22.3,
+      "actual_cycle_time_s": 23,
+      "cycle_count_total": 3987,
+      "good_count_total": 3955,
+      "reject_count_total": 32,
+      "running_time_s": 221814,
+      "idle_time_s": 13461,
+      "ready_time_s": 9747,
+      "faulted_time_s": 7578,
+      "running_rate": 0.8781,
+      "availability_pct": 97,
+      "performance_pct": 92.6,
+      "quality_pct": 99.2,
+      "oee_pct": 89.1,
+      "shift_availability_pct": 97,
+      "shift_performance_pct": 92.6,
+      "shift_quality_pct": 99.2,
+      "shift_oee_pct": 89.1
+    },
+    "derived_kpis": {
+      "shift_availability_pct": 97,
+      "shift_performance_pct": 92.6,
+      "shift_quality_pct": 99.2,
+      "shift_oee_pct": 89.1
+    },
+    "robot_status": {
+      "working_status": "NORMAL",
+      "process_status": "NORMAL",
+      "mechanical_status": "NORMAL"
+    },
+    "alarms": {
+      "active_alarm_ids": [],
+      "active_alarm_count": 0
+    },
+    "axis_servo": [
+      {
+        "axis": 1,
+        "axis_load_pct": 27.5,
+        "error_count": 0,
+        "odometer": 127357.6,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 2,
+        "axis_load_pct": 39.6,
+        "error_count": 0,
+        "odometer": 136194.8,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 3,
+        "axis_load_pct": 31.4,
+        "error_count": 0,
+        "odometer": 141765.3,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 4,
+        "axis_load_pct": 41.4,
+        "error_count": 0,
+        "odometer": 152128.9,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 5,
+        "axis_load_pct": 39.2,
+        "error_count": 0,
+        "odometer": 160257.2,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 6,
+        "axis_load_pct": 28.2,
+        "error_count": 1,
+        "odometer": 166724,
+        "servo_indicator": "ATTENTION"
+      }
+    ],
+    "power_data": {
+      "instantaneous_kw": 4.24,
+      "kwh_total": 1211.07,
+      "kwh_run": 1017.3,
+      "kwh_idle": 127.16,
+      "kwh_fault": 18.17,
+      "kwh_regen": 48.44
+    }
+  },
+  {
+    "robot_id": "OH26-R015",
+    "timestamp": "2026-08-21T04:30:00.000Z",
+    "state": "READY",
+    "connection_health": "CONNECTED",
+    "working_status": "NORMAL",
+    "process_status": "NORMAL",
+    "mechanical_status": "NORMAL",
+    "mode": "AUTO",
+    "program": "PAINTING_15",
+    "override_pct": 100,
+    "source_mode": "SIMULATOR",
+    "robot_name": "CRX-10iA/L",
+    "display_name": "CRX-10iA/L",
+    "role": "CRX-Paint Cell",
+    "shift": "OPEN_HOUSE",
+    "connection_health_detail": {
+      "edge_connection": "CONNECTED",
+      "data_quality": "GOOD",
+      "stale": false,
+      "latency_ms": 33
+    },
+    "live_cell": {
+      "state": "READY",
+      "busy": false,
+      "process_values": {
+        "program": "PAINTING_15",
+        "mode": "AUTO",
+        "override_pct": 100
+      },
+      "do": {
+        "DO_001_robot_busy": false,
+        "DO_004_robot_ready": true
+      },
+      "di": {
+        "DI_002_part_present": false
+      }
+    },
+    "production": {
+      "robot_id": "OH26-R015",
+      "shift": "OPEN_HOUSE",
+      "target_cycle_time_s": 52.7,
+      "actual_cycle_time_s": null,
+      "cycle_count_total": 4508,
+      "good_count_total": 4436,
+      "reject_count_total": 72,
+      "running_time_s": 225744,
+      "idle_time_s": 12570,
+      "ready_time_s": 9102,
+      "faulted_time_s": 6084,
+      "running_rate": 0.8905,
+      "availability_pct": 97.6,
+      "performance_pct": 93.6,
+      "quality_pct": 98.4,
+      "oee_pct": 89.9,
+      "shift_availability_pct": 97.6,
+      "shift_performance_pct": 93.6,
+      "shift_quality_pct": 98.4,
+      "shift_oee_pct": 89.9
+    },
+    "derived_kpis": {
+      "shift_availability_pct": 97.6,
+      "shift_performance_pct": 93.6,
+      "shift_quality_pct": 98.4,
+      "shift_oee_pct": 89.9
+    },
+    "robot_status": {
+      "working_status": "NORMAL",
+      "process_status": "NORMAL",
+      "mechanical_status": "NORMAL"
+    },
+    "alarms": {
+      "active_alarm_ids": [],
+      "active_alarm_count": 0
+    },
+    "axis_servo": [
+      {
+        "axis": 1,
+        "axis_load_pct": 35.2,
+        "error_count": 0,
+        "odometer": 130376.7,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 2,
+        "axis_load_pct": 43.8,
+        "error_count": 0,
+        "odometer": 138152.5,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 3,
+        "axis_load_pct": 40,
+        "error_count": 0,
+        "odometer": 147380.3,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 4,
+        "axis_load_pct": 46.2,
+        "error_count": 0,
+        "odometer": 155658.7,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 5,
+        "axis_load_pct": 36.9,
+        "error_count": 0,
+        "odometer": 164696,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 6,
+        "axis_load_pct": 36.6,
+        "error_count": 0,
+        "odometer": 170982,
+        "servo_indicator": "NORMAL"
+      }
+    ],
+    "power_data": {
+      "instantaneous_kw": 3.16,
+      "kwh_total": 1450.31,
+      "kwh_run": 1218.26,
+      "kwh_idle": 152.28,
+      "kwh_fault": 21.75,
+      "kwh_regen": 58.01
+    }
+  },
+  {
+    "robot_id": "OH26-R016",
+    "timestamp": "2026-08-21T04:30:00.000Z",
+    "state": "RUNNING",
+    "connection_health": "CONNECTED",
+    "working_status": "NORMAL",
+    "process_status": "NORMAL",
+    "mechanical_status": "NORMAL",
+    "mode": "AUTO",
+    "program": "PAINTING_16",
+    "override_pct": 100,
+    "source_mode": "SIMULATOR",
+    "robot_name": "P50iB/10L",
+    "display_name": "P50iB/10L",
+    "role": "Paint Cell",
+    "shift": "OPEN_HOUSE",
+    "connection_health_detail": {
+      "edge_connection": "CONNECTED",
+      "data_quality": "GOOD",
+      "stale": false,
+      "latency_ms": 34
+    },
+    "live_cell": {
+      "state": "RUNNING",
+      "busy": true,
+      "process_values": {
+        "program": "PAINTING_16",
+        "mode": "AUTO",
+        "override_pct": 100
+      },
+      "do": {
+        "DO_001_robot_busy": true,
+        "DO_004_robot_ready": true
+      },
+      "di": {
+        "DI_002_part_present": true
+      }
+    },
+    "production": {
+      "robot_id": "OH26-R016",
+      "shift": "OPEN_HOUSE",
+      "target_cycle_time_s": 49.5,
+      "actual_cycle_time_s": 51.1,
+      "cycle_count_total": 4171,
+      "good_count_total": 4133,
+      "reject_count_total": 38,
+      "running_time_s": 226007,
+      "idle_time_s": 14550,
+      "ready_time_s": 10536,
+      "faulted_time_s": 3307,
+      "running_rate": 0.8884,
+      "availability_pct": 98.7,
+      "performance_pct": 95.4,
+      "quality_pct": 99.1,
+      "oee_pct": 93.3,
+      "shift_availability_pct": 98.7,
+      "shift_performance_pct": 95.4,
+      "shift_quality_pct": 99.1,
+      "shift_oee_pct": 93.3
+    },
+    "derived_kpis": {
+      "shift_availability_pct": 98.7,
+      "shift_performance_pct": 95.4,
+      "shift_quality_pct": 99.1,
+      "shift_oee_pct": 93.3
+    },
+    "robot_status": {
+      "working_status": "NORMAL",
+      "process_status": "NORMAL",
+      "mechanical_status": "NORMAL"
+    },
+    "alarms": {
+      "active_alarm_ids": [],
+      "active_alarm_count": 0
+    },
+    "axis_servo": [
+      {
+        "axis": 1,
+        "axis_load_pct": 35.4,
+        "error_count": 0,
+        "odometer": 138462.4,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 2,
+        "axis_load_pct": 43.6,
+        "error_count": 0,
+        "odometer": 145487.9,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 3,
+        "axis_load_pct": 37.7,
+        "error_count": 0,
+        "odometer": 151643,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 4,
+        "axis_load_pct": 46,
+        "error_count": 0,
+        "odometer": 161437.1,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 5,
+        "axis_load_pct": 40.8,
+        "error_count": 0,
+        "odometer": 168515.8,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 6,
+        "axis_load_pct": 37.7,
+        "error_count": 0,
+        "odometer": 175427.5,
+        "servo_indicator": "NORMAL"
+      }
+    ],
+    "power_data": {
+      "instantaneous_kw": 6.56,
+      "kwh_total": 1451.48,
+      "kwh_run": 1219.24,
+      "kwh_idle": 152.41,
+      "kwh_fault": 21.77,
+      "kwh_regen": 58.06
+    }
+  },
+  {
+    "robot_id": "OH26-R017",
+    "timestamp": "2026-08-21T04:30:00.000Z",
+    "state": "IDLE",
+    "connection_health": "CONNECTED",
+    "working_status": "NORMAL",
+    "process_status": "NORMAL",
+    "mechanical_status": "NORMAL",
+    "mode": "AUTO",
+    "program": "LIGHT_17",
+    "override_pct": 100,
+    "source_mode": "SIMULATOR",
+    "robot_name": "LR-Mate 200iD/7L",
+    "display_name": "LR-Mate 200iD/7L",
+    "role": "Deburring Cell",
+    "shift": "OPEN_HOUSE",
+    "connection_health_detail": {
+      "edge_connection": "CONNECTED",
+      "data_quality": "GOOD",
+      "stale": false,
+      "latency_ms": 35
+    },
+    "live_cell": {
+      "state": "IDLE",
+      "busy": false,
+      "process_values": {
+        "program": "LIGHT_17",
+        "mode": "AUTO",
+        "override_pct": 100
+      },
+      "do": {
+        "DO_001_robot_busy": false,
+        "DO_004_robot_ready": false
+      },
+      "di": {
+        "DI_002_part_present": false
+      }
+    },
+    "production": {
+      "robot_id": "OH26-R017",
+      "shift": "OPEN_HOUSE",
+      "target_cycle_time_s": 39.9,
+      "actual_cycle_time_s": null,
+      "cycle_count_total": 4874,
+      "good_count_total": 4791,
+      "reject_count_total": 83,
+      "running_time_s": 225432,
+      "idle_time_s": 11993,
+      "ready_time_s": 8684,
+      "faulted_time_s": 9191,
+      "running_rate": 0.883,
+      "availability_pct": 96.4,
+      "performance_pct": 96.5,
+      "quality_pct": 98.3,
+      "oee_pct": 91.4,
+      "shift_availability_pct": 96.4,
+      "shift_performance_pct": 96.5,
+      "shift_quality_pct": 98.3,
+      "shift_oee_pct": 91.4
+    },
+    "derived_kpis": {
+      "shift_availability_pct": 96.4,
+      "shift_performance_pct": 96.5,
+      "shift_quality_pct": 98.3,
+      "shift_oee_pct": 91.4
+    },
+    "robot_status": {
+      "working_status": "NORMAL",
+      "process_status": "NORMAL",
+      "mechanical_status": "NORMAL"
+    },
+    "alarms": {
+      "active_alarm_ids": [],
+      "active_alarm_count": 0
+    },
+    "axis_servo": [
+      {
+        "axis": 1,
+        "axis_load_pct": 24.4,
+        "error_count": 0,
+        "odometer": 143472.9,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 2,
+        "axis_load_pct": 35.9,
+        "error_count": 0,
+        "odometer": 151386.8,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 3,
+        "axis_load_pct": 28.1,
+        "error_count": 0,
+        "odometer": 157698.8,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 4,
+        "axis_load_pct": 35.5,
+        "error_count": 0,
+        "odometer": 165971.6,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 5,
+        "axis_load_pct": 34,
+        "error_count": 0,
+        "odometer": 174325.3,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 6,
+        "axis_load_pct": 22.4,
+        "error_count": 0,
+        "odometer": 183359.6,
+        "servo_indicator": "NORMAL"
+      }
+    ],
+    "power_data": {
+      "instantaneous_kw": 1.52,
+      "kwh_total": 1313.5,
+      "kwh_run": 1103.34,
+      "kwh_idle": 137.92,
+      "kwh_fault": 19.7,
+      "kwh_regen": 52.54
+    }
+  },
+  {
+    "robot_id": "OH26-R018",
+    "timestamp": "2026-08-21T04:30:00.000Z",
+    "state": "RUNNING",
+    "connection_health": "CONNECTED",
+    "working_status": "NORMAL",
+    "process_status": "NORMAL",
+    "mechanical_status": "NORMAL",
+    "mode": "AUTO",
+    "program": "HEAVY_18",
+    "override_pct": 100,
+    "source_mode": "SIMULATOR",
+    "robot_name": "R-2000iC 270F",
+    "display_name": "R-2000iC 270F",
+    "role": "Drilling Cell",
+    "shift": "OPEN_HOUSE",
+    "connection_health_detail": {
+      "edge_connection": "CONNECTED",
+      "data_quality": "GOOD",
+      "stale": false,
+      "latency_ms": 36
+    },
+    "live_cell": {
+      "state": "RUNNING",
+      "busy": true,
+      "process_values": {
+        "program": "HEAVY_18",
+        "mode": "AUTO",
+        "override_pct": 100
+      },
+      "do": {
+        "DO_001_robot_busy": true,
+        "DO_004_robot_ready": true
+      },
+      "di": {
+        "DI_002_part_present": true
+      }
+    },
+    "production": {
+      "robot_id": "OH26-R018",
+      "shift": "OPEN_HOUSE",
+      "target_cycle_time_s": 52.9,
+      "actual_cycle_time_s": 54.3,
+      "cycle_count_total": 4716,
+      "good_count_total": 4683,
+      "reject_count_total": 33,
+      "running_time_s": 232399,
+      "idle_time_s": 8604,
+      "ready_time_s": 6230,
+      "faulted_time_s": 8967,
+      "running_rate": 0.9071,
+      "availability_pct": 96.5,
+      "performance_pct": 96.8,
+      "quality_pct": 99.3,
+      "oee_pct": 92.8,
+      "shift_availability_pct": 96.5,
+      "shift_performance_pct": 96.8,
+      "shift_quality_pct": 99.3,
+      "shift_oee_pct": 92.8
+    },
+    "derived_kpis": {
+      "shift_availability_pct": 96.5,
+      "shift_performance_pct": 96.8,
+      "shift_quality_pct": 99.3,
+      "shift_oee_pct": 92.8
+    },
+    "robot_status": {
+      "working_status": "NORMAL",
+      "process_status": "NORMAL",
+      "mechanical_status": "NORMAL"
+    },
+    "alarms": {
+      "active_alarm_ids": [],
+      "active_alarm_count": 0
+    },
+    "axis_servo": [
+      {
+        "axis": 1,
+        "axis_load_pct": 49.7,
+        "error_count": 0,
+        "odometer": 147548,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 2,
+        "axis_load_pct": 51.7,
+        "error_count": 0,
+        "odometer": 156008.5,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 3,
+        "axis_load_pct": 56.9,
+        "error_count": 0,
+        "odometer": 164409.8,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 4,
+        "axis_load_pct": 61.2,
+        "error_count": 0,
+        "odometer": 171912.4,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 5,
+        "axis_load_pct": 56,
+        "error_count": 0,
+        "odometer": 178140,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 6,
+        "axis_load_pct": 47.1,
+        "error_count": 0,
+        "odometer": 187717,
+        "servo_indicator": "NORMAL"
+      }
+    ],
+    "power_data": {
+      "instantaneous_kw": 11.24,
+      "kwh_total": 1758.86,
+      "kwh_run": 1477.44,
+      "kwh_idle": 184.68,
+      "kwh_fault": 26.38,
+      "kwh_regen": 70.35
+    }
+  },
+  {
+    "robot_id": "OH26-R019",
+    "timestamp": "2026-08-21T04:30:00.000Z",
+    "state": "RUNNING",
+    "connection_health": "CONNECTED",
+    "working_status": "ATTENTION",
+    "process_status": "ATTENTION",
+    "mechanical_status": "ATTENTION",
+    "mode": "AUTO",
+    "program": "HEAVY_19",
+    "override_pct": 100,
+    "source_mode": "SIMULATOR",
+    "robot_name": "R-2000iC 210F",
+    "display_name": "R-2000iC 210F",
+    "role": "RTU Cell",
+    "shift": "OPEN_HOUSE",
+    "connection_health_detail": {
+      "edge_connection": "CONNECTED",
+      "data_quality": "GOOD",
+      "stale": false,
+      "latency_ms": 37
+    },
+    "live_cell": {
+      "state": "RUNNING",
+      "busy": true,
+      "process_values": {
+        "program": "HEAVY_19",
+        "mode": "AUTO",
+        "override_pct": 100
+      },
+      "do": {
+        "DO_001_robot_busy": true,
+        "DO_004_robot_ready": true
+      },
+      "di": {
+        "DI_002_part_present": true
+      }
+    },
+    "production": {
+      "robot_id": "OH26-R019",
+      "shift": "OPEN_HOUSE",
+      "target_cycle_time_s": 56.2,
+      "actual_cycle_time_s": 60.2,
+      "cycle_count_total": 4898,
+      "good_count_total": 4854,
+      "reject_count_total": 44,
+      "running_time_s": 225723,
+      "idle_time_s": 8357,
+      "ready_time_s": 6051,
+      "faulted_time_s": 16969,
+      "running_rate": 0.878,
+      "availability_pct": 93.4,
+      "performance_pct": 96.3,
+      "quality_pct": 99.1,
+      "oee_pct": 89.1,
+      "shift_availability_pct": 93.4,
+      "shift_performance_pct": 96.3,
+      "shift_quality_pct": 99.1,
+      "shift_oee_pct": 89.1
+    },
+    "derived_kpis": {
+      "shift_availability_pct": 93.4,
+      "shift_performance_pct": 96.3,
+      "shift_quality_pct": 99.1,
+      "shift_oee_pct": 89.1
+    },
+    "robot_status": {
+      "working_status": "ATTENTION",
+      "process_status": "ATTENTION",
+      "mechanical_status": "ATTENTION"
+    },
+    "alarms": {
+      "active_alarm_ids": [
+        "OH26-R019-ALM-119"
+      ],
+      "active_alarm_count": 1
+    },
+    "axis_servo": [
+      {
+        "axis": 1,
+        "axis_load_pct": 52.7,
+        "error_count": 1,
+        "odometer": 152595.6,
+        "servo_indicator": "ATTENTION"
+      },
+      {
+        "axis": 2,
+        "axis_load_pct": 72.4,
+        "error_count": 4,
+        "odometer": 162083.9,
+        "servo_indicator": "ATTENTION"
+      },
+      {
+        "axis": 3,
+        "axis_load_pct": 50.9,
+        "error_count": 0,
+        "odometer": 169143.2,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 4,
+        "axis_load_pct": 63.4,
+        "error_count": 0,
+        "odometer": 177432.8,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 5,
+        "axis_load_pct": 56.7,
+        "error_count": 0,
+        "odometer": 183837.4,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 6,
+        "axis_load_pct": 52.2,
+        "error_count": 0,
+        "odometer": 192626.8,
+        "servo_indicator": "NORMAL"
+      }
+    ],
+    "power_data": {
+      "instantaneous_kw": 13.8,
+      "kwh_total": 1890.72,
+      "kwh_run": 1588.2,
+      "kwh_idle": 198.53,
+      "kwh_fault": 28.36,
+      "kwh_regen": 75.63
+    }
+  },
+  {
+    "robot_id": "OH26-R020",
+    "timestamp": "2026-08-21T04:30:00.000Z",
+    "state": "RUNNING",
+    "connection_health": "CONNECTED",
+    "working_status": "ATTENTION",
+    "process_status": "ATTENTION",
+    "mechanical_status": "ATTENTION",
+    "mode": "AUTO",
+    "program": "HEAVY_20",
+    "override_pct": 100,
+    "source_mode": "SIMULATOR",
+    "robot_name": "M-900iB 360",
+    "display_name": "M-900iB 360",
+    "role": "Fixtureless Welding Cell",
+    "shift": "OPEN_HOUSE",
+    "connection_health_detail": {
+      "edge_connection": "CONNECTED",
+      "data_quality": "GOOD",
+      "stale": false,
+      "latency_ms": 38
+    },
+    "live_cell": {
+      "state": "RUNNING",
+      "busy": true,
+      "process_values": {
+        "program": "HEAVY_20",
+        "mode": "AUTO",
+        "override_pct": 100
+      },
+      "do": {
+        "DO_001_robot_busy": true,
+        "DO_004_robot_ready": true
+      },
+      "di": {
+        "DI_002_part_present": true
+      }
+    },
+    "production": {
+      "robot_id": "OH26-R020",
+      "shift": "OPEN_HOUSE",
+      "target_cycle_time_s": 58.4,
+      "actual_cycle_time_s": 62.8,
+      "cycle_count_total": 5325,
+      "good_count_total": 5304,
+      "reject_count_total": 21,
+      "running_time_s": 223001,
+      "idle_time_s": 14912,
+      "ready_time_s": 10799,
+      "faulted_time_s": 9288,
+      "running_rate": 0.8643,
+      "availability_pct": 96.4,
+      "performance_pct": 93.2,
+      "quality_pct": 99.6,
+      "oee_pct": 89.5,
+      "shift_availability_pct": 96.4,
+      "shift_performance_pct": 93.2,
+      "shift_quality_pct": 99.6,
+      "shift_oee_pct": 89.5
+    },
+    "derived_kpis": {
+      "shift_availability_pct": 96.4,
+      "shift_performance_pct": 93.2,
+      "shift_quality_pct": 99.6,
+      "shift_oee_pct": 89.5
+    },
+    "robot_status": {
+      "working_status": "ATTENTION",
+      "process_status": "ATTENTION",
+      "mechanical_status": "ATTENTION"
+    },
+    "alarms": {
+      "active_alarm_ids": [],
+      "active_alarm_count": 0
+    },
+    "axis_servo": [
+      {
+        "axis": 1,
+        "axis_load_pct": 45.9,
+        "error_count": 0,
+        "odometer": 160060.1,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 2,
+        "axis_load_pct": 54.2,
+        "error_count": 0,
+        "odometer": 164755.4,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 3,
+        "axis_load_pct": 49.1,
+        "error_count": 0,
+        "odometer": 172402,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 4,
+        "axis_load_pct": 62.8,
+        "error_count": 0,
+        "odometer": 181159,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 5,
+        "axis_load_pct": 59.5,
+        "error_count": 0,
+        "odometer": 188581.6,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 6,
+        "axis_load_pct": 52.4,
+        "error_count": 1,
+        "odometer": 196914.4,
+        "servo_indicator": "ATTENTION"
+      }
+    ],
+    "power_data": {
+      "instantaneous_kw": 9.97,
+      "kwh_total": 1929.69,
+      "kwh_run": 1620.94,
+      "kwh_idle": 202.62,
+      "kwh_fault": 28.95,
+      "kwh_regen": 77.19
+    }
+  },
+  {
+    "robot_id": "OH26-R021",
+    "timestamp": "2026-08-21T04:30:00.000Z",
+    "state": "READY",
+    "connection_health": "CONNECTED",
+    "working_status": "NORMAL",
+    "process_status": "NORMAL",
+    "mechanical_status": "NORMAL",
+    "mode": "AUTO",
+    "program": "WELDING_21",
+    "override_pct": 100,
+    "source_mode": "SIMULATOR",
+    "robot_name": "Arc Mate 120iD 12L",
+    "display_name": "Arc Mate 120iD 12L",
+    "role": null,
+    "shift": "OPEN_HOUSE",
+    "connection_health_detail": {
+      "edge_connection": "CONNECTED",
+      "data_quality": "GOOD",
+      "stale": false,
+      "latency_ms": 39
+    },
+    "live_cell": {
+      "state": "READY",
+      "busy": false,
+      "process_values": {
+        "program": "WELDING_21",
+        "mode": "AUTO",
+        "override_pct": 100
+      },
+      "do": {
+        "DO_001_robot_busy": false,
+        "DO_004_robot_ready": true
+      },
+      "di": {
+        "DI_002_part_present": false
+      }
+    },
+    "production": {
+      "robot_id": "OH26-R021",
+      "shift": "OPEN_HOUSE",
+      "target_cycle_time_s": 47,
+      "actual_cycle_time_s": null,
+      "cycle_count_total": 5447,
+      "good_count_total": 5382,
+      "reject_count_total": 65,
+      "running_time_s": 238499,
+      "idle_time_s": 8829,
+      "ready_time_s": 6394,
+      "faulted_time_s": 5178,
+      "running_rate": 0.9212,
+      "availability_pct": 98,
+      "performance_pct": 94.7,
+      "quality_pct": 98.8,
+      "oee_pct": 91.7,
+      "shift_availability_pct": 98,
+      "shift_performance_pct": 94.7,
+      "shift_quality_pct": 98.8,
+      "shift_oee_pct": 91.7
+    },
+    "derived_kpis": {
+      "shift_availability_pct": 98,
+      "shift_performance_pct": 94.7,
+      "shift_quality_pct": 98.8,
+      "shift_oee_pct": 91.7
+    },
+    "robot_status": {
+      "working_status": "NORMAL",
+      "process_status": "NORMAL",
+      "mechanical_status": "NORMAL"
+    },
+    "alarms": {
+      "active_alarm_ids": [],
+      "active_alarm_count": 0
+    },
+    "axis_servo": [
+      {
+        "axis": 1,
+        "axis_load_pct": 38.1,
+        "error_count": 0,
+        "odometer": 163404.9,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 2,
+        "axis_load_pct": 44,
+        "error_count": 0,
+        "odometer": 169824.9,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 3,
+        "axis_load_pct": 44.8,
+        "error_count": 0,
+        "odometer": 179143.3,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 4,
+        "axis_load_pct": 56.9,
+        "error_count": 0,
+        "odometer": 186769.9,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 5,
+        "axis_load_pct": 42.8,
+        "error_count": 0,
+        "odometer": 196443,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 6,
+        "axis_load_pct": 38.5,
+        "error_count": 0,
+        "odometer": 204619.3,
+        "servo_indicator": "NORMAL"
+      }
+    ],
+    "power_data": {
+      "instantaneous_kw": 3.95,
+      "kwh_total": 1729.15,
+      "kwh_run": 1452.49,
+      "kwh_idle": 181.56,
+      "kwh_fault": 25.94,
+      "kwh_regen": 69.17
+    }
+  },
+  {
+    "robot_id": "OH26-R022",
+    "timestamp": "2026-08-21T04:30:00.000Z",
+    "state": "RUNNING",
+    "connection_health": "CONNECTED",
+    "working_status": "NORMAL",
+    "process_status": "NORMAL",
+    "mechanical_status": "NORMAL",
+    "mode": "AUTO",
+    "program": "GENERAL_22",
+    "override_pct": 100,
+    "source_mode": "SIMULATOR",
+    "robot_name": "M20iD 25",
+    "display_name": "M20iD 25",
+    "role": null,
+    "shift": "OPEN_HOUSE",
+    "connection_health_detail": {
+      "edge_connection": "CONNECTED",
+      "data_quality": "GOOD",
+      "stale": false,
+      "latency_ms": 40
+    },
+    "live_cell": {
+      "state": "RUNNING",
+      "busy": true,
+      "process_values": {
+        "program": "GENERAL_22",
+        "mode": "AUTO",
+        "override_pct": 100
+      },
+      "do": {
+        "DO_001_robot_busy": true,
+        "DO_004_robot_ready": true
+      },
+      "di": {
+        "DI_002_part_present": true
+      }
+    },
+    "production": {
+      "robot_id": "OH26-R022",
+      "shift": "OPEN_HOUSE",
+      "target_cycle_time_s": 47.6,
+      "actual_cycle_time_s": 49.2,
+      "cycle_count_total": 5509,
+      "good_count_total": 5487,
+      "reject_count_total": 22,
+      "running_time_s": 237862,
+      "idle_time_s": 8806,
+      "ready_time_s": 6377,
+      "faulted_time_s": 6755,
+      "running_rate": 0.9156,
+      "availability_pct": 97.4,
+      "performance_pct": 93.6,
+      "quality_pct": 99.6,
+      "oee_pct": 90.8,
+      "shift_availability_pct": 97.4,
+      "shift_performance_pct": 93.6,
+      "shift_quality_pct": 99.6,
+      "shift_oee_pct": 90.8
+    },
+    "derived_kpis": {
+      "shift_availability_pct": 97.4,
+      "shift_performance_pct": 93.6,
+      "shift_quality_pct": 99.6,
+      "shift_oee_pct": 90.8
+    },
+    "robot_status": {
+      "working_status": "NORMAL",
+      "process_status": "NORMAL",
+      "mechanical_status": "NORMAL"
+    },
+    "alarms": {
+      "active_alarm_ids": [
+        "OH26-R022-ALM-122"
+      ],
+      "active_alarm_count": 1
+    },
+    "axis_servo": [
+      {
+        "axis": 1,
+        "axis_load_pct": 33.8,
+        "error_count": 0,
+        "odometer": 167164.9,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 2,
+        "axis_load_pct": 38.2,
+        "error_count": 0,
+        "odometer": 178048.5,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 3,
+        "axis_load_pct": 35.4,
+        "error_count": 0,
+        "odometer": 186279.7,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 4,
+        "axis_load_pct": 47.4,
+        "error_count": 0,
+        "odometer": 194467.3,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 5,
+        "axis_load_pct": 41.1,
+        "error_count": 0,
+        "odometer": 200840.2,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 6,
+        "axis_load_pct": 32.9,
+        "error_count": 0,
+        "odometer": 209617.9,
+        "servo_indicator": "NORMAL"
+      }
+    ],
+    "power_data": {
+      "instantaneous_kw": 5.72,
+      "kwh_total": 1686.49,
+      "kwh_run": 1416.65,
+      "kwh_idle": 177.08,
+      "kwh_fault": 25.3,
+      "kwh_regen": 67.46
+    }
+  },
+  {
+    "robot_id": "OH26-R023",
+    "timestamp": "2026-08-21T04:30:00.000Z",
+    "state": "IDLE",
+    "connection_health": "CONNECTED",
+    "working_status": "NORMAL",
+    "process_status": "NORMAL",
+    "mechanical_status": "NORMAL",
+    "mode": "AUTO",
+    "program": "LIGHT_23",
+    "override_pct": 100,
+    "source_mode": "SIMULATOR",
+    "robot_name": "CRX 5iA",
+    "display_name": "CRX 5iA",
+    "role": "AMR Setup",
+    "shift": "OPEN_HOUSE",
+    "connection_health_detail": {
+      "edge_connection": "CONNECTED",
+      "data_quality": "GOOD",
+      "stale": false,
+      "latency_ms": 41
+    },
+    "live_cell": {
+      "state": "IDLE",
+      "busy": false,
+      "process_values": {
+        "program": "LIGHT_23",
+        "mode": "AUTO",
+        "override_pct": 100
+      },
+      "do": {
+        "DO_001_robot_busy": false,
+        "DO_004_robot_ready": false
+      },
+      "di": {
+        "DI_002_part_present": false
+      }
+    },
+    "production": {
+      "robot_id": "OH26-R023",
+      "shift": "OPEN_HOUSE",
+      "target_cycle_time_s": 38.2,
+      "actual_cycle_time_s": null,
+      "cycle_count_total": 5812,
+      "good_count_total": 5736,
+      "reject_count_total": 76,
+      "running_time_s": 236662,
+      "idle_time_s": 9104,
+      "ready_time_s": 6592,
+      "faulted_time_s": 8342,
+      "running_rate": 0.9078,
+      "availability_pct": 96.8,
+      "performance_pct": 92.5,
+      "quality_pct": 98.7,
+      "oee_pct": 88.4,
+      "shift_availability_pct": 96.8,
+      "shift_performance_pct": 92.5,
+      "shift_quality_pct": 98.7,
+      "shift_oee_pct": 88.4
+    },
+    "derived_kpis": {
+      "shift_availability_pct": 96.8,
+      "shift_performance_pct": 92.5,
+      "shift_quality_pct": 98.7,
+      "shift_oee_pct": 88.4
+    },
+    "robot_status": {
+      "working_status": "NORMAL",
+      "process_status": "NORMAL",
+      "mechanical_status": "NORMAL"
+    },
+    "alarms": {
+      "active_alarm_ids": [],
+      "active_alarm_count": 0
+    },
+    "axis_servo": [
+      {
+        "axis": 1,
+        "axis_load_pct": 30.3,
+        "error_count": 0,
+        "odometer": 172501.1,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 2,
+        "axis_load_pct": 30.1,
+        "error_count": 0,
+        "odometer": 183059.2,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 3,
+        "axis_load_pct": 26.8,
+        "error_count": 0,
+        "odometer": 189461.8,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 4,
+        "axis_load_pct": 40.3,
+        "error_count": 0,
+        "odometer": 197082.9,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 5,
+        "axis_load_pct": 33.8,
+        "error_count": 0,
+        "odometer": 206072.3,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 6,
+        "axis_load_pct": 27.3,
+        "error_count": 0,
+        "odometer": 212996.9,
+        "servo_indicator": "NORMAL"
+      }
+    ],
+    "power_data": {
+      "instantaneous_kw": 1.55,
+      "kwh_total": 1619.34,
+      "kwh_run": 1360.25,
+      "kwh_idle": 170.03,
+      "kwh_fault": 24.29,
+      "kwh_regen": 64.77
+    }
+  },
+  {
+    "robot_id": "OH26-R024",
+    "timestamp": "2026-08-21T04:30:00.000Z",
+    "state": "RUNNING",
+    "connection_health": "CONNECTED",
+    "working_status": "NORMAL",
+    "process_status": "NORMAL",
+    "mechanical_status": "NORMAL",
+    "mode": "AUTO",
+    "program": "HEAVY_24",
+    "override_pct": 100,
+    "source_mode": "SIMULATOR",
+    "robot_name": "M-410iC/185",
+    "display_name": "M-410iC/185",
+    "role": "High Speed Palletizing",
+    "shift": "OPEN_HOUSE",
+    "connection_health_detail": {
+      "edge_connection": "CONNECTED",
+      "data_quality": "GOOD",
+      "stale": false,
+      "latency_ms": 42
+    },
+    "live_cell": {
+      "state": "RUNNING",
+      "busy": true,
+      "process_values": {
+        "program": "HEAVY_24",
+        "mode": "AUTO",
+        "override_pct": 100
+      },
+      "do": {
+        "DO_001_robot_busy": true,
+        "DO_004_robot_ready": true
+      },
+      "di": {
+        "DI_002_part_present": true
+      }
+    },
+    "production": {
+      "robot_id": "OH26-R024",
+      "shift": "OPEN_HOUSE",
+      "target_cycle_time_s": 58.8,
+      "actual_cycle_time_s": 59.7,
+      "cycle_count_total": 5693,
+      "good_count_total": 5665,
+      "reject_count_total": 28,
+      "running_time_s": 243691,
+      "idle_time_s": 9022,
+      "ready_time_s": 6533,
+      "faulted_time_s": 2354,
+      "running_rate": 0.9315,
+      "availability_pct": 99.1,
+      "performance_pct": 96.4,
+      "quality_pct": 99.5,
+      "oee_pct": 95.1,
+      "shift_availability_pct": 99.1,
+      "shift_performance_pct": 96.4,
+      "shift_quality_pct": 99.5,
+      "shift_oee_pct": 95.1
+    },
+    "derived_kpis": {
+      "shift_availability_pct": 99.1,
+      "shift_performance_pct": 96.4,
+      "shift_quality_pct": 99.5,
+      "shift_oee_pct": 95.1
+    },
+    "robot_status": {
+      "working_status": "NORMAL",
+      "process_status": "NORMAL",
+      "mechanical_status": "NORMAL"
+    },
+    "alarms": {
+      "active_alarm_ids": [],
+      "active_alarm_count": 0
+    },
+    "axis_servo": [
+      {
+        "axis": 1,
+        "axis_load_pct": 51.7,
+        "error_count": 0,
+        "odometer": 178269.7,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 2,
+        "axis_load_pct": 52.1,
+        "error_count": 0,
+        "odometer": 187341.6,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 3,
+        "axis_load_pct": 51.6,
+        "error_count": 0,
+        "odometer": 196157.5,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 4,
+        "axis_load_pct": 62,
+        "error_count": 0,
+        "odometer": 203775.5,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 5,
+        "axis_load_pct": 52.7,
+        "error_count": 0,
+        "odometer": 213098.7,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 6,
+        "axis_load_pct": 52.5,
+        "error_count": 0,
+        "odometer": 218321.4,
+        "servo_indicator": "NORMAL"
+      }
+    ],
+    "power_data": {
+      "instantaneous_kw": 11.22,
+      "kwh_total": 2100.5,
+      "kwh_run": 1764.42,
+      "kwh_idle": 220.55,
+      "kwh_fault": 31.51,
+      "kwh_regen": 84.02
+    }
+  },
+  {
+    "robot_id": "OH26-R025",
+    "timestamp": "2026-08-21T04:30:00.000Z",
+    "state": "IDLE",
+    "connection_health": "CONNECTED",
+    "working_status": "ATTENTION",
+    "process_status": "ATTENTION",
+    "mechanical_status": "ATTENTION",
+    "mode": "AUTO",
+    "program": "HEAVY_25",
+    "override_pct": 100,
+    "source_mode": "SIMULATOR",
+    "robot_name": "M-710iD/70",
+    "display_name": "M-710iD/70",
+    "role": "AI Palletizing Cell",
+    "shift": "OPEN_HOUSE",
+    "connection_health_detail": {
+      "edge_connection": "CONNECTED",
+      "data_quality": "GOOD",
+      "stale": false,
+      "latency_ms": 43
+    },
+    "live_cell": {
+      "state": "IDLE",
+      "busy": false,
+      "process_values": {
+        "program": "HEAVY_25",
+        "mode": "AUTO",
+        "override_pct": 100
+      },
+      "do": {
+        "DO_001_robot_busy": false,
+        "DO_004_robot_ready": false
+      },
+      "di": {
+        "DI_002_part_present": false
+      }
+    },
+    "production": {
+      "robot_id": "OH26-R025",
+      "shift": "OPEN_HOUSE",
+      "target_cycle_time_s": 55.4,
+      "actual_cycle_time_s": null,
+      "cycle_count_total": 5278,
+      "good_count_total": 5204,
+      "reject_count_total": 74,
+      "running_time_s": 235441,
+      "idle_time_s": 10061,
+      "ready_time_s": 7285,
+      "faulted_time_s": 9713,
+      "running_rate": 0.8969,
+      "availability_pct": 96.3,
+      "performance_pct": 92.9,
+      "quality_pct": 98.6,
+      "oee_pct": 88.2,
+      "shift_availability_pct": 96.3,
+      "shift_performance_pct": 92.9,
+      "shift_quality_pct": 98.6,
+      "shift_oee_pct": 88.2
+    },
+    "derived_kpis": {
+      "shift_availability_pct": 96.3,
+      "shift_performance_pct": 92.9,
+      "shift_quality_pct": 98.6,
+      "shift_oee_pct": 88.2
+    },
+    "robot_status": {
+      "working_status": "ATTENTION",
+      "process_status": "ATTENTION",
+      "mechanical_status": "ATTENTION"
+    },
+    "alarms": {
+      "active_alarm_ids": [],
+      "active_alarm_count": 0
+    },
+    "axis_servo": [
+      {
+        "axis": 1,
+        "axis_load_pct": 51.4,
+        "error_count": 0,
+        "odometer": 185597.2,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 2,
+        "axis_load_pct": 54.2,
+        "error_count": 0,
+        "odometer": 192293.5,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 3,
+        "axis_load_pct": 55.9,
+        "error_count": 1,
+        "odometer": 199780.3,
+        "servo_indicator": "ATTENTION"
+      },
+      {
+        "axis": 4,
+        "axis_load_pct": 61.7,
+        "error_count": 0,
+        "odometer": 207395.8,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 5,
+        "axis_load_pct": 53.9,
+        "error_count": 0,
+        "odometer": 215701.6,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 6,
+        "axis_load_pct": 45,
+        "error_count": 0,
+        "odometer": 225374.5,
+        "servo_indicator": "NORMAL"
+      }
+    ],
+    "power_data": {
+      "instantaneous_kw": 5.11,
+      "kwh_total": 2114.94,
+      "kwh_run": 1776.55,
+      "kwh_idle": 222.07,
+      "kwh_fault": 31.72,
+      "kwh_regen": 84.6
+    }
+  },
+  {
+    "robot_id": "OH26-R026",
+    "timestamp": "2026-08-21T04:30:00.000Z",
+    "state": "RUNNING",
+    "connection_health": "CONNECTED",
+    "working_status": "NORMAL",
+    "process_status": "NORMAL",
+    "mechanical_status": "NORMAL",
+    "mode": "AUTO",
+    "program": "FAST_PICK_26",
+    "override_pct": 100,
+    "source_mode": "SIMULATOR",
+    "robot_name": "M-2iA/35L",
+    "display_name": "M-2iA/35L",
+    "role": "High Speed Primary Packaging Cell",
+    "shift": "OPEN_HOUSE",
+    "connection_health_detail": {
+      "edge_connection": "CONNECTED",
+      "data_quality": "GOOD",
+      "stale": false,
+      "latency_ms": 44
+    },
+    "live_cell": {
+      "state": "RUNNING",
+      "busy": true,
+      "process_values": {
+        "program": "FAST_PICK_26",
+        "mode": "AUTO",
+        "override_pct": 100
+      },
+      "do": {
+        "DO_001_robot_busy": true,
+        "DO_004_robot_ready": true
+      },
+      "di": {
+        "DI_002_part_present": true
+      }
+    },
+    "production": {
+      "robot_id": "OH26-R026",
+      "shift": "OPEN_HOUSE",
+      "target_cycle_time_s": 28.1,
+      "actual_cycle_time_s": 28.6,
+      "cycle_count_total": 5876,
+      "good_count_total": 5841,
+      "reject_count_total": 35,
+      "running_time_s": 240294,
+      "idle_time_s": 10194,
+      "ready_time_s": 7381,
+      "faulted_time_s": 5531,
+      "running_rate": 0.9123,
+      "availability_pct": 97.9,
+      "performance_pct": 94.3,
+      "quality_pct": 99.4,
+      "oee_pct": 91.8,
+      "shift_availability_pct": 97.9,
+      "shift_performance_pct": 94.3,
+      "shift_quality_pct": 99.4,
+      "shift_oee_pct": 91.8
+    },
+    "derived_kpis": {
+      "shift_availability_pct": 97.9,
+      "shift_performance_pct": 94.3,
+      "shift_quality_pct": 99.4,
+      "shift_oee_pct": 91.8
+    },
+    "robot_status": {
+      "working_status": "NORMAL",
+      "process_status": "NORMAL",
+      "mechanical_status": "NORMAL"
+    },
+    "alarms": {
+      "active_alarm_ids": [],
+      "active_alarm_count": 0
+    },
+    "axis_servo": [
+      {
+        "axis": 1,
+        "axis_load_pct": 26.6,
+        "error_count": 0,
+        "odometer": 189374.5,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 2,
+        "axis_load_pct": 41.1,
+        "error_count": 0,
+        "odometer": 196634.7,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 3,
+        "axis_load_pct": 33.9,
+        "error_count": 0,
+        "odometer": 206035.2,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 4,
+        "axis_load_pct": 42.6,
+        "error_count": 0,
+        "odometer": 213083.8,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 5,
+        "axis_load_pct": 39.3,
+        "error_count": 0,
+        "odometer": 221357.3,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 6,
+        "axis_load_pct": 29,
+        "error_count": 0,
+        "odometer": 231024.9,
+        "servo_indicator": "NORMAL"
+      }
+    ],
+    "power_data": {
+      "instantaneous_kw": 4.36,
+      "kwh_total": 1795.3,
+      "kwh_run": 1508.05,
+      "kwh_idle": 188.51,
+      "kwh_fault": 26.93,
+      "kwh_regen": 71.81
+    }
+  },
+  {
+    "robot_id": "OH26-R027",
+    "timestamp": "2026-08-21T04:30:00.000Z",
+    "state": "READY",
+    "connection_health": "CONNECTED",
+    "working_status": "NORMAL",
+    "process_status": "NORMAL",
+    "mechanical_status": "NORMAL",
+    "mode": "AUTO",
+    "program": "INSPECTION_27",
+    "override_pct": 100,
+    "source_mode": "SIMULATOR",
+    "robot_name": "CRX-10iA/L",
+    "display_name": "CRX-10iA/L",
+    "role": "RTVT",
+    "shift": "OPEN_HOUSE",
+    "connection_health_detail": {
+      "edge_connection": "CONNECTED",
+      "data_quality": "GOOD",
+      "stale": false,
+      "latency_ms": 45
+    },
+    "live_cell": {
+      "state": "READY",
+      "busy": false,
+      "process_values": {
+        "program": "INSPECTION_27",
+        "mode": "AUTO",
+        "override_pct": 100
+      },
+      "do": {
+        "DO_001_robot_busy": false,
+        "DO_004_robot_ready": true
+      },
+      "di": {
+        "DI_002_part_present": false
+      }
+    },
+    "production": {
+      "robot_id": "OH26-R027",
+      "shift": "OPEN_HOUSE",
+      "target_cycle_time_s": 30.7,
+      "actual_cycle_time_s": null,
+      "cycle_count_total": 5643,
+      "good_count_total": 5564,
+      "reject_count_total": 79,
+      "running_time_s": 237763,
+      "idle_time_s": 11253,
+      "ready_time_s": 8148,
+      "faulted_time_s": 7136,
+      "running_rate": 0.8996,
+      "availability_pct": 97.3,
+      "performance_pct": 93.2,
+      "quality_pct": 98.6,
+      "oee_pct": 89.4,
+      "shift_availability_pct": 97.3,
+      "shift_performance_pct": 93.2,
+      "shift_quality_pct": 98.6,
+      "shift_oee_pct": 89.4
+    },
+    "derived_kpis": {
+      "shift_availability_pct": 97.3,
+      "shift_performance_pct": 93.2,
+      "shift_quality_pct": 98.6,
+      "shift_oee_pct": 89.4
+    },
+    "robot_status": {
+      "working_status": "NORMAL",
+      "process_status": "NORMAL",
+      "mechanical_status": "NORMAL"
+    },
+    "alarms": {
+      "active_alarm_ids": [],
+      "active_alarm_count": 0
+    },
+    "axis_servo": [
+      {
+        "axis": 1,
+        "axis_load_pct": 21.6,
+        "error_count": 0,
+        "odometer": 194693.4,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 2,
+        "axis_load_pct": 27.4,
+        "error_count": 1,
+        "odometer": 201527.9,
+        "servo_indicator": "ATTENTION"
+      },
+      {
+        "axis": 3,
+        "axis_load_pct": 25,
+        "error_count": 0,
+        "odometer": 210098.9,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 4,
+        "axis_load_pct": 32,
+        "error_count": 0,
+        "odometer": 217708.7,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 5,
+        "axis_load_pct": 23,
+        "error_count": 0,
+        "odometer": 229330.9,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 6,
+        "axis_load_pct": 20.7,
+        "error_count": 0,
+        "odometer": 233752.1,
+        "servo_indicator": "NORMAL"
+      }
+    ],
+    "power_data": {
+      "instantaneous_kw": 1.25,
+      "kwh_total": 1699.13,
+      "kwh_run": 1427.27,
+      "kwh_idle": 178.41,
+      "kwh_fault": 25.49,
+      "kwh_regen": 67.97
+    }
+  },
+  {
+    "robot_id": "OH26-R028",
+    "timestamp": "2026-08-21T04:30:00.000Z",
+    "state": "IDLE",
+    "connection_health": "STALE",
+    "working_status": "CRITICAL",
+    "process_status": "CRITICAL",
+    "mechanical_status": "CRITICAL",
+    "mode": "AUTO",
+    "program": "GENERAL_28",
+    "override_pct": 65,
+    "source_mode": "SIMULATOR",
+    "robot_name": "M-10iD 12",
+    "display_name": "M-10iD 12",
+    "role": "Robotic Grinding Cell",
+    "shift": "OPEN_HOUSE",
+    "connection_health_detail": {
+      "edge_connection": "STALE",
+      "data_quality": "DEGRADED",
+      "stale": true,
+      "latency_ms": null
+    },
+    "live_cell": {
+      "state": "IDLE",
+      "busy": false,
+      "process_values": {
+        "program": "GENERAL_28",
+        "mode": "AUTO",
+        "override_pct": 100
+      },
+      "do": {
+        "DO_001_robot_busy": false,
+        "DO_004_robot_ready": false
+      },
+      "di": {
+        "DI_002_part_present": false
+      }
+    },
+    "production": {
+      "robot_id": "OH26-R028",
+      "shift": "OPEN_HOUSE",
+      "target_cycle_time_s": 48.3,
+      "actual_cycle_time_s": null,
+      "cycle_count_total": 5826,
+      "good_count_total": 5704,
+      "reject_count_total": 122,
+      "running_time_s": 211310,
+      "idle_time_s": 12337,
+      "ready_time_s": 8933,
+      "faulted_time_s": 32620,
+      "running_rate": 0.7968,
+      "availability_pct": 87.7,
+      "performance_pct": 90.2,
+      "quality_pct": 97.9,
+      "oee_pct": 77.4,
+      "shift_availability_pct": 87.7,
+      "shift_performance_pct": 90.2,
+      "shift_quality_pct": 97.9,
+      "shift_oee_pct": 77.4
+    },
+    "derived_kpis": {
+      "shift_availability_pct": 87.7,
+      "shift_performance_pct": 90.2,
+      "shift_quality_pct": 97.9,
+      "shift_oee_pct": 77.4
+    },
+    "robot_status": {
+      "working_status": "CRITICAL",
+      "process_status": "CRITICAL",
+      "mechanical_status": "CRITICAL"
+    },
+    "alarms": {
+      "active_alarm_ids": [
+        "OH26-R028-ALM-128"
+      ],
+      "active_alarm_count": 1
+    },
+    "axis_servo": [
+      {
+        "axis": 1,
+        "axis_load_pct": 33.7,
+        "error_count": 0,
+        "odometer": 201241.5,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 2,
+        "axis_load_pct": 41,
+        "error_count": 0,
+        "odometer": 208145,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 3,
+        "axis_load_pct": 61,
+        "error_count": 6,
+        "odometer": 217198.9,
+        "servo_indicator": "CRITICAL"
+      },
+      {
+        "axis": 4,
+        "axis_load_pct": 42.8,
+        "error_count": 0,
+        "odometer": 224877.5,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 5,
+        "axis_load_pct": 35.6,
+        "error_count": 1,
+        "odometer": 232846.4,
+        "servo_indicator": "ATTENTION"
+      },
+      {
+        "axis": 6,
+        "axis_load_pct": 36.8,
+        "error_count": 0,
+        "odometer": 242572.9,
+        "servo_indicator": "NORMAL"
+      }
+    ],
+    "power_data": {
+      "instantaneous_kw": 2.46,
+      "kwh_total": 1842.25,
+      "kwh_run": 1547.49,
+      "kwh_idle": 193.44,
+      "kwh_fault": 27.63,
+      "kwh_regen": 73.69
+    }
+  },
+  {
+    "robot_id": "OH26-R029",
+    "timestamp": "2026-08-21T04:30:00.000Z",
+    "state": "IDLE",
+    "connection_health": "CONNECTED",
+    "working_status": "NORMAL",
+    "process_status": "NORMAL",
+    "mechanical_status": "NORMAL",
+    "mode": "AUTO",
+    "program": "WELDING_29",
+    "override_pct": 100,
+    "source_mode": "SIMULATOR",
+    "robot_name": "CRX-10iA/L",
+    "display_name": "CRX-10iA/L",
+    "role": "Collaborative Arc Welding",
+    "shift": "OPEN_HOUSE",
+    "connection_health_detail": {
+      "edge_connection": "CONNECTED",
+      "data_quality": "GOOD",
+      "stale": false,
+      "latency_ms": 47
+    },
+    "live_cell": {
+      "state": "IDLE",
+      "busy": false,
+      "process_values": {
+        "program": "WELDING_29",
+        "mode": "AUTO",
+        "override_pct": 100
+      },
+      "do": {
+        "DO_001_robot_busy": false,
+        "DO_004_robot_ready": false
+      },
+      "di": {
+        "DI_002_part_present": false
+      }
+    },
+    "production": {
+      "robot_id": "OH26-R029",
+      "shift": "OPEN_HOUSE",
+      "target_cycle_time_s": 47.9,
+      "actual_cycle_time_s": null,
+      "cycle_count_total": 6009,
+      "good_count_total": 5919,
+      "reject_count_total": 90,
+      "running_time_s": 244507,
+      "idle_time_s": 10981,
+      "ready_time_s": 7951,
+      "faulted_time_s": 2661,
+      "running_rate": 0.9189,
+      "availability_pct": 99,
+      "performance_pct": 96.1,
+      "quality_pct": 98.5,
+      "oee_pct": 93.7,
+      "shift_availability_pct": 99,
+      "shift_performance_pct": 96.1,
+      "shift_quality_pct": 98.5,
+      "shift_oee_pct": 93.7
+    },
+    "derived_kpis": {
+      "shift_availability_pct": 99,
+      "shift_performance_pct": 96.1,
+      "shift_quality_pct": 98.5,
+      "shift_oee_pct": 93.7
+    },
+    "robot_status": {
+      "working_status": "NORMAL",
+      "process_status": "NORMAL",
+      "mechanical_status": "NORMAL"
+    },
+    "alarms": {
+      "active_alarm_ids": [],
+      "active_alarm_count": 0
+    },
+    "axis_servo": [
+      {
+        "axis": 1,
+        "axis_load_pct": 39.8,
+        "error_count": 1,
+        "odometer": 207789.6,
+        "servo_indicator": "ATTENTION"
+      },
+      {
+        "axis": 2,
+        "axis_load_pct": 48.5,
+        "error_count": 0,
+        "odometer": 214762.2,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 3,
+        "axis_load_pct": 42,
+        "error_count": 0,
+        "odometer": 220417.4,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 4,
+        "axis_load_pct": 50.4,
+        "error_count": 0,
+        "odometer": 232021.7,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 5,
+        "axis_load_pct": 49.1,
+        "error_count": 0,
+        "odometer": 238960.2,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 6,
+        "axis_load_pct": 44.5,
+        "error_count": 0,
+        "odometer": 246129.7,
+        "servo_indicator": "NORMAL"
+      }
+    ],
+    "power_data": {
+      "instantaneous_kw": 4.02,
+      "kwh_total": 2095.53,
+      "kwh_run": 1760.25,
+      "kwh_idle": 220.03,
+      "kwh_fault": 31.43,
+      "kwh_regen": 83.82
+    }
+  },
+  {
+    "robot_id": "OH26-R030",
+    "timestamp": "2026-08-21T04:30:00.000Z",
+    "state": "RUNNING",
+    "connection_health": "CONNECTED",
+    "working_status": "NORMAL",
+    "process_status": "NORMAL",
+    "mechanical_status": "NORMAL",
+    "mode": "AUTO",
+    "program": "WELDING_30",
+    "override_pct": 100,
+    "source_mode": "SIMULATOR",
+    "robot_name": "Arc Mate 100iD",
+    "display_name": "Arc Mate 100iD",
+    "role": "Adaptive arc welding",
+    "shift": "OPEN_HOUSE",
+    "connection_health_detail": {
+      "edge_connection": "CONNECTED",
+      "data_quality": "GOOD",
+      "stale": false,
+      "latency_ms": 48
+    },
+    "live_cell": {
+      "state": "RUNNING",
+      "busy": true,
+      "process_values": {
+        "program": "WELDING_30",
+        "mode": "AUTO",
+        "override_pct": 100
+      },
+      "do": {
+        "DO_001_robot_busy": true,
+        "DO_004_robot_ready": true
+      },
+      "di": {
+        "DI_002_part_present": true
+      }
+    },
+    "production": {
+      "robot_id": "OH26-R030",
+      "shift": "OPEN_HOUSE",
+      "target_cycle_time_s": 44.9,
+      "actual_cycle_time_s": 46.3,
+      "cycle_count_total": 6472,
+      "good_count_total": 6362,
+      "reject_count_total": 110,
+      "running_time_s": 232298,
+      "idle_time_s": 14552,
+      "ready_time_s": 10538,
+      "faulted_time_s": 9612,
+      "running_rate": 0.87,
+      "availability_pct": 96.4,
+      "performance_pct": 97.1,
+      "quality_pct": 98.3,
+      "oee_pct": 92,
+      "shift_availability_pct": 96.4,
+      "shift_performance_pct": 97.1,
+      "shift_quality_pct": 98.3,
+      "shift_oee_pct": 92
+    },
+    "derived_kpis": {
+      "shift_availability_pct": 96.4,
+      "shift_performance_pct": 97.1,
+      "shift_quality_pct": 98.3,
+      "shift_oee_pct": 92
+    },
+    "robot_status": {
+      "working_status": "NORMAL",
+      "process_status": "NORMAL",
+      "mechanical_status": "NORMAL"
+    },
+    "alarms": {
+      "active_alarm_ids": [],
+      "active_alarm_count": 0
+    },
+    "axis_servo": [
+      {
+        "axis": 1,
+        "axis_load_pct": 38.9,
+        "error_count": 0,
+        "odometer": 209337.5,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 2,
+        "axis_load_pct": 49.8,
+        "error_count": 0,
+        "odometer": 220579.3,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 3,
+        "axis_load_pct": 47.8,
+        "error_count": 1,
+        "odometer": 227903,
+        "servo_indicator": "ATTENTION"
+      },
+      {
+        "axis": 4,
+        "axis_load_pct": 53.3,
+        "error_count": 0,
+        "odometer": 234632.5,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 5,
+        "axis_load_pct": 48.4,
+        "error_count": 0,
+        "odometer": 243475.1,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 6,
+        "axis_load_pct": 43.1,
+        "error_count": 0,
+        "odometer": 252377.5,
+        "servo_indicator": "NORMAL"
+      }
+    ],
+    "power_data": {
+      "instantaneous_kw": 8.39,
+      "kwh_total": 2184.73,
+      "kwh_run": 1835.17,
+      "kwh_idle": 229.4,
+      "kwh_fault": 32.77,
+      "kwh_regen": 87.39
+    }
+  },
+  {
+    "robot_id": "OH26-R031",
+    "timestamp": "2026-08-21T04:30:00.000Z",
+    "state": "RUNNING",
+    "connection_health": "CONNECTED",
+    "working_status": "ATTENTION",
+    "process_status": "ATTENTION",
+    "mechanical_status": "ATTENTION",
+    "mode": "AUTO",
+    "program": "WELDING_31",
+    "override_pct": 100,
+    "source_mode": "SIMULATOR",
+    "robot_name": "Arc Mate 120iD",
+    "display_name": "Arc Mate 120iD",
+    "role": "Cladding Cell",
+    "shift": "OPEN_HOUSE",
+    "connection_health_detail": {
+      "edge_connection": "CONNECTED",
+      "data_quality": "GOOD",
+      "stale": false,
+      "latency_ms": 49
+    },
+    "live_cell": {
+      "state": "RUNNING",
+      "busy": true,
+      "process_values": {
+        "program": "WELDING_31",
+        "mode": "AUTO",
+        "override_pct": 100
+      },
+      "do": {
+        "DO_001_robot_busy": true,
+        "DO_004_robot_ready": true
+      },
+      "di": {
+        "DI_002_part_present": true
+      }
+    },
+    "production": {
+      "robot_id": "OH26-R031",
+      "shift": "OPEN_HOUSE",
+      "target_cycle_time_s": 48.3,
+      "actual_cycle_time_s": 51.9,
+      "cycle_count_total": 6654,
+      "good_count_total": 6601,
+      "reject_count_total": 53,
+      "running_time_s": 224793,
+      "idle_time_s": 16922,
+      "ready_time_s": 12254,
+      "faulted_time_s": 13931,
+      "running_rate": 0.8391,
+      "availability_pct": 94.8,
+      "performance_pct": 90.7,
+      "quality_pct": 99.2,
+      "oee_pct": 85.3,
+      "shift_availability_pct": 94.8,
+      "shift_performance_pct": 90.7,
+      "shift_quality_pct": 99.2,
+      "shift_oee_pct": 85.3
+    },
+    "derived_kpis": {
+      "shift_availability_pct": 94.8,
+      "shift_performance_pct": 90.7,
+      "shift_quality_pct": 99.2,
+      "shift_oee_pct": 85.3
+    },
+    "robot_status": {
+      "working_status": "ATTENTION",
+      "process_status": "ATTENTION",
+      "mechanical_status": "ATTENTION"
+    },
+    "alarms": {
+      "active_alarm_ids": [],
+      "active_alarm_count": 0
+    },
+    "axis_servo": [
+      {
+        "axis": 1,
+        "axis_load_pct": 41.9,
+        "error_count": 0,
+        "odometer": 218385.1,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 2,
+        "axis_load_pct": 50.3,
+        "error_count": 0,
+        "odometer": 224532.7,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 3,
+        "axis_load_pct": 42.7,
+        "error_count": 0,
+        "odometer": 233564.1,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 4,
+        "axis_load_pct": 53.5,
+        "error_count": 0,
+        "odometer": 240578.4,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 5,
+        "axis_load_pct": 50.1,
+        "error_count": 0,
+        "odometer": 247945.8,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 6,
+        "axis_load_pct": 40.8,
+        "error_count": 1,
+        "odometer": 258625.8,
+        "servo_indicator": "ATTENTION"
+      }
+    ],
+    "power_data": {
+      "instantaneous_kw": 8.51,
+      "kwh_total": 2224.03,
+      "kwh_run": 1868.19,
+      "kwh_idle": 233.52,
+      "kwh_fault": 33.36,
+      "kwh_regen": 88.96
+    }
+  },
+  {
+    "robot_id": "OH26-R032",
+    "timestamp": "2026-08-21T04:30:00.000Z",
+    "state": "RUNNING",
+    "connection_health": "CONNECTED",
+    "working_status": "NORMAL",
+    "process_status": "NORMAL",
+    "mechanical_status": "NORMAL",
+    "mode": "AUTO",
+    "program": "HEAVY_32",
+    "override_pct": 100,
+    "source_mode": "SIMULATOR",
+    "robot_name": "R-2000iC 165F",
+    "display_name": "R-2000iC 165F",
+    "role": "Dispensing Cell",
+    "shift": "OPEN_HOUSE",
+    "connection_health_detail": {
+      "edge_connection": "CONNECTED",
+      "data_quality": "GOOD",
+      "stale": false,
+      "latency_ms": 50
+    },
+    "live_cell": {
+      "state": "RUNNING",
+      "busy": true,
+      "process_values": {
+        "program": "HEAVY_32",
+        "mode": "AUTO",
+        "override_pct": 100
+      },
+      "do": {
+        "DO_001_robot_busy": true,
+        "DO_004_robot_ready": true
+      },
+      "di": {
+        "DI_002_part_present": true
+      }
+    },
+    "production": {
+      "robot_id": "OH26-R032",
+      "shift": "OPEN_HOUSE",
+      "target_cycle_time_s": 52.7,
+      "actual_cycle_time_s": 54.2,
+      "cycle_count_total": 6836,
+      "good_count_total": 6727,
+      "reject_count_total": 109,
+      "running_time_s": 238138,
+      "idle_time_s": 14042,
+      "ready_time_s": 10169,
+      "faulted_time_s": 6451,
+      "running_rate": 0.8859,
+      "availability_pct": 97.6,
+      "performance_pct": 94.3,
+      "quality_pct": 98.4,
+      "oee_pct": 90.6,
+      "shift_availability_pct": 97.6,
+      "shift_performance_pct": 94.3,
+      "shift_quality_pct": 98.4,
+      "shift_oee_pct": 90.6
+    },
+    "derived_kpis": {
+      "shift_availability_pct": 97.6,
+      "shift_performance_pct": 94.3,
+      "shift_quality_pct": 98.4,
+      "shift_oee_pct": 90.6
+    },
+    "robot_status": {
+      "working_status": "NORMAL",
+      "process_status": "NORMAL",
+      "mechanical_status": "NORMAL"
+    },
+    "alarms": {
+      "active_alarm_ids": [],
+      "active_alarm_count": 0
+    },
+    "axis_servo": [
+      {
+        "axis": 1,
+        "axis_load_pct": 53,
+        "error_count": 1,
+        "odometer": 223432.7,
+        "servo_indicator": "ATTENTION"
+      },
+      {
+        "axis": 2,
+        "axis_load_pct": 58.8,
+        "error_count": 0,
+        "odometer": 228486.2,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 3,
+        "axis_load_pct": 54.5,
+        "error_count": 0,
+        "odometer": 239225.2,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 4,
+        "axis_load_pct": 61.7,
+        "error_count": 0,
+        "odometer": 246524.3,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 5,
+        "axis_load_pct": 50.8,
+        "error_count": 0,
+        "odometer": 252416.6,
+        "servo_indicator": "NORMAL"
+      },
+      {
+        "axis": 6,
+        "axis_load_pct": 46.5,
+        "error_count": 0,
+        "odometer": 260874,
+        "servo_indicator": "NORMAL"
+      }
+    ],
+    "power_data": {
+      "instantaneous_kw": 11.06,
+      "kwh_total": 2405.92,
+      "kwh_run": 2020.97,
+      "kwh_idle": 252.62,
+      "kwh_fault": 36.09,
+      "kwh_regen": 96.24
+    }
+  }
+]
