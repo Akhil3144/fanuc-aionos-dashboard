@@ -1,12 +1,28 @@
 import json
+import os
 import urllib.error
 import urllib.request
 
 
-OLLAMA_URL = "http://127.0.0.1:11434/api/chat"
-OLLAMA_MODEL = "qwen2.5:7b"
-OLLAMA_KEEP_ALIVE = "30m"
-OLLAMA_TIMEOUT_SECONDS = 30
+OLLAMA_BASE_URL = os.getenv(
+    "OLLAMA_BASE_URL",
+    "http://127.0.0.1:11434",
+).rstrip("/")
+OLLAMA_URL = f"{OLLAMA_BASE_URL}/api/chat"
+OLLAMA_MODEL = os.getenv("OLLAMA_MODEL", "qwen2.5:7b")
+OLLAMA_KEEP_ALIVE = os.getenv("OLLAMA_KEEP_ALIVE", "30m")
+# A cold local model load can exceed 30 seconds even when Ollama is healthy.
+OLLAMA_TIMEOUT_SECONDS = float(os.getenv("OLLAMA_TIMEOUT_SECONDS", "120"))
+
+
+GROUNDED_COPY_PROMPT = """
+You are the read-only response layer for a FANUC exhibition simulator.
+The backend has already resolved the intent and calculated a grounded answer.
+Return grounded_reference_answer verbatim. Do not paraphrase, summarize,
+correct, extend, diagnose, recommend, calculate, or introduce any text.
+Never change a number, unit, robot ID, ranking, status, uncertainty, or scope.
+Do not add an introduction or closing sentence.
+""".strip()
 
 
 SYSTEM_PROMPT = """
@@ -217,6 +233,27 @@ ANSWER STYLE
 
 50. If evidence provides a direct answer, do not add unnecessary
     uncertainty language.
+
+COMPLEX INTENT RULES
+
+51. Answer the specific resolved_intent supplied in the evidence.
+    Do not return a generic robot summary unless resolved_intent is
+    AI_CONDITION_SUMMARY.
+
+52. AI_OPERATIONAL_RISK must contain exactly three ranked concerns.
+
+53. AI_INSPECTION_PRIORITY must lead with one inspection priority.
+
+54. AI_TREND_ASSESSMENT must start with exactly one of:
+    IMPROVING, STABLE, or DEGRADING.
+
+55. AI_HISTORICAL_COMPARISON must explicitly compare current values
+    with historical average and/or min/max evidence.
+
+56. AI_ALARM_CONTEXT must focus on the supplied alarm event window.
+
+57. AI_FLEET_ROBOT_RANKING must rank robots and cite evidence for
+    each ranking position.
 """.strip()
 
 
@@ -231,15 +268,39 @@ def ask_ollama(
     The analytics/routing backend decides what evidence is relevant.
     """
 
-    prompt = f"""
+    grounded_reference = evidence.get("grounded_reference_answer")
+    if grounded_reference:
+        # Full evidence remains validated in the analytics backend. Sending it
+        # again would duplicate the already-calculated answer and substantially
+        # increase prompt evaluation time, especially for fleet questions.
+        compact_evidence = {
+            "source_mode": evidence.get("source_mode", "SIMULATOR"),
+            "system_mode": evidence.get("system_mode", "READ_ONLY"),
+            "selected_robot_id": evidence.get("selected_robot_id"),
+            "resolved_intent": evidence.get("resolved_intent") or evidence.get("query_scope"),
+            "grounded_reference_answer": grounded_reference,
+        }
+        prompt = json.dumps(compact_evidence, separators=(",", ":"), default=str)
+        system_prompt = GROUNDED_COPY_PROMPT
+    else:
+        prompt = f"""
 USER QUESTION:
 {question}
+
+RESOLVED INTENT:
+{evidence.get('resolved_intent') or evidence.get('query_scope')}
 
 CALCULATED ROBOT EVIDENCE:
 {json.dumps(evidence, indent=2, default=str)}
 
-Answer using only the evidence above.
+Answer the specific user intent above using only the evidence.
+Do not return a generic robot summary unless the intent is
+AI_CONDITION_SUMMARY.
+When grounded_reference_answer is present, return its text verbatim.
+Do not paraphrase, summarize, correct, extend, or introduce that text.
+This exact-copy rule prevents alteration of validated simulator metrics.
 """.strip()
+        system_prompt = SYSTEM_PROMPT
 
     payload = {
         "model": OLLAMA_MODEL,
@@ -247,7 +308,7 @@ Answer using only the evidence above.
         "messages": [
             {
                 "role": "system",
-                "content": SYSTEM_PROMPT,
+                "content": system_prompt,
             },
             {
                 "role": "user",
@@ -261,6 +322,7 @@ Answer using only the evidence above.
 
         "options": {
             "temperature": 0.1,
+            "num_predict": 384,
         },
     }
 
@@ -294,7 +356,7 @@ Answer using only the evidence above.
     except urllib.error.URLError as exc:
         raise RuntimeError(
             "Could not connect to Ollama at "
-            "http://127.0.0.1:11434"
+            f"{OLLAMA_BASE_URL}"
         ) from exc
 
     except TimeoutError as exc:

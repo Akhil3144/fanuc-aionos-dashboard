@@ -15,7 +15,8 @@ def run(questions, scope, robot_id=None):
     passed = 0
     for question in questions:
         result = ask_routes.ask_my_robot(ask_routes.AskRobotRequest(question=question, live_snapshot=CURRENT.get(robot_id), robot_id=robot_id, selected_robot_id=robot_id, selected_registry_id=robot_id, scope=scope, robot_registry=REGISTRY))
-        scoped = result.get("query_scope") == "FLEET_COMPARISON" if scope == "FLEET" else result.get("query_scope") != "FLEET_COMPARISON"
+        result_scope = result.get("query_scope") or ""
+        scoped = (result_scope == "FLEET_COMPARISON" or result_scope.startswith("AI_FLEET_")) if scope == "FLEET" else result_scope != "FLEET_COMPARISON" and not result_scope.startswith("AI_FLEET_")
         forbidden = any(value in str(result.get("answer")) for value in ("EXH-R01", "EXH-R02", "EXH-R03", "R01-MNT", "R02-MNT", "R03-MNT"))
         resolved = True if scope == "FLEET" else result.get("resolved_robot_id") == robot_id and result.get("data_source") == "OPENHOUSE"
         passed += bool(result.get("answer") and scoped and resolved and not forbidden)

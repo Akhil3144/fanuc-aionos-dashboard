@@ -913,13 +913,38 @@ def is_control_request(question):
 
 
 def is_explanation_request(question):
-    q = question.lower()
-    return any(term in q for term in (
-        "executive summary", "complete condition summary", "condition summary",
-        "overall fleet risk summary", "summarize fleet risk", "explain why",
-        "explain the latest alarm", "explain the relationship", "important changes",
-        "what changed recently", "what should be inspected first", "what should an engineer inspect",
-    )) and not is_control_request(question)
+    return classify_complex_intent(question) is not None
+
+
+def classify_complex_intent(question):
+    """Resolve complex reasoning prompts before topic-based evidence routing."""
+    if is_control_request(question):
+        return None
+
+    q = re.sub(r"\s+", " ", question.lower()).strip()
+    rules = (
+        ("AI_FLEET_MAINTENANCE_PRIORITY", ("maintenance resources are limited", "inspections be prioritized")),
+        ("AI_FLEET_ROBOT_RANKING", ("most concerning robots", "evidence behind your ranking")),
+        ("AI_FLEET_RISK_PRIORITY", ("operational risks across the fleet", "management attention first", "overall fleet risk summary")),
+        ("AI_FLEET_PATTERN_SUMMARY", ("patterns across the fleet", "performance, maintenance, alarm, and energy patterns")),
+        ("AI_FLEET_EXECUTIVE_SUMMARY", ("executive summary of the overall fleet", "executive summary")),
+        ("AI_MAINTENANCE_ENGINEER_REVIEW", ("maintenance engineer reviewing", "next maintenance window")),
+        ("AI_HISTORICAL_COMPARISON", ("compare the robot's current condition", "historical behavior", "current condition with its recent")),
+        ("AI_TREND_ASSESSMENT", ("improving, stable, or degrading", "condition is improving")),
+        ("AI_OPERATIONAL_RISK", ("three biggest operational concerns", "biggest operational concerns")),
+        ("AI_INSPECTION_PRIORITY", ("inspect first", "inspection priority")),
+        ("AI_RECENT_CHANGE_ANALYSIS", ("what changed recently", "which changes deserve", "important changes in recent telemetry")),
+        ("AI_ALARM_CONTEXT", ("latest alarm", "around the latest alarm", "alarm in the context")),
+        ("AI_ATTENTION_EXPLANATION", ("why this robot currently requires attention", "why this robot requires attention", "why this robot needs attention")),
+        ("AI_MAINTENANCE_RISK", ("most important maintenance risk",)),
+        ("AI_MULTI_SIGNAL_ANALYSIS", ("relationship between", "analyze its power consumption", "analyze the relationship")),
+        ("AI_ENGINEERING_ASSESSMENT", ("engineering assessment", "in one assessment", "executive summary of this robot")),
+        ("AI_CONDITION_SUMMARY", ("complete condition summary", "condition summary")),
+    )
+    for intent, phrases in rules:
+        if any(phrase in q for phrase in phrases):
+            return intent
+    return None
 
 
 def is_fleet_question(question, request_scope=None):
@@ -2175,6 +2200,155 @@ def deterministic_answer_for_question(
 # QUESTION-AWARE EVIDENCE SELECTION
 # ============================================================
 
+def select_complex_intent_evidence(intent, evidence):
+    """Build a compact evidence package tailored to one reasoning intent."""
+    current = evidence.get("current_state", {})
+    historical = evidence.get("selected_robot_historical_analytics", {})
+    base = {
+        "evidence_type": evidence.get("evidence_type"),
+        "system_mode": evidence.get("system_mode"),
+        "source_mode": "SIMULATOR",
+        "selected_robot_id": evidence.get("selected_robot_id"),
+        "query_scope": intent,
+        "resolved_intent": intent,
+        "important_interpretation_rules": evidence.get("important_interpretation_rules", []),
+    }
+    if intent.startswith("AI_FLEET_"):
+        base["fleet_summary"] = evidence.get("fleet_summary", [])
+        base["fleet_historical_analytics"] = evidence.get("fleet_historical_analytics", {})
+        if intent in {"AI_FLEET_MAINTENANCE_PRIORITY", "AI_FLEET_RISK_PRIORITY", "AI_FLEET_ROBOT_RANKING", "AI_FLEET_PATTERN_SUMMARY"}:
+            base["all_maintenance"] = evidence.get("all_maintenance", [])
+            base["all_alarms"] = evidence.get("all_alarms", [])
+            base["all_insights"] = evidence.get("all_insights", [])
+        return base
+
+    base["current_state"] = current
+    base["historical_analytics"] = historical
+    if intent in {"AI_ALARM_CONTEXT", "AI_MULTI_SIGNAL_ANALYSIS", "AI_OPERATIONAL_RISK", "AI_ENGINEERING_ASSESSMENT", "AI_ATTENTION_EXPLANATION", "AI_MAINTENANCE_ENGINEER_REVIEW", "AI_MAINTENANCE_RISK", "AI_CONDITION_SUMMARY", "AI_RECENT_CHANGE_ANALYSIS"}:
+        base["alarm_history"] = evidence.get("selected_robot_alarm_history", [])
+    if intent in {"AI_INSPECTION_PRIORITY", "AI_MULTI_SIGNAL_ANALYSIS", "AI_OPERATIONAL_RISK", "AI_ENGINEERING_ASSESSMENT", "AI_ATTENTION_EXPLANATION", "AI_MAINTENANCE_ENGINEER_REVIEW", "AI_MAINTENANCE_RISK", "AI_CONDITION_SUMMARY", "AI_RECENT_CHANGE_ANALYSIS"}:
+        base["maintenance"] = evidence.get("selected_robot_maintenance", [])
+        base["derived_insights"] = evidence.get("selected_robot_insights", [])
+    return base
+
+
+def _metric(history, key):
+    return ((history.get("full_history") or {}).get(key) or {})
+
+
+def _latest_alarm(full_evidence):
+    alarms = full_evidence.get("selected_robot_alarm_history", [])
+    return max(alarms, key=lambda item: item.get("started_at") or "", default=None)
+
+
+def _priority_maintenance(full_evidence):
+    rank = {"OVERDUE": 0, "DUE_SOON": 1}
+    items = full_evidence.get("selected_robot_maintenance", [])
+    return min(items, key=lambda item: (rank.get(item.get("status"), 2), item.get("remaining_hours", 10**9)), default=None)
+
+
+def _highest_axis(current):
+    return max(current.get("axis_status", []), key=lambda item: item.get("load_pct") or -1, default={})
+
+
+def _fleet_ranking(full_evidence):
+    def score(robot):
+        overdue = sum(item.get("status") == "OVERDUE" for item in robot.get("maintenance_due_items", []))
+        due = robot.get("maintenance_due_count", 0)
+        alarms = robot.get("active_alarm_count", 0)
+        attention = robot.get("mechanical_status") == "ATTENTION"
+        load = (robot.get("highest_current_axis") or {}).get("load_pct") or 0
+        oee = robot.get("oee_pct") or 100
+        return overdue * 100 + alarms * 30 + due * 15 + attention * 10 + max(0, 92 - oee) + load / 20
+    return sorted(full_evidence.get("fleet_summary", []), key=score, reverse=True)
+
+
+def fallback_for_complex_intent(intent, full_evidence):
+    """Useful, evidence-only answers that remain distinct when Ollama is offline."""
+    current = full_evidence.get("current_state", {})
+    history = full_evidence.get("selected_robot_historical_analytics", {})
+    robot_id = current.get("robot_id") or full_evidence.get("selected_robot_id")
+    cycle, oee, power = (_metric(history, key) for key in ("cycle_time_s", "oee_pct", "power_kw"))
+    axis = _highest_axis(current)
+    alarm = _latest_alarm(full_evidence)
+    maintenance = _priority_maintenance(full_evidence)
+    insights = full_evidence.get("selected_robot_insights", [])
+    trends = [cycle.get("trend"), oee.get("trend"), power.get("trend")]
+
+    if intent == "AI_CONDITION_SUMMARY":
+        return (f"{robot_id} is {current.get('robot_state')} with {current.get('oee_pct')}% OEE and {current.get('current_cycle_time_s')} s cycle time versus {current.get('target_cycle_time_s')} s target. "
+                f"Its highest current load is Axis {axis.get('axis')} at {axis.get('load_pct')}%, with {current.get('active_alarm_count')} active alarm(s); maintenance is {maintenance.get('status') if maintenance else 'not due'}. Simulator telemetry only.")
+    if intent == "AI_RECENT_CHANGE_ANALYSIS":
+        changed = [f"cycle time is {cycle.get('trend')} (latest {cycle.get('latest')} s vs {cycle.get('average')} s average)",
+                   f"OEE is {oee.get('trend')} (latest {oee.get('latest')}% vs {oee.get('average')}% average)",
+                   f"power is {power.get('trend')} (latest {power.get('latest')} kW vs {power.get('average')} kW average)"]
+        axis_trends = history.get("axis_load_trends", {})
+        degrading_axes = [name for name, stats in axis_trends.items() if stats.get("trend") == "DEGRADING"]
+        return "Recent changes are: " + "; ".join(changed) + f". Axes with degrading load trends: {', '.join(degrading_axes) or 'none'}. Attention should follow the recorded alarm and maintenance status, without inferring causation."
+    if intent == "AI_INSPECTION_PRIORITY":
+        if maintenance:
+            return f"Inspect {maintenance.get('component')} first because maintenance is {maintenance.get('status')} with {maintenance.get('remaining_hours')} hours remaining. {maintenance.get('recommended_action')} The highest current measured load is Axis {axis.get('axis')} at {axis.get('load_pct')}%."
+        return f"Inspect the evidence behind the highest current load, Axis {axis.get('axis')} at {axis.get('load_pct')}%, first; no overdue or due-soon maintenance item is supplied."
+    if intent == "AI_ALARM_CONTEXT":
+        if not alarm:
+            return f"No alarm event is available for {robot_id}; an event-window assessment cannot be made."
+        return (f"Latest alarm event: {alarm.get('alarm_id')} ({alarm.get('severity')}) started {alarm.get('started_at')}: {alarm.get('message')}. "
+                f"Around the available history window, cycle is {cycle.get('trend')} at {cycle.get('latest')} s versus {cycle.get('average')} s average, power is {power.get('trend')}, and Axis {axis.get('axis')} is currently highest at {axis.get('load_pct')}%. These are associated observations, not a confirmed cause.")
+    if intent == "AI_MULTI_SIGNAL_ANALYSIS":
+        servo = sum(item.get("error_count") or 0 for item in current.get("axis_status", []))
+        return (f"Multi-signal analysis for {robot_id}: cycle {cycle.get('trend')} ({cycle.get('latest')} vs {cycle.get('average')} s), OEE {oee.get('trend')} ({oee.get('latest')} vs {oee.get('average')}%), "
+                f"power {power.get('trend')} ({power.get('latest')} vs {power.get('average')} kW), highest current load Axis {axis.get('axis')} at {axis.get('load_pct')}%, and {servo} current servo error count(s). The signals coincide but do not establish causation.")
+    if intent == "AI_OPERATIONAL_RISK":
+        concerns = []
+        if maintenance: concerns.append(f"{maintenance.get('status')} maintenance — {maintenance.get('title')} ({maintenance.get('remaining_hours')} hours remaining)")
+        if alarm: concerns.append(f"Active {alarm.get('severity')} alarm — {alarm.get('message')}")
+        concerns.append(f"Performance trend — cycle is {cycle.get('trend')} at {cycle.get('latest')} s versus {cycle.get('average')} s average")
+        return "\n".join(f"{i}. {text}" for i, text in enumerate(concerns[:3], 1))
+    if intent == "AI_ENGINEERING_ASSESSMENT":
+        action = maintenance.get("recommended_action") if maintenance else "No scheduled maintenance action is supplied."
+        return (f"Engineering assessment for {robot_id}: production is {current.get('robot_state')} at {current.get('current_cycle_time_s')} s cycle and {current.get('oee_pct')}% OEE. "
+                f"Health is {current.get('mechanical_status')}; Axis {axis.get('axis')} is highest at {axis.get('load_pct')}%; alarms: {current.get('active_alarm_count')}; power: {current.get('current_power_kw')} kW. {action}")
+    if intent == "AI_MAINTENANCE_ENGINEER_REVIEW":
+        alarm_text = alarm.get("message") if alarm else "no recorded alarm"
+        maintenance_text = (f"{maintenance.get('title')} is {maintenance.get('status')} with {maintenance.get('remaining_hours')} hours remaining" if maintenance else "no scheduled item is due")
+        return (f"Next maintenance window investigation:\n1. Verify {maintenance_text}.\n"
+                f"2. Inspect Axis {axis.get('axis')} and its {axis.get('load_pct')}% current load against the historical axis trend.\n"
+                f"3. Review the event record for {alarm_text} and the {sum(item.get('error_count') or 0 for item in current.get('axis_status', []))} current servo error count(s). Do not treat coincident signals as confirmed cause.")
+    if intent == "AI_HISTORICAL_COMPARISON":
+        return (f"Current cycle is {current.get('current_cycle_time_s')} s versus historical average {cycle.get('average')} s (range {cycle.get('min')}–{cycle.get('max')}); "
+                f"current power is {current.get('current_power_kw')} kW versus {power.get('average')} kW average (range {power.get('min')}–{power.get('max')}); current OEE is {current.get('oee_pct')}% versus {oee.get('average')}% average (range {oee.get('min')}–{oee.get('max')}). Trends are cycle {cycle.get('trend')}, power {power.get('trend')}, OEE {oee.get('trend')}.")
+    if intent == "AI_TREND_ASSESSMENT":
+        degrading = sum(value == "DEGRADING" for value in trends)
+        improving = sum(value == "IMPROVING" for value in trends)
+        verdict = "DEGRADING" if degrading > improving else "IMPROVING" if improving > degrading else "STABLE"
+        return f"{verdict} — cycle time is {cycle.get('trend')}, OEE is {oee.get('trend')}, and power is {power.get('trend')}. Latest versus average values are {cycle.get('latest')} vs {cycle.get('average')} s, {oee.get('latest')} vs {oee.get('average')}%, and {power.get('latest')} vs {power.get('average')} kW, respectively."
+    if intent == "AI_ATTENTION_EXPLANATION":
+        return f"{robot_id} requires attention because it has {current.get('active_alarm_count')} active alarm(s), mechanical status {current.get('mechanical_status')}, and {maintenance.get('status') if maintenance else 'no due'} maintenance. The highest current load is Axis {axis.get('axis')} at {axis.get('load_pct')}%."
+    if intent == "AI_MAINTENANCE_RISK":
+        if maintenance:
+            return f"The primary maintenance risk is {maintenance.get('title')}: it is {maintenance.get('status')} with {maintenance.get('remaining_hours')} hours remaining. Supporting evidence includes {alarm.get('message') if alarm else 'no active alarm'}; {maintenance.get('recommended_action')}"
+        return "No overdue or due-soon maintenance risk is present in the supplied simulator evidence."
+
+    ranked = _fleet_ranking(full_evidence)
+    if intent == "AI_FLEET_EXECUTIVE_SUMMARY":
+        running = sum(item.get("robot_state") == "RUNNING" for item in ranked)
+        alarms = sum(item.get("active_alarm_count", 0) for item in ranked)
+        due = sum(item.get("maintenance_due_count", 0) for item in ranked)
+        return f"Fleet executive summary: {running} of {len(ranked)} robots are RUNNING; {alarms} active alarms and {due} overdue/due-soon maintenance items are recorded. The lowest OEE is {min((r for r in ranked if r.get('oee_pct') is not None), key=lambda r:r['oee_pct'])['robot_id']}. All operational values are simulator data."
+    if intent == "AI_FLEET_ROBOT_RANKING":
+        return "Most concerning robots, ranked by supplied alarm, maintenance, status, OEE, and load evidence:\n" + "\n".join(f"{i}. {r['robot_id']} — alarms {r.get('active_alarm_count',0)}, maintenance items {r.get('maintenance_due_count',0)}, OEE {r.get('oee_pct')}%, highest load {(r.get('highest_current_axis') or {}).get('load_pct')}%." for i, r in enumerate(ranked[:5], 1))
+    if intent == "AI_FLEET_RISK_PRIORITY":
+        top = ranked[:3]
+        return "Management risk priorities:\n" + "\n".join(f"{i}. {r['robot_id']}: {r.get('maintenance_due_count',0)} maintenance item(s), {r.get('active_alarm_count',0)} alarm(s), mechanical status {r.get('mechanical_status')}." for i, r in enumerate(top, 1))
+    if intent == "AI_FLEET_PATTERN_SUMMARY":
+        avg_oee = sum(r.get("oee_pct") or 0 for r in ranked) / len(ranked)
+        avg_power = sum(r.get("current_power_kw") or 0 for r in ranked) / len(ranked)
+        return f"Fleet patterns: average OEE is {avg_oee:.1f}%; {sum(r.get('maintenance_due_count',0)>0 for r in ranked)} robots have due maintenance; {sum(r.get('active_alarm_count',0)>0 for r in ranked)} have active alarms; average current power is {avg_power:.2f} kW. Highest current power is {max(ranked,key=lambda r:r.get('current_power_kw') or 0)['robot_id']}."
+    if intent == "AI_FLEET_MAINTENANCE_PRIORITY":
+        due = [r for r in ranked if r.get("maintenance_due_count", 0)]
+        return "Inspection priority with limited resources:\n" + "\n".join(f"{i}. {r['robot_id']} — {r.get('maintenance_due_count')} due item(s), {r.get('active_alarm_count',0)} alarm(s), highest load {(r.get('highest_current_axis') or {}).get('load_pct')}%." for i, r in enumerate(due[:5], 1))
+    return "The available data is insufficient to determine that."
+
 def select_evidence_for_question(
     question: str,
     evidence: dict,
@@ -2228,6 +2402,10 @@ def select_evidence_for_question(
                 [],
             ),
     }
+
+    complex_intent = classify_complex_intent(question)
+    if complex_intent:
+        return select_complex_intent_evidence(complex_intent, evidence)
 
     # READ-ONLY CONTROL
     if is_control_request(question):
@@ -2792,10 +2970,20 @@ def ask_my_robot(request: AskRobotRequest):
             request.scope,
         )
 
+        complex_intent = classify_complex_intent(question)
+        if complex_intent:
+            # Give the language model a compact, backend-calculated factual
+            # boundary. It may improve presentation, but must not introduce
+            # claims beyond this intent-specific grounded reference.
+            evidence["grounded_reference_answer"] = fallback_for_complex_intent(
+                complex_intent,
+                full_evidence,
+            )
+
         normalized_question = re.sub(r"\s+", " ", question.lower()).strip()
         cacheable = not is_control_request(question) and not any(term in normalized_question for term in ("definitely", "not in the evidence"))
         cache_key = (normalized_question, target_robot_id, request.selected_registry_id, str(request.scope or "").upper(), FLEET_LATEST_FILE.stat().st_mtime_ns)
-        explanation_request = is_explanation_request(question)
+        explanation_request = complex_intent is not None
         deterministic = DETERMINISTIC_ANSWER_CACHE.get(cache_key) if cacheable and not explanation_request else None
         if deterministic is None and not explanation_request:
             deterministic = deterministic_answer_for_question(question, full_evidence, request.scope)
@@ -2816,24 +3004,9 @@ def ask_my_robot(request: AskRobotRequest):
                 answer_source = "OLLAMA_GROUNDED_EXPLANATION"
                 resolution_mode = "AI"
             except RuntimeError:
-                grounded_parts = []
-                checks = (["Give me a brief fleet condition summary."] if is_fleet_question(question, request.scope) else [
-                    f"What is the current status of {target_robot_id}?", f"What active alarm does {target_robot_id} have?",
-                    f"What maintenance is due for {target_robot_id}?", f"What predictive maintenance insight does {target_robot_id} have?",
-                ])
-
-                for check in checks:
-                    result = deterministic_answer_for_question(check, full_evidence, request.scope)
-                    if result is not None:
-                        part, _ = result
-                        if part and part not in grounded_parts:
-                            grounded_parts.append(part)
-
-                if grounded_parts:
-                    answer = " ".join(grounded_parts)
-                    if "inspect" in q_lower or "inspection" in q_lower:
-                        answer += " Inspection priority should follow the overdue or due maintenance evidence."
-                    answer_source = "GROUNDED_DETERMINISTIC_SUMMARY"
+                if complex_intent:
+                    answer = fallback_for_complex_intent(complex_intent, full_evidence)
+                    answer_source = "INTENT_SPECIFIC_DETERMINISTIC_FALLBACK"
                 else:
                     answer = (
                         "AI explanation service is temporarily unavailable, but the dashboard evidence remains available."
@@ -2867,7 +3040,7 @@ def ask_my_robot(request: AskRobotRequest):
                 evidence.get(
                     "query_scope"
                 ),
-            "intent": evidence.get("query_scope"),
+            "intent": complex_intent or evidence.get("query_scope"),
 
             "evidence_scope": {
                 "selected_robot_snapshot":
