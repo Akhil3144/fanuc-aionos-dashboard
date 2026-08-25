@@ -6,6 +6,9 @@ import RobotVideo from "../components/RobotVideo";
 import SimulationAnalytics from "../components/SimulationAnalytics";
 import { findRegistryRobot, robotRegistry } from "../data/robotRegistry";
 import { simulatorSnapshotFor } from "../services/fleetSimulator";
+import AITag from "../components/AITag";
+import InfoPopover from "../components/InfoPopover";
+import FeaturedRobotIntelligence from "../components/FeaturedRobotIntelligence";
 
 async function loadJson(url) {
   const response = await fetch(url);
@@ -320,13 +323,6 @@ function RobotDetailPage() {
     };
     return { cycle: summarize("cycle_time_s"), power: summarize("power_kw"), oee: summarize("oee_pct") };
   })();
-
-  const cycleDeviation = production.actual_cycle_time_s == null
-    ? null
-    : ((production.actual_cycle_time_s - production.target_cycle_time_s) / production.target_cycle_time_s) * 100;
-  const latestAlarm = selectedAlarms.length
-    ? [...selectedAlarms].sort((a, b) => String(b.started_at).localeCompare(String(a.started_at)))[0]
-    : null;
 
   return (
     <div className="compact-dashboard">
@@ -889,7 +885,22 @@ function RobotDetailPage() {
         </div>
 
 
-        <div className={`compact-evidence-grid ${registryRobot.featured ? "featured-evidence-grid" : "normal-evidence-grid"}`}>
+        {registryRobot.featured ? <FeaturedRobotIntelligence
+          robot={registryRobot}
+          snapshot={snapshot}
+          production={production}
+          oee={oee}
+          availability={availability}
+          performance={performance}
+          quality={quality}
+          axes={axes}
+          power={power}
+          maintenance={selectedMaintenance}
+          alarms={selectedAlarms}
+          insights={selectedInsights}
+          history={selectedSimulationPoints}
+          activeIndex={simulationIndex}
+        /> : <div className="compact-evidence-grid normal-evidence-grid">
           <article className="compact-card">
             <div className="compact-card-head">
               <h2>Production</h2>
@@ -1058,7 +1069,7 @@ function RobotDetailPage() {
 
           <article className="compact-card">
             <div className="compact-card-head">
-              <h2>{registryRobot.featured ? "Alarm Intelligence" : "Alarms & AI Insights"}</h2>
+              <h2>{registryRobot.featured ? "Alarm Intelligence" : "Alarms & Insights"}</h2>
               <span>Cross-check evidence</span>
             </div>
 
@@ -1093,6 +1104,7 @@ function RobotDetailPage() {
                       <span>
                         {String(insight.category || "INSIGHT")
                           .replaceAll("_", " ")}
+                        {" "}<AITag />
                       </span>
 
                       <Dot value={insight.severity} />
@@ -1117,7 +1129,7 @@ function RobotDetailPage() {
           </article>
 
           <article className="compact-card">
-            <div className="compact-card-head"><h2>{registryRobot.featured ? "Maintenance & Risk" : "Maintenance"}</h2><span>Service condition</span></div>
+            <div className="compact-card-head"><h2>{registryRobot.featured ? "Maintenance & Risk" : "Maintenance"}<InfoPopover label="How maintenance and risk are assessed" title="Maintenance, reliability & risk"><p><b>Maintenance:</b> shown directly from scheduled service records using remaining hours and OK, due-soon or overdue status. Alarm and servo evidence is shown alongside it but does not alter the schedule.</p><p><b>Reliability:</b> the fleet value is simulator availability; robot condition uses current working, process and mechanical status.</p><p><b>Risk / attention:</b> a heuristic ranking of overdue maintenance, alarm severity/count, mechanical status, OEE, axis load and servo errors. It is not a predicted failure probability.</p></InfoPopover></h2><span>Service condition</span></div>
             <div className="compact-list">
               {selectedMaintenance.map((item) => (
                 <div className="compact-list-row" key={item.maintenance_id}>
@@ -1130,7 +1142,7 @@ function RobotDetailPage() {
           </article>
 
           <article className="compact-card">
-            <div className="compact-card-head"><h2>{registryRobot.featured ? "Energy & Load" : "Energy"}</h2><span>Power trend · {historyStats.power.trend}</span></div>
+            <div className="compact-card-head"><h2>{registryRobot.featured ? "Energy & Load" : "Energy"}<InfoPopover label="How energy efficiency is estimated" title="Energy efficiency"><p>These values are simulator-derived power and accumulated energy telemetry. The trend compares the early and late portions of the available history window.</p><p>They support comparison, optimization and maintenance investigation. This is an analytical estimate based on available dashboard telemetry and is not a direct FANUC/ZDT energy certification.</p></InfoPopover></h2><span>Power trend · {historyStats.power.trend}</span></div>
             <div className="compact-stat-grid">
               <div className="compact-stat"><span>Current</span><strong>{Number(power.instantaneous_kw).toFixed(2)} kW</strong></div>
               <div className="compact-stat"><span>Total</span><strong>{Number(power.kwh_total).toFixed(1)} kWh</strong></div>
@@ -1138,30 +1150,6 @@ function RobotDetailPage() {
               <div className="compact-stat"><span>Idle</span><strong>{Number(power.kwh_idle).toFixed(1)} kWh</strong></div>
               <div className="compact-stat"><span>Fault</span><strong>{Number(power.kwh_fault).toFixed(1)} kWh</strong></div>
               <div className="compact-stat"><span>Regeneration</span><strong>{Number(power.kwh_regen).toFixed(1)} kWh</strong></div>
-            </div>
-          </article>
-        </div>
-
-        {registryRobot.featured && <div className="compact-evidence-grid featured-summary-grid">
-          <article className="compact-card">
-            <div className="compact-card-head"><h2>Performance Intelligence</h2><span>120-point analysis</span></div>
-            <div className="compact-stat-grid">
-              <div className="compact-stat"><span>OEE / A / P / Q</span><strong>{oee}% · {availability}% · {performance}% · {quality}%</strong></div>
-              <div className="compact-stat"><span>Cycle deviation</span><strong>{cycleDeviation == null ? "—" : `${cycleDeviation.toFixed(1)}%`}</strong></div>
-              <div className="compact-stat"><span>Total cycles</span><strong>{Number(production.cycle_count_total).toLocaleString("en-IN")}</strong></div>
-              <div className="compact-stat"><span>Cycle min / max</span><strong>{historyStats.cycle.min?.toFixed(1)}s / {historyStats.cycle.max?.toFixed(1)}s</strong></div>
-              <div className="compact-stat"><span>Cycle average</span><strong>{historyStats.cycle.average?.toFixed(2)}s</strong></div>
-              <div className="compact-stat"><span>Cycle trend</span><strong>{historyStats.cycle.trend}</strong></div>
-            </div>
-          </article>
-          <article className="compact-card">
-            <div className="compact-card-head"><h2>AI Insight Summary</h2><span>Evidence only</span></div>
-            <div className="compact-list">
-              <div className="compact-list-row"><span>Current condition</span><strong>{health.mechanical_status}</strong></div>
-              <div className="compact-list-row"><span>Main attention area</span><strong>{highestAxis ? `J${highestAxis.axis} · ${highestAxis.axis_load_pct}%` : "None"}</strong></div>
-              <div className="compact-list-row"><span>Maintenance priority</span><strong>{maintenanceDue[0]?.priority || "LOW"} · {maintenanceDue[0]?.status || "OK"}</strong></div>
-              <div className="compact-list-row"><span>Performance observation</span><strong>Cycle {historyStats.cycle.trend.toLowerCase()} · OEE {historyStats.oee.trend.toLowerCase()}</strong></div>
-              <div className="compact-list-row"><span>Recent alarm observation</span><strong>{latestAlarm ? `${latestAlarm.alarm_id} · ${latestAlarm.severity}` : "No recent alarm"}</strong></div>
             </div>
           </article>
         </div>}
@@ -1174,16 +1162,16 @@ function RobotDetailPage() {
         />
       )}
 
-        <SimulationAnalytics
+        {!registryRobot.featured && <SimulationAnalytics
           robotId={snapshot.robot_id}
           points={selectedSimulationPoints}
           activeIndex={simulationIndex}
           featured={registryRobot.featured}
-        />
+        />}
 
         <section className="compact-ai" id="ask-my-robot">
         <div className="compact-ai-label">
-          <strong>AI Analytics · Ask My Robot</strong>
+          <strong>AI Analytics · Ask My Robot <AITag /></strong>
           <span>
             Cross-check every answer with the selected robot evidence above.
           </span>

@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { askMyRobot } from "../utils/askRobot";
 import "./AskMyRobot.css";
+import AITag from "./AITag";
 
 const FLEET_QUESTIONS = [
   "Which robots need the most attention?",
@@ -220,7 +221,7 @@ export default function AskMyRobot({
           </span>
 
           <h2>
-            Ask My Robot
+            Ask My Robot <AITag />
           </h2>
 
           <p>

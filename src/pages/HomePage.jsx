@@ -5,6 +5,7 @@ import FleetShowcaseVideo from "../components/FleetShowcaseVideo";
 import { featuredRobots, registryApplications, robotRegistry, ROBOT_REGISTRY_SOURCE } from "../data/robotRegistry";
 import { fleetSummarySimulator, loadFleetSummarySimulator } from "../services/fleetSummarySimulator";
 import "./HomePage.css";
+import { OPEN_GLOBAL_CHAT } from "../components/GlobalChatLauncher";
 
 function HomePage() {
   const [generatedSummary, setGeneratedSummary] = useState(fleetSummarySimulator);
@@ -53,7 +54,10 @@ function HomePage() {
               <h2 id="explore-title">Explore fleet intelligence</h2>
             </div>
           </div>
-          <Link className="operations-cta" to="/fleet"><strong>Explore all robots</strong><span>→</span></Link>
+          <div className="home-actions">
+            <Link className="operations-cta" to="/fleet"><strong>Explore all robots</strong><span>→</span></Link>
+            <button className="operations-cta home-chat-cta" type="button" onClick={() => window.dispatchEvent(new Event(OPEN_GLOBAL_CHAT))}><strong>Chat · Ask My Robot</strong><span>↗</span></button>
+          </div>
         </section>
       </main>
 

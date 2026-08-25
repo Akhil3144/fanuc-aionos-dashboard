@@ -5,6 +5,8 @@ import RobotCard from "../components/RobotCard";
 import { featuredRobots, registryApplications, robotRegistry, ROBOT_REGISTRY_SOURCE } from "../data/robotRegistry";
 import { currentMetricsFor, loadOpenHouseCurrent, simulatorMetricsFor } from "../services/fleetSimulator";
 import "./FleetPage.css";
+import "./FleetPageEnhancements.css";
+import { robotMatchesFleetSearch } from "../utils/fleetSearch";
 
 export default function FleetPage() {
   const [search, setSearch] = useState("");
@@ -24,8 +26,7 @@ export default function FleetPage() {
     metrics: currentMetricsFor(currentById[robot.id], robot) || simulatorMetricsFor(robot),
   })), [currentById]);
   const filtered = robots.filter(({ robot, metrics }) => {
-    const query = search.trim().toLowerCase();
-    const matchesSearch = !query || [robot.id, robot.serialNo, robot.model, robot.application, robot.ipAddress].some((value) => String(value || "").toLowerCase().includes(query));
+    const matchesSearch = robotMatchesFleetSearch(robot, search);
     return matchesSearch && (application === "ALL" || robot.application === application) && (status === "ALL" || metrics.state === status) && (!featuredOnly || robot.featured);
   });
 

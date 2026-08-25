@@ -12,3 +12,4 @@
 .home-footer { display:flex;align-items:center;justify-content:space-between;padding:22px 0 28px;border-top:1px solid var(--home-line);color:#647783;font-size:10px;letter-spacing:.1em;text-transform:uppercase}.home-footer strong{color:#9aabb5}.home-footer p{margin:0}
 @media(max-width:1100px){.home-header{grid-template-columns:1fr 2fr}.home-status{grid-column:1/-1;justify-content:flex-start;margin-top:-26px;margin-bottom:14px}}
 @media(max-width:680px){.home-header{display:flex;align-items:flex-start;flex-direction:column;padding:24px 0;gap:18px}.home-status{margin:0}.home-content{padding-top:26px}.section-heading{align-items:flex-start}.home-navigation .section-heading{flex-direction:column}.home-footer{align-items:flex-start;flex-direction:column;gap:8px}}
+.home-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.home-chat-cta{width:100%;font:inherit;cursor:pointer}@media(max-width:650px){.home-actions{grid-template-columns:1fr}}

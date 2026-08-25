@@ -930,7 +930,7 @@ def classify_complex_intent(question):
 
     q = re.sub(r"\s+", " ", question.lower()).strip()
     rules = (
-        ("AI_FLEET_MAINTENANCE_PRIORITY", ("maintenance resources are limited", "inspections be prioritized", "only three robots can be inspected", "which three should be prioritized")),
+        ("AI_FLEET_MAINTENANCE_PRIORITY", ("maintenance resources are limited", "inspections be prioritized", "only three robots can be inspected", "which three should be prioritized", "which three robots should be inspected first")),
         ("AI_FLEET_ROBOT_RANKING", ("most concerning robots", "evidence behind your ranking")),
         ("AI_FLEET_RISK_PRIORITY", ("operational risks across the fleet", "management attention first", "overall fleet risk summary")),
         ("AI_FLEET_PATTERN_SUMMARY", ("patterns across the fleet", "performance, maintenance, alarm, and energy patterns")),
@@ -1057,6 +1057,12 @@ def deterministic_answer_for_question(
             featured = [item for item in registry if item.get("featured")]
             labels = "; ".join(f"{item.get('id')} — {item.get('model')} ({item.get('application')})" for item in featured)
             return (f"The featured robots are {labels}.", "FLEET_REGISTRY")
+
+        collaborative_terms = ("collaborative robot", "collaborative robots", "collaborative", "cobot", "cobots", "crx robot", "crx robots")
+        if any(term in q for term in collaborative_terms):
+            collaborative = [item for item in registry if "CRX" in str(item.get("model") or "").upper()]
+            labels = "; ".join(f"{item.get('id')} — {item.get('model')} ({item.get('application') or 'application not specified'})" for item in collaborative)
+            return (f"The Open House registry contains {len(collaborative)} CRX collaborative robots: {labels}.", "FLEET_REGISTRY")
 
         exact_application_matches = [
             item for item in registry
@@ -1216,6 +1222,11 @@ def deterministic_answer_for_question(
         if "attention" in q and ("how many" in q or "count" in q):
             attention = [item for item in fleet if item.get("mechanical_status") in {"ATTENTION", "CRITICAL"}]
             return (f"In the current SIMULATOR snapshot, {len(attention)} robots have ATTENTION or CRITICAL mechanical health.", "FLEET_COMPARISON")
+
+        if "which robots" in q and ("need attention" in q or "require attention" in q):
+            attention = [item for item in fleet if item.get("mechanical_status") in {"ATTENTION", "CRITICAL"}]
+            labels = "; ".join(f"{_robot_label(item)} — {item.get('mechanical_status')} mechanical status, {item.get('active_alarm_count') or 0} active alarm(s), {item.get('maintenance_due_count') or 0} maintenance item(s) due" for item in attention)
+            return (f"Robots needing attention in the current SIMULATOR evidence: {labels}.", "FLEET_COMPARISON")
 
         if "fleet" in q and ("condition summary" in q or "condition" in q or "summary" in q):
             running = sum(1 for item in fleet if item.get("robot_state") == "RUNNING")

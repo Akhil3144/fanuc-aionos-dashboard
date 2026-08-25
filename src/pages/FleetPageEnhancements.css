@@ -1,0 +1,2 @@
+.fleet-summary{position:sticky;top:10px;z-index:35;padding:8px;border:1px solid rgba(139,166,184,.12);border-radius:15px;background:rgba(8,14,19,.92);box-shadow:0 12px 28px rgba(0,0,0,.22);backdrop-filter:blur(14px)}
+@media(max-width:850px){.fleet-summary{position:relative;top:auto;z-index:auto;padding:0;border:0;background:transparent;box-shadow:none;backdrop-filter:none}}

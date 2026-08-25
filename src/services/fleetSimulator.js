@@ -31,5 +31,9 @@ export function currentMetricsFor(snapshot, robot) {
     oeePct: snapshot.production?.oee_pct ?? snapshot.derived_kpis?.shift_oee_pct ?? 0,
     cycleTimeSeconds: snapshot.production?.actual_cycle_time_s ?? "—",
     activeAlarms: snapshot.alarms?.active_alarm_count ?? 0,
+    powerKw: snapshot.power_data?.instantaneous_kw ?? null,
+    mechanicalStatus: snapshot.robot_status?.mechanical_status ?? snapshot.mechanical_status ?? "—",
+    highestAxis: (snapshot.axis_servo || []).reduce((best, axis) => !best || Number(axis.axis_load_pct) > Number(best.axis_load_pct) ? axis : best, null),
+    servoErrors: (snapshot.axis_servo || []).reduce((sum, axis) => sum + Number(axis.error_count || 0), 0),
   };
 }
