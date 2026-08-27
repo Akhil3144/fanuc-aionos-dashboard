@@ -151,10 +151,14 @@ function RobotDetailPage() {
     const next = fleetRobots.find((item) => item.robot_id === robotId);
 
     if (registryRobot && next) {
-      setSelectedRobotId(robotId);
-      setSnapshot(next);
       localStorage.setItem("fanucSelectedRegistryRobotId", robotId);
+      const frame = window.requestAnimationFrame(() => {
+        setSelectedRobotId(robotId);
+        setSnapshot(next);
+      });
+      return () => window.cancelAnimationFrame(frame);
     }
+    return undefined;
   }, [fleetRobots, robotId]);
 
   const selectedSimulationPoints = useMemo(() => {
@@ -164,10 +168,10 @@ function RobotDetailPage() {
   }, [simulationPoints, snapshot?.robot_id]);
 
   useEffect(() => {
-    setSimulationIndex(0);
+    const frame = window.requestAnimationFrame(() => setSimulationIndex(0));
 
     if (selectedSimulationPoints.length <= 1) {
-      return undefined;
+      return () => window.cancelAnimationFrame(frame);
     }
 
     const timer = window.setInterval(() => {
@@ -176,7 +180,10 @@ function RobotDetailPage() {
       );
     }, 2000);
 
-    return () => window.clearInterval(timer);
+    return () => {
+      window.cancelAnimationFrame(frame);
+      window.clearInterval(timer);
+    };
   }, [selectedRobotId, selectedSimulationPoints.length]);
 
   const selectRobot = (event) => {
@@ -834,6 +841,7 @@ function RobotDetailPage() {
           <div><span>Registry ID</span><strong>{registryRobot.id} · Serial {registryRobot.serialNo}</strong></div>
           <div><span>Robot model</span><strong>{registryRobot.model}</strong></div>
           <div><span>Application</span><strong>{registryRobot.application || "Not specified"}</strong></div>
+          <div><span>Zone / Exhibition Area</span><strong>{registryRobot.zone || registryRobot.location || "Not specified"}</strong></div>
           <div><span>Controller IP</span><strong>{registryRobot.ipAddress || "Not available"}</strong></div>
           {registryRobot.featured && <div><span>Featured status</span><strong>FEATURED ROBOT · DEEP ANALYTICS</strong></div>}
         </div>

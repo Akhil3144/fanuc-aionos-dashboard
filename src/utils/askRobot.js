@@ -39,9 +39,9 @@ export async function askMyRobot(
     });
   } catch (error) {
     if (error.name === "AbortError") {
-      throw new Error("The intelligence service took too long to respond. Please retry.");
+      throw new Error("The intelligence service took too long to respond. Please retry.", { cause: error });
     }
-    throw new Error("The intelligence service is unavailable. Please retry.");
+    throw new Error("The intelligence service is unavailable. Please retry.", { cause: error });
   } finally {
     window.clearTimeout(timeout);
   }

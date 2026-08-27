@@ -130,7 +130,7 @@ def health():
     try:
         _, robots = load_fleet()
         return {
-            "status": "healthy", "data_loaded": len(robots) == 31,
+            "status": "healthy", "data_loaded": bool(robots),
             "analytics_ready": True, "ai_available": None,
             "mode": "SIMULATOR", "read_only": True,
         }
@@ -149,7 +149,7 @@ def warmup(warm_ai: bool = False):
             ai_available = True
         except RuntimeError:
             ai_available = False
-    return {"status": "ready", "data_loaded": len(robots) == 31, "analytics_ready": True, "ai_available": ai_available, "read_only": True}
+    return {"status": "ready", "data_loaded": bool(robots), "analytics_ready": True, "ai_available": ai_available, "read_only": True}
 
 
 # ============================================================

@@ -64,12 +64,14 @@ export default function AskMyRobot({
   const inputRef = useRef(null);
 
   useEffect(() => {
-    setMessages([
-      welcomeMessage(activeRobotId, normalizedScope.toLowerCase()),
-    ]);
-
-    setQuestion("");
-    setError(null);
+    const frame = window.requestAnimationFrame(() => {
+      setMessages([
+        welcomeMessage(activeRobotId, normalizedScope.toLowerCase()),
+      ]);
+      setQuestion("");
+      setError(null);
+    });
+    return () => window.cancelAnimationFrame(frame);
   }, [activeRobotId, normalizedScope]);
 
   async function submitQuestion(

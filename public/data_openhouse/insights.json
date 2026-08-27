@@ -1,7 +1,7 @@
 [
   {
-    "insight_id": "OH26-R009-INS-01",
-    "robot_id": "OH26-R009",
+    "insight_id": "OH26-R002-INS-01",
+    "robot_id": "OH26-R002",
     "category": "HEALTH_ATTENTION",
     "severity": "HIGH",
     "title": "Robot condition requires review",
@@ -32,8 +32,35 @@
     "category": "MAINTENANCE_DUE",
     "severity": "MEDIUM",
     "title": "Axis 4 inspection due soon",
-    "evidence": "Maintenance OH26-R013-MNT-01 is DUE_SOON with 49 hours remaining.",
+    "evidence": "Maintenance OH26-R013-MNT-01 is DUE_SOON with 48 hours remaining.",
     "recommendation": "Inspect Axis 4 during the next planned maintenance window."
+  },
+  {
+    "insight_id": "OH26-R040-INS-01",
+    "robot_id": "OH26-R040",
+    "category": "HEALTH_ATTENTION",
+    "severity": "MEDIUM",
+    "title": "Robot condition requires review",
+    "evidence": "Latest mechanical status is ATTENTION.",
+    "recommendation": "Review current alarms and maintenance evidence before action."
+  },
+  {
+    "insight_id": "OH26-R012-INS-01",
+    "robot_id": "OH26-R012",
+    "category": "HEALTH_ATTENTION",
+    "severity": "MEDIUM",
+    "title": "Robot condition requires review",
+    "evidence": "Latest mechanical status is ATTENTION.",
+    "recommendation": "Review current alarms and maintenance evidence before action."
+  },
+  {
+    "insight_id": "OH26-R014-INS-01",
+    "robot_id": "OH26-R014",
+    "category": "HEALTH_ATTENTION",
+    "severity": "MEDIUM",
+    "title": "Robot condition requires review",
+    "evidence": "Latest mechanical status is ATTENTION.",
+    "recommendation": "Review current alarms and maintenance evidence before action."
   },
   {
     "insight_id": "OH26-R019-INS-01",
@@ -59,12 +86,12 @@
     "category": "MAINTENANCE_DUE",
     "severity": "HIGH",
     "title": "Axis 2 inspection overdue",
-    "evidence": "Maintenance OH26-R019-MNT-01 is OVERDUE by 31 hours.",
+    "evidence": "Maintenance OH26-R019-MNT-01 is OVERDUE by 36 hours.",
     "recommendation": "Prioritize the overdue Axis 2 servo inspection."
   },
   {
-    "insight_id": "OH26-R020-INS-01",
-    "robot_id": "OH26-R020",
+    "insight_id": "OH26-R041-INS-01",
+    "robot_id": "OH26-R041",
     "category": "HEALTH_ATTENTION",
     "severity": "MEDIUM",
     "title": "Robot condition requires review",
@@ -72,17 +99,8 @@
     "recommendation": "Review current alarms and maintenance evidence before action."
   },
   {
-    "insight_id": "OH26-R025-INS-01",
-    "robot_id": "OH26-R025",
-    "category": "HEALTH_ATTENTION",
-    "severity": "MEDIUM",
-    "title": "Robot condition requires review",
-    "evidence": "Latest mechanical status is ATTENTION.",
-    "recommendation": "Review current alarms and maintenance evidence before action."
-  },
-  {
-    "insight_id": "OH26-R028-INS-01",
-    "robot_id": "OH26-R028",
+    "insight_id": "OH26-R022-INS-01",
+    "robot_id": "OH26-R022",
     "category": "HEALTH_ATTENTION",
     "severity": "HIGH",
     "title": "Robot condition requires review",

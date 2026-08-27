@@ -2,6 +2,7 @@ import { mkdir, writeFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
 import { robotRegistry } from "../src/data/robotRegistry.js";
+import { registerDefinitions } from "../src/data/registerDefinitions.js";
 
 const PROJECT_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const OUTPUT_DIR = path.join(PROJECT_ROOT, "public", "data_openhouse");
@@ -306,6 +307,7 @@ async function main() {
   await Promise.all([
     writeJson(path.join(OUTPUT_DIR, "fleet_summary.json"), fleetSummary),
     writeJson(path.join(OUTPUT_DIR, "robot_registry.json"), robotRegistry),
+    writeJson(path.join(OUTPUT_DIR, "register_definitions.json"), registerDefinitions),
     writeJson(path.join(OUTPUT_DIR, "robot_current.json"), current),
     writeJson(path.join(OUTPUT_DIR, "production.json"), production),
     writeJson(path.join(OUTPUT_DIR, "alarms.json"), alarms),
@@ -317,7 +319,7 @@ async function main() {
     ...generated.map((item) => writeJson(path.join(HISTORY_DIR, `${item.current.robot_id}.json`), item.history)),
   ]);
 
-  console.log(JSON.stringify({ robots: current.length, normal: current.filter((item) => !["OH26-R013", "OH26-R019"].includes(item.robot_id)).length, featured: 2, normalHistoryPoints: 24, r013HistoryPoints: generated.find((item) => item.current.robot_id === "OH26-R013").history.length, r019HistoryPoints: generated.find((item) => item.current.robot_id === "OH26-R019").history.length, activeAlarms: fleetSummary.active_alarms, maintenanceDue: fleetSummary.maintenance_due, maintenanceOverdue: fleetSummary.maintenance_overdue, fleetOee: fleetSummary.fleet_oee_pct, fleetPower: fleetSummary.current_fleet_power_kw }, null, 2));
+  console.log(JSON.stringify({ robots: current.length, normal: robotRegistry.filter((item) => !item.featured).length, featured: robotRegistry.filter((item) => item.featured).length, normalHistoryPoints: 24, featuredHistoryPoints: 120, activeAlarms: fleetSummary.active_alarms, maintenanceDue: fleetSummary.maintenance_due, maintenanceOverdue: fleetSummary.maintenance_overdue, fleetOee: fleetSummary.fleet_oee_pct, fleetPower: fleetSummary.current_fleet_power_kw }, null, 2));
 }
 
 await main();

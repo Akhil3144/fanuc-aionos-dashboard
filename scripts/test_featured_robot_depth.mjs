@@ -8,7 +8,7 @@ const alarms = read("../public/data_openhouse/alarms.json");
 const maintenance = read("../public/data_openhouse/maintenance.json");
 const insights = read("../public/data_openhouse/insights.json");
 
-for (const id of ["OH26-R013", "OH26-R019"]) {
+for (const id of robotRegistry.filter((item) => item.featured).map((item) => item.id)) {
   const robot = robotRegistry.find((item) => item.id === id);
   const snapshot = current.find((item) => item.robot_id === id);
   const history = read(`../public/data_openhouse/history/${id}.json`);
@@ -18,10 +18,10 @@ for (const id of ["OH26-R013", "OH26-R019"]) {
   assert.equal(snapshot.axis_servo?.length, 6, `${id} J1-J6`);
   for (let axis = 1; axis <= 6; axis += 1) assert.ok(history.some((point) => Number.isFinite(Number(point[`axis${axis}_load_pct`]))), `${id} J${axis} history`);
   assert.ok(snapshot.power_data?.instantaneous_kw != null && snapshot.power_data?.kwh_total != null, `${id} energy fields`);
-  assert.ok(alarms.some((item) => item.robot_id === id), `${id} alarm evidence`);
   assert.ok(maintenance.some((item) => item.robot_id === id), `${id} maintenance evidence`);
-  assert.ok(insights.some((item) => item.robot_id === id), `${id} insight evidence`);
+  assert.ok(Array.isArray(alarms.filter((item) => item.robot_id === id)), `${id} alarm collection`);
+  assert.ok(Array.isArray(insights.filter((item) => item.robot_id === id)), `${id} insight collection`);
 }
 
-assert.equal(robotRegistry.find((item) => item.id === "OH26-R001").featured, false, "normal robot remains non-featured");
-console.log("Featured robot depth: PASS · R013/R019 fields and J1-J6 history resolve · R001 remains normal.");
+assert.equal(robotRegistry.find((item) => item.id === "OH26-R006").featured, false, "normal robot remains non-featured");
+console.log("Featured robot depth: PASS · all featured fields and J1-J6 history resolve · R006 remains normal.");

@@ -31,6 +31,7 @@ MAINTENANCE_FILE = DATA_DIR / "maintenance.json"
 INSIGHTS_FILE = DATA_DIR / "insights.json"
 REGISTRY_FILE = DATA_DIR / "robot_registry.json"
 DATA_DICTIONARY_FILE = DATA_DIR / "data_dictionary.json"
+REGISTER_DEFINITIONS_FILE = DATA_DIR / "register_definitions.json"
 DETERMINISTIC_ANSWER_CACHE = {}
 logger = logging.getLogger(__name__)
 
@@ -851,6 +852,8 @@ def build_evidence(
         "data_dictionary":
             data_dictionary,
 
+        "register_definitions": load_json(REGISTER_DEFINITIONS_FILE) or {},
+
         "important_interpretation_rules": [
             (
                 "The dashboard is a static simulator "
@@ -908,12 +911,15 @@ def is_control_request(question):
         "change override",
         "set override",
         "write register",
+        "write r[",
         "modify io",
         "modify i/o",
         "change io",
         "change i/o",
         "disable a safety interlock",
         "disable safety interlock",
+        "disable safety",
+        "turn off the safety",
     )
 
     return any(term in q for term in control_terms)
@@ -929,6 +935,8 @@ def classify_complex_intent(question):
         return None
 
     q = re.sub(r"\s+", " ", question.lower()).strip()
+    if any(term in q for term in ("caused", "cause")) and any(term in q for term in ("prove", "right", "definitely")):
+        return None
     rules = (
         ("AI_FLEET_MAINTENANCE_PRIORITY", ("maintenance resources are limited", "inspections be prioritized", "only three robots can be inspected", "which three should be prioritized", "which three robots should be inspected first")),
         ("AI_FLEET_ROBOT_RANKING", ("most concerning robots", "evidence behind your ranking")),
@@ -942,7 +950,7 @@ def classify_complex_intent(question):
         ("AI_INSPECTION_PRIORITY", ("inspect first", "inspection priority")),
         ("AI_RECENT_CHANGE_ANALYSIS", ("what changed recently", "which changes deserve", "important changes in recent telemetry")),
         ("AI_ALARM_CONTEXT", ("latest alarm", "around the latest alarm", "alarm in the context")),
-        ("AI_ATTENTION_EXPLANATION", ("why this robot currently requires attention", "why this robot requires attention", "why this robot needs attention")),
+        ("AI_ATTENTION_EXPLANATION", ("why this robot currently requires attention", "why this robot requires attention", "why this robot needs attention", "worth watching")),
         ("AI_MAINTENANCE_RISK", ("most important maintenance risk",)),
         ("AI_MULTI_SIGNAL_ANALYSIS", ("relationship between", "analyze its power consumption", "analyze the relationship")),
         ("AI_ENGINEERING_ASSESSMENT", ("engineering assessment", "in one assessment", "executive summary of this robot")),
@@ -1035,9 +1043,101 @@ def deterministic_answer_for_question(
 
     registry = evidence.get("robot_registry", []) or []
     selected_registry = evidence.get("selected_robot_registry") or {}
+    register_schemas = evidence.get("register_definitions", {}) or {}
+
+    # Safety and read-only boundaries take precedence over every lookup layer.
+    if is_control_request(question):
+        return (
+            "No control command was executed. This dashboard is read-only and cannot stop, reset, move, "
+            "change speed, write registers, or otherwise control a robot.",
+            "READ_ONLY_CONTROL_REQUEST",
+        )
+
+    if any(term in q for term in ("remaining useful life", "exact rul", "precise rul")):
+        return (
+            "The available evidence cannot determine an exact remaining useful life, so no RUL value will be fabricated.",
+            "SAFE_GROUNDED_REFUSAL",
+        )
+
+    if any(term in q for term in ("predict tomorrow", "tomorrow's oee", "tomorrow oee")) and any(term in q for term in ("exact", "exactly", "predict")):
+        return (
+            "The available simulator evidence cannot determine tomorrow's exact OEE, so no unsupported prediction will be fabricated.",
+            "SAFE_GROUNDED_REFUSAL",
+        )
+
+    if any(term in q for term in ("not in evidence", "not available")) and any(term in q for term in ("sensor", "measurement", "motor current", "vibration", "reading")):
+        return (
+            "The requested measurement is not present in the available evidence, so no value will be fabricated.",
+            "SAFE_GROUNDED_REFUSAL",
+        )
+
+    if (
+        any(term in q for term in ("caused", "cause", "prevent another", "will prevent"))
+        and any(term in q for term in ("prove", "right", "definitely", "prevent"))
+    ) or (
+        any(term in q for term in ("guarantee", "guaranteed", "certain"))
+        and any(term in q for term in ("fault", "alarm", "failure", "maintenance"))
+    ):
+        return (
+            "The available evidence may show association or timing, but it does not prove causation or that maintenance will prevent a future alarm.",
+            "SAFE_GROUNDED_REFUSAL",
+        )
 
     # Real registry identity/configuration answers. These never infer telemetry.
     if registry:
+        zone_name = next((zone for zone in ("CRX ZONE", "TECH CENTER", "FUSION HUB") if zone.lower() in q), None)
+        if zone_name and ("which robot" in q or "robots in" in q):
+            matches = [item for item in registry if (item.get("zone") or item.get("location")) == zone_name]
+            labels = "; ".join(f"{item.get('id')} — {item.get('model')} ({item.get('application')})" for item in matches)
+            return (f"{zone_name} contains {len(matches)} robots: {labels}.", "FLEET_REGISTRY")
+
+        if "ip address" in q and "configured" in q and ("which robot" in q or "robots" in q):
+            matches = [item for item in registry if item.get("ipAddress")]
+            labels = "; ".join(f"{item.get('id')} — {item.get('model')}: {item.get('ipAddress')}" for item in matches)
+            return (f"{len(matches)} robots have client-configured IP addresses: {labels}. These are registry addresses, not evidence of a live connection.", "FLEET_REGISTRY")
+
+        register_reference = re.search(r"\br\s*\[\s*\d{1,3}\s*\]", q)
+        if register_schemas and (register_reference or "register" in q or "robot speed" in q or "inspection status" in q or "electrode remaining life" in q):
+            schemas = list(register_schemas.values())
+            if "ai error proofing" in q or "robot speed" in q or "inspection status" in q:
+                schemas = [register_schemas.get("AI_ERROR_PROOFING")]
+            elif "r-2000ic/210f" in q:
+                schemas = [register_schemas.get("FLEXIBLE_SPOT_WELDING_R2000IC_210F")]
+            elif "r-2000/210f-31e" in q:
+                schemas = [register_schemas.get("FLEXIBLE_SPOT_WELDING_R2000_210F_31E")]
+            elif selected_registry.get("registerSchemaKey"):
+                schemas = [register_schemas.get(selected_registry.get("registerSchemaKey"))]
+            schemas = [schema for schema in schemas if schema]
+
+            register_number_match = re.search(r"(?:register\s*|r\s*\[\s*)(\d{1,3})", q)
+            register_number = int(register_number_match.group(1)) if register_number_match else None
+            label_term = None
+            if "robot speed" in q:
+                label_term = "robot speed"
+            elif "inspection status" in q:
+                label_term = "inspection status"
+            elif "electrode remaining life" in q or "electrode life" in q:
+                label_term = "electrode life"
+            elif "completed" in q and "spot" in q:
+                label_term = "completed spots"
+
+            matches = []
+            for schema in schemas:
+                for item in schema.get("registers", []):
+                    label_text = str(item.get("label") or "").lower()
+                    if register_number is not None and item.get("index") == register_number:
+                        matches.append((schema, item))
+                    elif label_term and label_term in label_text:
+                        matches.append((schema, item))
+
+            if matches:
+                labels = "; ".join(f"{schema.get('model')} R[{item.get('index')}] — {item.get('label')}" for schema, item in matches)
+                return (f"Client register definition: {labels}. No live register value is available; the dashboard will not fabricate one.", "CLIENT_REGISTER_DEFINITIONS")
+
+            if "what registers" in q or "registers are available" in q:
+                labels = "; ".join(f"R[{item.get('index')}] {item.get('label')}" for schema in schemas for item in schema.get("registers", []))
+                return (f"Client-defined registers: {labels}. These are definitions only; current values are awaiting a live register connection.", "CLIENT_REGISTER_DEFINITIONS")
+
         if (("how many robots" in q or "robot count" in q) and ("registry" in q or "open house" in q)):
             return (f"The Open House 2026 registry contains {len(registry)} robots.", "FLEET_REGISTRY")
 
@@ -1089,7 +1189,10 @@ def deterministic_answer_for_question(
                 registry_target = item
                 break
 
-        if registry_target and any(term in q for term in ("model", "application", "ip", "identity", "what robot")):
+        if registry_target and (
+            re.search(r"\b(model|application|ip|identity)\b", q)
+            or "what robot" in q
+        ):
             ip_address = registry_target.get("ipAddress") or "not available in the workbook"
             application = registry_target.get("application") or "not specified in the workbook"
             return (f"{registry_target.get('id')} is serial {registry_target.get('serialNo')}, model {registry_target.get('model')}, application {application}, IP address {ip_address}, and featured is {str(bool(registry_target.get('featured'))).lower()}.", "SELECTED_ROBOT_REGISTRY")
@@ -1916,7 +2019,11 @@ def deterministic_answer_for_question(
         )
 
     # Active alarm.
-    if "active alarm" in q:
+    if (
+        "active alarm" in q
+        or re.search(r"\b(any|current)\s+alarms?\b", q)
+        or re.search(r"\b(any|active)\s+faults?\s*(active)?\b", q)
+    ):
         active_ids = (
             current.get("active_alarm_ids")
             or []
@@ -1991,7 +2098,14 @@ def deterministic_answer_for_question(
             "SELECTED_ROBOT_AXIS_AND_SERVO",
         )
 
-    if ("axis" in q and "highest load" in q) or "axis needs attention first" in q:
+    if (
+        (
+            any(term in q for term in ("axis", "joint"))
+            and "load" in q
+            and any(term in q for term in ("highest", "maximum", "max load"))
+        )
+        or "axis needs attention first" in q
+    ):
         axes = current.get("axis_status", [])
         highest = max(axes, key=lambda item: item.get("load_pct") or -1) if axes else {}
         return (

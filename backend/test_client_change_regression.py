@@ -21,9 +21,9 @@ def ask(question, scope="FLEET", robot_id=None):
 
 checks = [
     ("What robot am I viewing?", "ROBOT", "OH26-R013", "OH26-R013"),
-    ("What model is this?", "ROBOT", "OH26-R013", "LR-Mate 7-9D"),
-    ("What application is this robot used for?", "ROBOT", "OH26-R019", "RTU Cell"),
-    ("Find all collaborative robots.", "FLEET", None, "13 CRX collaborative robots"),
+    ("What model is this?", "ROBOT", "OH26-R013", "LR Mate/7-9D"),
+    ("What application is this robot used for?", "ROBOT", "OH26-R019", "Flexible Spot Welding System"),
+    ("Find all collaborative robots.", "FLEET", None, "16 CRX collaborative robots"),
     ("Which robots are CRX robots?", "FLEET", None, "OH26-R029"),
     ("Compare OH26-R013 and OH26-R019.", "FLEET", None, "OH26-R013"),
     ("Which robots need attention?", "FLEET", None, "attention"),

@@ -1,0 +1,378 @@
+{
+  "AI_ERROR_PROOFING": {
+    "key": "AI_ERROR_PROOFING",
+    "cellName": "AI Error Proofing",
+    "model": "LR Mate/7-9D",
+    "sourceSheet": "AI Error Proofing",
+    "registers": [
+      {
+        "index": 11,
+        "label": "No. of components",
+        "group": "Production Data",
+        "unit": null,
+        "currentValue": null,
+        "valueSource": "UNAVAILABLE"
+      },
+      {
+        "index": 12,
+        "label": "Cycle Time",
+        "group": "Production Data",
+        "unit": "seconds",
+        "currentValue": null,
+        "valueSource": "UNAVAILABLE"
+      },
+      {
+        "index": 13,
+        "label": "Total no. of cycles run",
+        "group": "Production Data",
+        "unit": null,
+        "currentValue": null,
+        "valueSource": "UNAVAILABLE"
+      },
+      {
+        "index": 14,
+        "label": "Robot speed",
+        "group": "Production Data",
+        "unit": "%",
+        "currentValue": null,
+        "valueSource": "UNAVAILABLE"
+      },
+      {
+        "index": 15,
+        "label": "Total no. of snaps taken",
+        "group": "AI Inspection",
+        "unit": null,
+        "currentValue": null,
+        "valueSource": "UNAVAILABLE"
+      },
+      {
+        "index": 16,
+        "label": "Total no. of parameters inspected / cycle",
+        "group": "AI Inspection",
+        "unit": null,
+        "currentValue": null,
+        "valueSource": "UNAVAILABLE"
+      },
+      {
+        "index": 17,
+        "label": "Total no. of parameters inspected / hour",
+        "group": "AI Inspection",
+        "unit": null,
+        "currentValue": null,
+        "valueSource": "UNAVAILABLE"
+      },
+      {
+        "index": 19,
+        "label": "No. of OK parameters",
+        "group": "Quality",
+        "unit": null,
+        "currentValue": null,
+        "valueSource": "UNAVAILABLE"
+      },
+      {
+        "index": 20,
+        "label": "No. of NG parameters",
+        "group": "Quality",
+        "unit": null,
+        "currentValue": null,
+        "valueSource": "UNAVAILABLE"
+      },
+      {
+        "index": 21,
+        "label": "Inspection status",
+        "group": "Quality",
+        "unit": null,
+        "currentValue": null,
+        "valueSource": "UNAVAILABLE"
+      }
+    ]
+  },
+  "FLEXIBLE_SPOT_WELDING_R2000IC_210F": {
+    "key": "FLEXIBLE_SPOT_WELDING_R2000IC_210F",
+    "cellName": "Flexible Spot Welding System",
+    "model": "R-2000iC/210F",
+    "sourceSheet": "Flexible spot welding",
+    "registers": [
+      {
+        "index": 21,
+        "label": "Total Number of Spots",
+        "group": "Production Data",
+        "unit": null,
+        "currentValue": null,
+        "valueSource": "UNAVAILABLE"
+      },
+      {
+        "index": 22,
+        "label": "Completed Spots",
+        "group": "Production Data",
+        "unit": null,
+        "currentValue": null,
+        "valueSource": "UNAVAILABLE"
+      },
+      {
+        "index": 23,
+        "label": "Remaining Spots",
+        "group": "Production Data",
+        "unit": null,
+        "currentValue": null,
+        "valueSource": "UNAVAILABLE"
+      },
+      {
+        "index": 24,
+        "label": "Cycle Time",
+        "group": "Production Data",
+        "unit": "sec",
+        "currentValue": null,
+        "valueSource": "UNAVAILABLE"
+      },
+      {
+        "index": 25,
+        "label": "Time Taken for Last Spot",
+        "group": "Production Data",
+        "unit": null,
+        "currentValue": null,
+        "valueSource": "UNAVAILABLE"
+      },
+      {
+        "index": 26,
+        "label": "Average Time per Spot",
+        "group": "Production Data",
+        "unit": null,
+        "currentValue": null,
+        "valueSource": "UNAVAILABLE"
+      },
+      {
+        "index": 27,
+        "label": "Total Cycle Time",
+        "group": "Production Data",
+        "unit": null,
+        "currentValue": null,
+        "valueSource": "UNAVAILABLE"
+      },
+      {
+        "index": 28,
+        "label": "Material Thickness – Actual",
+        "group": "Weld Quality",
+        "unit": null,
+        "currentValue": null,
+        "valueSource": "UNAVAILABLE"
+      },
+      {
+        "index": 29,
+        "label": "Material Thickness – Target",
+        "group": "Weld Quality",
+        "unit": null,
+        "currentValue": null,
+        "valueSource": "UNAVAILABLE"
+      },
+      {
+        "index": 30,
+        "label": "Thickness Tolerance",
+        "group": "Weld Quality",
+        "unit": null,
+        "currentValue": null,
+        "valueSource": "UNAVAILABLE"
+      },
+      {
+        "index": 31,
+        "label": "Electrode Life / Remaining Life",
+        "group": "Electrode & Tip Dress",
+        "unit": "%",
+        "currentValue": null,
+        "valueSource": "UNAVAILABLE"
+      },
+      {
+        "index": 32,
+        "label": "Number of Welds Since Tip Dress",
+        "group": "Electrode & Tip Dress",
+        "unit": null,
+        "currentValue": null,
+        "valueSource": "UNAVAILABLE"
+      },
+      {
+        "index": 33,
+        "label": "Tip-Dress Count",
+        "group": "Electrode & Tip Dress",
+        "unit": null,
+        "currentValue": null,
+        "valueSource": "UNAVAILABLE"
+      },
+      {
+        "index": 34,
+        "label": "Next Tip-Dress Due",
+        "group": "Electrode & Tip Dress",
+        "unit": null,
+        "currentValue": null,
+        "valueSource": "UNAVAILABLE"
+      },
+      {
+        "index": 35,
+        "label": "Electrode Wear Status",
+        "group": "Electrode & Tip Dress",
+        "unit": null,
+        "currentValue": null,
+        "valueSource": "UNAVAILABLE"
+      },
+      {
+        "index": 36,
+        "label": "Electrode Change Required",
+        "group": "Electrode & Tip Dress",
+        "unit": null,
+        "currentValue": null,
+        "valueSource": "UNAVAILABLE"
+      },
+      {
+        "index": 37,
+        "label": "Tip-Dress Status",
+        "group": "Electrode & Tip Dress",
+        "unit": null,
+        "currentValue": null,
+        "valueSource": "UNAVAILABLE"
+      }
+    ]
+  },
+  "FLEXIBLE_SPOT_WELDING_R2000_210F_31E": {
+    "key": "FLEXIBLE_SPOT_WELDING_R2000_210F_31E",
+    "cellName": "Flexible Spot Welding System",
+    "model": "R-2000/210F-31E",
+    "sourceSheet": "Flexible spot welding",
+    "registers": [
+      {
+        "index": 51,
+        "label": "Total Number of Spots",
+        "group": "Production Data",
+        "unit": null,
+        "currentValue": null,
+        "valueSource": "UNAVAILABLE"
+      },
+      {
+        "index": 52,
+        "label": "Completed Spots",
+        "group": "Production Data",
+        "unit": null,
+        "currentValue": null,
+        "valueSource": "UNAVAILABLE"
+      },
+      {
+        "index": 53,
+        "label": "Remaining Spots",
+        "group": "Production Data",
+        "unit": null,
+        "currentValue": null,
+        "valueSource": "UNAVAILABLE"
+      },
+      {
+        "index": 54,
+        "label": "Cycle Time",
+        "group": "Production Data",
+        "unit": null,
+        "currentValue": null,
+        "valueSource": "UNAVAILABLE"
+      },
+      {
+        "index": 55,
+        "label": "Time Taken for Last Spot",
+        "group": "Production Data",
+        "unit": null,
+        "currentValue": null,
+        "valueSource": "UNAVAILABLE"
+      },
+      {
+        "index": 56,
+        "label": "Average Time per Spot",
+        "group": "Production Data",
+        "unit": null,
+        "currentValue": null,
+        "valueSource": "UNAVAILABLE"
+      },
+      {
+        "index": 57,
+        "label": "Total Cycle Time",
+        "group": "Production Data",
+        "unit": null,
+        "currentValue": null,
+        "valueSource": "UNAVAILABLE"
+      },
+      {
+        "index": 58,
+        "label": "Material Thickness – Actual",
+        "group": "Weld Quality",
+        "unit": null,
+        "currentValue": null,
+        "valueSource": "UNAVAILABLE"
+      },
+      {
+        "index": 59,
+        "label": "Material Thickness – Target",
+        "group": "Weld Quality",
+        "unit": null,
+        "currentValue": null,
+        "valueSource": "UNAVAILABLE"
+      },
+      {
+        "index": 60,
+        "label": "Thickness Tolerance",
+        "group": "Weld Quality",
+        "unit": null,
+        "currentValue": null,
+        "valueSource": "UNAVAILABLE"
+      },
+      {
+        "index": 61,
+        "label": "Electrode Life / Remaining Life",
+        "group": "Electrode & Tip Dress",
+        "unit": "%",
+        "currentValue": null,
+        "valueSource": "UNAVAILABLE"
+      },
+      {
+        "index": 62,
+        "label": "Number of Welds Since Tip Dress",
+        "group": "Electrode & Tip Dress",
+        "unit": null,
+        "currentValue": null,
+        "valueSource": "UNAVAILABLE"
+      },
+      {
+        "index": 63,
+        "label": "Tip-Dress Count",
+        "group": "Electrode & Tip Dress",
+        "unit": null,
+        "currentValue": null,
+        "valueSource": "UNAVAILABLE"
+      },
+      {
+        "index": 64,
+        "label": "Next Tip-Dress Due",
+        "group": "Electrode & Tip Dress",
+        "unit": null,
+        "currentValue": null,
+        "valueSource": "UNAVAILABLE"
+      },
+      {
+        "index": 65,
+        "label": "Electrode Wear Status",
+        "group": "Electrode & Tip Dress",
+        "unit": null,
+        "currentValue": null,
+        "valueSource": "UNAVAILABLE"
+      },
+      {
+        "index": 66,
+        "label": "Electrode Change Required",
+        "group": "Electrode & Tip Dress",
+        "unit": null,
+        "currentValue": null,
+        "valueSource": "UNAVAILABLE"
+      },
+      {
+        "index": 67,
+        "label": "Tip-Dress Status",
+        "group": "Electrode & Tip Dress",
+        "unit": null,
+        "currentValue": null,
+        "valueSource": "UNAVAILABLE"
+      }
+    ]
+  }
+}

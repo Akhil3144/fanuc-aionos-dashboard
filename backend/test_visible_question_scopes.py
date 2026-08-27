@@ -25,7 +25,7 @@ def run(questions, scope, robot_id=None):
 original = ask_routes.ask_ollama
 ask_routes.ask_ollama = lambda *args, **kwargs: (_ for _ in ()).throw(RuntimeError("unavailable"))
 try:
-    scores = {"Fleet": (run(FLEET, "FLEET"), len(FLEET)), "OH26-R001": (run(NORMAL, "ROBOT", "OH26-R001"), len(NORMAL)), "R017": (run(NORMAL, "ROBOT", "OH26-R017"), len(NORMAL)), "R013": (run(FEATURED, "ROBOT", "OH26-R013"), len(FEATURED)), "R019": (run(FEATURED, "ROBOT", "OH26-R019"), len(FEATURED))}
+    scores = {"Fleet": (run(FLEET, "FLEET"), len(FLEET)), "OH26-R006": (run(NORMAL, "ROBOT", "OH26-R006"), len(NORMAL)), "R017": (run(NORMAL, "ROBOT", "OH26-R017"), len(NORMAL)), "R013": (run(FEATURED, "ROBOT", "OH26-R013"), len(FEATURED)), "R019": (run(FEATURED, "ROBOT", "OH26-R019"), len(FEATURED))}
 finally:
     ask_routes.ask_ollama = original
 for name, score in scores.items(): print(f"{name}: {score[0]}/{score[1]}")

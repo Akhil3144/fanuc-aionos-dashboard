@@ -3,6 +3,7 @@ import InfoPopover from "./InfoPopover";
 import "./FeaturedRobotIntelligence.css";
 import "./FeaturedRobotLayout.css";
 import SimulationAnalytics from "./SimulationAnalytics";
+import ClientRegisterData from "./ClientRegisterData";
 
 const fmt = (value, decimals = 1) => Number.isFinite(Number(value)) ? Number(value).toFixed(decimals) : "—";
 const label = (value) => String(value || "—").replaceAll("_", " ");
@@ -51,10 +52,13 @@ export default function FeaturedRobotIntelligence({ robot, snapshot, production,
     <Section className="featured-operation" title="Operation Profile" meta="FEATURED ROBOT · DEEP ANALYTICS">
       <div className="featured-profile-list">
         <div><span>Robot ID</span><strong>{robot.id}</strong></div><div><span>Model</span><strong>{robot.model}</strong></div>
-        <div><span>Application</span><strong>{robot.application || "Not specified"}</strong></div><div><span>Controller IP</span><strong>{robot.ipAddress || "Not available"}</strong></div>
+        <div><span>Application</span><strong>{robot.application || "Not specified"}</strong></div><div><span>Zone / Exhibition Area</span><strong>{robot.zone || robot.location || "Not specified"}</strong></div>
+        <div><span>Controller IP</span><strong>{robot.ipAddress || "Not available"}</strong></div><div><span>Connection status</span><strong>Registry address only · not live connected</strong></div>
         <div><span>Current state</span><strong>{snapshot.live_cell?.state || snapshot.state}</strong></div><div><span>Health status</span><strong>{status}</strong></div>
       </div>
     </Section>
+
+    <ClientRegisterData robot={robot} />
 
     <Section className="featured-performance" title="Performance Intelligence" meta={`${history.length}-point history`}>
       <div className="featured-stat-grid">

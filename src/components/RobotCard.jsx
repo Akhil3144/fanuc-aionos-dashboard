@@ -15,7 +15,7 @@ export default function RobotCard({ robot, metrics }) {
       <div className="robot-card-image"><img src={image.src} alt={`${robot.model} ${image.family} family illustration`} loading="lazy" onError={(event) => { event.currentTarget.onerror = null; event.currentTarget.src = image.fallback; }} /></div>
       <h2>{robot.model}</h2>
       <p>{robot.application || "Application not specified"}</p>
-      <div className="robot-card-registry"><span>Registry IP</span><strong>{robot.ipAddress || "Not available"}</strong></div>
+      <div className="robot-card-registry"><span>{robot.zone || robot.location}</span><strong>{robot.ipAddress || "IP not set"}</strong></div>
       <div className="robot-card-sim">
         <div><span className={`robot-state robot-state-${tone}`}><i />{metrics.state}</span><small>Simulator</small></div>
         <div><span>OEE</span><strong>{metrics.oeePct}%</strong></div>
