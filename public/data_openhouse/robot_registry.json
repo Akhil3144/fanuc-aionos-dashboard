@@ -249,7 +249,7 @@
     "ipAddress": null,
     "location": "TECH CENTER",
     "zone": "TECH CENTER",
-    "featured": true,
+    "featured": false,
     "registerSchemaKey": "FLEXIBLE_SPOT_WELDING_R2000_210F_31E"
   },
   {

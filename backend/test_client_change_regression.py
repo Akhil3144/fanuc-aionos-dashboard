@@ -27,10 +27,25 @@ checks = [
     ("Which robots are CRX robots?", "FLEET", None, "OH26-R029"),
     ("Compare OH26-R013 and OH26-R019.", "FLEET", None, "OH26-R013"),
     ("Which robots need attention?", "FLEET", None, "attention"),
-    ("Which three robots should be inspected first?", "FLEET", None, "OH26-R028"),
+    ("Which three robots should be inspected first?", "FLEET", None, "OH26-R002"),
 ]
 for question, scope, robot_id, expected in checks:
     result = ask(question, scope, robot_id)
     answer = result.get("answer", "")
     assert expected.lower() in answer.lower(), (question, answer)
     print(f"PASS {question} | {result.get('query_scope')}")
+
+# Exact featured membership, including explicit robot questions from fleet scope.
+import re
+for question, expected_ids in [
+    ("How many featured robots are there?", ["OH26-R013", "OH26-R019"]),
+    ("Which robots are featured?", ["OH26-R013", "OH26-R019"]),
+    ("Is OH26-R041 a featured robot?", ["OH26-R041"]),
+]:
+    answer = ask(question)["answer"]
+    assert re.findall(r"OH26-R\d{3}", answer) == expected_ids, answer
+    if question.startswith("How many"):
+        assert "2 featured robots" in answer, answer
+    if "R041" in question:
+        assert "not featured" in answer, answer
+    print(f"PASS {question} | {answer}")

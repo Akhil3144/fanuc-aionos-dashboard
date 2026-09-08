@@ -31,7 +31,8 @@ for (const row of production) {
 }
 for (const id of ids) {
   const history = await read(`history/${id}.json`);
-  const expected = robotRegistry.find((robot) => robot.id === id)?.featured ? 120 : 24;
+  // R041 retains its existing detailed history after removal from the featured selection.
+  const expected = robotRegistry.find((robot) => robot.id === id)?.featured || id === "OH26-R041" ? 120 : 24;
   assert(history.length === expected, `${id} has ${history.length}, expected ${expected} history points`);
   for (const point of history) {
     for (const field of ["availability_pct", "performance_pct", "quality_pct", "oee_pct"]) assert(point[field] >= 0 && point[field] <= 100, `${id} history has impossible ${field}`);

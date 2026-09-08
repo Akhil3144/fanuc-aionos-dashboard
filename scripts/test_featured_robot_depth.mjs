@@ -8,6 +8,9 @@ const alarms = read("../public/data_openhouse/alarms.json");
 const maintenance = read("../public/data_openhouse/maintenance.json");
 const insights = read("../public/data_openhouse/insights.json");
 
+assert.deepEqual(robotRegistry.filter((robot) => robot.featured).map((robot) => robot.id), ["OH26-R013", "OH26-R019"]);
+assert.equal(robotRegistry.find((robot) => robot.id === "OH26-R041").featured, false);
+
 for (const id of robotRegistry.filter((item) => item.featured).map((item) => item.id)) {
   const robot = robotRegistry.find((item) => item.id === id);
   const snapshot = current.find((item) => item.robot_id === id);

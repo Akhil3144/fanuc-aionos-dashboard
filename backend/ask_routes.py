@@ -1154,9 +1154,12 @@ def deterministic_answer_for_question(
             )
 
         if "featured" in q:
+            explicit_robot = next((item for item in registry if str(item.get("id", "")).lower() in q), None)
+            if explicit_robot:
+                return (f"{explicit_robot.get('id')} is {'featured' if explicit_robot.get('featured') else 'not featured'} in the real Open House 2026 Excel registry.", "SELECTED_ROBOT_REGISTRY")
             featured = [item for item in registry if item.get("featured")]
             labels = "; ".join(f"{item.get('id')} — {item.get('model')} ({item.get('application')})" for item in featured)
-            return (f"The featured robots are {labels}.", "FLEET_REGISTRY")
+            return (f"There are {len(featured)} featured robots: {labels}.", "FLEET_REGISTRY")
 
         collaborative_terms = ("collaborative robot", "collaborative robots", "collaborative", "cobot", "cobots", "crx robot", "crx robots")
         if any(term in q for term in collaborative_terms):

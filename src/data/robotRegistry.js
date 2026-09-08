@@ -27,7 +27,7 @@ export const robotRegistry = Object.freeze([
   { id: "OH26-R017", serialNo: 22, model: "LR Mate 200iD/7L", application: "Robotic Deburring & Fettling", ipAddress: "10.31.58.86", location: "TECH CENTER", zone: "TECH CENTER", featured: false },
   { id: "OH26-R011", serialNo: 23, model: "SR-6iA", application: "Solar Wafer Handling", ipAddress: "10.31.58.80", location: "TECH CENTER", zone: "TECH CENTER", featured: false },
   { id: "OH26-R019", serialNo: 24, model: "R-2000iC/210F", application: "Flexible Spot Welding System", ipAddress: "10.31.58.88", location: "TECH CENTER", zone: "TECH CENTER", featured: true, registerSchemaKey: "FLEXIBLE_SPOT_WELDING_R2000IC_210F" },
-  { id: "OH26-R041", serialNo: 25, model: "R-2000/210F-31E", application: "Flexible Spot Welding System", ipAddress: null, location: "TECH CENTER", zone: "TECH CENTER", featured: true, registerSchemaKey: "FLEXIBLE_SPOT_WELDING_R2000_210F_31E" },
+  { id: "OH26-R041", serialNo: 25, model: "R-2000/210F-31E", application: "Flexible Spot Welding System", ipAddress: null, location: "TECH CENTER", zone: "TECH CENTER", featured: false, registerSchemaKey: "FLEXIBLE_SPOT_WELDING_R2000_210F_31E" },
   { id: "OH26-R020", serialNo: 26, model: "M-900iB/360", application: "Fixtureless Welding Cell", ipAddress: "10.31.58.1", location: "TECH CENTER", zone: "TECH CENTER", featured: false },
   { id: "OH26-R021", serialNo: 27, model: "Arc Mate 120iD/12L", application: "Fixtureless Welding Cell", ipAddress: "10.31.58.2", location: "TECH CENTER", zone: "TECH CENTER", featured: false },
   { id: "OH26-R022", serialNo: 28, model: "M-20iD/25", application: "Fixtureless Welding Cell", ipAddress: "10.31.58.3", location: "TECH CENTER", zone: "TECH CENTER", featured: false },

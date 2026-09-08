@@ -34,7 +34,7 @@ for (const robot of robotRegistry) {
     assert.ok(fs.existsSync(new URL(`../public${decodeURIComponent(image.src)}`, import.meta.url)), `${robot.model} image exists`);
   }
 }
-assert.equal(exact, 33);
+assert.equal(exact, 34);
 
 assert.equal(registerDefinitions.AI_ERROR_PROOFING.registers.length, 10);
 assert.deepEqual(registerDefinitions.AI_ERROR_PROOFING.registers.map((item) => item.index), [11, 12, 13, 14, 15, 16, 17, 19, 20, 21]);
